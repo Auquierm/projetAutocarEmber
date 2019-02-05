@@ -1,12 +1,11 @@
-const Client = require('./../models/client.model');
+const Agent = require('./../models/agent.model');
 const User = require('./user.controller');
-const generatePassword = require('password-generator');
 const Boom = require('boom');
 
 exports.findAll = async (req, res, next) => {
     try{
-        const clients = await Client.find();
-        let data = {'clients' : clients};
+        const agents = await Agent.find();
+        let data = {'agents' : agents};
         return res.json(data);
     }catch(err){
         next(Boom.badImplementation(err));
@@ -15,27 +14,26 @@ exports.findAll = async (req, res, next) => {
 
 exports.add = async (req, res, next) =>{
     try{
-        const password = generatePassword(12, false);
-        const client = new Client(req.body);
-        await client.save();
+        const agent = new Agent(req.body);
+        await agent.save();
         let data = [
             req.body.firstname,
             req.body.lastname,
             req.body.sexe,
-            password,
+            req.body.password,
             req.body.age,
             req.body.email,
             req.body.phone,
-            req.body.address.street,
-            req.body.address.number,
-            req.body.address.zip,
-            req.body.address.city,
-            req.body.address.country,
-            client._id,
-            "client"
+            req.body.street,
+            req.body.number,
+            req.body.zip,
+            req.body.city,
+            req.body.country,
+            agent._id,
+            "agent"
         ];
         User.add(req, res, next, data);
-        res.json(client);
+        res.json(agent);
     }catch(err){
         console.log(err.message);
         next(Boom.badImplementation(err.message));

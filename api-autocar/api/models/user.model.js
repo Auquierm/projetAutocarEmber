@@ -6,10 +6,12 @@ const Mongoose = require('mongoose'),
 
 const { env, jwtSecret, jwtExpirationInterval} = require('../../config/environment.config');
 
-const roles = ['superAgent007', 'client', 'chauffeur'];
-const sexes = ['Homme', 'Femme', 'Autre'];
+const roles = ['client', 'agent', 'chauffeur'];
+const sexes = ['homme', 'femme', 'autre'];
 
-const schema = new Mongoose.Schema({
+let Schema = Mongoose.Schema;
+
+const schema = new Schema({
     firstname : {
         type : String,
         required : true,
@@ -23,12 +25,6 @@ const schema = new Mongoose.Schema({
     sexe : {
         type : String,
         enum : sexes,
-    },
-    login : {
-        type : String,
-        unique : true,
-        required : true,
-        trim : true,
     },
     password : {
         type : String, 
@@ -58,26 +54,32 @@ const schema = new Mongoose.Schema({
         city : {type : String},
         country : {type : String},
     },
-    user : {
-        type : String,
-        enum : roles,
-        default : 'user',
+    idRole: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        refPath: 'onModel'
+    },
+    onModel: {
+        type: String,
+        required: true,
+        enum: roles
     }
 });
 
-schema.pre('save', async function(next) {
-    try{
-        if(!this.isModified('password')){
-            return next();
-        }
-        let salt = env === 'staging' ? 1 : 10;
-        let hash = await Bcrypt.hash(this.password, salt);
-        this.password = hash;
-        return next();
-    }catch(err){
-        next(Boom.badImplementation(err.message))
-    }
-});
+
+// schema.pre('save', async function(next) {
+//     try{
+//         if(!this.isModified('password')){
+//             return next();
+//         }
+//         let salt = env === 'staging' ? 1 : 10;
+//         let hash = await Bcrypt.hash(this.password, salt);
+//         this.password = hash;
+//         return next();
+//     }catch(err){
+//         next(Boom.badImplementation(err.message))
+//     }
+// });
 
 schema.methods.token = function() {
     const payload = {
@@ -93,7 +95,7 @@ schema.methods.passwordMatches = async function(pwd) {
 };
 
 schema.methods.transform = function() {
-    const fields = ['firstname', 'lastname', 'sexe', 'age', 'email', 'phone', 'address', 'user'];
+    const fields = ['firstname', 'lastname', 'sexe', 'age', 'email', 'phone', 'address', 'idRole', 'onModel'];
     const object = {};
     fields.forEach((field)=>{
         object[field] = this[field];

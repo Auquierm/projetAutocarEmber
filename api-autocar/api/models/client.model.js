@@ -1,9 +1,41 @@
 const Mongoose = require('mongoose');
 let Schema = Mongoose.Schema;
 
+
 let schema = new Schema({
-    name : {
-        type :String,
+    adresseFacturation : {
+        street : {
+            type : String,
+            required : true
+        },
+        number : {
+            type : String,
+            required : true
+        },
+        zip : {
+            type : String,
+            required : true,
+        },
+        city : {
+            type : String,
+            required : true,
+        },
+        country : {
+            type : String,
+            required : true
+        },
+    },
+    numTva : {
+        type : String,
+    },
+    numFax : {
+        type : Number,
+    },
+    societe : {
+        type : String,
+    },
+    numBank : {
+        type : String,
     }
 });
 

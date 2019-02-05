@@ -3,7 +3,7 @@ const Passport = require('passport'),
       User = require('../models/user.model'),
       ES6Promisify = require('es6-promisify');
 
-const ADMIN = 'superAgent007';
+const ADMIN = 'Agent';
 const LOGGED_USER = '_loggedUser';
 
 const _handleJWT = (req, res, next, roles) => async(err, user, info) => {
@@ -18,7 +18,7 @@ const _handleJWT = (req, res, next, roles) => async(err, user, info) => {
     }
 
     if(roles === LOGGED_USER){
-        if(user.role !== 'superAgent007' && req.params.userId !== user._id.toString()){
+        if(user.role !== 'Agent' && req.params.userId !== user._id.toString()){
             return next(Boom.forbidden('Forbidden area'));
         }
     }else if(!roles.includes(user.role)){
