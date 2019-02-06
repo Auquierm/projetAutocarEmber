@@ -26,10 +26,10 @@ let schema = new Schema({
         required : true,
     },
     tripDone : {
-        type : String
+        type : Object,
     },
     tripToDo: {
-        type : String,
+        type : Object,
     },
     surveyNote : {
         type : Number,

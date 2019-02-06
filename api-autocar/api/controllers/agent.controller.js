@@ -24,11 +24,11 @@ exports.add = async (req, res, next) =>{
             req.body.age,
             req.body.email,
             req.body.phone,
-            req.body.street,
-            req.body.number,
-            req.body.zip,
-            req.body.city,
-            req.body.country,
+            req.body.address.street,
+            req.body.address.number,
+            req.body.address.zip,
+            req.body.address.city,
+            req.body.address.country,
             agent._id,
             "agent"
         ];

@@ -1,5 +1,5 @@
 const Express = require('express');
-const AgentController = require(`${process.cwd()}/api/controllers/agent.controller`);
+const DevisController = require(`${process.cwd()}/api/controllers/devis.controller`);
 
 // const {authorize, LOGGED_USER} = require('../../middlewares/authmiddleware');
 
@@ -7,8 +7,8 @@ const router = Express.Router();
 
 router
     .route('/')
-        .get(/*authorize(LOGGED_USER),*/AgentController.findAll)
-        .post(AgentController.add)
+        .get(DevisController.findAll)
+        .post(DevisController.add)
 
 
 module.exports = router;

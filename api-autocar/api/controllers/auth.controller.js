@@ -7,7 +7,7 @@ const {jwtExpirationInterval} = require('./../../config/environment.config');
 
 const _generateTokenResponse = function(user, accessToken) {
     const tokenType = 'Bearer';
-    const RefreshToken = RefreshToken.generate(user);
+    const refreshToken = RefreshToken.generate(user);
     const expiresIn = Moment().add(jwtExpirationInterval, 'minutes');
     return { tokenType, accessToken, refreshToken, expiresIn};
 }
@@ -29,7 +29,8 @@ exports.login = async (req, res, next) =>{
         const token = _generateTokenResponse(user, accessToken);
         return res.json({token, user : user.transform()});
     }catch(err){
-        return next(error);
+        console.log(err);
+        return next(err);
     }
 }
 

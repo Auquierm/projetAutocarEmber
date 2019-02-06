@@ -1,6 +1,6 @@
 const Mongoose = require('mongoose'),
       Moment = require('moment-timezone'),
-      Jwt = require('bcrypt'),
+      Jwt = require('jwt-simple'),
       Bcrypt = require('bcrypt'),
       Boom = require('boom');
 
@@ -12,6 +12,12 @@ const sexes = ['homme', 'femme', 'autre'];
 let Schema = Mongoose.Schema;
 
 const schema = new Schema({
+    username : {
+        type : String, 
+        unique : true,
+        required : true,
+        trim: true
+    },
     firstname : {
         type : String,
         required : true,
@@ -67,19 +73,19 @@ const schema = new Schema({
 });
 
 
-// schema.pre('save', async function(next) {
-//     try{
-//         if(!this.isModified('password')){
-//             return next();
-//         }
-//         let salt = env === 'staging' ? 1 : 10;
-//         let hash = await Bcrypt.hash(this.password, salt);
-//         this.password = hash;
-//         return next();
-//     }catch(err){
-//         next(Boom.badImplementation(err.message))
-//     }
-// });
+schema.pre('save', async function(next) {
+    try{
+        if(!this.isModified('password')){
+            return next();
+        }
+        let salt = env === 'staging' ? 1 : 10;
+        let hash = await Bcrypt.hash(this.password, salt);
+        this.password = hash;
+        return next();
+    }catch(err){
+        next(Boom.badImplementation(err.message))
+    }
+});
 
 schema.methods.token = function() {
     const payload = {

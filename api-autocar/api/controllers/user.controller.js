@@ -14,9 +14,9 @@ exports.findAll = async (req, res, next) =>{
 };
 
 exports.add = async (req, res, next, data) =>{
-    console.log(data[7], data[8], data[9], data[10], data[11])
     try{
         const user = new User({
+            "username" : data[0]+data[1],
             "firstname" : data[0],
             "lastname" :  data[1],
             "sexe" : data[2],

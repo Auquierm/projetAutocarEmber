@@ -19,7 +19,7 @@ const schema = new Mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    expires : {types : Date},
+    expires : {type : Date},
 });
 
 schema.statics.generate = function(user){
