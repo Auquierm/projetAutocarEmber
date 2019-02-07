@@ -4,6 +4,11 @@ let Schema = Mongoose.Schema;
 let langues = ['français', 'anglais', 'neerlandais', 'allemand'];
 
 let schema = new Schema({
+    uniqueField : {
+        type : String,
+        unique : true,
+        required : true,
+    },
     servicePhone : {
         type : String,
         required: true,
@@ -33,6 +38,9 @@ let schema = new Schema({
     },
     surveyNote : {
         type : Number,
+    },
+    idUser : {
+        type : String,
     }
 });
 

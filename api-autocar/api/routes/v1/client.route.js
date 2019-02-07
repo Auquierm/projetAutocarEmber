@@ -10,5 +10,11 @@ router
         .get(ClientController.findAll)
         .post(ClientController.add)
 
+router
+    .route('/:clientId')
+        .get(ClientController.findOne)
+        .patch(ClientController.update)
+        .delete(ClientController.remove);
+
 
 module.exports = router;

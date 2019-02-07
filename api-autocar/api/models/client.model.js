@@ -3,6 +3,11 @@ let Schema = Mongoose.Schema;
 
 
 let schema = new Schema({
+    uniqueField : {
+        type : String,
+        unique : true,
+        required : true,
+    },
     adresseFacturation : {
         street : {
             type : String,
@@ -35,6 +40,9 @@ let schema = new Schema({
         type : String,
     },
     numBank : {
+        type : String,
+    },
+    idUser : {
         type : String,
     }
 });

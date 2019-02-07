@@ -11,4 +11,10 @@ router
         .get(/*authorize(LOGGED_USER),*/ UserController.findAll)
         .post(/*authorize(LOGGED_USER),*/ UserController.add)
 
+router
+    .route('/:userId')
+        .get(UserController.findOne)
+        .patch(UserController.update)
+        .delete(UserController.remove);
+
 module.exports = router;

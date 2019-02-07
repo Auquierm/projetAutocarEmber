@@ -101,7 +101,7 @@ schema.methods.passwordMatches = async function(pwd) {
 };
 
 schema.methods.transform = function() {
-    const fields = ['firstname', 'lastname', 'sexe', 'age', 'email', 'phone', 'address', 'idRole', 'onModel'];
+    const fields = ['_id', 'firstname', 'lastname', 'sexe', 'age', 'email', 'phone', 'address', 'idRole', 'onModel'];
     const object = {};
     fields.forEach((field)=>{
         object[field] = this[field];

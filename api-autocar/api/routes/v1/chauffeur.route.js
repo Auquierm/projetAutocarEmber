@@ -10,5 +10,10 @@ router
         .get(ChauffeurController.findAll)
         .post(ChauffeurController.add)
 
+router
+    .route('/:chauffeurId')
+        .get(ChauffeurController.findOne)
+        .patch(ChauffeurController.update)
+        .delete(ChauffeurController.remove);
 
 module.exports = router;
