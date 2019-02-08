@@ -44,4 +44,4 @@ let schema = new Schema({
     }
 });
 
-module.exports = Mongoose.model('Chauffeur', schema);
+module.exports = Mongoose.model('Driver', schema);

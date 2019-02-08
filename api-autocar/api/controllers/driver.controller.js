@@ -1,4 +1,4 @@
-const Chauffeur = require('./../models/chauffeur.model');
+const Driver = require('./../models/driver.model');
 const User = require('./user.controller');
 const Boom = require('boom');
 
@@ -8,8 +8,8 @@ const Boom = require('boom');
 */
 exports.findAll = async (req, res, next) => {
     try{
-        const chauffeurs = await Chauffeur.find();
-        let data = {'chauffeurs' : chauffeurs};
+        const drivers = await Driver.find();
+        let data = {'drivers' : drivers};
         return res.json(data);
     }catch(err){
         next(Boom.badImplementation(err));
@@ -21,8 +21,8 @@ exports.findAll = async (req, res, next) => {
 */
 exports.findOne = async (req, res, next) =>{
     try {
-        const chauffeur = await Chauffeur.findById(req.params.chauffeurId);
-        return res.json(chauffeur);
+        const driver = await Driver.findById(req.params.driverId);
+        return res.json(driver);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -34,7 +34,7 @@ exports.findOne = async (req, res, next) =>{
 */
 exports.add = async (req, res, next) =>{
     try{
-        const chauffeur = new Chauffeur({
+        const driver = new Driver({
             uniqueField : req.body.firstname+req.body.lastname+req.body.email,
             servicePhone : req.body.servicePhone,
             language : req.body.language,
@@ -45,7 +45,7 @@ exports.add = async (req, res, next) =>{
             tripToDo : req.body.tripToDo,
             surveyNote : req.body.surveyNote
         });
-        await chauffeur.save();
+        await driver.save();
         let data = [
             req.body.firstname,
             req.body.lastname,
@@ -59,11 +59,11 @@ exports.add = async (req, res, next) =>{
             req.body.address.zip,
             req.body.address.city,
             req.body.address.country,
-            chauffeur._id,
+            driver._id,
             "chauffeur"
         ];
         User.add(req, res, next, data);
-        res.json(chauffeur);
+        res.json(driver);
     }catch(err){
         console.log(err.message);
         next(Boom.badImplementation(err.message));
@@ -75,10 +75,10 @@ exports.add = async (req, res, next) =>{
 */
 exports.update = async (req, res, next) =>{
     try {
-        const chauffeur = await Chauffeur.findByIdAndUpdate(req.params.chauffeurId, req.body, {new : true});
-        let data = chauffeur.idUser;
+        const driver = await Driver.findByIdAndUpdate(req.params.driverId, req.body, {new : true});
+        let data = driver.idUser;
         User.update(req, res, next, data);
-        return res.json(chauffeur);
+        return res.json(driver);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -87,9 +87,9 @@ exports.update = async (req, res, next) =>{
 /** 
 * PATCH idUser 
 */
-exports.updateUserID = async(req, res, next, chauffeurID, userID) =>{
+exports.updateUserID = async(req, res, next, driverID, userID) =>{
     try {
-        await Chauffeur.findByIdAndUpdate(chauffeurID, {idUser : userID},{new : true});
+        await Driver.findByIdAndUpdate(driverID, {idUser : userID},{new : true});
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -100,10 +100,10 @@ exports.updateUserID = async(req, res, next, chauffeurID, userID) =>{
 */
 exports.remove = async (req, res, next) =>{
     try {
-        const chauffeur = await Chauffeur.findByIdAndDelete(req.params.chauffeurId);
-        let data = chauffeur.idUser;
+        const driver = await Driver.findByIdAndDelete(req.params.driverId);
+        let data = driver.idUser;
         User.remove(req, res, next, data);
-        return res.json(chauffeur);
+        return res.json(driver);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }

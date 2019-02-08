@@ -40,4 +40,4 @@ let schema = new Schema({
     }
 });
 
-module.exports = Mongoose.model('Voyage', schema);
+module.exports = Mongoose.model('Trip', schema);

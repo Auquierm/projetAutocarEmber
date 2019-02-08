@@ -2,7 +2,7 @@ const User = require('./../models/user.model'),
       HTTPStatus  = require('http-status'),
       Agent = require('./agent.controller'),
       Client = require('./client.controller'),
-      Chauffeur = require('./chauffeur.controller'),
+      Driver = require('./driver.controller'),
       Boom = require('boom');
 
 
@@ -64,7 +64,7 @@ exports.add = async (req, res, next, data) =>{
         }else if (data[13]==='client'){
             Client.updateUserID(req, res, next, data[12], user._id);
         }else if (data[13]==='chauffeur'){
-            Chauffeur.updateUserID(req, res, next, data[12], user._id);
+            Driver.updateUserID(req, res, next, data[12], user._id);
         }
         // res.status(HTTPStatus.CREATED);
         // res.json(savedUser.transform());

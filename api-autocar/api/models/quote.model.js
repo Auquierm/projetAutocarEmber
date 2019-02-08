@@ -67,4 +67,4 @@ let schema = new Schema({
     }
 });
 
-module.exports = Mongoose.model('Devis', schema);
+module.exports = Mongoose.model('Quote', schema);

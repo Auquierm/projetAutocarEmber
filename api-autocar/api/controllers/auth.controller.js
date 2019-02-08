@@ -5,6 +5,16 @@ const HttpStatus = require('http-status'),
 
 const {jwtExpirationInterval} = require('./../../config/environment.config');
 
+/**
+* Build a token response and return it
+*
+* @param {Object} user
+* @param {String} accessToken
+*
+* @returns A formated object with tokens
+*
+* @private
+*/
 const _generateTokenResponse = function(user, accessToken) {
     const tokenType = 'Bearer';
     const refreshToken = RefreshToken.generate(user);
@@ -12,6 +22,17 @@ const _generateTokenResponse = function(user, accessToken) {
     return { tokenType, accessToken, refreshToken, expiresIn};
 }
 
+/**
+ * Create and save a new user
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ * 
+ * @return JWT|next
+ * 
+ * @public
+ */
 exports.register = async (req, res, next) =>{
     try{
         const user = await (new User(req.body)).save();
@@ -23,6 +44,18 @@ exports.register = async (req, res, next) =>{
     }
 };
 
+
+/**
+ * Connect user if valid username and password is provided
+ * 
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ * 
+ * @return JWT|next
+ * 
+ * @public
+ */
 exports.login = async (req, res, next) =>{
     try{
         const {user, accessToken}  = await User.findAndGenerateToken(req.body);
@@ -34,6 +67,17 @@ exports.login = async (req, res, next) =>{
     }
 }
 
+/**
+ * Refresh JWT token by RefreshToken removing, and re-creating 
+ * 
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ * 
+ * @return JWT|next
+ * 
+ * @public
+ */
 exports.refresh = async (req, res, next) =>{
     try{
         const {email, refreshToken} = req.body;

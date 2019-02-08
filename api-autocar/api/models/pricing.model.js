@@ -48,4 +48,4 @@ let schema = new Schema({
     }
 });
 
-module.exports = Mongoose.model('Tarification', schema);
+module.exports = Mongoose.model('Pricing', schema);

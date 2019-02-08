@@ -1,6 +1,9 @@
 const Survey = require('./../models/survey.model');
 const Boom = require('boom');
 
+/** 
+* GET all surveys 
+*/
 exports.findAll = async (req, res, next) => {
     try{
         const surveys = await Survey.find();
@@ -11,6 +14,9 @@ exports.findAll = async (req, res, next) => {
     }
 };
 
+/** 
+* POST survey 
+*/
 exports.add = async (req, res, next) =>{
     try{
         const survey = new Survey(req.body);

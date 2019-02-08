@@ -3,11 +3,11 @@ const Express  = require('express'),
       UserRoutes = require('./user.route'),
       ClientRoutes = require('./client.route'),
       AgentRoutes = require('./agent.route'),
-      ChauffeurRoutes = require('./chauffeur.route'),
-      DevisRoutes = require('./devis.route'),
+      DriverRoutes = require('./driver.route'),
+      QuoteRoutes = require('./quote.route'),
       SurveyRoutes = require('./survey.route'),
-      TarificationRoutes = require('./tarification.route.js'),
-      VoyageRoutes = require('./voyage.route');
+      PricingRoutes = require('./pricing.route'),
+      TripRoutes = require('./trip.route');
 
 const router = Express.Router();
 
@@ -17,10 +17,10 @@ router.use('/auth', AuthRoutes);
 router.use('/users', UserRoutes);
 router.use('/clients', ClientRoutes);
 router.use('/agents', AgentRoutes);
-router.use('/chauffeurs', ChauffeurRoutes);
-router.use('/devis', DevisRoutes);
+router.use('/drivers', DriverRoutes);
+router.use('/quotes', QuoteRoutes);
 router.use('/surveys', SurveyRoutes);
-router.use('/tarifs', TarificationRoutes);
-router.use('/voyages', VoyageRoutes);
+router.use('/pricings', PricingRoutes);
+router.use('/trips', TripRoutes);
 
 module.exports = router;
