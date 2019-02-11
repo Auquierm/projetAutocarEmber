@@ -3,8 +3,13 @@ const User = require('./../models/user.model'),
       Agent = require('./agent.controller'),
       Client = require('./client.controller'),
       Driver = require('./driver.controller'),
-      Boom = require('boom');
+      Boom = require('boom'),
+      Email = require('./../services/nodemailer.service'),
+      UserModel = require('./../models/user.model'),
+      RefreshToken = require('../models/refresh-token.model'),
+      Moment = require('moment-timezone');
 
+const {jwtExpirationInterval} = require('./../../config/environment.config');
 
 /** 
 * GET all users 
@@ -35,6 +40,13 @@ exports.findOne = async (req, res, next) =>{
 /** 
 * POST user 
 */
+
+const _generateTokenResponse = function(user, accessToken) {
+    const tokenType = 'Bearer';
+    const refreshToken = RefreshToken.generate(user);
+    const expiresIn = Moment().add(jwtExpirationInterval, 'minutes');
+    return { tokenType, accessToken, refreshToken, expiresIn};
+}
 exports.add = async (req, res, next, data) =>{
     try{
         const user = new User({
@@ -53,7 +65,7 @@ exports.add = async (req, res, next, data) =>{
                 "city" : data[10],
                 "country" : data[11],
             },
-            "idRole": data[12], 
+            "idUser": data[12], 
             "onModel": data[13]
         });
         
@@ -63,6 +75,10 @@ exports.add = async (req, res, next, data) =>{
             Agent.updateUserID(req, res, next, data[12], user._id);
         }else if (data[13]==='client'){
             Client.updateUserID(req, res, next, data[12], user._id);
+            const accessToken  = await UserModel.findAndGenerateToken({"password": data[3], "email": data[5]});
+            const token = _generateTokenResponse(user, accessToken);
+            // console.log(token.refreshToken.token);
+            await Email.nodemailer(token.refreshToken.token);
         }else if (data[13]==='chauffeur'){
             Driver.updateUserID(req, res, next, data[12], user._id);
         }

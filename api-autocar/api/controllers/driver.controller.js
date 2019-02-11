@@ -1,5 +1,6 @@
 const Driver = require('./../models/driver.model');
 const User = require('./user.controller');
+const UserModel = require('./../models/user.model');
 const Boom = require('boom');
 
 
@@ -46,22 +47,7 @@ exports.add = async (req, res, next) =>{
             surveyNote : req.body.surveyNote
         });
         await driver.save();
-        let data = [
-            req.body.firstname,
-            req.body.lastname,
-            req.body.sexe,
-            req.body.password,
-            req.body.age,
-            req.body.email,
-            req.body.phone,
-            req.body.address.street,
-            req.body.address.number,
-            req.body.address.zip,
-            req.body.address.city,
-            req.body.address.country,
-            driver._id,
-            "chauffeur"
-        ];
+        let data = UserModel.bodyData(req, null, driver._id, "chauffeur");
         User.add(req, res, next, data);
         res.json(driver);
     }catch(err){

@@ -75,7 +75,7 @@ $ npm install
 |---	|---	|---	|---	|
 | GET   |  api/v1/pricings 	| - | Get pricing list  |
 | POST  |  api/v1/pricings 	| Logged | Create new pricing |
-| PATCH 	|  api/v1/pricings/:pricingId 	| - | Update some fields of an pricing document |
+| PATCH 	|  api/v1/pricings/:pricingId 	| Logged | Update some fields of an pricing document |
 
 ### Trips
 
@@ -83,4 +83,4 @@ $ npm install
 |---	|---	|---	|---	|
 | GET   |  api/v1/trips 	| - | Get trips list  |
 | POST  |  api/v1/trips 	| Logged | Create new trip |
-| PATCH 	|  api/v1/trips/:tripId 	| - | Update some fields of an trip document |
+| PATCH 	|  api/v1/trips/:tripId 	| Logged | Update some fields of an trip document |

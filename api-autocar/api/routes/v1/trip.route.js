@@ -1,18 +1,18 @@
 const Express = require('express');
 const TripController = require(`${process.cwd()}/api/controllers/trip.controller`);
 
-// const {authorize, LOGGED_USER} = require('../../middlewares/authmiddleware');
+const {authorize, ADMIN, DRIVER} = require('./../../middlewares/auth.middleware');
 
 const router = Express.Router();
 
 router
     .route('/')
-        .get(TripController.findAll)
-        .post(TripController.add);
+        .get(authorize([ADMIN, DRIVER]), TripController.findAll)
+        .post(authorize(ADMIN), TripController.add);
 
 router
     .route('/:tripId')
-        .patch(TripController.update);
+        .patch(authorize(ADMIN), TripController.update);
 
 
 module.exports = router;

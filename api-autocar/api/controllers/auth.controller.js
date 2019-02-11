@@ -80,15 +80,24 @@ exports.login = async (req, res, next) =>{
  */
 exports.refresh = async (req, res, next) =>{
     try{
-        const {email, refreshToken} = req.body;
+        const {email, password, refreshToken} = req.body;
+        console.log(req.body);
         const refreshObject = await RefreshToken.findOneAndRemove({
             userEmail : email,
             token : refreshToken,
         });
-        const {user, accessToken} = await User.findAndGenerateToken({email, refreshObject});
+        const {user, accessToken} = await User.findAndGenerateToken({email, password, refreshObject});
         const response = _generateTokenResponse(user, accessToken);
         return res.json(response);
     }catch(err){
+        return next(err);
+    }
+};
+
+exports.createJwtClient = async(req, res, next) =>{
+    try {
+        //create token via refresh token send by ember
+    } catch (err) {
         return next(err);
     }
 };

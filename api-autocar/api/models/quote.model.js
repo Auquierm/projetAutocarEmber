@@ -5,7 +5,8 @@ let status = ["traitement", "attente", "ferme", "refuse", "valide"]
 
 let schema = new Schema({
     idUser : {
-        type : String,
+        type : Mongoose.Schema.Types.ObjectId,
+        ref : 'User',
         required :true,
     },
     numFolder : {

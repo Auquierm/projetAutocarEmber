@@ -1,20 +1,20 @@
 const Express = require('express');
 const ClientController = require(`${process.cwd()}/api/controllers/client.controller`);
 
-// const {authorize, LOGGED_USER} = require('../../middlewares/authmiddleware');
+const {authorize, ADMIN, CLIENT} = require('./../../middlewares/auth.middleware');
 
 const router = Express.Router();
 
 router
     .route('/')
-        .get(ClientController.findAll)
+        .get(authorize([CLIENT, ADMIN]), ClientController.findAll)
         .post(ClientController.add)
 
 router
     .route('/:clientId')
-        .get(ClientController.findOne)
-        .patch(ClientController.update)
-        .delete(ClientController.remove);
+        .get(authorize([CLIENT, ADMIN]), ClientController.findOne)
+        .patch(authorize([CLIENT, ADMIN]), ClientController.update)
+        .delete(authorize([CLIENT, ADMIN]), ClientController.remove);
 
 
 module.exports = router;

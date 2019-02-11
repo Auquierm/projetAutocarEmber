@@ -3,7 +3,8 @@ let Schema = Mongoose.Schema;
 
 let schema = new Schema({
     idDevis : {
-        type : String,
+        type : Mongoose.Schema.Types.ObjectId,
+        ref : 'Quote',
         required : true,
     },
     idUser  : {

@@ -39,3 +39,27 @@ exports.add = async (req, res, next) =>{
         next(Boom.badImplementation(err.message));
     }
 }
+
+/** 
+* PATCH quote 
+*/
+exports.update = async (req, res, next) =>{
+    try {
+        const quote = await Quote.findByIdAndUpdate(req.params.quoteId, req.body, {new : true});
+        res.json(quote);
+    } catch (err) {
+        next(Boom.badImplementation(err.message));
+    }
+}
+
+/** 
+* DELETE quote 
+*/
+exports.remove = async (req, res, next) =>{
+    try {
+        const quote = await Quote.findByIdAndDelete(req.params.quoteId)
+        res.json(quote);
+    } catch (err) {
+        next(Boom.badImplementation(err.message));
+    }
+}

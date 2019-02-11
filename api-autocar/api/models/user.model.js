@@ -31,6 +31,7 @@ const schema = new Schema({
     sexe : {
         type : String,
         enum : sexes,
+        required : true
     },
     password : {
         type : String, 
@@ -54,13 +55,13 @@ const schema = new Schema({
         required: true,
     },
     address : {
-        street : {type : String},
-        number : {type : String},
-        zip : {type : String},
-        city : {type : String},
-        country : {type : String},
+        street : {type : String, required : true},
+        number : {type : String, required : true},
+        zip : {type : String, required : true},
+        city : {type : String, required : true},
+        country : {type : String, required : true},
     },
-    idRole: {
+    idUser: {
         type: Schema.Types.ObjectId,
         required: true,
         refPath: 'onModel'
@@ -87,6 +88,33 @@ schema.pre('save', async function(next) {
     }
 });
 
+schema.statics.bodyData = function(req, password, roleId, roleName) {
+    let passWord = "";
+    if(password === null){
+        passWord = req.body.password;
+    }else{
+        passWord = password;
+    }
+
+    let data = [
+        req.body.firstname,
+        req.body.lastname,
+        req.body.sexe,
+        passWord,
+        req.body.age,
+        req.body.email,
+        req.body.phone,
+        req.body.address.street,
+        req.body.address.number,
+        req.body.address.zip,
+        req.body.address.city,
+        req.body.address.country,
+        roleId,
+        roleName
+    ];
+    return data;
+}
+
 schema.methods.token = function() {
     const payload = {
         iat : Moment().unix(),
@@ -101,7 +129,7 @@ schema.methods.passwordMatches = async function(pwd) {
 };
 
 schema.methods.transform = function() {
-    const fields = ['_id', 'firstname', 'lastname', 'sexe', 'age', 'email', 'phone', 'address', 'idRole', 'onModel'];
+    const fields = ['_id', 'firstname', 'lastname', 'sexe', 'age', 'email', 'phone', 'address', 'idUser', 'onModel'];
     const object = {};
     fields.forEach((field)=>{
         object[field] = this[field];
@@ -110,6 +138,7 @@ schema.methods.transform = function() {
 };
 
 schema.statics.roles = roles;
+schema.statics.sexes = sexes;
 
 schema.statics.get = async function(id) {
     try{
@@ -136,7 +165,6 @@ schema.statics.findAndGenerateToken = async function(options) {
     if(!password) throw Boom.badRequest('A password is required to authorize a token generating');
 
     const user = await this.findOne({email});
-
     if(!user) {
         throw Boom.notFound('User not found');
     }else if(await user.passwordMatches(password) === false){

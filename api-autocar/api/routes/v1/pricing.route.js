@@ -1,17 +1,17 @@
 const Express = require('express');
 const PricingController = require(`${process.cwd()}/api/controllers/pricing.controller`);
 
-// const {authorize, LOGGED_USER} = require('../../middlewares/authmiddleware');
+const {authorize, ADMIN} = require('./../../middlewares/auth.middleware');
 
 const router = Express.Router();
 
 router
     .route('/')
-        .get(PricingController.findAll)
-        .post(PricingController.add);
+        .get(authorize(ADMIN), PricingController.findAll)
+        .post(/*authorize(ADMIN), */PricingController.add);
 
 router
     .route('/:pricingId')
-        .patch(PricingController.update);
+        .patch(authorize(ADMIN), PricingController.update);
 
 module.exports = router;

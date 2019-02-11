@@ -1,18 +1,20 @@
 const Express = require('express');
 const QuoteController = require(`${process.cwd()}/api/controllers/quote.controller`);
 
-// const {authorize, LOGGED_USER} = require('../../middlewares/authmiddleware');
+const {authorize, ADMIN} = require('./../../middlewares/auth.middleware');
 
 const router = Express.Router();
 
 router
     .route('/')
-        .get(QuoteController.findAll)
-        .post(QuoteController.add);
+        .get(authorize(ADMIN), QuoteController.findAll)
+        .post(QuoteController.add)
 
 router
     .route('/:quoteId')
-        .get(QuoteController.findOne);
+        .get(authorize(ADMIN), QuoteController.findOne)
+        .patch(authorize(ADMIN), QuoteController.update)
+        .delete(authorize(ADMIN), QuoteController.remove)
 
 
 module.exports = router;

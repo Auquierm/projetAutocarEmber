@@ -1,19 +1,19 @@
 const Express = require('express');
 const DriverController = require(`${process.cwd()}/api/controllers/driver.controller`);
 
-// const {authorize, LOGGED_USER} = require('../../middlewares/authmiddleware');
+const {authorize, ADMIN, DRIVER} = require('./../../middlewares/auth.middleware');
 
 const router = Express.Router();
 
 router
     .route('/')
-        .get(DriverController.findAll)
-        .post(DriverController.add)
+        .get(authorize([ADMIN, DRIVER]), DriverController.findAll)
+        .post(/*authorize([ADMIN, DRIVER]), */DriverController.add)
 
 router
     .route('/:driverId')
-        .get(DriverController.findOne)
-        .patch(DriverController.update)
-        .delete(DriverController.remove);
+        .get(authorize([ADMIN, DRIVER]), DriverController.findOne)
+        .patch(authorize([ADMIN, DRIVER]), DriverController.update)
+        .delete(authorize([ADMIN, DRIVER]), DriverController.remove);
 
 module.exports = router;
