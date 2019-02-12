@@ -1,7 +1,8 @@
 const Mongoose = require('mongoose');
+const UserModel = require('./../models/user.model');
 let Schema = Mongoose.Schema;
 
-let langues = ['français', 'anglais', 'neerlandais', 'allemand'];
+// let langues = ['français', 'anglais', 'neerlandais', 'allemand'];
 
 let schema = new Schema({
     uniqueField : {
@@ -16,7 +17,7 @@ let schema = new Schema({
     language : {
         type: String,
         required: true,
-        enum: langues,
+        enum: UserModel.langues,
     },
     numPermis : {
         type : String,

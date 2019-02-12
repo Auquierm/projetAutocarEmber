@@ -68,4 +68,6 @@ let schema = new Schema({
     }
 });
 
+schema.statics.status = status;
+
 module.exports = Mongoose.model('Quote', schema);

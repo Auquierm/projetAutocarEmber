@@ -8,6 +8,7 @@ const { env, jwtSecret, jwtExpirationInterval} = require('../../config/environme
 
 const roles = ['client', 'agent', 'chauffeur'];
 const sexes = ['homme', 'femme', 'autre'];
+const langues = ['français', 'anglais', 'neerlandais', 'allemand'];
 
 let Schema = Mongoose.Schema;
 
@@ -139,6 +140,7 @@ schema.methods.transform = function() {
 
 schema.statics.roles = roles;
 schema.statics.sexes = sexes;
+schema.statics.langues = langues;
 
 schema.statics.get = async function(id) {
     try{

@@ -2,30 +2,15 @@ const Joi = require('joi');
 const User = require('./../models/user.model');
 
 module.exports = {
-    // GET /v1/users
-    listUsers: {
+    // GET /v1/agents
+    listAgents: {
         query: {
-            username: Joi.string().required(),
-            firstname: Joi.string().required(),
-            lastname : Joi.string().required(),
-            sexe : Joi.string().valid(User.sexes).required(),
-            password: Joi.string().min(6).max(128).required(),
-            age : Joi.number().required(),
-            email: Joi.string().email().required(),
-            phone: Joi.string().required(),
-            address : {
-                street : Joi.string().required(),
-                number : Joi.string().required(),
-                zip : Joi.string().required(),
-                city : Joi.string().required(),
-                country : Joi.string().required()
-            },
-            idUser : Joi.string().required(),
-            onModel: Joi.string().valid(User.roles),
+            servicePhone : Joi.string().required(),
+            language : Joi.string().valid(User.langues).required(),
         },
     },
-    // POST /v1/users
-    createUser: {
+    // POST /v1/agents
+    createAgent: {
         body: {
             username: Joi.string().required(),
             firstname: Joi.string().required(),
@@ -42,18 +27,18 @@ module.exports = {
                 city : Joi.string().required(),
                 country : Joi.string().required()
             },
-            idUser : Joi.string().required(),
-            onModel: Joi.string().valid(User.roles),
+            servicePhone : Joi.string().required(),
+            language : Joi.string().valid(User.langues).required(),
         },
     },
-    // GET /v1/users/:userId
-    getUser: {
+    // GET /v1/agents/:agentId
+    getAgent: {
         params: {
-            userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+            agentId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
         },
     },
-    // PATCH /v1/users/:userId
-    updateUser: {
+    // PATCH /v1/agents/:agentId
+    updateAgent: {
         body: {
             firstname: Joi.string().required(),
             lastname : Joi.string().required(),
@@ -68,16 +53,18 @@ module.exports = {
                 zip : Joi.string().required(),
                 city : Joi.string().required(),
                 country : Joi.string().required()
-            }
+            },
+            servicePhone : Joi.string().required(),
+            language : Joi.string().required(),
         },
         params: {
-            userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+            agentId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
         },
     },
-    // DELETE /v1/users/:userId
-    removeUser: {
+    // DELETE /v1/agents/:agentId
+    removeAgent: {
         params: {
-            userId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
+            agentId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
         },
     },
 };
