@@ -14,11 +14,13 @@ Router.map(function () {
   this.route('login');
   this.route('agent');
   this.route('chauffeur');
-  this.route('client', { path: ':id' }, function () {
+  this.route('client', function () {
     this.route('dashboard');
     this.route('requests');
     this.route('request', { path: ':id' });
   });
+  this.route('changepassword');
+  this.route('tokenauth');
 });
 
 export default Router;
