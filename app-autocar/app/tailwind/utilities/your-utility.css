@@ -1,0 +1,19 @@
+/**
+ * You can create new utilities here.
+ *
+ * Feel free to rename this file, define multiple utilities here, or make
+ * any other files in this directory.
+
+ * Here's an example:
+**/
+
+/* .skew-45 {
+  transform: skewY(45deg);
+} */
+@responsive {
+  .bg-image-pos-50-57-cover {
+    background-image: url('/assets/images/accueil/accueil_banner.jpg');
+    background-position: 50% 57% ;
+    background-size: cover;
+  }
+}

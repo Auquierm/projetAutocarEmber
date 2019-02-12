@@ -1,0 +1,45 @@
+<div class="bgPrimaryBlue w-full md:w-1/5 md:h-screen md:float-left md:fixed">
+
+  <div class="bgGreyBlack m-0 text-center banner">
+    <h3 class="m-0 p-0 text-white">Pimp My Trip - backoffice</h3>
+  </div>
+
+  <div class="p-6 text-center">
+    <span class="m-0 font-thin tracking-wide">Navigation - Client</span>
+  </div>
+
+  {{!-- Menu --}}
+  <nav>
+    <ul class="menuBack list-reset">
+      {{#link-to "client.dashboard"}}<li class=""><i class="fas fa-home"></i> Tableau de bord</li>{{/link-to}}
+      {{#link-to "client.requests"}}<li><i class="far fa-file-alt"></i> Vos demandes de devis</li>{{/link-to}}
+      <li><i class="fas fa-question"></i> Propositions de devis</li>
+      <li><i class="far fa-check-circle"></i> Devis acceptés</li>
+    </ul>
+  </nav>
+</div>
+
+<div class="md:w-4/5 md:float-right relative min-h-screen">
+  <div class="bg-white pr-20 banner text-center md:text-right">
+    Logout
+  </div>
+
+  <div class="p-3 mb-10">
+    {{outlet}}
+  </div>
+
+  <div class="bg-white pr-20 banner text-center md:flex md:justify-between absolute pin-b w-full text-xs text-grey-dark">
+    <div class="md:text-left">
+      Copyright © 2019 Technocité, Pimp My Trip. Tous droits réservés
+    </div>
+    <div class="mt-3 md:mt-0">
+      <ul class="list-reset flex justify-center">
+        <li>Home</li>
+        <li class="pl-4">Voyage</li>
+        <li class="pl-4">A propos</li>
+        <li class="pl-4">Contact</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
