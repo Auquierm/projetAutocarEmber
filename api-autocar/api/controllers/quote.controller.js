@@ -7,8 +7,7 @@ const Boom = require('boom');
 exports.findAll = async (req, res, next) => {
     try{
         const quotes = await Quote.find();
-        let data = {'quotes' : quotes};
-        return res.json(data);
+        return res.json(await Quote.serialize(quotes));
     }catch(err){
         next(Boom.badImplementation(err));
     }
@@ -20,7 +19,7 @@ exports.findAll = async (req, res, next) => {
 exports.findOne = async(req, res, next) =>{
     try {
         const quote = await Quote.findById(req.params.quoteId);
-        return res.json(quote);
+        return res.json(await Quote.serialize(quote));
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -31,9 +30,9 @@ exports.findOne = async(req, res, next) =>{
 */
 exports.add = async (req, res, next) =>{
     try{
-        const quotes = new Quote(req.body);
-        await quotes.save();
-        res.json(quotes);
+        const quote = new Quote(req.body);
+        await quote.save();
+        return res.json(await Quote.serialize(quote));
     }catch(err){
         console.log(err.message);
         next(Boom.badImplementation(err.message));
@@ -46,7 +45,7 @@ exports.add = async (req, res, next) =>{
 exports.update = async (req, res, next) =>{
     try {
         const quote = await Quote.findByIdAndUpdate(req.params.quoteId, req.body, {new : true});
-        res.json(quote);
+        return res.json(await Quote.serialize(quote));
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -58,7 +57,7 @@ exports.update = async (req, res, next) =>{
 exports.remove = async (req, res, next) =>{
     try {
         const quote = await Quote.findByIdAndDelete(req.params.quoteId)
-        res.json(quote);
+        return res.json(await Quote.serialize(quote));
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }

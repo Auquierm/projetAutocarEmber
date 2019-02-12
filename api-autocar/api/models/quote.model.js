@@ -68,4 +68,11 @@ let schema = new Schema({
     }
 });
 
+schema.statics.status = status;
+
+schema.statics.serialize = async function(result) {
+    return {'quotes' : result }
+};
+
+
 module.exports = Mongoose.model('Quote', schema);

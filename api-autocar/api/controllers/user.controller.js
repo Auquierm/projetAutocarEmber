@@ -18,8 +18,8 @@ exports.findAll = async (req, res, next) =>{
     try{
         const users = await User.find();
         const transformedUsers = users.map(user => user.transform());
-        let data = {"users" : transformedUsers}
-        res.json(data);
+        // let data = {"users" : transformedUsers}
+        return res.json(await User.serialize(transformedUsers));
     }catch(err) {
         next(Boom.badImplementation(err));
     }
@@ -31,7 +31,7 @@ exports.findAll = async (req, res, next) =>{
 exports.findOne = async (req, res, next) =>{
     try{
         const user = await User.findById(req.params.userId);
-        res.json(user.transform());
+        return res.json(await User.serialize(user.transform()));
     }catch(err){
         next(Boom.badImplementation(err.message));
     }
