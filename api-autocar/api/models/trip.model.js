@@ -41,4 +41,8 @@ let schema = new Schema({
     }
 });
 
+schema.statics.serialize = async function(result) {
+    return {'trips' : result }
+};
+
 module.exports = Mongoose.model('Trip', schema);

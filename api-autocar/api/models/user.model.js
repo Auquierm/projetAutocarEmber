@@ -142,6 +142,10 @@ schema.statics.roles = roles;
 schema.statics.sexes = sexes;
 schema.statics.langues = langues;
 
+schema.statics.serialize = async function(result) {
+    return {'users' : result }
+};
+
 schema.statics.get = async function(id) {
     try{
         let user;

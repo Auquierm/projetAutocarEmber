@@ -45,4 +45,8 @@ let schema = new Schema({
     }
 });
 
+schema.statics.serialize = async function(result) {
+    return {'drivers' : result }
+};
+
 module.exports = Mongoose.model('Driver', schema);

@@ -24,4 +24,8 @@ let schema = new Schema({
     }
 });
 
+schema.statics.serialize = async function(result) {
+    return {'agents' : result }
+};
+
 module.exports = Mongoose.model('Agent', schema);

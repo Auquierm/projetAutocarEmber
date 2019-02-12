@@ -9,8 +9,7 @@ const Boom = require('boom');
 exports.findAll = async (req, res, next) => {
     try{
         const agents = await Agent.find();
-        let data = {'agents' : agents};
-        return res.json(data);
+        return res.json(await Agent.serialize(agents));
     }catch(err){
         next(Boom.badImplementation(err));
     }
@@ -23,7 +22,7 @@ exports.findAll = async (req, res, next) => {
 exports.findOne = async (req, res, next) =>{
     try{
         const agent = await Agent.findById(req.params.agentId);
-        return res.json(agent);
+        return res.json(await Agent.serialize(agent));
     }catch(err){
         next(Boom.badImplementation(err.message));
     }
@@ -42,7 +41,7 @@ exports.add = async (req, res, next) =>{
         await agent.save();
         let data = UserModel.bodyData(req, null, agent._id, "agent");
         User.add(req, res, next, data);
-        res.json(agent);
+        return res.json(await Agent.serialize(agent));
     }catch(err){
         console.log(err.message);
         next(Boom.badImplementation(err.message));
@@ -58,7 +57,7 @@ exports.update = async (req, res, next) =>{
         const agent = await Agent.findByIdAndUpdate(req.params.agentId, req.body, {new : true});
         let data = agent.idUser;
         User.update(req, res, next, data);
-        return res.json(agent)
+        return res.json(await Agent.serialize(agent));
     }catch(err){
         console.log(err)
         next( Boom.badImplementation(err.message));
@@ -85,7 +84,7 @@ exports.remove = async (req, res, next) =>{
         const agent = await Agent.findByIdAndDelete(req.params.agentId);
         let data = agent.idUser;
         User.remove(req, res, next, data);
-        return res.json(agent);
+        return res.json(await Agent.serialize(agent));
     }catch(err){
         next(Boom.badImplementation(err.message));
     }
