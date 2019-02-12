@@ -18,6 +18,8 @@ Router.map(function () {
     this.route('dashboard');
     this.route('requests');
     this.route('request', { path: ':id' });
+    this.route('proposals');
+    this.route('proposal');
   });
   this.route('changepassword');
   this.route('tokenauth');
