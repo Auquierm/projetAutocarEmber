@@ -125,10 +125,6 @@ schema.methods.token = function() {
     return Jwt.encode(payload, jwtSecret);
 }
 
-schema.methods.passwordMatches = async function(pwd) {
-    return await Bcrypt.compare(pwd, this.password);
-};
-
 schema.methods.transform = function() {
     const fields = ['_id', 'firstname', 'lastname', 'sexe', 'age', 'email', 'phone', 'address', 'idUser', 'onModel'];
     const object = {};

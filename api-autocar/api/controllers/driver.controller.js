@@ -10,7 +10,7 @@ const Boom = require('boom');
 exports.findAll = async (req, res, next) => {
     try{
         const drivers = await Driver.find();
-        return res.json(await Driver.serialize(drivers));
+        return res.json(drivers);
     }catch(err){
         next(Boom.badImplementation(err));
     }
@@ -22,7 +22,7 @@ exports.findAll = async (req, res, next) => {
 exports.findOne = async (req, res, next) =>{
     try {
         const driver = await Driver.findById(req.params.driverId);
-        return res.json(await Driver.serialize(driver));
+        return res.json(driver);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -48,7 +48,7 @@ exports.add = async (req, res, next) =>{
         await driver.save();
         let data = UserModel.bodyData(req, null, driver._id, "chauffeur");
         User.add(req, res, next, data);
-        return res.json(await Driver.serialize(driver));
+        return res.json(driver);
     }catch(err){
         console.log(err.message);
         next(Boom.badImplementation(err.message));
@@ -63,7 +63,7 @@ exports.update = async (req, res, next) =>{
         const driver = await Driver.findByIdAndUpdate(req.params.driverId, req.body, {new : true});
         let data = driver.idUser;
         User.update(req, res, next, data);
-        return res.json(await Driver.serialize(driver));
+        return res.json(driver);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -88,7 +88,7 @@ exports.remove = async (req, res, next) =>{
         const driver = await Driver.findByIdAndDelete(req.params.driverId);
         let data = driver.idUser;
         User.remove(req, res, next, data);
-        return res.json(await Driver.serialize(driver));
+        return res.json(driver);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }

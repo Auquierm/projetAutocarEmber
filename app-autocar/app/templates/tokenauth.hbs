@@ -1,8 +1,9 @@
 
 <ul>
+  {{#each model as |client|}}
       <li>
-        {{model.societe}}
+        {{client.societe}}
       </li>
-
+  {{/each}}
 </ul>
 {{outlet}}

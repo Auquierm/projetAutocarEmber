@@ -1,7 +1,6 @@
 const nodemailer = require("nodemailer");
 
 exports.nodemailer = async (accessToken) => {
-  console.log(accessToken);
   let transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
@@ -17,7 +16,7 @@ exports.nodemailer = async (accessToken) => {
         <h1>Information sur la création de votre compte client sur le site Pimp My Trip</h1>
         <p>Bla bla bla texte de bienvenue</p>
         <h3>Cliquez sur le lien ci-dessous pour finaliser votre inscription : </h3>
-        <a href="">${accessToken}</a>
+        <a href="http://localhost:4200/tokenauth/${accessToken.token}">Ici</a>
   `;
 
   let mailOptions = {

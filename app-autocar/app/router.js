@@ -22,7 +22,7 @@ Router.map(function () {
     this.route('proposal');
   });
   this.route('changepassword');
-  this.route('tokenauth');
+  this.route('tokenauth', { path: 'tokenauth/:token' });
 });
 
 export default Router;

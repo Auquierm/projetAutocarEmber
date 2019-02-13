@@ -46,9 +46,4 @@ let schema = new Schema({
         type : String,
     }
 });
-
-schema.statics.serialize = async function(result) {
-    return {'clients' : result }
-};
-
 module.exports = Mongoose.model('Client', schema);

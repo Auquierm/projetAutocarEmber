@@ -7,7 +7,7 @@ const Boom = require('boom');
 exports.findAll = async (req, res, next) => {
     try{
         const quotes = await Quote.find();
-        return res.json(await Quote.serialize(quotes));
+        return res.json(quotes);
     }catch(err){
         next(Boom.badImplementation(err));
     }
@@ -19,7 +19,7 @@ exports.findAll = async (req, res, next) => {
 exports.findOne = async(req, res, next) =>{
     try {
         const quote = await Quote.findById(req.params.quoteId);
-        return res.json(await Quote.serialize(quote));
+        return res.json(quote);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -32,7 +32,7 @@ exports.add = async (req, res, next) =>{
     try{
         const quote = new Quote(req.body);
         await quote.save();
-        return res.json(await Quote.serialize(quote));
+        return res.json(quote);
     }catch(err){
         console.log(err.message);
         next(Boom.badImplementation(err.message));
@@ -45,7 +45,7 @@ exports.add = async (req, res, next) =>{
 exports.update = async (req, res, next) =>{
     try {
         const quote = await Quote.findByIdAndUpdate(req.params.quoteId, req.body, {new : true});
-        return res.json(await Quote.serialize(quote));
+        return res.json(quote);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }
@@ -57,7 +57,7 @@ exports.update = async (req, res, next) =>{
 exports.remove = async (req, res, next) =>{
     try {
         const quote = await Quote.findByIdAndDelete(req.params.quoteId)
-        return res.json(await Quote.serialize(quote));
+        return res.json(quote);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }

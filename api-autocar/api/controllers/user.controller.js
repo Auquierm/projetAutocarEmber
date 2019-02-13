@@ -1,11 +1,10 @@
 const User = require('./../models/user.model'),
-      HTTPStatus  = require('http-status'),
       Agent = require('./agent.controller'),
       Client = require('./client.controller'),
       Driver = require('./driver.controller'),
       Boom = require('boom'),
       Email = require('./../services/nodemailer.service'),
-      UserModel = require('./../models/user.model'),
+      TokenGeneration = require('./../models/tokengeneration.model'),
       RefreshToken = require('../models/refresh-token.model'),
       Moment = require('moment-timezone');
 
@@ -18,8 +17,7 @@ exports.findAll = async (req, res, next) =>{
     try{
         const users = await User.find();
         const transformedUsers = users.map(user => user.transform());
-        // let data = {"users" : transformedUsers}
-        return res.json(await User.serialize(transformedUsers));
+        return res.json(transformedUsers);
     }catch(err) {
         next(Boom.badImplementation(err));
     }
@@ -31,7 +29,7 @@ exports.findAll = async (req, res, next) =>{
 exports.findOne = async (req, res, next) =>{
     try{
         const user = await User.findById(req.params.userId);
-        return res.json(await User.serialize(user.transform()));
+        return res.json(user.transform());
     }catch(err){
         next(Boom.badImplementation(err.message));
     }
@@ -49,6 +47,7 @@ const _generateTokenResponse = function(user, accessToken) {
 }
 exports.add = async (req, res, next, data) =>{
     try{
+        console.log('user ok')
         const user = new User({
             "username" : data[0]+data[1],
             "firstname" : data[0],
@@ -75,10 +74,10 @@ exports.add = async (req, res, next, data) =>{
             Agent.updateUserID(req, res, next, data[12], user._id);
         }else if (data[13]==='client'){
             Client.updateUserID(req, res, next, data[12], user._id);
-            const accessToken  = await UserModel.findAndGenerateToken({"password": data[3], "email": data[5]});
-            const token = _generateTokenResponse(user, accessToken);
+            const accessToken  = await TokenGeneration.generate(user);
+            // const token = _generateTokenResponse(user, accessToken);
             // console.log(token.refreshToken.token);
-            await Email.nodemailer(token.refreshToken.token);
+            await Email.nodemailer(accessToken);
         }else if (data[13]==='chauffeur'){
             Driver.updateUserID(req, res, next, data[12], user._id);
         }
