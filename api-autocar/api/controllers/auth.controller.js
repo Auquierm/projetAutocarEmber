@@ -1,6 +1,8 @@
 const HttpStatus = require('http-status'),
       User = require('./../models/user.model'),
       RefreshToken = require('../models/refresh-token.model'),
+      TokenGen =require('../models/tokengeneration.model'),
+      UpdatePassword = require('../services/updateChangedPassword.service'),
       Moment = require('moment-timezone');
 
 const {jwtExpirationInterval} = require('./../../config/environment.config');
@@ -58,9 +60,9 @@ exports.register = async (req, res, next) =>{
  */
 exports.login = async (req, res, next) =>{
     try{
-        const {user, accessToken}  = await User.findAndGenerateToken(req.body);
-        const token = _generateTokenResponse(user, accessToken);
-        return res.json({token, user : user.transform()});
+        const {accessToken}  = await User.findAndGenerateToken(req.body);
+        // const token = _generateTokenResponse(user, accessToken);
+        return res.json({accessToken});
     }catch(err){
         console.log(err);
         return next(err);
@@ -94,9 +96,32 @@ exports.refresh = async (req, res, next) =>{
     }
 };
 
+
+/**
+ * Create JWT token for the first connection of a client
+ * 
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Function} next
+ * 
+ * @return JWT|next
+ * 
+ * @public
+ */
 exports.createJwtClient = async(req, res, next) =>{
+    console.log(req.body);
     try {
-        //create token via refresh token send by ember
+        const token = await TokenGen.findUserId(req.body.token);
+        const emailUser = await User.findOne({ _id : token.userId });
+        await RefreshToken.findOneAndRemove({
+            userEmail : emailUser.email,
+        });
+        const {user, accessToken} = await User.findAndGenerateTokenFirstConnectClient({email : emailUser.email});
+        const response = _generateTokenResponse(user, accessToken);
+        UpdatePassword.updateUsedToken(token._id);
+
+
+        return res.json(response);
     } catch (err) {
         return next(err);
     }

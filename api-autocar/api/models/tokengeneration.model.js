@@ -39,6 +39,27 @@ schema.statics.generate = function(user) {
   return tokenObject;
 };
 
+
+schema.statics.findUserId = async function(token) {
+
+  try {
+    // const { refreshObject } = options;
+    console.log(token);
+    const tokenUser = await this.findOne({token: token});
+    console.log(tokenUser.userId);
+
+    if(!tokenUser) throw Boom.badRequest('A token is required');
+    return tokenUser;
+  }
+  catch(e) {
+    console.log(e.message);
+  }
+  
+
+
+
+}
+
 const tokenGeneration = Mongoose.model('TokenGeneration', schema);
 
 module.exports = tokenGeneration;

@@ -138,10 +138,6 @@ schema.statics.roles = roles;
 schema.statics.sexes = sexes;
 schema.statics.langues = langues;
 
-schema.statics.serialize = async function(result) {
-    return {'users' : result }
-};
-
 schema.statics.get = async function(id) {
     try{
         let user;
@@ -160,6 +156,10 @@ schema.statics.get = async function(id) {
     }
 };
 
+schema.methods.passwordMatches = async function(pwd) {
+    return await Bcrypt.compare(pwd, this.password);
+};
+
 schema.statics.findAndGenerateToken = async function(options) {
     const { email, password, refreshObject } = options;
 
@@ -174,6 +174,12 @@ schema.statics.findAndGenerateToken = async function(options) {
     }else if(refreshObject && refreshObject.userEmail === email && Moment(refreshObject.expires).isBefore()) {
         throw Boom.unauthorized('Invalid refresh token');
     }
+    return { user, accessToken : user.token() };
+};
+
+schema.statics.findAndGenerateTokenFirstConnectClient = async function(email) {
+    if(!email) throw Boom.badRequest('An email is required to generate a token');
+    const user = await this.findOne({email : email.email});
     return { user, accessToken : user.token() };
 };
 

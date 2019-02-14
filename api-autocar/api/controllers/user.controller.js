@@ -4,11 +4,7 @@ const User = require('./../models/user.model'),
       Driver = require('./driver.controller'),
       Boom = require('boom'),
       Email = require('./../services/nodemailer.service'),
-      TokenGeneration = require('./../models/tokengeneration.model'),
-      RefreshToken = require('../models/refresh-token.model'),
-      Moment = require('moment-timezone');
-
-const {jwtExpirationInterval} = require('./../../config/environment.config');
+      TokenGeneration = require('./../models/tokengeneration.model');
 
 /** 
 * GET all users 
@@ -38,13 +34,6 @@ exports.findOne = async (req, res, next) =>{
 /** 
 * POST user 
 */
-
-const _generateTokenResponse = function(user, accessToken) {
-    const tokenType = 'Bearer';
-    const refreshToken = RefreshToken.generate(user);
-    const expiresIn = Moment().add(jwtExpirationInterval, 'minutes');
-    return { tokenType, accessToken, refreshToken, expiresIn};
-}
 exports.add = async (req, res, next, data) =>{
     try{
         console.log('user ok')

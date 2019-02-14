@@ -18,4 +18,8 @@ router
     .route('/refresh-token')
         .post(Validate(refresh), AuthController.refresh);
 
+router
+    .route('/token-gen-client')
+        .post(AuthController.createJwtClient);
+
 module.exports = router;
