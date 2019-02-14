@@ -7,7 +7,7 @@ const Boom = require('boom');
 exports.findAll = async (req, res, next) => {
     try{
         const pricings = await Pricing.find();
-        return res.json(await Pricing.serialize(pricings));
+        return res.json(pricings);
     }catch(err){
         next(Boom.badImplementation(err));
     }
@@ -21,7 +21,7 @@ exports.add = async (req, res, next) =>{
     try{
         const pricing = new Pricing(req.body);
         await pricing.save();
-        return res.json(await Pricing.serialize(pricing));
+        return res.json(pricing);
     }catch(err){
         console.log(err.message);
         next(Boom.badImplementation(err.message));
@@ -34,7 +34,7 @@ exports.add = async (req, res, next) =>{
 exports.update = async (req, res, next) =>{
     try {
         const pricing = await Pricing.findByIdAndUpdate(req.params.pricingId, req.body, {new : true});
-        return res.json(await Pricing.serialize(pricing));
+        return res.json(pricing);
     } catch (err) {
         next(Boom.badImplementation(err.message));
     }

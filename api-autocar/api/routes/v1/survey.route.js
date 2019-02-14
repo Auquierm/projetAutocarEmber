@@ -3,14 +3,14 @@ const SurveyController = require(`${process.cwd()}/api/controllers/survey.contro
 const Validate = require('express-validator');
 
 const { listSurveys, createSurvey } = require('./../../validations/survey.validation');
-const {authorize, ADMIN} = require('./../../middlewares/auth.middleware');
+const {authorize, ADMIN, CLIENT} = require('./../../middlewares/auth.middleware');
 
 const router = Express.Router();
 
 router
     .route('/')
         .get(authorize(ADMIN), Validate(listSurveys), SurveyController.findAll)
-        .post(Validate(createSurvey), SurveyController.add)
+        .post(authorize(CLIENT), Validate(createSurvey), SurveyController.add)
 
 
 module.exports = router;

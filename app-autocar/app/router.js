@@ -15,7 +15,6 @@ Router.map(function () {
   this.route('agent');
   this.route('driver');
   this.route('changepassword');
-  this.route('tokenauth');
   this.route('back-client', function () {
     this.route('client', { path: ':id' }, function () {
       this.route('dashboard');
@@ -27,6 +26,8 @@ Router.map(function () {
       this.route('folder');
     });
   });
+  this.route('tokenauth', { path: 'tokenauth/:token' });
+
 });
 
 export default Router;

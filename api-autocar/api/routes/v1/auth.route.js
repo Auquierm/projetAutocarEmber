@@ -8,7 +8,7 @@ const router = Express.Router();
 
 router
     .route('/register')
-        .post(Validate(register), AuthController.register);
+        .post(Validate(register),AuthController.register);
 
 router
     .route('/login')

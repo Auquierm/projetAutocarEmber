@@ -48,9 +48,5 @@ let schema = new Schema({
     }
 });
 
-schema.statics.serialize = async function(result) {
-    return {'pricings' : result }
-};
-
 
 module.exports = Mongoose.model('Pricing', schema);
