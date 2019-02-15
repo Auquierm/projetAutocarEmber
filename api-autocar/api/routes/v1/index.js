@@ -8,6 +8,7 @@ const Express  = require('express'),
       SurveyRoutes = require('./survey.route'),
       PricingRoutes = require('./pricing.route'),
       TripRoutes = require('./trip.route');
+    //   TokenGenRoutes = require('./tokenGeneraton.route');
 
 const router = Express.Router();
 
@@ -22,5 +23,6 @@ router.use('/quotes', QuoteRoutes);
 router.use('/surveys', SurveyRoutes);
 router.use('/pricings', PricingRoutes);
 router.use('/trips', TripRoutes);
+// router.use('/tokens', TokenGenRoutes);
 
 module.exports = router;

@@ -66,6 +66,7 @@ exports.add = async (req, res, next) =>{
 exports.update = async (req, res, next) =>{
     try{
         const client = await Client.findByIdAndUpdate(req.params.clientId, req.body, {new : true});
+        console.log(client);
         let data = client.idUser;
         User.update(req, res, next, data);
         return res.json(client);
