@@ -10,6 +10,52 @@ body{
   font-family:'Roboto';
   font-size:14px;
   background-color: #F6F6F6;
+
+}
+
+.wrapper{
+  width:960px;
+}
+
+ul{
+  font-size: 12px;
+  
+}
+
+li{
+  margin-right: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+h1{
+  font-family: 'Prompt', sans-serif;
+}
+header {
+ height:500px;
+}
+p {
+  font-size: 12px;
+}
+
+#about {
+  background-image: url("/assets/images/aPropos/aPropos_banner.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#contact {
+  background-image: url("/assets/images/contact/contact_banner.jpg");
+  background-size: cover;
+  background-position: center;
+}
+#write {
+  background-image: url("/assets/images/contact/contact_writing.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 400px;
 }
 
 /* --------------------- colors --------------------- */
@@ -43,7 +89,7 @@ button{
 
 /* --------------------- a --------------------- */
 
-a{
+.menuBack a, .footer a{
   text-decoration: none;
   color:black;
 }
@@ -72,7 +118,7 @@ nav .menuBack li i{
   line-height: 15px;
 }
 
-.active{
+.menuBack .active{
   color:white;
   background-color:#3C3C3C;
   display:block;

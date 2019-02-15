@@ -10,10 +10,14 @@
 /* .skew-45 {
   transform: skewY(45deg);
 } */
-@responsive {
-  .bg-image-pos-50-57-cover {
-    background-image: url('/assets/images/accueil/accueil_banner.jpg');
-    background-position: 50% 57% ;
-    background-size: cover;
-  }
+.bg-banner-image {
+  background-image: url("/assets/images/accueil/home_header.jpg");
+  background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+/* .homeCar1 {
+  background-image: url("/assets/images/accueil/accueil_inside.jpg"); 
+  background-size: cover;
+  background-position: center;
+} */
