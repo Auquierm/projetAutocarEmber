@@ -24,6 +24,7 @@ Router.map(function () {
       this.route('request');
       this.route('folders');
       this.route('folder');
+      this.route('profile');
     });
   });
   this.route('tokenauth', { path: 'tokenauth/:token' });

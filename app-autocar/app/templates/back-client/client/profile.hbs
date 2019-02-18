@@ -1,0 +1,124 @@
+<h2>Votre profil</h2>
+
+<div class="bg-white shadow-md mt-4 md:w-1/2">
+
+  <div class="flex">
+    <div class="flex-1 w-1/2 p-3">
+      Prénom<br>
+      <div class="italic text-grey-dark">{{model.idUser.firstname}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Nom<br>
+      <div class="italic text-grey-dark">{{model.idUser.lastname}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Age<br>
+      <div class="italic text-grey-dark">{{model.idUser.age}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Genre<br>
+      <div class="italic text-grey-dark">{{model.idUser.sexe}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Email<br>
+      <div class="italic text-grey-dark">{{model.idUser.email}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      N°téléphone<br>
+      <div class="italic text-grey-dark">{{model.idUser.phone}}</div>
+    </div>
+  </div>
+  <h4 class="p-3">Votre adresse</h4>
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Pays<br>
+      <div class="italic text-grey-dark">{{model.idUser.address.country}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Ville<br>
+      <div class="italic text-grey-dark">{{model.idUser.address.city}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Code postal<br>
+      <div class="italic text-grey-dark">{{model.idUser.address.zip}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Rue<br>
+      <div class="italic text-grey-dark">{{model.idUser.address.street}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Numéro<br>
+      <div class="italic text-grey-dark">{{model.idUser.address.number}}</div>
+    </div>
+  </div>
+
+  <h4 class="p-3">Votre société</h4>
+
+  <div class="flex">
+    <div class="flex-1 w-1/2 p-3">
+      Nom de société<br>
+      <div class="italic text-grey-dark">{{model.societe}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      N° Fax<br>
+      <div class="italic text-grey-dark">{{model.numFax}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      N° TVA<br>
+      <div class="italic text-grey-dark">{{model.numTva}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      N° compte bancaire<br>
+      <div class="italic text-grey-dark">{{model.numBank}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Pays<br>
+      <div class="italic text-grey-dark">{{model.adresseFacturation.country}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Ville<br>
+      <div class="italic text-grey-dark">{{model.adresseFacturation.city}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Code postal<br>
+      <div class="italic text-grey-dark">{{model.adresseFacturation.zip}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Rue<br>
+      <div class="italic text-grey-dark">{{model.adresseFacturation.street}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Numéro<br>
+      <div class="italic text-grey-dark">{{model.adresseFacturation.number}}</div>
+    </div>
+  </div>
+  <div class="flex justify-end p-3">
+    <button class="ml-3">Modifier</button>
+  </div>
+</div>
+
+{{outlet}}
