@@ -5,24 +5,14 @@ export default Base.extend({
   async restore(data) {
     return data;
   },
-  async authenticate(email, password, token) {
-    if(!token){
-      let response = await this.ajax.post('/auth/login', {
-        data : {
-          email : email,
-          password : password
-        }
-      });
-      // let {role, token} = response;
-      console.log(response);
-      return {response};
-    }else{
-      console.log(token)
-      let clientId = await this.store.findRecord('user', token.userId);
-      console.log(clienId);
-      // let data = {token : token.tokenObject, id : token.token}
-      // return
-    }
+  async authenticate(email, password) {
+    let response = await this.ajax.post('/auth/login', {
+      data : {
+        email : email,
+        password : password
+      }
+    });
 
+    return {response};
   }
 });

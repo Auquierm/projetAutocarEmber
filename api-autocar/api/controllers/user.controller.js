@@ -4,6 +4,7 @@ const User = require('./../models/user.model'),
       Driver = require('./driver.controller'),
       Boom = require('boom'),
       Email = require('./../services/nodemailer.service'),
+      UserModel = require('./../models/user.model');
       TokenGeneration = require('./../models/tokengeneration.model');
 
 /** 
@@ -83,9 +84,11 @@ exports.add = async (req, res, next, data) =>{
 */
 exports.update = async (req, res, next, data) =>{
     try{
+
         await User.findByIdAndUpdate(data, req.body, {override : true, upsert : true, new : true});
     }catch(err){
-        next(User.checkDuplicateEmail(err));
+        // next(User.checkDuplicateEmail(err));
+        console.log(err);
     }
 }
 

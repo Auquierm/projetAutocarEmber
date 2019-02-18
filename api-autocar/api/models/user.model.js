@@ -89,6 +89,17 @@ schema.pre('save', async function(next) {
     }
 });
 
+schema.statics.hashChangedPwd = async function(password){
+    try {
+        let salt = env === 'staging' ? 1 : 10;
+        let hash = await Bcrypt.hash(password, salt);
+        password = hash;
+        return password;
+    } catch (err) {
+        next(Boom.badImplementation(err.message));
+    }
+};
+
 schema.statics.bodyData = function(req, password, roleId, roleName) {
     let passWord = "";
     if(password === null){
