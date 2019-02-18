@@ -54,10 +54,6 @@ schema.statics.findUserId = async function(token) {
   catch(e) {
     console.log(e.message);
   }
-  
-
-
-
 }
 
 const tokenGeneration = Mongoose.model('TokenGeneration', schema);

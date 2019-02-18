@@ -60,9 +60,13 @@ exports.register = async (req, res, next) =>{
  */
 exports.login = async (req, res, next) =>{
     try{
-        const {accessToken}  = await User.findAndGenerateToken(req.body);
+        const {user, accessToken}  = await User.findAndGenerateToken(req.body);
+        let modelUser = user.onModel
         // const token = _generateTokenResponse(user, accessToken);
-        return res.json({accessToken});
+        if(modelUser === "chauffeur"){
+            modelUser = "driver"
+        }
+        return res.json({user : modelUser, id : user.idUser, accessToken});
     }catch(err){
         console.log(err);
         return next(err);

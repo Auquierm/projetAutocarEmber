@@ -1,21 +1,28 @@
 import Base from 'ember-simple-auth/authenticators/base';
 import { inject as service } from '@ember/service';
-//ember g authenticator credentials
 export default Base.extend({
   ajax: service(),
   async restore(data) {
     return data;
   },
+  async authenticate(email, password, token) {
+    if(!token){
+      let response = await this.ajax.post('/auth/login', {
+        data : {
+          email : email,
+          password : password
+        }
+      });
+      // let {role, token} = response;
+      console.log(response);
+      return {response};
+    }else{
+      console.log(token)
+      let clientId = await this.store.findRecord('user', token.userId);
+      console.log(clienId);
+      // let data = {token : token.tokenObject, id : token.token}
+      // return
+    }
 
-  async authenticate(username, password) {
-    let response = await this.ajax.post('/token', {
-      headers: {
-        'Accept':'application/vnd.api+json',
-        'Content-Type' : 'application/vnd.api+json'
-      },
-      data : JSON.stringify({username, password})
-    });
-    let {user_email : userEmail, token} = response;
-    return {userEmail, token};
   }
 });
