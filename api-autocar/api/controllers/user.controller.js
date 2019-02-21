@@ -84,7 +84,6 @@ exports.add = async (req, res, next, data) =>{
 */
 exports.update = async (req, res, next, data) =>{
     try{
-
         await User.findByIdAndUpdate(data, req.body, {override : true, upsert : true, new : true});
     }catch(err){
         // next(User.checkDuplicateEmail(err));

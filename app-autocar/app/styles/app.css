@@ -19,7 +19,7 @@ body{
 
 ul{
   font-size: 12px;
-  
+
 }
 
 li{
@@ -155,3 +155,7 @@ tr:nth-child(2n) {
   content:"";
 }
 
+.test1{
+  border-color: red;
+  border-width: ..5rem
+}

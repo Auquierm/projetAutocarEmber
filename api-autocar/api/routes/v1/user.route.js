@@ -15,7 +15,7 @@ router
 router
     .route('/:userId')
     .get(/*authorize([ADMIN, CLIENT, CHAUFFEUR]),*/ Validate(getUser), UserController.findOne)
-    .patch(/*authorize([ADMIN, CLIENT]),*/ Validate(updateUser), UserController.update)
+    .patch(authorize([ADMIN, CLIENT]), Validate(updateUser), UserController.update)
     .delete(authorize([ADMIN, CLIENT]), Validate(removeUser), UserController.remove);
 
 module.exports = router;
