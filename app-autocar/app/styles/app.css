@@ -34,7 +34,7 @@ h1{
   font-family: 'Prompt', sans-serif;
 }
 header {
- height:500px;
+ /* height:500px; */
 }
 p {
   font-size: 12px;
@@ -155,7 +155,7 @@ tr:nth-child(2n) {
   content:"";
 }
 
-.test1{
-  border-color: red;
-  border-width: ..5rem
+.py-030{
+  padding-bottom: .30rem;
+  padding-top: .30rem;
 }

@@ -6,7 +6,7 @@ let status = ["traitement", "attente", "ferme", "refuse", "valide"]
 let schema = new Schema({
     idUser : {
         type : Mongoose.Schema.Types.ObjectId,
-        ref : 'User',
+        ref : 'Client',
         required :true,
     },
     numFolder : {
@@ -19,12 +19,48 @@ let schema = new Schema({
         enum: status
     },
     placeDeparture : {
-        type : String,
-        required : true,
+        street : {
+            type : String,
+            required : true
+        },
+        number : {
+            type : String,
+            required : true
+        },
+        zip : {
+            type : String,
+            required : true,
+        },
+        city : {
+            type : String,
+            required : true,
+        },
+        country : {
+            type : String,
+            required : true
+        },
     },
     placeArrival : {
-        type : String,
-        required : true,
+        street : {
+            type : String,
+            required : true
+        },
+        number : {
+            type : String,
+            required : true
+        },
+        zip : {
+            type : String,
+            required : true,
+        },
+        city : {
+            type : String,
+            required : true,
+        },
+        country : {
+            type : String,
+            required : true
+        },
     },
     dateArrival : {
         type : Date,
@@ -41,6 +77,9 @@ let schema = new Schema({
     pax : {
         type : Number,
         required : true,
+    },
+    options : {
+        type : Array,
     },
     numberDriver : {
         type : Number,

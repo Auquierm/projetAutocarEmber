@@ -9,27 +9,19 @@ export default Controller.extend({
   pwdDiff : false,
   actions: {
     async changePwd(event){
-      event.preventDefault()
-      let {pwd, confirmPwd} = this
-      console.log(pwd, confirmPwd);
-      // if(pwd === confirmPwd){
-      //   await this.ajax.patch(`/auth/${this.session.data.authenticated.id}`, {
-      //     data : {
-      //       password : confirmPwd
-      //     }
-      //   });
-      //   this.session.invalidate();
-      //   await this.transitionToRoute("/login")
-      // }else{
-      //   this.set('pwdDiff', true);
-      // }
-    },
-    samePwd : function(){
+      event.preventDefault();
       let {pwd, confirmPwd} = this;
-      console.log('ici');
-      if(pwd !== confirmPwd){
+      if(pwd === confirmPwd){
+        this.set('pwdDiff', false);
+        await this.ajax.patch(`/auth/${this.session.data.authenticated.id}`, {
+          data : {
+            password : confirmPwd
+          }
+        });
+        this.session.invalidate();
+        await this.transitionToRoute("/login");
+      }else{
         this.set('pwdDiff', true);
-        console.log(this.pwdDiff);
       }
     }
   }

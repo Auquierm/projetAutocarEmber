@@ -10,7 +10,7 @@ export default Route.extend({
       await this.session.authenticate('authenticator:credentials-without-password', params);
       await this.transitionTo('/changepassword');
     } catch (error) {
-      console.log(error.message);
+      throw(error.message);
     }
   }
 });
