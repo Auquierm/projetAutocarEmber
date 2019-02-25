@@ -34,7 +34,7 @@ h1{
   font-family: 'Prompt', sans-serif;
 }
 header {
- height:500px;
+ /* height:500px; */
 }
 p {
   font-size: 12px;
@@ -116,7 +116,7 @@ nav .menuBack li i{
 
 .banner{
   padding:15px;
-  line-height: 15px;
+  line-height: 35px;
 }
 
 .menuBack .active{
@@ -155,3 +155,7 @@ tr:nth-child(2n) {
   content:"";
 }
 
+.py-030{
+  padding-bottom: .30rem;
+  padding-top: .30rem;
+}

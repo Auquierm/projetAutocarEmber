@@ -122,11 +122,24 @@ exports.createJwtClient = async(req, res, next) =>{
         });
         const {user, accessToken} = await User.findAndGenerateTokenFirstConnectClient({email : emailUser.email});
         const response = _generateTokenResponse(user, accessToken);
-        UpdatePassword.updateUsedToken(token._id);
-
-
         return res.json(response);
     } catch (err) {
         return next(err);
     }
 };
+
+/** 
+* PATCH Password 
+*/
+exports.updatePwd = async (req, res, next) =>{
+    try{
+        const token = await TokenGen.findOne({userId: req.params.userId});
+        let password = await User.hashChangedPwd(req.body.password);
+        await User.findByIdAndUpdate(req.params.userId, {password : password}, {override : true, upsert : true, new : true});
+        UpdatePassword.updateUsedToken(token._id);
+        return next();
+    }catch(err){
+        // next(User.checkDuplicateEmail(err));
+        console.log(err);
+    }
+}

@@ -22,4 +22,8 @@ router
     .route('/token-gen-client')
         .post(AuthController.createJwtClient);
 
+router
+    .route('/:userId')
+        .patch(AuthController.updatePwd);
+
 module.exports = router;

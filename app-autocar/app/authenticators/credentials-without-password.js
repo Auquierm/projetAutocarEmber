@@ -1,18 +1,18 @@
 import Base from 'ember-simple-auth/authenticators/base';
 import { inject as service } from '@ember/service';
+
 export default Base.extend({
   ajax: service(),
   async restore(data) {
     return data;
   },
-  async authenticate(email, password) {
-    let response = await this.ajax.post('/auth/login', {
+  async authenticate(params) {
+    let Jwt = await this.ajax.post('/auth/token-gen-client', {
       data : {
-        email : email,
-        password : password
+        token : params.token,
       }
     });
-
-    return {response};
-  }
+    let response = {accessToken : Jwt.accessToken, id : Jwt.refreshToken.userId};
+    return response;
+  },
 });

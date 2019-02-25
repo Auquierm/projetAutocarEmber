@@ -3,13 +3,6 @@ import DS from 'ember-data';
 const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
-  username: attr('string'),
-  firstname: attr('string'),
-  lastname: attr('string'),
-  sexe: attr('string'),
-  password: attr('string'),
-  age: attr('string'),
-  phone: attr('string'),
   adresseFacturation: attr(),
   numTva: attr('string'),
   numFax: attr('string'),

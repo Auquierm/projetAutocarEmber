@@ -6,23 +6,11 @@ export default Route.extend({
   ajax: service(),
   async model(params){
     try {
-      let test = this.get('ajax').request('/auth/token-gen-client', {
-        method : 'POST',
-        data : {
-          token : params.token,
-        }
-      });
-      console.log(test);
-      await this.session.authenticate('authenticator:credentials',null, null, test);
-      await this.transitionToRoute('changepassword');
-      //TODO: chercher le user avec l'id de l'user dans l'ajax promise ou autre
+      this.session.data['isChanged'] = false;
+      await this.session.authenticate('authenticator:credentials-without-password', params);
+      await this.transitionTo('/changepassword');
     } catch (error) {
-      console.log(error.message);
+      throw(error.message);
     }
-  },
-  // async afterModel(params){
-  //   // let {email, password} = this;
-  //   // await this.session.authenticate('authenticator:credentials', );
-  //   // await this.transitionToRoute('changepassword');
-  // }
+  }
 });
