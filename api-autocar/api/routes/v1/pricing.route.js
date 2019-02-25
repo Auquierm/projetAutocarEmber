@@ -10,11 +10,15 @@ const router = Express.Router();
 
 router
     .route('/')
-        .get(authorize(ADMIN), Validate(listPricings), PricingController.findAll)
+        .get(
+            // authorize(ADMIN), 
+            Validate(listPricings), PricingController.findAll)
         .post(/*authorize(ADMIN), */Validate(createPricing), PricingController.add);
 
 router
     .route('/:pricingId')
-        .patch(authorize(ADMIN), Validate(updatePricing), PricingController.update);
+        .patch(
+            // authorize(ADMIN), 
+            Validate(updatePricing), PricingController.update);
 
 module.exports = router;

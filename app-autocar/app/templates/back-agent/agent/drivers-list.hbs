@@ -1,0 +1,42 @@
+<h3 class="mt-2">Liste chauffeurs </h3>
+
+<div class="bg-white p-4 shadow-md mt-4">
+
+  <table class="w-full">
+    <tr class="p-2 text-white bgPrimaryBlue">
+      <th class="w-1/4">Id</th>
+      <th class="w-1/4">Nom</th>
+      <th class="w-1/4">Prénom</th>
+      <th class="w-1/4">Actions</th>
+    </tr>  {{#each model as |driver|}}
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="w-1/4 text-center ">{{driver.id}}</td>
+      <td class="w-1/4 text-center">{{driver.firstname}}</td>
+      <td class="w-1/4 text-center">{{driver.lastname}}-{{driver.onModel}}</td>
+      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+    </tr>  {{/each}}
+    {{!-- <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="w-1/4 text-center">3</td>
+      <td class="w-1/4 text-center">Emilio</td>
+      <td class="w-1/4 text-center">Trotro</td>
+      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="w-1/4 text-center">4</td>
+      <td class="w-1/4 text-center">Harry</td>
+      <td class="w-1/4 text-center">Georges</td>
+      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="w-1/4 text-center">5</td>
+      <td class="w-1/4 text-center">Francis</td>
+      <td class="w-1/4 text-center">Moustache</td>
+      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+    </tr> --}}
+  </table>
+
+  {{!-- <div class="text-right italic text-xs mt-2">
+    {{#link-to "back-client.client.requests"}}Voir toutes vos demandes de devis{{/link-to}}
+  </div> --}}
+
+</div>

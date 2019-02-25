@@ -10,12 +10,18 @@ const router = Express.Router();
 
 router
     .route('/')
-        .get(authorize([ADMIN, DRIVER]), Validate(listTrips), TripController.findAll)
-        .post(authorize(ADMIN), Validate(createTrip), TripController.add);
+        .get(
+            // authorize([ADMIN, DRIVER]),
+             Validate(listTrips), TripController.findAll)
+        .post(
+            // authorize(ADMIN), 
+            Validate(createTrip), TripController.add);
 
 router
     .route('/:tripId')
-        .patch(authorize(ADMIN), Validate(updateTrip), TripController.update);
+        .patch(
+            // authorize(ADMIN), 
+            Validate(updateTrip), TripController.update);
 
 
 module.exports = router;

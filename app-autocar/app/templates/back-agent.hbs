@@ -1,0 +1,48 @@
+<div class="bgPrimaryBlue w-full md:w-1/5 md:h-screen md:float-left md:fixed">
+
+  <div class="bgGreyBlack m-0 text-center banner">
+    <h3 class="m-0 p-0 text-white">Pimp My Trip - backoffice</h3>
+  </div>
+
+  <div class="p-6 text-center">
+    <span class="m-0 font-thin tracking-wide">Navigation - Agent</span>
+  </div>
+
+  {{!-- Menu --}}
+  <nav>
+    <ul class="menuBack list-reset">
+      {{#link-to "back-agent.agent.dashboard"}}<li><i class="fas fa-home"></i>Tableau de bord</li>{{/link-to}}
+      {{#link-to "back-agent.agent.clients-list"}}<li><i class="far fa-user"></i>Liste clients</li>{{/link-to}}
+      {{#link-to "back-agent.agent.quotes-list"}}<li><i class="fas fa-file-invoice"></i>Liste devis</li>{{/link-to}}
+      {{#link-to "back-agent.agent.folders-list"}}<li><i class="far fa-folder-open"></i>Liste dossiers</li>{{/link-to}}
+      {{#link-to "back-agent.agent.drivers-list"}}<li><i class="far fa-id-badge"></i>Liste chauffeurs</li>{{/link-to}}
+    </ul>
+  </nav>
+</div>
+
+{{!-- body --}}
+<div class="md:w-4/5 md:float-right relative md:min-h-screen">
+  <div class="bgGreyBlack text-white pr-20 banner text-center md:text-right">
+    Logout
+  </div>
+
+  <div class="p-3 mb-10">
+    {{outlet}}
+  </div>
+
+  {{!-- footer --}}
+  <div class="footer bg-white pr-20 banner text-center md:flex md:justify-between absolute pin-b w-full text-xs text-grey-dark -mb-24 md:-mb-0">
+    <div class="md:text-left">
+      Copyright © 2019 Technocité, Pimp My Trip. Tous droits réservés
+    </div>
+    <div class="mt-3 md:mt-0">
+      <ul class="list-reset flex justify-center">
+        <li>{{#link-to "home"}}Home{{/link-to}}</li>
+        <li class="pl-4">{{#link-to "devis"}}Voyage{{/link-to}}</li>
+        <li class="pl-4">{{#link-to "home"}}A propos{{/link-to}}</li>
+        <li class="pl-4">{{#link-to "home"}}Contact{{/link-to}}</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
