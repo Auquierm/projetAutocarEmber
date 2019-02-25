@@ -7,12 +7,12 @@ export default Base.extend({
     return data;
   },
   async authenticate(params) {
-    let test = await this.ajax.post('/auth/token-gen-client', {
+    let Jwt = await this.ajax.post('/auth/token-gen-client', {
       data : {
         token : params.token,
       }
     });
-    let response = {accessToken : test.accessToken, id : test.refreshToken.userId, isChanged : false};
+    let response = {accessToken : Jwt.accessToken, id : Jwt.refreshToken.userId};
     return response;
   },
 });

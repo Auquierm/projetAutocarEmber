@@ -6,11 +6,12 @@ export default Controller.extend({
   actions: {
     async update(event) {
       event.preventDefault();
-      console.log('id du client : ' + this.get('model.id'));
-      console.log('id du user : ' + this.get('model.idUser.id'));
-      console.log(this.get('model.idUser.firstname') + " " + this.get('model.idUser.lastname'));
 
       await this.ajax.patch(`/clients/${this.get('model.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
         data: {
           firstname: this.get('model.idUser.firstname'),
           lastname: this.get('model.idUser.lastname'),
@@ -37,6 +38,7 @@ export default Controller.extend({
           numBank: this.get('model.numBank')
         }
       });
+      this.transitionToRoute('back-client.client.profile');
     }
   }
 });

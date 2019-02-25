@@ -12,6 +12,7 @@ module.exports = {
               city: Joi.string().required(),
               country: Joi.string().required()
             },
+            societeTel : Joi.string().required(),
             numTva: Joi.string().required(),
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
@@ -43,6 +44,7 @@ module.exports = {
                 city: Joi.string().required(),
                 country: Joi.string().required()
               },
+            societeTel : Joi.string().required(),
             numTva: Joi.string().required(),
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
@@ -80,6 +82,7 @@ module.exports = {
                 city: Joi.string().required(),
                 country: Joi.string().required()
               },
+            societeTel : Joi.string().required(),
             numTva: Joi.string().required(),
             numFax: Joi.number().required(),
             societe: Joi.string().required(),

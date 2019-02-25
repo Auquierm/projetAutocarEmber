@@ -30,6 +30,9 @@ let schema = new Schema({
             required : true
         },
     },
+    societeTel : {
+        type : String,
+    },
     numTva : {
         type : String,
     },

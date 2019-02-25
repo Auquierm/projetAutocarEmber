@@ -133,6 +133,7 @@ exports.createJwtClient = async(req, res, next) =>{
 */
 exports.updatePwd = async (req, res, next) =>{
     try{
+        const token = await TokenGen.findOne({userId: req.params.userId});
         let password = await User.hashChangedPwd(req.body.password);
         await User.findByIdAndUpdate(req.params.userId, {password : password}, {override : true, upsert : true, new : true});
         UpdatePassword.updateUsedToken(token._id);
