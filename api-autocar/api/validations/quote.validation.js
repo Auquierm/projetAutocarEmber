@@ -5,9 +5,9 @@ module.exports = {
     // GET /v1/quotes
     listQuotes: {
         query: {
-            idUser: Joi.string().required(),
+            idClient: Joi.string().required(),
             numFolder: Joi.number().required(),
-            Status: Joi.string().valid(QuoteModel.status).required(),
+            status: Joi.string().valid(QuoteModel.status).required(),
             placeDeparture: {
                 street : Joi.string().required(),
                 number : Joi.string().required(),
@@ -32,15 +32,16 @@ module.exports = {
             numberAutocar: Joi.number().required(),
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
-            Price: Joi.number().required(),
+            price: Joi.number().required(),
+            com : Joi.string(),
         },
     },
     // POST /v1/quotes
     createQuote: {
         body: {
-            idUser: Joi.string().required(),
+            idClient: Joi.string().required(),
             numFolder: Joi.number().required(),
-            Status: Joi.string().valid(QuoteModel.status).required(),
+            status: Joi.string().valid(QuoteModel.status).required(),
             placeDeparture: {
                 street : Joi.string().required(),
                 number : Joi.string().required(),
@@ -65,7 +66,8 @@ module.exports = {
             numberAutocar: Joi.number().required(),
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
-            Price: Joi.number().required(),
+            price: Joi.number().required(),
+            com : Joi.string(),
         },
     },
     // GET /v1/quotes/:quoteId
@@ -77,9 +79,9 @@ module.exports = {
     // PATCH /v1/quotes/:quoteId
     updateQuote: {
         body: {
-            idUser: Joi.string().required(),
+            idClient: Joi.string().required(),
             numFolder: Joi.number().required(),
-            Status: Joi.string().valid(QuoteModel.status).required(),
+            status: Joi.string().valid(QuoteModel.status).required(),
             placeDeparture: {
                 street : Joi.string().required(),
                 number : Joi.string().required(),
@@ -104,7 +106,8 @@ module.exports = {
             numberAutocar: Joi.number().required(),
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
-            Price: Joi.number().required(),
+            price: Joi.number().required(),
+            com : Joi.string(),
         },
         params: {
             quoteId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

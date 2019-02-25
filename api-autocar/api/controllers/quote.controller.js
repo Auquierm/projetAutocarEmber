@@ -1,4 +1,5 @@
 const Quote = require('./../models/quote.model');
+const Client = require('./../controllers/client.controller');
 const Boom = require('boom');
 
 /** 
@@ -30,8 +31,40 @@ exports.findOne = async(req, res, next) =>{
 */
 exports.add = async (req, res, next) =>{
     try{
-        const quote = new Quote(req.body);
+        const quote = new Quote({
+            numFolder: 0,
+            placeDeparture:{ 
+                street: req.body.placeDeparture.street,
+                number: req.body.placeDeparture.number,
+                zip: req.body.placeDeparture.zip,
+                city: req.body.placeDeparture.city,
+                country: req.body.placeDeparture.country 
+            },
+            placeArrival:{ 
+                street: req.body.placeArrival.street,
+                number: req.body.placeArrival.number,
+                zip: req.body.placeArrival.zip,
+                city: req.body.placeArrival.city,
+                country: req.body.placeArrival.country 
+            },
+            dateArrival: req.body.dateArrival,
+            dateDeparture: req.body.dateDeparture,
+            pax: req.body.pax,
+            options: req.body.options,
+            capacityAutocar: req.body.capacityAutocar,
+            status: req.body.status,
+            numFolder: 0,
+            totalKm: 0,
+            numberDriver: 0,
+            numberAutocar : 0,
+            includeIn: ' ',
+            notIncludeIn: ' ',
+            price: 0,
+            com : req.body.com,
+            idClient: req.body.idClient
+        });
         await quote.save();
+        await Client.updateIdQuotes(req, res, next, req.body.idClient, quote._id);
         return res.json(quote);
     }catch(err){
         console.log(err.message);
