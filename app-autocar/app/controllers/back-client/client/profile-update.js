@@ -9,7 +9,8 @@ export default Controller.extend({
       console.log('id du client : ' + this.get('model.id'));
       console.log('id du user : ' + this.get('model.idUser.id'));
       console.log(this.get('model.idUser.firstname') + " " + this.get('model.idUser.lastname'));
-      await this.ajax.patch(`/users/${this.get('model.idUser.id')}`, {
+
+      await this.ajax.patch(`/clients/${this.get('model.id')}`, {
         data: {
           firstname: this.get('model.idUser.firstname'),
           lastname: this.get('model.idUser.lastname'),
@@ -23,11 +24,7 @@ export default Controller.extend({
             city: this.get('model.idUser.address.city'),
             zip: this.get('model.idUser.address.zip'),
             number: this.get('model.idUser.address.number')
-          }
-        }
-      });
-      await this.ajax.patch(`/clients/${this.get('model.id')}`, {
-        data: {
+          },
           adresseFacturation: {
             street: this.get('model.adresseFacturation.street'),
             city: this.get('model.adresseFacturation.city'),
@@ -40,10 +37,6 @@ export default Controller.extend({
           numBank: this.get('model.numBank')
         }
       });
-
-
-
     }
-
   }
 });

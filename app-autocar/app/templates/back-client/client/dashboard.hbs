@@ -9,11 +9,15 @@
       <th class="w-1/3">Date du devis</th>
       <th class="w-1/3">Actions</th>
     </tr>
+    {{log model}}
+
+
     <tr class="p-2 text-black">
-      <td class="w-1/3 text-center">2</td>
-      <td class="w-1/3 text-center">10/04/1992</td>
+      <td class="w-1/3 text-center">{{model.quote.numFolder}}</td>
+      <td class="w-1/3 text-center">oui</td>
       <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
     </tr>
+
     <tr class="p-2 text-black">
       <td class="w-1/3 text-center">3</td>
       <td class="w-1/3 text-center">10/11/1913</td>
