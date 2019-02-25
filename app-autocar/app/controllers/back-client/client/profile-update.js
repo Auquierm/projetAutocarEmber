@@ -6,9 +6,10 @@ export default Controller.extend({
   actions: {
     async update(event) {
       event.preventDefault();
+
       await this.ajax.patch(`/clients/${this.get('model.id')}`, {
-        headers :{
-          'Content-type' : 'application/json',
+        headers: {
+          'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
         },
         data: {
@@ -37,10 +38,7 @@ export default Controller.extend({
           numBank: this.get('model.numBank')
         }
       });
-
-
-
+      this.transitionToRoute('back-client.client.profile');
     }
-
   }
 });

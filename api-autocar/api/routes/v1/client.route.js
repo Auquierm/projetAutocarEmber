@@ -9,7 +9,7 @@ const router = Express.Router();
 
 router
     .route('/')
-    .get(/*authorize(ADMIN), */Validate(listClients), ClientController.findAll)
+    .get(authorize(ADMIN), Validate(listClients), ClientController.findAll)
     .post(Validate(createClient), ClientController.add)
 
 router
