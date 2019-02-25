@@ -19,7 +19,7 @@ body{
 
 ul{
   font-size: 12px;
-  
+
 }
 
 li{
@@ -99,6 +99,7 @@ button{
 
 nav .menuBack li{
   padding:15px;
+  width:100%;
   border-bottom:1px solid black;
 }
 

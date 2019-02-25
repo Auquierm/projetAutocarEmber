@@ -11,5 +11,6 @@ export default DS.Model.extend({
   email: attr('string'),
   phone: attr('string'),
   address: attr(),
-  idUser: attr('string'),
+  idUser: belongsTo('agent', 'client', 'driver'),
+  onModel: attr('string')
 });

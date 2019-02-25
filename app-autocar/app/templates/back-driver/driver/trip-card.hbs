@@ -1,0 +1,233 @@
+<div class="bg-white p-4 shadow-md mt-8">
+  <h2>Dossier #ID</h2>
+  <h4 class="mt-4 mb-4">Destination - Nom client - Date départ</h4>
+  {{!--Infos voyage--}}
+  <div>
+    <h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded ">Infos Véhicule:</h4>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Plaque véhicule:</div>
+        <div class="pl-2 italic">1-DUU-399{{!--plaque véhicule--}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">A prévoir: </div>
+        <div class="pl-2 italic">Remorque{{!--Options--}}</div>
+      </div>
+    </div>
+    <div class="flex space-between mb-6">
+
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Nombre places disponibles:</div>
+        <div class="pl-2 italic">82 + 1{{!--nbre place dispo--}}</div>
+      </div>
+
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Nombre de passagers prévu:</div>
+        <div class="pl-2 flex italic">69{{contactConfirmPax}}</div>
+      </div>
+    </div>
+  </div>
+{{!--Infos chauffeurs--}}
+  <div>
+    <h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded ">Infos Chauffeurs:</h4>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Nom, prénom chauffeur 1:</div>
+        <div class="pl-2 italic">Trotro Emilio{{!--Nom pnom chauff 1--}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Nom, prénom chauffeur 2: </div>
+        <div class="pl-2 italic">Liétard Aurore{{!--Nom pnom chauff 2--}}</div>
+      </div>
+    </div>
+    <div class="flex space-between mb-6">
+
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Contact chauffeur 1:</div>
+        <div class="pl-2 italic">0474 56 65 56{{!--num chauf 1--}}</div>
+      </div>
+
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Contact chauffeur 2:</div>
+        <div class="pl-2 flex italic">0474 60 68 95{{!--num chauff 2--}}</div>
+      </div>
+    </div>
+  </div>
+  {{!--Infos clients--}}
+  <div>
+    <h4 class="bgPrimaryBlue p-2 text-white mb-4 rounded">Infos client:</h4>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Prénom:</div>
+        <div class="pl-2 flex italic">Albert{{contactConfirmPrenom}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Nom: </div>
+        <div class="pl-2 italic">Redu{{ConfirmNom}}</div>
+      </div>
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Email: </div>
+        <div class="pl-2 italic">albert.redu@gmail.com{{contactConfirmEmail}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> N°Tel: </div>
+        <div class="pl-2 italic">003269777777{{contactConfirmConfirmTel}}</div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  {{!--Infos voyage--}}
+  <div>
+
+    <h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded">Infos Départ:</h4>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Date de départ: </div>
+        <div class="pl-2 italic">21/03/2019{{!--date de départ--}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Heure de départ: </div>
+        <div class="pl-2 italic">6h00{{!--HDD--}}</div>
+      </div>
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Localité, cp: </div>
+        <div class="pl-2 italic">Vezon, 7640{{contactConfirmDpCity }}{{!--cp--}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Rue: </div>
+        <div class="pl-2 italic">Rue de l'église{{contactConfirmConfirmDpStreet}}</div>
+      </div>
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">N°: </div>
+        <div class="pl-2 italic">12{{contactConfirmDpNumber}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Pays: </div>
+        <div class="pl-2 italic">Belgique{{contactConfirmDpPc}}</div>
+      </div>
+    </div>
+    <h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded">Infos Retour:</h4>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Date de retour: </div>
+        <div class="pl-2 italic">22/03/2019{{!--DDR--}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Heure de départ: </div>
+        <div class="pl-2 italic">17h00 {{!--HDDR--}}</div>
+      </div>
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Ville: </div>
+        <div class="pl-2 italic">Paris{{contactConfirmRtCity }}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Rue: </div>
+        <div class="pl-2 italic">Concorde{{contactConfirmConfirmRtStreet}}</div>
+      </div>
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">N°: </div>
+        <div class="pl-2 italic">12{{contactConfirmRtNumber}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Pays: </div>
+        <div class="pl-2 italic">France{{contactConfirmRtPc}}</div>
+      </div>
+    </div>
+        <div>
+<h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded">Programme de la journée:</h4>
+     <table class=" pl-2 w-1/2">
+    <tr class="p-2 text-blue-light bg-white underline ">
+      <th class="pl-2 w-1/2 text-left">Heure</th>
+      <th class="w-1/2 text-left">Activités</th>
+
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">5h30</td>
+      <td class="w-1/2 text-left">Départ dépot</td>
+
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">5h45</td>
+      <td class="w-1/2 text-left">Chargement</td>
+
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">6h00</td>
+      <td class="w-1/2 text-left">Départ - route vers Paris</td>
+
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">8h30</td>
+      <td class="w-1/2 text-left">Pause 30' - Aire d'Assevillers</td>
+
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">10h30</td>
+      <td class="w-1/2 text-left">Dépose d'une partie du groupe à "Cours la reine", déchargement de la remorque (vélos) Découlpage et sécurisation. </td>
+
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">11h00</td>
+      <td class="w-1/2 text-left">Tour de ville d'1h00 selon circulation</td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">12h30</td>
+      <td class="w-1/2 text-left">Dépose "Cours la reine"</td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">17h30</td>
+      <td class="w-1/2 text-left">Couplage de la remorque, chargement des vélos, des passagers</td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">18h00</td>
+      <td class="w-1/2 text-left">Départ vers la Belgique</td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">19h30</td>
+      <td class="w-1/2 text-left">Arrêt de 30' à l'aire d'Assevillers</td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">21h30</td>
+      <td class="w-1/2 text-left">Dépose du groupe à Vezon</td>
+    </tr>
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="pl-2 w-1/2 text-left">22h15</td>
+      <td class="w-1/2 text-left">Arrivée au depôt, mise à niveau des liquides, nettoyage</td>
+    </tr>
+  </table>
+          </div>
+    <div>
+<h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded">Remarques:</h4>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Commentaire responsable dossier: </div>
+            <div class="pl-2 italic">Parking cours la reine code: hds 123. Bonne route!
+            </div>
+          </div>
+    <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Commentaire client: </div>
+            <div class="pl-2 italic">J'aimerai un chauffeur qui puisse faire un tour de ville commenté{{!--textareaValue--}}</div>
+          </div>
+          </div>
+          </div>
+          <div class="mt-12 flex">
+    <input type="submit" value="Imprimer programme" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    <input type="submit" value="Télécharger programme" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    <input type="submit" value="Remplir état des lieux départ" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    <input type="submit" value="Remplir état des lieux arrivée" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+  </div>
+</div>
+</div>
