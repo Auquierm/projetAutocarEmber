@@ -1,0 +1,17 @@
+<select name="gender" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 px-1 py-1 w-full rounded shadow mt-2">
+  {{#if (compare sexe '===' 'homme')}}
+  <option selected value="homme">Homme</option>
+  {{else}}
+  <option value="homme">Homme</option>
+  {{/if}}
+  {{#if (compare sexe '===' 'femme')}}
+  <option selected value="femme">Femme</option>
+  {{else}}
+  <option value="femme">Femme</option>
+  {{/if}}
+  {{#if (compare sexe '===' 'autre')}}
+  <option selected value="autre">Autre</option>
+  {{else}}
+  <option value="autre">Autre</option>
+  {{/if}}
+</select>
