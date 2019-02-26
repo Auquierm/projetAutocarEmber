@@ -47,6 +47,9 @@ let schema = new Schema({
     },
     idUser : {
         type : String,
+    },
+    quotesId : {
+        type : Array,
     }
 });
 module.exports = Mongoose.model('Client', schema);

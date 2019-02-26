@@ -24,11 +24,8 @@
     </div>
     <div class="flex-1 w-1/2 p-3">
       Genre<br>
-      <select onchange="myFunctiongender" name="gender" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 px-1 py-1 w-full rounded shadow mt-2">
-        <option value="femme">Femme</option>
-        <option value="homme">Homme</option>
-        <option value="autre">Autre</option>
-      </select>
+      <SelectSexe @sexe={{model.idUser.sexe}} onchange={{action "selectOption" "gender"}} value="target.value" />
+
     </div>
   </div>
 
@@ -48,8 +45,11 @@
   <div class="flex mt-4">
     <div class="flex-1 w-1/2 p-3">
       Pays<br>
-      <div class="">{{input type="text" value=model.idUser.address.country class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+      {{!-- <div class="">{{input type="text" value=model.idUser.address.country class="block appearance-none w-full
+        bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div> --}}
+      <SelectCountry @country={{model.idUser.country}} onchange={{action "selectOption" "country"}} value="target.value" />
+
     </div>
     <div class="flex-1 w-1/2 p-3">
       Ville<br>
@@ -112,8 +112,7 @@
   <div class="flex mt-4">
     <div class="flex-1 w-1/2 p-3">
       Pays<br>
-      <div class="">{{input type="text" value=model.adresseFacturation.country class="block appearance-none w-full
-        bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+      <SelectCountry @country={{model.country}} onchange={{action "selectOption" "country"}} value="target.value" />
     </div>
     <div class="flex-1 w-1/2 p-3">
       Ville<br>

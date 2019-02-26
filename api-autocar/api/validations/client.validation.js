@@ -17,6 +17,7 @@ module.exports = {
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
             numBank: Joi.string().required(),
+            quotesId: Joi.string(),
         },
     },
     // POST /v1/clients
@@ -49,6 +50,7 @@ module.exports = {
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
             numBank: Joi.string().required(),
+            quotesId: Joi.string(),
         },
     },
     // GET /v1/clients/:clientId
@@ -87,6 +89,7 @@ module.exports = {
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
             numBank: Joi.string().required(),
+            quotesId: Joi.string(),
         },
         params: {
             clientId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

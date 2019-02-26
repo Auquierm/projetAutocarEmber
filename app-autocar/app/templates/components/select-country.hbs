@@ -1,0 +1,17 @@
+<select name="country" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 px-1 py-1 w-full rounded shadow mt-2">
+  {{#if (compare country '===' 'belgique')}}
+  <option selected value="belgique">Belgique</option>
+  {{else}}
+  <option value="belgique">Belgique</option>
+  {{/if}}
+  {{#if (compare country '===' 'france')}}
+  <option selected value="france">France</option>
+  {{else}}
+  <option value="france">France</option>
+  {{/if}}
+  {{#if (compare country '===' 'espagne')}}
+  <option selected value="espagne">Espagne</option>
+  {{else}}
+  <option value="espagne">Espagne</option>
+  {{/if}}
+</select>

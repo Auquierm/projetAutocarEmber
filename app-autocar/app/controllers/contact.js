@@ -6,7 +6,6 @@ export default Controller.extend({
   contactFirstname: '',
   actions: {
     sendMessage() {
-
       let newMessage = Contact.create({ contactFirstname: this.get('contactFirstname') });
       this.model.pushObject(newMessage);
       console.log(newMessage);

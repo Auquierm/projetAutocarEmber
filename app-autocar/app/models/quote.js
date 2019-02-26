@@ -1,25 +1,23 @@
 import DS from 'ember-data';
 
-const { attr, belongsTo } = DS;
+const { attr } = DS;
 
 export default DS.Model.extend({
-  numFolder: attr('string'),
+  numFolder: attr('number'),
   placeDeparture: attr(),
   placeArrival: attr(),
   dateArrival: attr('date'),
   dateDeparture: attr('date'),
   totalKm : attr('number'),
   pax: attr('number'),
-  options: attr('string'),
+  options: attr(),
   numberDriver: attr('number'),
   capacityAutocar: attr('number'),
   includeIn: attr('string'),
   notIncludeIn: attr('string'),
+  numberAutocar : attr('number'),
   price: attr('number'),
-  Status: attr('string'),
-  idUser: belongsTo('client'),
-  com: attr('string')
-
-
-
+  status: attr('string'),
+  com : attr('string'),
+  idClient: attr('string')
 });

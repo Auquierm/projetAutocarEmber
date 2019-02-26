@@ -4,16 +4,17 @@ let Schema = Mongoose.Schema;
 let status = ["traitement", "attente", "ferme", "refuse", "valide"]
 
 let schema = new Schema({
-    idUser : {
-        type : Mongoose.Schema.Types.ObjectId,
-        ref : 'Client',
+    idClient : {
+        // type : Mongoose.Schema.Types.ObjectId,
+        // ref : 'Client',
+        type: String,
         required :true,
     },
     numFolder : {
         type : Number,
         required : true,
     },
-    Status : {
+    status : {
         type: String,
         required: true,
         enum: status
@@ -101,9 +102,12 @@ let schema = new Schema({
         type : String,
         required : true,
     },
-    Price : {
+    price : {
         type : Number,
         required : true,
+    },
+    com : {
+        type : String,
     }
 });
 
