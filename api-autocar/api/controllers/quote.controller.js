@@ -31,8 +31,10 @@ exports.findOne = async(req, res, next) =>{
 */
 exports.add = async (req, res, next) =>{
     try{
-        const quote = new Quote({
-            numFolder: 0,
+        const numberOfQuote = await Quote.find();
+        let numForFolder = (numberOfQuote.length)+1;
+        const quote = await new Quote({
+            numFolder: numForFolder,
             placeDeparture:{ 
                 street: req.body.placeDeparture.street,
                 number: req.body.placeDeparture.number,
@@ -53,7 +55,6 @@ exports.add = async (req, res, next) =>{
             options: req.body.options,
             capacityAutocar: req.body.capacityAutocar,
             status: req.body.status,
-            numFolder: 0,
             totalKm: 0,
             numberDriver: 0,
             numberAutocar : 0,
