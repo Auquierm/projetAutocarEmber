@@ -20,5 +20,5 @@ export default DS.Model.extend({
   status: attr('string'),
   com: attr('string'),
   idClient: attr('string'),
-  dateCreation: attr('date')
+  dateCreation: attr('string')
 });

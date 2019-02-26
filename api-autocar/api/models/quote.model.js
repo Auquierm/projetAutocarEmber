@@ -111,7 +111,7 @@ let schema = new Schema({
     },
     dateCreation: {
         type: String,
-        required: true
+        required: true,
     }
 });
 

@@ -1,5 +1,6 @@
 const Quote = require('./../models/quote.model');
 const Client = require('./../controllers/client.controller');
+const DateQuote = require('./../services/dateCreationQuote.service');
 const Boom = require('boom');
 
 /** 
@@ -31,10 +32,9 @@ exports.findOne = async (req, res, next) => {
 */
 exports.add = async (req, res, next) => {
     try {
-        console.log((new Date().getDay()));
         const numberOfQuote = await Quote.find();
         let numForFolder = (numberOfQuote.length) + 1;
-        const quote = new Quote({
+        const quote = await new Quote({
             numFolder: numForFolder,
             placeDeparture: {
                 street: req.body.placeDeparture.street,
@@ -64,7 +64,7 @@ exports.add = async (req, res, next) => {
             price: 0,
             com: req.body.com,
             idClient: req.body.idClient,
-            dateCreation: new Date()
+            dateCreation: DateQuote.createDateQuote(),
         });
         await quote.save();
         await Client.updateIdQuotes(req, res, next, req.body.idClient, quote._id);
