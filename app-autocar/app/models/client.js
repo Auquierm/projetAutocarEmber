@@ -9,5 +9,5 @@ export default DS.Model.extend({
   societe: attr('string'),
   numBank: attr('string'),
   idUser: belongsTo('user'),
-  quote: belongsTo('quote')
+  quotesId: hasMany('quote')
 });

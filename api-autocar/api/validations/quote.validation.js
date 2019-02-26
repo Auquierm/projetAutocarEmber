@@ -9,23 +9,23 @@ module.exports = {
             numFolder: Joi.number().required(),
             status: Joi.string().valid(QuoteModel.status).required(),
             placeDeparture: {
-                street : Joi.string().required(),
-                number : Joi.string().required(),
-                zip : Joi.string().required(),
-                city : Joi.string().required(),
-                country : Joi.string().required()
+                street: Joi.string().required(),
+                number: Joi.string().required(),
+                zip: Joi.string().required(),
+                city: Joi.string().required(),
+                country: Joi.string().required()
             },
             placeArrival: {
-                street : Joi.string().required(),
-                number : Joi.string().required(),
-                zip : Joi.string().required(),
-                city : Joi.string().required(),
-                country : Joi.string().required()
+                street: Joi.string().required(),
+                number: Joi.string().required(),
+                zip: Joi.string().required(),
+                city: Joi.string().required(),
+                country: Joi.string().required()
             },
             dateArrival: Joi.string().required(),
             dateDeparture: Joi.string().required(),
             totalKm: Joi.number().required(),
-            options : Joi.array().required(),
+            options: Joi.array().required(),
             pax: Joi.number().required(),
             numberDriver: Joi.number().required(),
             capacityAutocar: Joi.number().required(),
@@ -33,7 +33,8 @@ module.exports = {
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
             price: Joi.number().required(),
-            com : Joi.string(),
+            com: Joi.string(),
+            dateCreation: Joi.string().required()
         },
     },
     // POST /v1/quotes
@@ -43,23 +44,23 @@ module.exports = {
             numFolder: Joi.number().required(),
             status: Joi.string().valid(QuoteModel.status).required(),
             placeDeparture: {
-                street : Joi.string().required(),
-                number : Joi.string().required(),
-                zip : Joi.string().required(),
-                city : Joi.string().required(),
-                country : Joi.string().required()
+                street: Joi.string().required(),
+                number: Joi.string().required(),
+                zip: Joi.string().required(),
+                city: Joi.string().required(),
+                country: Joi.string().required()
             },
             placeArrival: {
-                street : Joi.string().required(),
-                number : Joi.string().required(),
-                zip : Joi.string().required(),
-                city : Joi.string().required(),
-                country : Joi.string().required()
+                street: Joi.string().required(),
+                number: Joi.string().required(),
+                zip: Joi.string().required(),
+                city: Joi.string().required(),
+                country: Joi.string().required()
             },
             dateArrival: Joi.string().required(),
             dateDeparture: Joi.string().required(),
             totalKm: Joi.number().required(),
-            options : Joi.array().required(),
+            options: Joi.array().required(),
             pax: Joi.number().required(),
             numberDriver: Joi.number().required(),
             capacityAutocar: Joi.number().required(),
@@ -67,7 +68,8 @@ module.exports = {
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
             price: Joi.number().required(),
-            com : Joi.string(),
+            com: Joi.string(),
+            dateCreation: Joi.string().required()
         },
     },
     // GET /v1/quotes/:quoteId
@@ -83,23 +85,23 @@ module.exports = {
             numFolder: Joi.number().required(),
             status: Joi.string().valid(QuoteModel.status).required(),
             placeDeparture: {
-                street : Joi.string().required(),
-                number : Joi.string().required(),
-                zip : Joi.string().required(),
-                city : Joi.string().required(),
-                country : Joi.string().required()
+                street: Joi.string().required(),
+                number: Joi.string().required(),
+                zip: Joi.string().required(),
+                city: Joi.string().required(),
+                country: Joi.string().required()
             },
             placeArrival: {
-                street : Joi.string().required(),
-                number : Joi.string().required(),
-                zip : Joi.string().required(),
-                city : Joi.string().required(),
-                country : Joi.string().required()
+                street: Joi.string().required(),
+                number: Joi.string().required(),
+                zip: Joi.string().required(),
+                city: Joi.string().required(),
+                country: Joi.string().required()
             },
             dateArrival: Joi.string().required(),
             dateDeparture: Joi.string().required(),
             totalKm: Joi.number().required(),
-            options : Joi.array().required(),
+            options: Joi.array().required(),
             pax: Joi.number().required(),
             numberDriver: Joi.number().required(),
             capacityAutocar: Joi.number().required(),
@@ -107,7 +109,8 @@ module.exports = {
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
             price: Joi.number().required(),
-            com : Joi.string(),
+            com: Joi.string(),
+            dateCreation: Joi.string().required()
         },
         params: {
             quoteId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),
