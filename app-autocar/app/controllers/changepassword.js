@@ -19,6 +19,7 @@ export default Controller.extend({
           }
         });
         this.session.invalidate();
+        this.session.data['isChanged'] = true;
         await this.transitionToRoute("/login");
       }else{
         this.set('pwdDiff', true);

@@ -80,7 +80,7 @@ exports.update = async (req, res, next) =>{
 */
 exports.updateIdQuotes = async (req, res, next, clientID, quotesID) =>{
     try {
-        await Client.findByIdAndUpdate(clientID, {quotesId : quotesID}, {new : true});
+        await Client.findByIdAndUpdate(clientID, {$push: {quotesId : quotesID}}, {new : true});
     } catch (err) {
         console.log(err);
         next(Boom.badImplementation(err.message));

@@ -1,5 +1,6 @@
 const Quote = require('./../models/quote.model');
 const Client = require('./../controllers/client.controller');
+const DateQuote = require('./../services/dateCreationQuote.service');
 const Boom = require('boom');
 
 /** 
@@ -62,7 +63,8 @@ exports.add = async (req, res, next) =>{
             notIncludeIn: ' ',
             price: 0,
             com : req.body.com,
-            idClient: req.body.idClient
+            idClient: req.body.idClient,
+            dateCreation : DateQuote.createDateQuote(),
         });
         await quote.save();
         await Client.updateIdQuotes(req, res, next, req.body.idClient, quote._id);

@@ -21,7 +21,7 @@ Router.map(function () {
       this.route('proposals');
       this.route('proposal');
       this.route('requests');
-      this.route('request');
+      this.route('request', {path: ':idrequest'});
       this.route('folders');
       this.route('folder');
       this.route('profile');

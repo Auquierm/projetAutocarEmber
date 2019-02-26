@@ -19,5 +19,6 @@ export default DS.Model.extend({
   price: attr('number'),
   status: attr('string'),
   com : attr('string'),
-  idClient: attr('string')
+  idClient: attr('string'),
+  dateCreation : attr('string')
 });

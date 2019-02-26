@@ -108,6 +108,10 @@ let schema = new Schema({
     },
     com : {
         type : String,
+    },
+    dateCreation : {
+        type : String,
+        required : true,
     }
 });
 
