@@ -3,8 +3,8 @@ import { inject as service } from '@ember/service'
 
 export default Controller.extend({
   session: service(),
-  contactConfirmEmail: 'james1223bond@gmail.com',
-  contactConfirmPwd: '1234567',
+  contactConfirmEmail: '',
+  contactConfirmPwd: '',
   actions: {
     async login(event) {
       event.preventDefault()
