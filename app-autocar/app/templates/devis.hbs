@@ -1,5 +1,5 @@
-<nav class="fixed pin-t w-full flex items-center justify-between flex-wrap bg-blue-transparent py-2">
-    <div class="xl:w-3/5 mx-auto md:flex md:items-center md:justify-between">
+<nav class="fixed pin-t w-full flex items-center justify-between flex-wrap bg-blue-transparent py-2 z-10">
+    <div class="md:w-2/3 mx-auto md:flex md:items-center md:justify-between">
         <div class="flex justify-between items-center">
 
             <div class="">
@@ -19,7 +19,7 @@
         {{#if isHidden}}
 
         <div class="">
-            <ul class="text-sm md:flex .prompt font-bold">
+            <ul class="text-sm text-center md:flex .prompt font-bold">
                 <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
                     {{!-- {{link-to "Home" "home"}} --}}
                     <a href="home#home">Accueil</a>
@@ -44,55 +44,49 @@
     </div>
 </nav>
 
-<header class="bg-banner-image w-full h-400px sm:invisible md:visible flex items-end">
-    <div class="xl:w-3/5 md:mx-auto h-4/5 mb-8 flex">
-
-        <div class="w-1/3 text-right mb-8 ml-32 pb-20">
-            <img src="assets/images/logoShadow-md.png" width="300px">
-        </div>
-        <div class="w-2/3 flex justify-end items-end">
-            <h2 class="bg-blue-transparent text-white block text-right p-4 rounded-lg">Personnalisez votre
-                voyage
-                en autocar et<br>
-                obtenez un
-                devis en quelques clics</h2>
-        </div>
+<header class="w-full md:h-32 sm:hidden md:block">
+    <div class="w-full">
+          <img src="/assets/images/voyage/voyage_banner.jpg" alt="photoRoute" class="w-full resize-x h-64">
     </div>
 </header>
 
 {{!-- ---------------------- fin menu ------------------------------- --}}
 
-<div class="mx-auto h-full font-sans">
-    <h1 class="text-center sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl pt-4 pb-2">Planifiez votre voyage</h1>
-    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto px-8 sm:pt-0 md:pt-4 pb-8 sm:mb-2 lg:mb-4">
-        {{!-- div votre devis --}}
+
+{{!-- ---------------------- debut formulaire ---------------------- --}}
+<div class="mx-auto h-full font-sans sm:pt-16 md:pt-0">
+    <h1 class="text-center sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl sm:text-black md:text-white pt-4 pb-2 sectionTitle">Planifiez votre voyage</h1>
+    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto px-8 sm:pt-0 md:pt-24 pb-8 sm:mb-2 lg:mb-4">
+
+    {{!---------- div votre devis ----------}}
         <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg">
             <span class="font-bold">Votre Devis</span>
             <p class="pt-3">
                 Veuillez remplir intégralement ce formulaire afin qu'un agent prenne en compte vorte demande.
             </p>
         </div>
-        {{!-- div étape 1 --}}
+
+    {{!---------- div étape 1 : Informations personelles----------}}
         <div>
             <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
                 <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 1 : Informations personnelles</span>
             </div>
-            {{!-- div nom et prénom --}}
-            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+            {{!---------- div prénom et nom ----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmPrenom class="block appearance-none w-full bg-white
+                    {{input type="text" value=firstname class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Prénom"}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmNom class="block appearance-none w-full bg-white
+                    {{input type="text" value=lastname class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom"}}
                 </div>
             </div>
-            {{!-- div email, genre et pays --}}
+            {{!---------- div age, genre et pays ----------}}
             <div class="md:w-4/5 mx-auto md:flex md:flex-row-reverse sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <select onchange="myFunctiongender" name="gendr" class="nofocus flex-1 appearance-none bg-white border
-                    border-grey-light hover:border-grey px-1 py-5px rounded shadow"
+                    border-grey-light hover:border-grey px-1 rounded shadow h-full"
                         id=gender required>
                         <option value="femme">Femme</option>
                         <option value="homme">Homme</option>
@@ -100,7 +94,7 @@
                     </select>
                     <input type="hidden" id="printFlags">
                     <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
-                    border-grey-light hover:border-grey px-1 py-5px rounded shadow"
+                    border-grey-light hover:border-grey px-1 rounded shadow h-full"
                         id=flags required>
                         <option value="belgique">Belgique</option>
                         <option value="france">France</option>
@@ -109,78 +103,134 @@
                     <input type="hidden" id="printFlags">
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmEmail class="block appearance-none w-full bg-white border
-                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Email"}}
+                    {{input type="text" value=age class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Age"}}
                 </div>
             </div>
-            {{!-- div comfirmation email et nom de société --}}
+            {{!----------- div email et confirmation email -----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmConfirmEmail class="block appearance-none w-full bg-white
+                    {{input type="text" value=email class="block appearance-none w-full bg-white border
+                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Email"}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=confirmEmail class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                     placeholder="Confirmation email"}}
                 </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmSociety class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom de société"}}
-                </div>
             </div>
-            {{!-- div N°Tel et N°Fax --}}
+            {{!----------- div N°Tel et N°Fax -----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmConfirmTel class="block appearance-none w-full bg-white
+                    {{input type="text" value=phone class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel"}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmFax class="block appearance-none w-full bg-white
+                    {{input type="text" value=fax class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Fax"}}
                 </div>
             </div>
-            {{!-- div N°Tva et ville --}}
+            {{!---------- div ville et rue ----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmConfirmTva class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° TVA"}}
-                </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmCity class="block appearance-none w-full bg-white
+                    {{input type="text" value=city class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"}}
                 </div>
-            </div>
-            {{!-- div Rue, numéro et code postal --}}
-            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmConfirmStreet class="block appearance-none w-full bg-white
+                    {{input type="text" value=street class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
                 </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-                    <div class="flex-1">
-                        {{input type="text" value=contactConfirmNumber class="block appearance-none w-full
-                        bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                        placeholder="Numéro"}}
-                    </div>
-                    <div class="flex-1">
-                        {{input type="text" value=contactConfirmPc class="block appearance-none w-full bg-white border
-                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
-                    </div>
+            </div>
+            {{!---------- div numéro et code postal ----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=number class="block appearance-none w-full
+                    bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                    placeholder="Numéro"}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=zip class="block appearance-none w-full bg-white border
+                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
                 </div>
             </div>
         </div>
 
-        {{!-- div étape 2 --}}
+
+
+    {{!---------- div étape 2 : Information société----------}}
         <div>
             <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
-                <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 2 : Informations voyage</span>
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 2 : Information société</span>
+            </div>
+            {{!---------- div nom et n° tva ----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityName class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom de la société"}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityTva class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° TVA"}}
+                </div>
+            </div>
+            {{!----------- div N°Tel et N°Fax -----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityPhone class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel"}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityFax class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Fax"}}
+                </div>
+            </div>
+            {{!---------- div ville et rue ----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityCity class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityStreet class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
+                </div>
+            </div>
+            {{!-- div Numéro, code postal et compte bancaire --}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+                    <div class="flex-1">
+                        {{input type="text" value=soceityNumber class="block appearance-none w-full
+                        bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                        placeholder="Numéro"}}
+                    </div>
+                    <div class="flex-1">
+                        {{input type="text" value=soceityZip class="block appearance-none w-full bg-white border
+                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
+                    </div>
+                </div>
+                                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityBankNumber class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° compte bancaire"}}
+                </div>
+            </div>
+        </div>
+
+
+
+    {{!---------- div étape 3 ----------}}
+        <div>
+            <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 3 : Informations voyage</span>
             </div>
             {{!-- div Nbre passagers et type de car --}}
-            <div class="md:w-4/5 mx-auto md:flex  sm:text-xs lg:text-base">
+            <div class="md:w-4/5 mx-auto md:flex  sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmPax class="block appearance-none w-full bg-white border
+                    {{input type="text" value=tripPax class="block appearance-none w-full bg-white border
                     border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nbre de passagers"}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
-                    border-grey-light hover:border-grey px-1 py-5px rounded shadow"
+                    border-grey-light hover:border-grey px-1 rounded shadow h-full"
                         id=flags required>
                         <option value="30pl">30-Pl</option>
                         <option value="50pl">50-Pl</option>
@@ -189,6 +239,7 @@
                     <input type="hidden" id="printFlags">
                 </div>
             </div>
+            {{!-- Départ --}}
             <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
                 <span class="sm:text-xs lg:text-lg text-blue font-bold">Départ</span>
             </div>
@@ -215,45 +266,47 @@
                     placeholder="Départ"
                     }}
                 </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex bg-red">
-                    <div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+                    <div class="w-1/2 md:flex-1">
                         <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
-                    border-grey-light hover:border-grey px-2 md:flex-1 w-full rounded shadow"
+                    border-grey-light hover:border-grey px-2 h-full w-full rounded shadow"
                             id=flags required>
                             <option value="belgique">Belgique</option>
                             <option value="france">France</option>
                             <option value="espagne">Espagne</option>
                         </select>
+                        <input type="hidden" id="printFlags">
                     </div>
-
-
-                    {{input type="text" value=contactConfirmDpCity class="block appearance-none w-full md:flex-1
-                    bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
+                    <div class="w-1/2 md:flex-1">
+                        {{input type="text" value=tripDpCity class="block appearance-none w-full
+                        bg-white
+                        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
+                    </div>
                 </div>
             </div>
             {{!-- div Rue, numéro et code postal --}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmConfirmStreet class="block appearance-none w-full bg-white
+                    {{input type="text" value=tripDpStreet class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="flex-1">
-                        {{input type="text" value=contactConfirmNumber class="block appearance-none w-full
+                        {{input type="text" value=tripDpNumber class="block appearance-none w-full
                         bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                         placeholder="Numéro"}}
                     </div>
                     <div class="flex-1">
-                        {{input type="text" value=contactConfirmPc class="block appearance-none w-full bg-white border
+                        {{input type="text" value=tripDpZip class="block appearance-none w-full bg-white border
                         border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
                     </div>
                 </div>
             </div>
+            {{!---------- Retour -----------}}
             <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
                 <span class="sm:text-xs lg:text-lg text-blue font-bold">Retour</span>
             </div>
-            {{!-- div (date/heure départ) pays et ville --}}
+            {{!-- div (date/heure retour) pays et ville --}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{ember-flatpickr
@@ -273,37 +326,41 @@
                     onReady=(action "onReadyTime")
                     class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"
-                    placeholder="Départ"
+                    placeholder="Retour"
                     }}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-                    <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
-                    border-grey-light hover:border-grey px-2 md:flex-1 w-full rounded shadow"
-                        id=flags required>
-                        <option value="belgique">Belgique</option>
-                        <option value="france">France</option>
-                        <option value="espagne">Espagne</option>
-                    </select>
-                    <input type="hidden" id="printFlags">
-                    {{input type="text" value=contactConfirmDpCity class="block appearance-none w-full md:flex-1
-                    bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
+                    <div class="w-1/2 md:flex-1">
+                        <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+                    border-grey-light hover:border-grey px-2 w-full rounded shadow h-full"
+                            id=flags required>
+                            <option value="belgique">Belgique</option>
+                            <option value="france">France</option>
+                            <option value="espagne">Espagne</option>
+                        </select>
+                        <input type="hidden" id="printFlags">
+                    </div>
+                    <div class="w-1/2 md:flex-1">
+                        {{input type="text" value=tripRtCity class="block appearance-none w-full
+                        bg-white
+                        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
+                    </div>
                 </div>
             </div>
             {{!-- div Rue, numéro et code postal --}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=contactConfirmConfirmStreet class="block appearance-none w-full bg-white
+                    {{input type="text" value=tripRtStreet class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="flex-1">
-                        {{input type="text" value=contactConfirmNumber class="block appearance-none w-full
+                        {{input type="text" value=tripRtNumber class="block appearance-none w-full
                         bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                         placeholder="Numéro"}}
                     </div>
                     <div class="flex-1">
-                        {{input type="text" value=contactConfirmPc class="block appearance-none w-full bg-white border
+                        {{input type="text" value=tripRtZip class="block appearance-none w-full bg-white border
                         border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
                     </div>
                 </div>
@@ -322,13 +379,14 @@
                 </div>
             </div>
         </div>
-        {{!-- div étape 3 --}}
+
+    {{!---------- div étape 4 : commentaire ----------}}
         <div>
             <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
-                <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 3 : Commentaires</span>
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 4 : Commentaires</span>
             </div>
             {{!-- div (date/heure départ) pays et ville --}}
-            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     <textarea id="story" name="story" rows="5" cols="33" class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow">
@@ -344,6 +402,8 @@
         </div>
     </form>
 </div>
+
+{{!-- ---------------------- fin formulaire ---------------------- --}}
 
 <footer class=" mt-4 bg-blue-transparent text-white pt-3 pb-3 md:justify-center">
     <div class="flex flex-wrap sm:ml-2 md:ml-8 ml-10 text-xs justify-center">

@@ -17,6 +17,7 @@ body{
   width:960px;
 }
 
+
 ul{
   font-size: 12px;
   
@@ -33,12 +34,11 @@ a{
 h1{
   font-family: 'Prompt', sans-serif;
 }
-header {
- height:500px;
-}
+
 p {
   font-size: 12px;
 }
+
 
 #about {
   background-image: url("/assets/images/aPropos/aPropos_banner.jpg");
@@ -154,4 +154,3 @@ tr:nth-child(2n) {
   position: absolute;
   content:"";
 }
-
