@@ -2,36 +2,23 @@
 
 <div class="bg-white p-4 shadow-md mt-4">
   <table class="w-full">
+
     <tr class="p-2 text-white bgPrimaryBlue">
       <th class="w-1/4">Id</th>
-      <th class="w-1/4">Id client</th>
-      <th class="w-1/4">Cloturé</th>
+      <th class="w-1/4">Nom client</th>
+      <th class="w-1/4">Statut</th>
       <th class="w-1/4">Actions</th>
     </tr>
+
+{{#each model as |quote|}}
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">2</td>
-      <td class="w-1/4 text-center">24</td>
-      <td class="w-1/4 text-center">Oui</td>
+      <td class="w-1/4 text-center">{{quote.id}}</td>
+      <td class="w-1/4 text-center">{{quote.idUser}}</td>
+      <td class="w-1/4 text-center">{{quote.Status}}</td>
       <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
     </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">3</td>
-      <td class="w-1/4 text-center">8</td>
-      <td class="w-1/4 text-center">Non</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">4</td>
-      <td class="w-1/4 text-center">12</td>
-      <td class="w-1/4 text-center">Oui</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">5</td>
-      <td class="w-1/4 text-center">2</td>
-      <td class="w-1/4 text-center">Non</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
+ {{/each}}
+
   </table>
   {{!-- <div class="text-right italic text-xs mt-2">
     {{#link-to "back-client.client.proposals"}}Voir toutes les propositions de devis{{/link-to}}

@@ -1,188 +1,212 @@
-<h2 class="mt-6">Devis #ID du client #ID</h2>
+<h2 class="mt-6">Dossier {{model.id}} du client {{model.idUser.lastname}}</h2>
 
 <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
 
-  {{!--Infos clients--}}
-  <div>
-    <h4 class="bgPrimaryBlue p-2 text-white mb-4 rounded">Infos client:</h4>
+   {{!--Infos clients--}}
+  <div class="mb-6">
+    <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
+      <h4 class="">Infos client:</h4>
+      <i class="fas fa-user-edit"></i>
+    </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Prénom:</div>
-        <div class="pl-2 flex italic">Albert{{contactConfirmPrenom}}</div>
+        <div class="pl-2 flex italic">{{model.idUser.firstname}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Nom: </div>
-        <div class="pl-2 italic">Redu{{ConfirmNom}}</div>
+        <div class="pl-2 italic">{{model.idUser.firstname}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Email: </div>
-        <div class="pl-2 italic">albert.redu@gmail.com{{contactConfirmEmail}}</div>
+        <div class="pl-2 italic">{{model.idUser.email}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Genre: </div>
-        <div class="pl-2 italic">Masculin{{!--genre--}}</div>
+        <div class="pl-2 italic">{{model.idUser.sexe}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Société: </div>
-        <div class="pl-2 italic">Rebuc Tuyau{{contactConfirmSociety}}</div>
+        <div class="pl-2 italic">{{model.idUser.societe}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N° Tva: </div>
-        <div class="pl-2 italic">Be 123654789 {{contactConfirmConfirmTva}}</div>
+        <div class="pl-2 italic">{{model.idUser.numTVA}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> N°Tel: </div>
-        <div class="pl-2 italic">003269777777{{contactConfirmConfirmTel}}</div>
+        <div class="pl-2 italic">{{model.idUser.phone}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N°Fax: </div>
-        <div class="pl-2 italic">0032777776{{contactConfirmFax}}</div>
+        <div class="pl-2 italic">{{model.idUser.numFax}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Ville: </div>
-        <div class="pl-2 italic">Vezon{{contactConfirmCity}}</div>
+        <div class="pl-2 italic">{{model.idUser.address.city}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Rue: </div>
-        <div class="pl-2 italic">Rue des Italiens{{contactConfirmConfirmStreet}}</div>
+        <div class="pl-2 italic">{{model.idUser.address.street}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N°: </div>
-        <div class="pl-2 italic">69{{contactConfirmNumber}}</div>
+        <div class="pl-2 italic">{{model.idUser.phone}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Pays: </div>
-        <div class="pl-2 italic">Belgique{{contactConfirmPc}}</div>
+        <div class="pl-2 italic">{{model.idUser.address.country}}</div>
       </div>
     </div>
   </div>
 
 
   {{!--Infos voyage--}}
-  <div>
-<h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded">Infos Départ:</h4>
+  <div class="mb-6">
+    <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
+      <h4>Infos Départ:</h4>
+      <i class="far fa-edit"></i>
+    </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Date de départ: </div>
-        <div class="pl-2 italic">21/03/2019{{!--date de départ--}}</div>
+        <div class="p-2 flex font-bold">Date et heure de départ: </div>
+        <div class="pl-2 italic">{{model.dateDeparture}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Heure de départ: </div>
-        <div class="pl-2 italic">12h00{{!--HDD--}}</div>
-      </div>
+
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Ville: </div>
-        <div class="pl-2 italic">Paris{{contactConfirmDpCity }}</div>
+        <div class="pl-2 italic">{{model.placeDeparture.city}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Rue: </div>
-        <div class="pl-2 italic">Concorde{{contactConfirmConfirmDpStreet}}</div>
+        <div class="pl-2 italic">{{model.placeDeparture.street}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N°: </div>
-        <div class="pl-2 italic">12{{contactConfirmDpNumber}}</div>
+        <div class="pl-2 italic">{{model.placeDeparture.number}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Pays: </div>
-        <div class="pl-2 italic">France{{contactConfirmDpPc}}</div>
+        <div class="pl-2 italic">{{model.placeDeparture.country}}</div>
       </div>
+    </div>
+  </div>
+  <div class="mb-6">
+    <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
+      <h4>Infos Retour:</h4>
+      <i class="far fa-edit"></i>
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Date et heure de retour: </div>
+        <div class="pl-2 italic">{{model.dateArrival}}</div>
       </div>
-      <h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded">Infos Retour:</h4>
-      <div class="flex space-between mb-2">
-        <div class="flex flex-1 flex-col">
-          <div class="p-2 flex font-bold">Date de retour: </div>
-          <div class="pl-2 italic">22/03/2019{{!--DDR--}}</div>
-        </div>
-        <div class="flex flex-1 flex-col">
-          <div class="p-2 flex font-bold">Heure de départ: </div>
-          <div class="pl-2 italic">17h00 {{!--HDDR--}}</div>
-        </div>
+
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Ville: </div>
+        <div class="pl-2 italic">{{model.placeArrival.city}}</div>
       </div>
-      <div class="flex space-between mb-2">
-        <div class="flex flex-1 flex-col">
-          <div class="p-2 flex font-bold"> Ville: </div>
-          <div class="pl-2 italic">Paris{{contactConfirmRtCity }}</div>
-        </div>
-        <div class="flex flex-1 flex-col">
-          <div class="p-2 flex font-bold">Rue: </div>
-          <div class="pl-2 italic">Concorde{{contactConfirmConfirmRtStreet}}</div>
-        </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Rue: </div>
+        <div class="pl-2 italic">{{model.placeArrival.street}}</div>
       </div>
-      <div class="flex space-between mb-2">
-        <div class="flex flex-1 flex-col">
-          <div class="p-2 flex font-bold">N°: </div>
-          <div class="pl-2 italic">12{{contactConfirmRtNumber}}</div>
-        </div>
-        <div class="flex flex-1 flex-col">
-          <div class="p-2 flex font-bold">Pays: </div>
-          <div class="pl-2 italic">France{{contactConfirmRtPc}}</div>
-        </div>
-        </div>
-        <h4 class="bgPrimaryBlue p-2 text-white mt-6 mb-4 rounded ">Infos Voyage:</h4>
-        <div class="">
-          <div class="flex flex-1 flex-col">
-            <div class="p-2 flex font-bold"> Durée du voyage </div>
-            <div class="pl-2 italic">2 jours{{!--duree du voyage--}}</div>
-          </div>
-          <div class="flex flex-1 flex-col">
-            <div class="p-2 flex font-bold">Kilométrage estimé:</div>
-            <div class="pl-2 italic">548 kilomètres{{!--kms--}}</div>
-          </div>
-        </div>
-        <div class="">
+    </div>
+    <div class="flex space-between mb-2">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">N°: </div>
+        <div class="pl-2 italic">{{model.placeArrival.number}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Pays: </div>
+        <div class="pl-2 italic">{{model.placeArrival.country}}</div>
+      </div>
+    </div>
+    </div>
+    <div class="mb-6">
+    <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
+      <h4>Infos Voyage:</h4>
+      <i class="far fa-edit"></i>
+    </div>
+    <div class="">
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Durée du voyage </div>
+        <div class="pl-2 italic text-red font-bold">A calculer DR-DD!{{!--duree du voyage--}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Kilométrage estimé:</div>
+        <div class="pl-2 italic text-red font-bold">a entrer par l'agent{{!--kms--}}</div>
+      </div>
+    </div>
+    <div class="">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Nombre de passagers:</div>
-        <div class="pl-2 flex italic">69{{contactConfirmPax}}</div>
+        <div class="pl-2 flex italic">{{model.pax}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Type de car: </div>
-        <div class="pl-2 italic">50-pl{{!--type de car--}}</div>
+        <div class="pl-2 italic">{{model.capacityAutocar}} places</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Nombre de chauffeur(s): </div>
+        <div class="pl-2 italic">{{model.numberDriver}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Inclus dans le prix: </div>
+        <div class="pl-2 italic">{{model.includeIn}}</div>
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Non inclus dans le prix: </div>
+        <div class="pl-2 italic">{{model.notIncludeIn}}</div>
       </div>
     </div>
     <div class="flex justify-between">
-            <div class="p-2 flex font-bold"> Prix de base: </div>
-            <div class="p-2 italic">1800 €{{!--prix de base--}}</div>
-            </div>
-        <div class="">
-          <div class="flex flex-1 flex-col">
-            <div class="flex justify-between">
-            <div class="p-2 flex font-bold"> Options: </div>
-            <div class="p-2 italic">300 €{{!--suppléments--}}</div>
-            </div>
-            <div class="pl-2 italic">Remorque{{!--optionValue--}}</div>
-          </div>
+      <div class="p-2 flex font-bold"> Prix de base: </div>
+      <div class="p-2 italic">1800 €{{!--prix de base--}}</div>
+    </div>
+    <div class="">
+      <div class="flex flex-1 flex-col">
+        <div class="flex justify-between">
+          <div class="p-2 flex font-bold"> Options: </div>
+          <div class="p-2 italic">300 €{{!--suppléments--}}</div>
+        </div>
+        <div class="pl-2 italic">{{model.options}}</div>
+      </div>
 
 
-          <div class="flex flex-1 flex-col">
-            <div class="p-2 flex font-bold">Commentaire: </div>
-            <div class="pl-2 italic">J'aimerai un chauffeur qui puisse faire un tour de ville commenté{{!--textareaValue--}}</div>
-          </div>
-        </div>
-        <div class="">
-          <div class="flex justify-between">
-            <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
-            <div class="p-2 italic">250 €{{!--suppléments--}}</div>
-          </div>
-          <div class="flex justify-between">
-            <div class="p-2 flex font-bold">Total: </div>
-            <div class="p-2 flex italic border-t-2 border-black ">2350 €{{!--Prix devis--}}</div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Commentaire: </div>
+        <div class="pl-2 italic">{{model.com}}</div>
       </div>
-        </div>
+    </div>
+    <div class="">
+      <div class="flex justify-between">
+        <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
+        <div class="p-2 italic">250 €{{!--suppléments--}}</div>
       </div>
+      <div class="flex justify-between">
+        <div class="p-2 flex font-bold">Total: </div>
+        <div class="p-2 flex italic border-t-2 border-black ">2350 €{{!--Prix devis--}}</div>
+      </div>
+
+
+    </div>
+  </div>
 
       <div class="mt-6 flex">
         <input type="submit" value="Accepter devis" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">

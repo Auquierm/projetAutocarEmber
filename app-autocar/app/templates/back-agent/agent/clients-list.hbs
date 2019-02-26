@@ -15,38 +15,21 @@
 
 
 
-{{#each model as |user|}}
+{{#each model as |client|}}
 
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
 
-      <td class="w-1/4 text-center ">{{user.id}}</td>
+      <td class="w-1/4 text-center ">{{client.id}}</td>
 
-      <td class="w-1/4 text-center">{{user.lastname}}</td>
-      <td class="w-1/4 text-center">{{user.onModel}}-{{user.firstname}}</td>
+      <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
+      <td class="w-1/4 text-center">{{client.idUser.firstname}}</td>
       <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
 
 
     </tr>
 {{/each}}
 
-    {{!-- <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">3</td>
-      <td class="w-1/4 text-center">Roger</td>
-      <td class="w-1/4 text-center">Vander</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">4</td>
-      <td class="w-1/4 text-center">Maxime</td>
-      <td class="w-1/4 text-center">Auquier</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">5</td>
-      <td class="w-1/4 text-center">Hergibo</td>
-      <td class="w-1/4 text-center">Sacha</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr> --}}
+
   </table>
 
 
