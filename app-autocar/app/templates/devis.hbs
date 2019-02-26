@@ -56,7 +56,7 @@
 {{!-- ---------------------- debut formulaire ---------------------- --}}
 <div class="mx-auto h-full font-sans sm:pt-16 md:pt-0">
     <h1 class="text-center sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl sm:text-black md:text-white pt-4 pb-2 sectionTitle">Planifiez votre voyage</h1>
-    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto px-8 sm:pt-0 md:pt-24 pb-8 sm:mb-2 lg:mb-4">
+    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto px-8 sm:pt-0 md:pt-24 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
 
     {{!---------- div votre devis ----------}}
         <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg">
@@ -75,19 +75,19 @@
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=firstname class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Prénom"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Prénom" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=lastname class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom" required=true}}
                 </div>
             </div>
             {{!---------- div age, genre et pays ----------}}
             <div class="md:w-4/5 mx-auto md:flex md:flex-row-reverse sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-                    <select onchange="myFunctiongender" name="gendr" class="nofocus flex-1 appearance-none bg-white border
+                    <select onchange="myFunctiongender" name="gender" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
-                        id=gender required>
+                        id="gender" onchange={{action "selectOption" "gender" }} value="target.value">
                         <option value="femme">Femme</option>
                         <option value="homme">Homme</option>
                         <option value="autre">Autre</option>
@@ -95,7 +95,7 @@
                     <input type="hidden" id="printFlags">
                     <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
-                        id=flags required>
+                        id="flags" required onchange={{action "selectOption" "country" }} value="target.value">
                         <option value="belgique">Belgique</option>
                         <option value="france">France</option>
                         <option value="espagne">Espagne</option>
@@ -103,42 +103,47 @@
                     <input type="hidden" id="printFlags">
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=age class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Age"}}
+                    {{input type="number" value=age class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Age" required=true}}
                 </div>
             </div>
             {{!----------- div email et confirmation email -----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=email class="block appearance-none w-full bg-white border
-                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Email"}}
+                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Email" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=confirmEmail class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                    placeholder="Confirmation email"}}
+                    <ValidationInput @valueInput={{confirmEmail}} @confirmTest={{emailDiff}} @valuePlaceholder={{'Confirmation email'}}/>
                 </div>
             </div>
             {{!----------- div N°Tel et N°Fax -----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=phone class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=fax class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Fax"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Fax" required=true}}
                 </div>
             </div>
             {{!---------- div ville et rue ----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=city class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville" required=true}}
+                </div>
+            </div>
+            {{!----------- div N°Tel et N°Fax -----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=soceityPhone class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel"}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=street class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
                 </div>
             </div>
             {{!---------- div numéro et code postal ----------}}
@@ -146,11 +151,11 @@
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=number class="block appearance-none w-full
                     bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                    placeholder="Numéro"}}
+                    placeholder="Numéro" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=zip class="block appearance-none w-full bg-white border
-                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
+                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
                 </div>
             </div>
         </div>
@@ -165,48 +170,63 @@
             {{!---------- div nom et n° tva ----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=soceityName class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom de la société"}}
+                    {{input type="text" value=societyName class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom de la société" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=soceityTva class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° TVA"}}
+                    {{input type="text" value=societyTva class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° TVA" required=true}}
                 </div>
             </div>
             {{!----------- div N°Tel et N°Fax -----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=soceityPhone class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel"}}
+                    {{input type="text" value=societyPhone class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=soceityFax class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Fax"}}
+                    {{input type="text" value=societyFax class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Fax" required=true}}
                 </div>
             </div>
-            {{!---------- div ville et rue ----------}}
+            {{!---------- div ville et zip ----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=soceityCity class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"}}
+                    {{input type="text" value=societyCity class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville" required=true}}
                 </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=soceityStreet class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
+                <div class="flex-1">
+                    {{input type="text" value=societyZip class="block appearance-none w-full bg-white border
+                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
                 </div>
             </div>
-            {{!-- div Numéro, code postal et compte bancaire --}}
+
+            {{!---------- div rue et number ----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-                    <div class="flex-1">
-                        {{input type="text" value=soceityNumber class="block appearance-none w-full
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=societyStreet class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
+                </div>
+                <div class="flex-1">
+                     {{input type="text" value=societyNumber class="block appearance-none w-full
                         bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                        placeholder="Numéro"}}
-                    </div>
-                    <div class="flex-1">
-                        {{input type="text" value=soceityZip class="block appearance-none w-full bg-white border
-                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
-                    </div>
+                        placeholder="Numéro" required=true}}
+                </div>
+            </div>
+            {{!---------- div pays et compte bancaire ----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey py-030 rounded shadow h-full"
+                        required onchange={{action "selectOption" "societeCountry" }} value="target.value">
+                        <option value="belgique">Belgique</option>
+                        <option value="france">France</option>
+                        <option value="espagne">Espagne</option>
+                    </select>
+                </div>
+                <div class="flex-1">
+                     {{input type="text" value=societyBankNumber class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° compte bancaire" required=true}}
                 </div>
                                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=soceityBankNumber class="block appearance-none w-full bg-white
@@ -225,16 +245,16 @@
             {{!-- div Nbre passagers et type de car --}}
             <div class="md:w-4/5 mx-auto md:flex  sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=tripPax class="block appearance-none w-full bg-white border
-                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nbre de passagers"}}
+                    {{input type="number" value=tripPax class="block appearance-none w-full bg-white border
+                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nbre de passagers" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
-                        id=flags required>
-                        <option value="30pl">30-Pl</option>
-                        <option value="50pl">50-Pl</option>
-                        <option value="70pl">70-Pl</option>
+                        required onchange={{action "selectOption" "placeAutocar" }} value="target.value">
+                        <option value="30">30-Pl</option>
+                        <option value="50">50-Pl</option>
+                        <option value="70">70-Pl</option>
                     </select>
                     <input type="hidden" id="printFlags">
                 </div>
@@ -259,8 +279,8 @@
                     minuteIncrement=1
                     time_24hr=true
                     onClose=(action "onCloseTime")
-                    onChange=(action "onChangeTime")
-                    onReady=(action "onReadyTime")
+                    onChange=(action "onChangeTime" "dateDp")
+                    onReady=(action "onReadyTime" "dateDp")
                     class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"
                     placeholder="Départ"
@@ -270,7 +290,7 @@
                     <div class="w-1/2 md:flex-1">
                         <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 h-full w-full rounded shadow"
-                            id=flags required>
+                             required onchange={{action "selectOption" "countryDp" }} value="target.value">
                             <option value="belgique">Belgique</option>
                             <option value="france">France</option>
                             <option value="espagne">Espagne</option>
@@ -280,7 +300,7 @@
                     <div class="w-1/2 md:flex-1">
                         {{input type="text" value=tripDpCity class="block appearance-none w-full
                         bg-white
-                        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
+                        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville" required=true}}
                     </div>
                 </div>
             </div>
@@ -288,17 +308,17 @@
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=tripDpStreet class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="flex-1">
                         {{input type="text" value=tripDpNumber class="block appearance-none w-full
                         bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                        placeholder="Numéro"}}
+                        placeholder="Numéro" required=true}}
                     </div>
                     <div class="flex-1">
                         {{input type="text" value=tripDpZip class="block appearance-none w-full bg-white border
-                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
+                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
                     </div>
                 </div>
             </div>
@@ -322,8 +342,8 @@
                     minuteIncrement=1
                     time_24hr=true
                     onClose=(action "onCloseTime")
-                    onChange=(action "onChangeTime")
-                    onReady=(action "onReadyTime")
+                    onChange=(action "onChangeTime" "dateRt")
+                    onReady=(action "onReadyTime" "dateRt")
                     class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"
                     placeholder="Retour"
@@ -333,7 +353,7 @@
                     <div class="w-1/2 md:flex-1">
                         <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 w-full rounded shadow h-full"
-                            id=flags required>
+                            required  onchange={{action "selectOption" "countryRt" }} value="target.value">
                             <option value="belgique">Belgique</option>
                             <option value="france">France</option>
                             <option value="espagne">Espagne</option>
@@ -341,7 +361,7 @@
                         <input type="hidden" id="printFlags">
                     </div>
                     <div class="w-1/2 md:flex-1">
-                        {{input type="text" value=tripRtCity class="block appearance-none w-full
+                        {{input type="text" value=tripRtCity required=true class="block appearance-none w-full
                         bg-white
                         border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
                     </div>
@@ -351,17 +371,17 @@
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=tripRtStreet class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="flex-1">
                         {{input type="text" value=tripRtNumber class="block appearance-none w-full
                         bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                        placeholder="Numéro"}}
+                        placeholder="Numéro" required=true}}
                     </div>
                     <div class="flex-1">
                         {{input type="text" value=tripRtZip class="block appearance-none w-full bg-white border
-                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
+                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
                     </div>
                 </div>
             </div>
@@ -370,11 +390,11 @@
             </div>
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
-                    <input type="checkbox" id="skibox" name="skibox" value="Skibox">
+                  <input type="checkbox" id="skibox" name="skibox" value="Skibox" onclick={{action "toggleCheckBox" "skibox"}}>
                     <label for="skibox">Bac à ski</label>
                 </div>
                 <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
-                    <input type="checkbox" id="trailer" name="trailer" value="Trailer">
+                    <input type="checkbox" id="trailer" name="trailer" value="Trailer" onclick={{action "toggleCheckBox" "trailer"}}>
                     <label for="trailer">Remorque</label>
                 </div>
             </div>
@@ -388,9 +408,8 @@
             {{!-- div (date/heure départ) pays et ville --}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    <textarea id="story" name="story" rows="5" cols="33" class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
-                    py-2 rounded shadow">
-                    </textarea>
+                    {{textarea id="story" value=quoteCom name="story" rows="5" cols="33" class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+                    py-2 rounded shadow"}}
                 </div>
             </div>
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">

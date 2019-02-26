@@ -96,7 +96,7 @@ schema.statics.hashChangedPwd = async function(password){
         password = hash;
         return password;
     } catch (err) {
-        next(Boom.badImplementation(err.message));
+        throw(Boom.badImplementation(err.message));
     }
 };
 

@@ -12,10 +12,12 @@ module.exports = {
               city: Joi.string().required(),
               country: Joi.string().required()
             },
+            societeTel : Joi.string().required(),
             numTva: Joi.string().required(),
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
             numBank: Joi.string().required(),
+            quotesId: Joi.string(),
         },
     },
     // POST /v1/clients
@@ -43,10 +45,12 @@ module.exports = {
                 city: Joi.string().required(),
                 country: Joi.string().required()
               },
+            societeTel : Joi.string().required(),
             numTva: Joi.string().required(),
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
             numBank: Joi.string().required(),
+            quotesId: Joi.string(),
         },
     },
     // GET /v1/clients/:clientId
@@ -80,10 +84,12 @@ module.exports = {
                 city: Joi.string().required(),
                 country: Joi.string().required()
               },
+            societeTel : Joi.string().required(),
             numTva: Joi.string().required(),
             numFax: Joi.number().required(),
             societe: Joi.string().required(),
             numBank: Joi.string().required(),
+            quotesId: Joi.string(),
         },
         params: {
             clientId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

@@ -1,9 +1,9 @@
 import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 
-export default DS.RESTAdapter.extend(DataAdapterMixin,{
+export default DS.RESTAdapter.extend(DataAdapterMixin, {
   authorize(xhr){
-    let {token} = this.get('session.data.authenticated');
+    let token = this.get('session.data.authenticated.response.accessToken');
     if(token){
       xhr.setRequestHeader('Authorization', `Bearer ${token}`);
     }

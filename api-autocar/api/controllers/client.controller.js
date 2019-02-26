@@ -34,7 +34,6 @@ exports.findOne = async (req, res, next) =>{
 exports.add = async (req, res, next) =>{
     try{
         const password = generatePassword(12, false);
-        console.log(password);
         const client = new Client({
             uniqueField  : req.body.firstname+req.body.lastname+req.body.email,
             adresseFacturation : {
@@ -44,10 +43,11 @@ exports.add = async (req, res, next) =>{
                 city : req.body.adresseFacturation.city,
                 country : req.body.adresseFacturation.country,
             },
+            societeTel : req.body.societeTel,
             numTva : req.body.numTva,
             numFax : req.body.numFax,
             societe : req.body.societe,
-            numBank : req.body.numBank 
+            numBank : req.body.numBank,
         });
         
         await client.save();
@@ -75,6 +75,18 @@ exports.update = async (req, res, next) =>{
         next(Boom.badImplementation(err.message));
     }
 }
+/** 
+* PATCH quotesId in Client 
+*/
+exports.updateIdQuotes = async (req, res, next, clientID, quotesID) =>{
+    try {
+        await Client.findByIdAndUpdate(clientID, {quotesId : quotesID}, {new : true});
+    } catch (err) {
+        console.log(err);
+        next(Boom.badImplementation(err.message));
+    }
+}
+
 /** 
 * PATCH idUser 
 */

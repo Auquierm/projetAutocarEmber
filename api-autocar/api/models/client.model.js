@@ -30,6 +30,9 @@ let schema = new Schema({
             required : true
         },
     },
+    societeTel : {
+        type : String,
+    },
     numTva : {
         type : String,
     },
@@ -44,6 +47,9 @@ let schema = new Schema({
     },
     idUser : {
         type : String,
+    },
+    quotesId : {
+        type : Array,
     }
 });
 module.exports = Mongoose.model('Client', schema);

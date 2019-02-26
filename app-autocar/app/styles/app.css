@@ -20,7 +20,7 @@ body{
 
 ul{
   font-size: 12px;
-  
+
 }
 
 li{
@@ -34,7 +34,6 @@ a{
 h1{
   font-family: 'Prompt', sans-serif;
 }
-
 p {
   font-size: 12px;
 }
@@ -153,4 +152,9 @@ tr:nth-child(2n) {
   border-bottom:1px solid #17B3F6;
   position: absolute;
   content:"";
+}
+
+.py-030{
+  padding-bottom: .30rem;
+  padding-top: .30rem;
 }

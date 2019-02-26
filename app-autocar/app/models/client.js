@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-const { attr, belongsTo } = DS;
+const { attr, belongsTo, hasMany } = DS;
 
 export default DS.Model.extend({
   adresseFacturation: attr(),
@@ -8,5 +8,6 @@ export default DS.Model.extend({
   numFax: attr('string'),
   societe: attr('string'),
   numBank: attr('string'),
-  idUser: belongsTo('user')
+  idUser: belongsTo('user'),
+  quote: belongsTo('quote')
 });

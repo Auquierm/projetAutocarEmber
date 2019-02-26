@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 
-const { attr, belongsTo } = DS;
+const { attr, belongsTo, hasMany } = DS;
+const roles = ['client', 'agent', 'chauffeur'];
 
 export default DS.Model.extend({
   firstname: attr('string'),
@@ -11,5 +12,7 @@ export default DS.Model.extend({
   email: attr('string'),
   phone: attr('string'),
   address: attr(),
-  idUser: belongsTo('client')
+  idUser: belongsTo('client'),
+  idUser: belongsTo('agent'),
+  idUser: belongsTo('driver')
 });

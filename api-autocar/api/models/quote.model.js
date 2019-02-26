@@ -4,27 +4,64 @@ let Schema = Mongoose.Schema;
 let status = ["traitement", "attente", "ferme", "refuse", "valide"]
 
 let schema = new Schema({
-    idUser : {
-        type : Mongoose.Schema.Types.ObjectId,
-        ref : 'User',
+    idClient : {
+        // type : Mongoose.Schema.Types.ObjectId,
+        // ref : 'Client',
+        type: String,
         required :true,
     },
     numFolder : {
         type : Number,
         required : true,
     },
-    Status : {
+    status : {
         type: String,
         required: true,
         enum: status
     },
     placeDeparture : {
-        type : String,
-        required : true,
+        street : {
+            type : String,
+            required : true
+        },
+        number : {
+            type : String,
+            required : true
+        },
+        zip : {
+            type : String,
+            required : true,
+        },
+        city : {
+            type : String,
+            required : true,
+        },
+        country : {
+            type : String,
+            required : true
+        },
     },
     placeArrival : {
-        type : String,
-        required : true,
+        street : {
+            type : String,
+            required : true
+        },
+        number : {
+            type : String,
+            required : true
+        },
+        zip : {
+            type : String,
+            required : true,
+        },
+        city : {
+            type : String,
+            required : true,
+        },
+        country : {
+            type : String,
+            required : true
+        },
     },
     dateArrival : {
         type : Date,
@@ -41,6 +78,9 @@ let schema = new Schema({
     pax : {
         type : Number,
         required : true,
+    },
+    options : {
+        type : Array,
     },
     numberDriver : {
         type : Number,
@@ -62,9 +102,12 @@ let schema = new Schema({
         type : String,
         required : true,
     },
-    Price : {
+    price : {
         type : Number,
         required : true,
+    },
+    com : {
+        type : String,
     }
 });
 
