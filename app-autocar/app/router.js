@@ -46,10 +46,10 @@ Router.map(function () {
       this.route('drivers-list', function() {
         this.route('driver-card');
       });
-      this.route('client-card', { path: ':id' });
-      this.route('driver-card', { path: ':id' });
-      this.route('folder-card');
-      this.route('quote-card', { path: ':id' });
+      this.route('client-card', { path: ':idAgent' });
+      this.route('driver-card');
+      this.route('folder-card', { path: ':idFolder' });
+      this.route('quote-card', { path: ':idQuote' });
       this.route('day-program');
     });
   });

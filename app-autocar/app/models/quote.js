@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
-const { attr } = DS;
+const { attr, belongsTo } = DS;
 
 export default DS.Model.extend({
   numFolder: attr('number'),
@@ -19,5 +19,6 @@ export default DS.Model.extend({
   price: attr('number'),
   status: attr('string'),
   com : attr('string'),
-  idClient: attr('string')
+  idClient: belongsTo('client')
+
 });

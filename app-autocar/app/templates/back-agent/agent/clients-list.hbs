@@ -18,8 +18,7 @@
 {{#each model as |client|}}
 
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-
-      <td class="w-1/4 text-center ">{{client.id}}</td>
+      <td class="w-1/4 text-center ">{{link-to client.id "back-agent.agent.client-card" client.id class="text-black"}}</td>
 
       <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
       <td class="w-1/4 text-center">{{client.idUser.firstname}}</td>

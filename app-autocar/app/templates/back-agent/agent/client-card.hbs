@@ -28,11 +28,11 @@
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Société: </div>
-        <div class="pl-2 italic">{{model.idUser.societe}}</div>
+        <div class="pl-2 italic">{{model.societe}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N° Tva: </div>
-        <div class="pl-2 italic">{{model.idUser.numTva}}</div>
+        <div class="pl-2 italic">{{model.numTva}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
@@ -40,8 +40,8 @@
         <div class="p-2 flex font-bold"> N°Tel: </div>
         <div class="pl-2 italic">{{model.idUser.phone}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">N°Fax: </div>
+<div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> N°Fax: </div>
         <div class="pl-2 italic">{{model.numFax}}</div>
       </div>
     </div>
@@ -74,36 +74,25 @@
 
 </div>
 </div>
-<div class="flex flex-col w-1/2 ml-4">
+<div class="flex flex-col w-1/2  ml-4 ">
   <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
   <h4>Ses devis</h4>
 
   <table class="w-full mt-3">
     <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/3">Id</th>
-      <th class="w-1/3">Cloturé</th>
-      <th class="w-1/3">Actions</th>
+      <th class="w-1/4">Id</th>
+      <th class="w-1/4">Statut</th>
+      <th class="w-1/4">Destination</th>
+      <th class="w-1/4">Actions</th>
     </tr>
+    {{#each model.quotesId as |quote|}}
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/3 text-center ">2</td>
-      <td class="w-1/3 text-center">Non</td>
-      <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
+      <td class="w-1/4 text-center ">{{quote.id}}</td>
+      <td class="w-1/4 text-center">{{quote.status}}</td>
+      <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
+      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
     </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/3 text-center">3</td>
-      <td class="w-1/3 text-center">Oui</td>
-      <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/3 text-center">4</td>
-      <td class="w-1/3 text-center">Oui</td>
-      <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/3 text-center">5</td>
-      <td class="w-1/3 text-center">Non</td>
-      <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
+    {{/each}}
   </table>
 
 </div>
@@ -117,61 +106,20 @@
         <th class="w-1/6">Destination</th>
         <th class="w-1/6">Date départ</th>
         <th class="w-1/6">Date retour</th>
-        <th class="w-1/6">Nom chauffeur</th>
+        <th class="w-1/6">Capacité</th>
         <th class="w-1/6">Actions</th>
       </tr>
+      {{#each model.quotesId as |quote|}}
       <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
+        <td class="w-1/6 text-center ">D{{quote.numFolder}}</td>
+        <td class="w-1/6 text-center ">{{quote.placeArrival.city}}</td>
+        <td class="w-1/6 text-center ">{{quote.dateDeparture}}</td>
+        <td class="w-1/6 text-center ">{{quote.dateArrival}}</td>
+        <td class="w-1/6 text-center ">{{quote.capacityAutocar}}</td>
         <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
       </tr>
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-      </tr>
+      {{/each}}
 
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center ">2</td>
-        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-      </tr>
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center">3</td>
-
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-      </tr>
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-        <td class="w-1/6 text-center">4</td>
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center">3</td>
-
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-      </tr>
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-        <td class="w-1/6 text-center">5</td>
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center">3</td>
-
-        <td class="w-1/6 text-center">3</td>
-        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-      </tr>
     </table>
 
   </div>

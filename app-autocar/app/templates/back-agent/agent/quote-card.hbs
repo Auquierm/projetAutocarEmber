@@ -1,4 +1,4 @@
-<h2 class="mt-6">Devis {{model.id}} du client {{model.idUser}}</h2>
+<h2 class="mt-6">Devis {{model.id}} du client {{model.idClient.idUser.firstname}}</h2>
 
 <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
 
@@ -11,61 +11,61 @@
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Prénom:</div>
-        <div class="pl-2 flex italic">{{model.idUser.firstname}}</div>
+        <div class="pl-2 flex italic">{{model.idClient.idUser.firstname}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Nom: </div>
-        <div class="pl-2 italic">{{model.idUser.firstname}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.lastname}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Email: </div>
-        <div class="pl-2 italic">{{model.idUser.email}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.email}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Genre: </div>
-        <div class="pl-2 italic">{{model.idUser.sexe}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.sexe}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Société: </div>
-        <div class="pl-2 italic">{{model.idUser.societe}}</div>
+        <div class="pl-2 italic">{{model.idClient.societe}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N° Tva: </div>
-        <div class="pl-2 italic">{{model.idUser.numTVA}}</div>
+        <div class="pl-2 italic">{{model.idClient.numTVA}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> N°Tel: </div>
-        <div class="pl-2 italic">{{model.idUser.phone}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.phone}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N°Fax: </div>
-        <div class="pl-2 italic">{{model.idUser.numFax}}</div>
+        <div class="pl-2 italic">{{model.idClient.numFax}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Ville: </div>
-        <div class="pl-2 italic">{{model.idUser.address.city}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.address.city}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Rue: </div>
-        <div class="pl-2 italic">{{model.idUser.address.street}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.address.street}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N°: </div>
-        <div class="pl-2 italic">{{model.idUser.phone}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.phone}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Pays: </div>
-        <div class="pl-2 italic">{{model.idUser.address.country}}</div>
+        <div class="pl-2 italic">{{model.idClient.idUser.address.country}}</div>
       </div>
     </div>
   </div>
@@ -201,7 +201,7 @@
       </div>
       <div class="flex justify-between">
         <div class="p-2 flex font-bold">Total: </div>
-        <div class="p-2 flex italic border-t-2 border-black ">2350 €{{!--Prix devis--}}</div>
+        <div class="p-2 flex italic border-t-2 border-black ">{{model.price}} €</div>
       </div>
 
 
