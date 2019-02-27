@@ -5,9 +5,8 @@ let status = ["traitement", "attente", "ferme", "refuse", "valide"]
 
 let schema = new Schema({
     idClient: {
-        // type : Mongoose.Schema.Types.ObjectId,
-        // ref : 'Client',
-        type: String,
+        type : Mongoose.Schema.Types.ObjectId,
+        ref : 'Client',
         required: true,
     },
     numFolder: {
@@ -64,11 +63,11 @@ let schema = new Schema({
         },
     },
     dateArrival: {
-        type: Date,
+        type: String,
         required: true,
     },
     dateDeparture: {
-        type: Date,
+        type: String,
         required: true,
     },
     totalKm: {
