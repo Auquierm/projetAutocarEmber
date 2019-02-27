@@ -21,7 +21,7 @@ Router.map(function () {
       this.route('proposals');
       this.route('proposal');
       this.route('requests');
-      this.route('request');
+      this.route('request', { path: ':idrequest' });
       this.route('folders');
       this.route('folder');
       this.route('profile');
@@ -31,19 +31,19 @@ Router.map(function () {
   });
   this.route('tokenauth', { path: 'tokenauth/:token' });
 
-  this.route('back-agent', function() {
-    this.route('agent', { path: ':id' }, function() {
+  this.route('back-agent', function () {
+    this.route('agent', { path: ':id' }, function () {
       this.route('dashboard');
-      this.route('clients-list', function() {
-      +  this.route('client-card');
+      this.route('clients-list', function () {
+        this.route('client-card');
       });
-      this.route('folders-list', function() {
+      this.route('folders-list', function () {
         this.route('folder-card');
       });
-      this.route('quotes-list', function() {
+      this.route('quotes-list', function () {
         this.route('quote-card');
       });
-      this.route('drivers-list', function() {
+      this.route('drivers-list', function () {
         this.route('driver-card');
       });
       this.route('client-card', { path: ':idAgent' });
@@ -53,15 +53,15 @@ Router.map(function () {
       this.route('day-program');
     });
   });
-  this.route('back-driver', function() {
-    this.route('driver', function() {
+  this.route('back-driver', function () {
+    this.route('driver', function () {
       this.route('dashboard');
 
-      this.route('scheduled-trips', function() {
+      this.route('scheduled-trips', function () {
         this.route('trip-card');
       });
 
-      this.route('ended-trips', function() {
+      this.route('ended-trips', function () {
         this.route('trip-card');
       });
       this.route('trip-card');

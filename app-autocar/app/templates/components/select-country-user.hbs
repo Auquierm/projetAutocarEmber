@@ -1,18 +1,15 @@
-<select name="country" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 px-1 py-1 w-full rounded shadow mt-2"
-  value="model.adresseFacturation.country">
-  {{#if (compare country '===' 'Belgique')}}
+<select name="countryUser" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 px-1 py-1 w-full rounded shadow mt-2">
+  {{#if (compare countryUser '===' 'Belgique')}}
   <option selected value="Belgique">Belgique</option>
   {{else}}
   <option value="Belgique">Belgique</option>
   {{/if}}
-
-  {{#if (compare country '===' 'France')}}
+  {{#if (compare countryUser '===' 'France')}}
   <option selected value="France">France</option>
   {{else}}
   <option value="France">France</option>
   {{/if}}
-
-  {{#if (compare country '===' 'Espagne')}}
+  {{#if (compare countryUser '===' 'Espagne')}}
   <option selected value="Espagne">Espagne</option>
   {{else}}
   <option value="Espagne">Espagne</option>

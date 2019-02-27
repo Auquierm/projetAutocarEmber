@@ -5,8 +5,19 @@ export default Controller.extend({
   ajax: service(),
   gender: '',
   country: '',
+  countryUser: '',
   actions: {
+
     async update(event) {
+      if (this.gender === '') {
+        this.gender = this.get('model.idUser.sexe');
+      }
+      if (this.country === '') {
+        this.country = this.get('model.adresseFacturation.country');
+      }
+      if (this.countryUser === '') {
+        this.countryUser = this.get('model.idUser.address.country');
+      }
       await this.ajax.patch(`/clients/${this.get('model.id')}`, {
         headers: {
           'Content-type': 'application/json',
@@ -21,7 +32,7 @@ export default Controller.extend({
           phone: this.get('model.idUser.phone'),
           address: {
             street: this.get('model.idUser.address.street'),
-            country: this.get('model.idUser.address.country'),
+            country: this.countryUser,
             city: this.get('model.idUser.address.city'),
             zip: this.get('model.idUser.address.zip'),
             number: this.get('model.idUser.address.number')
@@ -39,8 +50,11 @@ export default Controller.extend({
           numBank: this.get('model.numBank')
         }
       });
+      this.model.reload();
+      this.model.idUser.reload();
       this.transitionToRoute('back-client.client.profile');
     },
+
     selectOption(params, option) {
       this.set(params, option.target.value)
     }
