@@ -281,7 +281,8 @@
                     date=(readonly dateValue)
                     enableTime=true
                     locale='fr'
-                    altFormat='Y-m-d'
+                    altFormat="d-m-Y H:i"
+                    dateFormat="d-m-y H:i"
                     minDate=minDate
                     minuteIncrement=1
                     time_24hr=true
@@ -402,11 +403,11 @@
             </div>
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
-                    <input type="checkbox" id="skibox" name="skibox" value="Skibox" onclick={{action "toggleCheckBox" "skibox"}}>
-                    <label for="skibox">Bac à ski</label>
+                    <input type="checkbox" id="skibox" name="skibox" value="Skibox" onclick={{action "toggleCheckBox" "Box de ski"}}>
+                    <label for="skibox">Box de ski</label>
                 </div>
                 <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
-                    <input type="checkbox" id="trailer" name="trailer" value="Trailer" onclick={{action "toggleCheckBox" "trailer"}}>
+                    <input type="checkbox" id="trailer" name="trailer" value="Trailer" onclick={{action "toggleCheckBox" "Remorque"}}>
                     <label for="trailer">Remorque</label>
                 </div>
             </div>

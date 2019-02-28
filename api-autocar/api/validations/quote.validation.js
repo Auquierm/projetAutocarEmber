@@ -109,8 +109,13 @@ module.exports = {
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
             price: Joi.number().required(),
+<<<<<<< HEAD
             com: Joi.string(),
             dateCreation: Joi.string().required()
+=======
+            com : Joi.string(),
+            dateCreation : Joi.string().required()
+>>>>>>> 0be21ff53006b9d5d9880c176ac3c26b6951c20b
         },
         params: {
             quoteId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

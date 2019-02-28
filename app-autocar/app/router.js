@@ -27,6 +27,7 @@ Router.map(function () {
       this.route('profile');
       this.route('profile-update');
       this.route('create-quote');
+      this.route('request-update', {path : '/request-update/:idrequestupdate'});
     });
   });
   this.route('tokenauth', { path: 'tokenauth/:token' });

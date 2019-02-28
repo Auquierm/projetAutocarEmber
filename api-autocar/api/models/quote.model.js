@@ -63,11 +63,11 @@ let schema = new Schema({
         },
     },
     dateArrival: {
-        type: Date,
+        type: String,
         required: true,
     },
     dateDeparture: {
-        type: Date,
+        type: String,
         required: true,
     },
     totalKm: {
