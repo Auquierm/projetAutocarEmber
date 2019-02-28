@@ -1,10 +1,11 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  init() {
-    this._super(...arguments);
-    let pricing = this.store.findAll('pricing');
-    let priceTest = pricing._arrangedContent;
-    console.log(pricing);
-  }
+  // init() {
+  //   this._super(...arguments);
+  //   this.michel = 'coucou';
+  //   if (quote.idClient.idUser.firstname === 'James') {
+  //     this.michel = 'bonjour';
+  //   }
+  // }
 });
