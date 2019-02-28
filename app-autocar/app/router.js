@@ -19,14 +19,15 @@ Router.map(function () {
     this.route('client', { path: ':id' }, function () {
       this.route('dashboard');
       this.route('proposals');
-      this.route('proposal');
+      this.route('proposal', { path: '/proposal/:idproposal' });
       this.route('requests');
-      this.route('request', { path: ':idrequest' });
+      this.route('request', { path: '/request/:idrequest' });
       this.route('folders');
-      this.route('folder');
+      this.route('folder', { path: '/folder/:idfolder' });
       this.route('profile');
       this.route('profile-update');
       this.route('create-quote');
+      this.route('request-update', {path : '/request-update/:idrequestupdate'});
     });
   });
   this.route('tokenauth', { path: 'tokenauth/:token' });

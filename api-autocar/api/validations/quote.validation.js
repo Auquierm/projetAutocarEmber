@@ -68,8 +68,8 @@ module.exports = {
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
             price: Joi.number().required(),
-            com : Joi.string(),
-            dateCreation : Joi.string().required()
+            com: Joi.string(),
+            dateCreation: Joi.string().required()
         },
     },
     // GET /v1/quotes/:quoteId
@@ -109,8 +109,13 @@ module.exports = {
             includeIn: Joi.string().required(),
             notIncludeIn: Joi.string().required(),
             price: Joi.number().required(),
+<<<<<<< HEAD
             com : Joi.string(),
             dateCreation : Joi.string().required()
+=======
+            com: Joi.string(),
+            dateCreation: Joi.string().required()
+>>>>>>> 96dd52dfae645a46165cfb7e485c5cee82519347
         },
         params: {
             quoteId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

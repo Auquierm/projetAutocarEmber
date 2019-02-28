@@ -1,13 +1,13 @@
 import DS from 'ember-data';
 
-const { attr, belongsTo } = DS;
+const { attr, belongsTo, hasMany } = DS;
 
 export default DS.Model.extend({
   numFolder: attr('number'),
   placeDeparture: attr(),
   placeArrival: attr(),
-  dateArrival: attr('date'),
-  dateDeparture: attr('date'),
+  dateArrival: attr('string'),
+  dateDeparture: attr('string'),
   totalKm: attr('number'),
   pax: attr('number'),
   options: attr(),
