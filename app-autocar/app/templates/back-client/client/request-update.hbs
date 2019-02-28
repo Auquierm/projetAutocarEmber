@@ -5,10 +5,9 @@
         <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg">
             <span class="font-bold">Votre Devis</span>
             <p class="pt-3">
-                Veuillez remplir intégralement ce formulaire afin qu'un agent prenne en compte vorte demande.
+                Veuillez ne pas laisser de champs libre dans ce formulaire.
             </p>
         </div>
-
         <div>
             <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
                 <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 1 : Informations voyage</span>
@@ -16,18 +15,19 @@
             {{!-- div Nbre passagers et type de car --}}
             <div class="md:w-4/5 mx-auto md:flex  sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="number" value=tripPax class="block appearance-none w-full bg-white border
+                    {{input type="number" value=model.infoQuote.pax class="block appearance-none w-full bg-white border
                     border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nbre de passagers" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-                    <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
+                    {{!-- <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
                         required onchange={{action "selectOption" "placeAutocar" }} value="target.value">
                         <option value="30">30-Pl</option>
                         <option value="50">50-Pl</option>
                         <option value="70">70-Pl</option>
-                    </select>
-                    <input type="hidden" id="printFlags">
+                    </select> --}}
+                    <SelectPlaceAutocarQuote @placeAutocar={{model.infoQuote.capacityAutocar}} onclick={{action "selectOption" "model.infoQuote.capacityAutocar"}}/>
+                    {{!-- <input type="hidden" id="printFlags"> --}}
                 </div>
             </div>
             {{!-- Départ --}}
@@ -45,7 +45,7 @@
                     date=(readonly dateValue)
                     enableTime=true
                     locale='fr'
-                    altFormat='Y-m-d'
+                    dateFormat="d-m-y H:i"
                     minDate=minDate
                     minuteIncrement=1
                     time_24hr=true
@@ -59,17 +59,18 @@
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="w-1/2 md:flex-1">
-                        <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+                        {{!-- <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 h-full w-full rounded shadow"
                              required onchange={{action "selectOption" "countryDp" }} value="target.value">
                             <option value="belgique">Belgique</option>
                             <option value="france">France</option>
                             <option value="espagne">Espagne</option>
-                        </select>
+                        </select> --}}
+                         <SelectCountryRequest @countryRequest={{model.infoQuote.placeDeparture.country}} onclick={{action "selectOption" "model.infoQuote.placeDeparture.country"}} />
                         <input type="hidden" id="printFlags">
                     </div>
                     <div class="w-1/2 md:flex-1">
-                        {{input type="text" value=tripDpCity class="block appearance-none w-full
+                        {{input type="text" value=model.infoQuote.placeDeparture.city class="block appearance-none w-full
                         bg-white
                         border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville" required=true}}
                     </div>
@@ -78,17 +79,17 @@
             {{!-- div Rue, numéro et code postal --}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=tripDpStreet class="block appearance-none w-full bg-white
+                    {{input type="text" value=model.infoQuote.placeDeparture.street class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="flex-1">
-                        {{input type="text" value=tripDpNumber class="block appearance-none w-full
+                        {{input type="text" value=model.infoQuote.placeDeparture.number class="block appearance-none w-full
                         bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                         placeholder="Numéro" required=true}}
                     </div>
                     <div class="flex-1">
-                        {{input type="text" value=tripDpZip class="block appearance-none w-full bg-white border
+                        {{input type="text" value=model.infoQuote.placeDeparture.zip class="block appearance-none w-full bg-white border
                         border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
                     </div>
                 </div>
@@ -105,10 +106,10 @@
                     appendDataInput=true
                     disableMobile=true
                     classNames=classString
-                    date=(readonly dateValue)
+                    date=(readonly model.infoQuote.dateArrival)
                     enableTime=true
                     locale='fr'
-                    altFormat='Y-m-d'
+                    dateFormat="d-m-y H:i"
                     minDate=minDate
                     minuteIncrement=1
                     time_24hr=true
@@ -122,17 +123,18 @@
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="w-1/2 md:flex-1">
-                        <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+                        {{!-- <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 w-full rounded shadow h-full"
                             required  onchange={{action "selectOption" "countryRt" }} value="target.value">
                             <option value="belgique">Belgique</option>
                             <option value="france">France</option>
                             <option value="espagne">Espagne</option>
-                        </select>
+                        </select> --}}
+                        <SelectCountryRequest @countryRequest={{model.infoQuote.placeArrival.country}} onclick={{action "selectOption" "model.infoQuote.placeArrival.country"}} />
                         <input type="hidden" id="printFlags">
                     </div>
                     <div class="w-1/2 md:flex-1">
-                        {{input type="text" value=tripRtCity required=true class="block appearance-none w-full
+                        {{input type="text" value=model.infoQuote.placeArrival.city required=true class="block appearance-none w-full
                         bg-white
                         border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
                     </div>
@@ -141,17 +143,17 @@
             {{!-- div Rue, numéro et code postal --}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=tripRtStreet class="block appearance-none w-full bg-white
+                    {{input type="text" value=model.infoQuote.placeArrival.street class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <div class="flex-1">
-                        {{input type="text" value=tripRtNumber class="block appearance-none w-full
+                        {{input type="text" value=model.infoQuote.placeArrival.number class="block appearance-none w-full
                         bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                         placeholder="Numéro" required=true}}
                     </div>
                     <div class="flex-1">
-                        {{input type="text" value=tripRtZip class="block appearance-none w-full bg-white border
+                        {{input type="text" value=model.infoQuote.placeArrival.zip class="block appearance-none w-full bg-white border
                         border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
                     </div>
                 </div>
@@ -160,12 +162,13 @@
                 <span class="sm:text-xs lg:text-lg text-blue font-bold">Options</span>
             </div>
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+            {{!-- <CheckedBox @checkedInfo={{model.options}} @arrayOption={{model.options}}/> --}}
                 <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
-                  <input type="checkbox" id="skibox" name="skibox" value="Skibox" onclick={{action "toggleCheckBox" "Box de ski"}}>
+                    <input type="checkbox" id="skibox" name="skibox" value="Skibox" onclick={{action "toggleCheckBox" "Box de ski"}} checked={{model.isCheckedSkibox}}>
                     <label for="skibox">Box de ski</label>
                 </div>
                 <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
-                    <input type="checkbox" id="trailer" name="trailer" value="Trailer" onclick={{action "toggleCheckBox" "Remorque"}}>
+                    <input type="checkbox" id="trailer" name="trailer" value="Trailer" onclick={{action "toggleCheckBox" "Remorque"}} checked={{model.isCheckedTrailer}}>
                     <label for="trailer">Remorque</label>
                 </div>
             </div>
@@ -179,7 +182,7 @@
             {{!-- div (date/heure départ) pays et ville --}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{textarea id="story" value=quoteCom name="story" rows="5" cols="33" class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+                    {{textarea id="story" value=model.infoQuote.com name="story" rows="5" cols="33" class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"}}
                 </div>
             </div>
