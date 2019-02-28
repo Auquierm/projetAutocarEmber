@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   async model(params) {
-    console.log(params.idrequest);
+    this.store.findRecord('quote', params.idrequest)
   },
   actions: {
     didTransition() {
