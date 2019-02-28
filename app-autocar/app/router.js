@@ -34,23 +34,16 @@ Router.map(function () {
   this.route('back-agent', function () {
     this.route('agent', { path: ':id' }, function () {
       this.route('dashboard');
-      this.route('clients-list', function () {
-        this.route('client-card');
-      });
-      this.route('folders-list', function () {
-        this.route('folder-card');
-      });
-      this.route('quotes-list', function () {
-        this.route('quote-card');
-      });
-      this.route('drivers-list', function () {
-        this.route('driver-card');
-      });
-      this.route('client-card', { path: ':idAgent' });
-      this.route('driver-card');
-      this.route('folder-card', { path: ':idFolder' });
-      this.route('quote-card', { path: ':idQuote' });
+      this.route('clients-list');
+      this.route('folders-list');
+      this.route('quotes-list');
+      this.route('drivers-list');
+      this.route('client-card', { path: '/client-card/:idAgent' });
+      this.route('driver-card', { path: '/driver-card/:idDriver' });
+      this.route('folder-card', { path: '/folder-card/:idFolder' });
+      this.route('quote-card', { path: '/quote-card/:idQuote' });
       this.route('day-program');
+      this.route('create-quote', { path: ':idClient' });
     });
   });
   this.route('back-driver', function () {

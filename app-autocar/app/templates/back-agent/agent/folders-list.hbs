@@ -8,13 +8,14 @@
       <th class="w-1/4">Destination</th>
       <th class="w-1/4">Actions</th>
     </tr>{{#each model as |quote|}}
-
+{{#if (compare quote.status '===' 'valide')}}
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
       <td class="w-1/4 text-center">{{link-to quote.id "back-agent.agent.folder-card" quote.id class="text-black"}}</td>
       <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}}</td>
       <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
       <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
     </tr>
+    {{/if}}
     {{/each}}
 
   </table>
