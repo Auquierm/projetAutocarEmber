@@ -78,7 +78,7 @@ p {
 
 /* --------------------- buttons ------------------- */
 
-button{
+button, .button{
   padding: 0.5rem 1rem;
   background-color:#17B3F6;
   border:none;
