@@ -211,14 +211,14 @@
 
 
   <div class="mt-6 flex justify-end">
-    {{#if (compare model.status '===' 'traitement')}}
-    <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    {{#if (compare model.status "===" "traitement")}}
+      <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+      <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
     {{else}}
-    {{#if (compare model.status '===' 'attente')}}
-    <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
-    {{/if}}
+      {{#if (compare model.status "===" "attente")}}
+        <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
+        <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
+      {{/if}}
     {{/if}}
   </div>
 </div>

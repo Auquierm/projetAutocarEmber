@@ -1,136 +1,133 @@
 <h2 class="mt-6">Fiche client - {{model.idUser.firstname}} {{model.idUser.lastname}} </h2>
 <div class="flex">
-<div class="flex w-1/2">
-<div class="bg-white p-4 shadow-md mt-4 text-black w-full">
+  <div class="flex w-1/2">
+    <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
 
 
-  <div>
-    <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Prénom:</div>
-        <div class="pl-2 flex italic">{{model.idUser.firstname}}</div>
+      <div>
+        <div class="flex space-between mb-2">
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Prénom:</div>
+            <div class="pl-2 flex italic">{{model.idUser.firstname}}</div>
+          </div>
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold"> Nom: </div>
+            <div class="pl-2 italic">{{model.idUser.lastname}}</div>
+          </div>
+        </div>
+        <div class="flex space-between mb-2">
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Email: </div>
+            <div class="pl-2 italic">{{model.idUser.email}}</div>
+          </div>
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Genre: </div>
+            <div class="pl-2 italic">{{model.idUser.sexe}}</div>
+          </div>
+        </div>
+        <div class="flex space-between mb-2">
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Société: </div>
+            <div class="pl-2 italic">{{model.societe}}</div>
+          </div>
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">N° Tva: </div>
+            <div class="pl-2 italic">{{model.numTva}}</div>
+          </div>
+        </div>
+        <div class="flex space-between mb-2">
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold"> N°Tel: </div>
+            <div class="pl-2 italic">{{model.idUser.phone}}</div>
+          </div>
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold"> N°Fax: </div>
+            <div class="pl-2 italic">{{model.numFax}}</div>
+          </div>
+        </div>
+        <div class="flex space-between mb-2">
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold"> Ville: </div>
+            <div class="pl-2 italic">{{model.idUser.address.city}}</div>
+          </div>
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Rue: </div>
+            <div class="pl-2 italic">{{model.idUser.address.street}}</div>
+          </div>
+        </div>
+        <div class="flex space-between mb-2">
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">N°: </div>
+            <div class="pl-2 italic">{{model.idUser.address.number}}</div>
+          </div>
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Pays: </div>
+            <div class="pl-2 italic">{{model.idUser.address.country}}</div>
+          </div>
+        </div>
       </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Nom: </div>
-        <div class="pl-2 italic">{{model.idUser.lastname}}</div>
+      <div class="mt-6 flex">
+        <input type="submit" value="Modifier client" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+        <input type="submit" value="Nouvelle Offre" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
       </div>
-    </div>
-    <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Email: </div>
-        <div class="pl-2 italic">{{model.idUser.email}}</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Genre: </div>
-        <div class="pl-2 italic">{{model.idUser.sexe}}</div>
-      </div>
-    </div>
-    <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Société: </div>
-        <div class="pl-2 italic">{{model.societe}}</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">N° Tva: </div>
-        <div class="pl-2 italic">{{model.numTva}}</div>
-      </div>
-    </div>
-    <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> N°Tel: </div>
-        <div class="pl-2 italic">{{model.idUser.phone}}</div>
-      </div>
-<div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> N°Fax: </div>
-        <div class="pl-2 italic">{{model.numFax}}</div>
-      </div>
-    </div>
-    <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Ville: </div>
-        <div class="pl-2 italic">{{model.idUser.address.city}}</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Rue: </div>
-        <div class="pl-2 italic">{{model.idUser.address.street}}</div>
-      </div>
-    </div>
-    <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">N°: </div>
-        <div class="pl-2 italic">{{model.idUser.address.number}}</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Pays: </div>
-        <div class="pl-2 italic">{{model.idUser.address.country}}</div>
-      </div>
+
+
     </div>
   </div>
-  <div class="mt-6 flex">
-    <input type="submit" value="Modifier client" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Nouvelle Offre" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+  <div class="flex flex-col w-1/2  ml-4 ">
+    <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
+      <h4>Ses devis</h4>
+      <table class="w-full mt-3">
+        <thead>
+          <tr class="p-2 text-white bgPrimaryBlue">
+            <th class="w-1/4">Id</th>
+            <th class="w-1/4">Statut</th>
+            <th class="w-1/4">Destination</th>
+            <th class="w-1/4">Actions</th>
+          </tr>
+        </thead>
+        {{#each model.quotesId as |quote|}}
+          <tbody>
+            <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+              <td class="w-1/4 text-center ">{{quote.id}}</td>
+              <td class="w-1/4 text-center">{{quote.status}}</td>
+              <td class="w-1/4 text-center">{{link-to quote.placeArrival.city "back-agent.agent.quote-card" quote.id class="text-black"}}</td>
+              <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+            </tr>
+          </tbody>
+        {{/each}}
+      </table>
+    </div>
+    <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
+      <h4>Ses dossiers</h4>
+      <table class="w-full mt-3">
+        <thead>
+          <tr class="p-2 text-white bgPrimaryBlue">
+            <th class="w-1/6">Id</th>
+            <th class="w-1/6">Destination</th>
+            <th class="w-1/6">Date départ</th>
+            <th class="w-1/6">Date retour</th>
+            <th class="w-1/6">Capacité</th>
+            <th class="w-1/6">Actions</th>
+          </tr>
+        </thead>
+        {{#each model.quotesId as |quote|}}
+          {{#if (compare quote.status "===" "valide")}}
+            <tbody>
+              <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+                <td class="w-1/6 text-center ">D{{quote.numFolder}}</td>
+                <td class="w-1/6 text-center ">{{link-to quote.placeArrival.city "back-agent.agent.folder-card" quote.id class="text-black"}}</td>
+                <td class="w-1/6 text-center ">{{quote.dateDeparture}}</td>
+                <td class="w-1/6 text-center ">{{quote.dateArrival}}</td>
+                <td class="w-1/6 text-center ">{{quote.capacityAutocar}}</td>
+                <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
+              </tr>
+            </tbody>
+          {{/if}}
+        {{/each}}
+      </table>
+    </div>
   </div>
-
-
-</div>
-</div>
-<div class="flex flex-col w-1/2  ml-4 ">
-  <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
-  <h4>Ses devis</h4>
-
-  <table class="w-full mt-3">
-    <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/4">Id</th>
-      <th class="w-1/4">Statut</th>
-      <th class="w-1/4">Destination</th>
-      <th class="w-1/4">Actions</th>
-    </tr>
-    {{#each model.quotesId as |quote|}}
-
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center ">{{quote.id}}</td>
-      <td class="w-1/4 text-center">{{quote.status}}</td>
-      <td class="w-1/4 text-center">{{link-to quote.placeArrival.city "back-agent.agent.quote-card" quote.id class="text-black"}}</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-
-
-    {{/each}}
-  </table>
-
-</div>
-
-  <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
-  <h4>Ses dossiers</h4>
-
-<table class="w-full mt-3">
-      <tr class="p-2 text-white bgPrimaryBlue">
-        <th class="w-1/6">Id</th>
-        <th class="w-1/6">Destination</th>
-        <th class="w-1/6">Date départ</th>
-        <th class="w-1/6">Date retour</th>
-        <th class="w-1/6">Capacité</th>
-        <th class="w-1/6">Actions</th>
-      </tr>
-      {{#each model.quotesId as |quote|}}
-      {{#if (compare quote.status '===' 'valide')}}
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-        <td class="w-1/6 text-center ">D{{quote.numFolder}}</td>
-        <td class="w-1/6 text-center ">{{link-to quote.placeArrival.city "back-agent.agent.folder-card" quote.id class="text-black"}}</td>
-        <td class="w-1/6 text-center ">{{quote.dateDeparture}}</td>
-        <td class="w-1/6 text-center ">{{quote.dateArrival}}</td>
-        <td class="w-1/6 text-center ">{{quote.capacityAutocar}}</td>
-        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-      </tr>
-      {{/if}}
-      {{/each}}
-
-    </table>
-
-  </div>
-</div>
-
-
 </div>
 
 
