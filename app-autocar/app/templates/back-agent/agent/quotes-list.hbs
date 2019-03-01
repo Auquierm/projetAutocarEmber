@@ -12,6 +12,7 @@
       </tr>
     </thead>
     {{#each model as |quote|}}
+<<<<<<< HEAD
       {{#if (compare quote.status "===" "attente" )}}
         <tbody>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
@@ -23,6 +24,17 @@
           </tr>
         </tbody>
       {{/if}}
+=======
+
+    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+      <td class="w-1/5 text-center">{{quote.dateCreation}}</td>
+      <td class="w-1/5 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
+      <td class="w-1/5 text-center">{{quote.placeArrival.city}}</td>
+      <td class="w-1/5 text-center">{{quote.status}}</td>
+      <td class="w-1/5 text-center">{{#link-to 'back-agent.agent.quote-card' quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+    </tr>
+
+>>>>>>> cac827cd4e1b374039a99e9d3fda08c65afb767e
     {{/each}}
 
   </table>

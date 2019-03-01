@@ -1,14 +1,27 @@
-import Controller from '@ember/controller';
+// import Controller from '@ember/controller';
+import Ember from 'ember';
 import { inject as service } from '@ember/service';
-export default Controller.extend({
+export default Ember.Controller.extend({
+  session: service(),
   ajax: service(),
+  travelTime: '12',
+  init(...args) {
+    this._super.apply(this, args);
+    console.log(this.model);
+    console.log(this.get('model'));
+    console.log(this.get('currentmodel'));
+  },
   actions: {
     async sendQuote() {
       console.log('salut jenvoie la proposition !');
       console.log(this.get('model'));
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
         data: {
-          status: 'traitement'
+          status: 'traitement',
         }
       });
       this.model.reload();
@@ -16,6 +29,10 @@ export default Controller.extend({
     },
     async validateQuote() {
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
         data: {
           status: 'valide'
         }
@@ -25,6 +42,10 @@ export default Controller.extend({
     },
     async refuseQuote() {
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
         data: {
           status: 'refuse'
         }
