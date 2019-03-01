@@ -1,5 +1,5 @@
-<nav class="navHomeDevis fixed pin-t w-full flex items-center justify-between flex-wrap bg-blue-transparent py-2">
-  <div class="xl:w-3/5 mx-auto md:flex md:items-center md:justify-between">
+<nav class="fixed pin-t w-full flex items-center xxl:py-2 justify-between flex-wrap bg-blue-transparent z-50">
+  <div class="sm:w-full md:w-3/4 xxl:w-2/3 mx-auto md:flex md:items-center md:justify-between">
     <div class="flex justify-between items-center">
 
       <div class="">
@@ -19,21 +19,21 @@
     {{#if isHidden}}
 
     <div class="menuFront">
-      <ul class="text-sm md:flex .prompt font-bold">
-        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
+      <ul class="sm:text-sm lg:text-lg xl:text-xl md:flex md:justify-between .prompt font-bold text-center pl-0">
+        <li class="block mt-2 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
           {{!-- {{link-to "Home" "home"}} --}}
           <a href="#home">Accueil</a>
         </li>
-        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
+        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
+          {{!-- {{link-to "About Us" "about-us"}} --}}
+          <a href="#about">A propos</a>
+        </li>
+        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
           {{!-- {{link-to "Contact" "contact"}} --}}
-          <a href="#contact">A propos</a>
+          <a href="#contact">Contact</a>
         </li>
-        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white">
-          {{!-- {{link-to "About Us" "about-us"}} --}}
-          <a href="#about">Contact</a>
-        </li>
-        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white">
-          {{!-- {{link-to "About Us" "about-us"}} --}}
+        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0">
+          {{!-- {{link-to "Devis" "devis"}} --}}
           <a href="devis">Devis</a>
         </li>
       </ul>
@@ -44,170 +44,220 @@
   </div>
 </nav>
 
-<header class="bg-banner-image w-full sm:invisible md:visible flex items-end">
-  <div class="w-3/4 md:mx-auto md:mt-16 md:mb-2 flex">
-    <div class="w-2/5 lg:ml-12">
-      <img src="assets/images/logoShadow-md.png" class="md:w-3/4">
-    </div>
-    <div class="w-2/3 flex justify-end items-end lg:mr-8">
-      <h2 class="bg-blue-transparent text-white block text-center p-4 rounded-lg text-sm">Personnalisez votre
-        voyage
-        en autocar et<br>
-        obtenez un
-        devis en quelques clics</h2>
+<header id="home" class="sm:hidden md:block">
+  <div class="w-full">
+    <div class="bgAccueil">
+      <div class="md:w-3/4 xxl:w-2/3 flex md:mx-auto">
+        <div class="flex-1 flex md:mt-14 xxl:mt-18 md:mb-8 lg:mb-20 xl:mb-64 md:-ml-3">
+          <img src="assets/images/logoShadow-md.png" class="md:h-30 lg:h-38 xl:h-46 md:-mt-2 xxl:mb-24 pin-l" alt="logoPimpMyTrip">
+        </div>
+        <div class="flex-1 flex justify-end md:mt-14 md:pb-2 xxl:pb-4">
+          <div class="flex items-end">
+            <h2 class="z-20 bg-blue-transparent text-white text-center md:p-2 rounded-lg md:text-sm lg:text-lg xl:text-2xl xxl:text-4xl">
+              Personnalisez votre voyage en autocar et obtenez un devis en quelques clics
+            </h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
 
 {{!-- ---------------------- fin menu ------------------------------- --}}
 
-<div id="contenu" class="mx-auto p-4 md:mb-6 lg:w-3/4 lg:mx-auto xl:w-3/5  xl:mx-auto ">
-  <div class="flex md:w-full md:flex-no-wrap flex-wrap-reverse">
-    <img src="/assets/images/accueil/accueil_inside.jpg" class=" md:pb-6 " style="width:400px;height:266px">
-    <p class=" md:ml-6 md:pb-6 justify sm:pb-4 xl:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Officia, aliquam unde?
-      At, eaque laboriosam, tempora eius mollitia perspiciatis exercitationem animi optio fugiat omnis ullam
-      nihil odit delectus voluptatem ratione quod!<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing
-      elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in nesciunt debitis
-      magnam sint corrupti, rerum consequatur, similique cumque eos quis. Lorem ipsum dolor sit amet consectetur,
-      adipisicing elit. Blanditiis nam voluptatem nulla temporibus necessitatibus voluptatum laboriosam officia
-      officiis? Repudiandae repellendus soluta sit odio cum eveniet alias voluptatem dolorum perspiciatis
-      quisquam.<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, aliquam unde? At, eaque
-      laboriosam, neque possimus nostrum aut in nesciunt debitis tempora eius mollitia perspiciatis
-      exercitationem animi optio fugiat omnis ullam nihil odit delectus voluptatem ratione quod!</p>
-  </div>
-  <div class="flex md:flex-no-wrap sm:flex-wrap mt-6 ">
-    <p class="md:pb-6 justify sm:pb-4 md:mr-3 xl:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Officia, aliquam unde?
-      At, eaque laboriosam, tempora eius mollitia perspiciatis exercitationem animi optio fugiat omnis ullam
-      nihil odit delectus voluptatem ratione quod!<br><br>Lorem ipsum dolor sit amet, consectetur adipisicing
-      elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in nesciunt debitis
-      magnam sint corrupti, rerum consequatur, similique cumque eos quis. Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in
-      nesciunt debitis magnam sint corrupti, rerum consequatur, neque possimus nostrum aut in nesciunt debitis
-      similique cumque eos quis. Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-    <img src="assets/images/accueil/accueil_autocar.jpg" class="md:pb-6 md:ml-3 " style="width:400px;height:225px">
-  </div>
+{{!-- ---------------------- Accueil ------------------------------- --}}
+<section class="md:bg-white md:px-6 sm:pt-16 md:pt-4 sm:pb-6 lg:py-10 sm:w-4/5 md:w-3/4 xxl:w-2/3 mx-auto">
+  <article class="flex items-center md:w-full flex-wrap-reverse md:flex-no-wrap">
+    <div class="md:w-1/2">
+      <img src="/assets/images/accueil/accueil_inside.jpg" class="w-full h-auto md:flex-1 rounded shadow-md" alt="interieurAutocar">
+    </div>
+    <div class="md:w-1/2">
+      <p class="md:ml-4 xxl:ml-10 sm:pb-4 md:pb-0 text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl md:flex-1">
+        Que ce soit pour un voyage d'affaires, un voyage autocar en Belgique, à l'étranger ou un voyage spécifique,
+        nous mobilisons nos équipes pour vous apporter satisfaction, tranquillité et répondre aux attentes de votre
+        projet.
+        <hr>
+        Profitez d'un transport en autocar de grand tourisme pour vos voyages scolaires.
+        <hr>
+        Nous disposons de nos propres autocars régulièrement renouvelés et parfaitement entretenus.
+        <hr>
+        Selon la taille de votre groupe, les distances à parcourir et les pays visités, nous mettons à votre
+        disposition
+        des autocars équipés de toilettes, vidéo et air climatisé.
+        <hr>
+      </p>
+    </div>
+
+  </article>
+  <article class="flex items-center md:w-full md:flex-no-wrap sm:flex-wrap sm:mt-4 md:mt-6 xxl:mt-10">
+    <div class="md:w-1/2">
+      <p class="md:mr-4 xxl:mr-10 text-justify sm:pb-4 md:pb-0 sm:text-xs lg:text-sm xl:text-base xxl:text-xl md:flex-1">
+        Nous disposons également de superbes autocars TopClass.
+        <hr>
+        Ils restent en permanence en liaison avec nos services grâce au wifi embarqué.
+        <hr>
+        Pimp My Trip garde toujours l'esprit ouvert et reste attentif afin de vous proposer la solution idéale,
+        nos experts conseil sont à même de vous proposer la meilleure formule de vacances et de déplacements.
+        <hr>
+        Une approche pointue et une longue expérience sur le terrain ainsi qu'une connaissance approfondie des
+        différents
+        acteurs du marché vous garantissent de pouvoir choisir en toute connaissance de cause le programme parfaitement
+        adapté.
+      </p>
+    </div>
+    <div class="md:w-1/2">
+      <img src="assets/images/accueil/accueil_autocar.jpg" class="w-full h-auto md:flex-1 rounded shadow-md" alt="autocarSetra">
+    </div>
+
+  </article>
+</section>
+
+{{!-- ---------------------- A propos ------------------------------- --}}
+
+<div id="about" class="flex justify-center">
+  <h2 class="text-white sm:my-16 md:my-20 lg:my-34 xxl:my-64 md:text-2xl lg:text-3xl xl:text-4xl xxl:text-6xl">L'agence Pimp My
+    Trip</h2>
 </div>
 
-<div id="about" class="flex justify-center ">
-  <h2 class="text-white justify mt-32 mb-32">L'agence Pimp My Trip</h2>
-</div>
-<div id="contenu-about" class="md:w-full mx-auto p-4 md:mb-6 lg:w-3/4 lg:mx-auto xl:w-3/5  xl:mx-auto">
-  <div class="flex md:flex-no-wrap sm:flex-wrap-reverse">
-    <img src="/assets/images/aPropos/aPropos_autocar1.jpg" class="md:pb-6 pt-4 pb-4" style="width:400px;height:225px">
-    <p class="md:ml-6 md:pt-4 md:pb-6 justify xl:text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+<section id="contenu-about" class="md:bg-white md:px-6 sm:pt-16 sm:pb-6 lg:py-10 sm:w-4/5 md:w-3/4 xxl:w-2/3 mx-auto">
+  <article class="flex items-center md:w-full flex-wrap-reverse md:flex-no-wrap sm:mb-2 md:mb-6 xxl:mb-10">
+    <div class="md:w-1/2">
+      <img src="/assets/images/aPropos/aPropos_autocar1.jpg" class="w-full h-auto md:flex-1 rounded shadow-md" alt="autocarSetra">
+    </div>
+    <div class="md:w-1/2">
+      <p class="md:ml-4 sm:pb-4 md:pb-0 text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl md:flex-1">
+        Je me souviens en fait, premièrement, il y a de bonnes règles, de bonnes rules et c'est une sensation réelle
+        qui se produit si on veut!
+        Et là, vraiment, j'essaie de tout coeur de donner la plus belle réponse de la terre !
+        <br><br>Lorem ipsum dolor sit amet, consectetur
+        adipisicing elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in
+        nesciunt debitis magnam sint corrupti, rerum consequatur, similique cumque eos quis. Lorem ipsum dolor
+        sit amet consectetur, adipisicing elit.
+      </p>
+    </div>
+  </article>
+
+  <div class="md:flex-col">
+    <span class="sm:text-xs lg:text-sm xl:text-base xxl:text-3xl text-blue font-bold">Nos cars:</span>
+    <p class="sm:pb-4 md:pb-2 xl:pb-4 sm:pt-1 md:pt-2 xl:pt-4 text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl">Lorem ipsum
+      dolor sit amet
+      consectetur adipisicing elit.
       Officia, aliquam
-      unde? At, eaque laboriosam, tempora eius mollitia perspiciatis exercitationem animi optio fugiat omnis
-      ullam nihil odit delectus voluptatem ratione quod!<br><br>Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in
-      nesciunt debitis magnam sint corrupti, rerum consequatur, similique cumque eos quis. Lorem ipsum dolor
-      sit amet consectetur, adipisicing elit. Blanditiis nam voluptatem nulla temporibus necessitatibus
-      voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
-      voluptatem dolorum perspiciatis quisquam.</p>
-  </div>
-
-  <div>
-    <p class="pb-6 justify xl:text-sm ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, aliquam
       unde? At, eaque laboriosam, tempora eius mollitia perspiciatis exercitationem animi optio fugiat omnis.
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus iste omnis rem provident expedita
       nostrum ipsa tempora quidem maxime, eum molestiae!
-      ullam nihil odit delectus voluptatem ratione quod!<br><br>Lorem ipsum dolor sit amet, consectetur
+      ullam nihil odit delectus voluptatem ratione quod!
+    </p>
+    <p class="text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl">Lorem ipsum dolor sit amet
+      Lorem ipsum dolor sit amet, consectetur
       adipisicing elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in
       nesciunt debitis magnam sint corrupti, rerum consequatur, similique cumque eos quis. Lorem ipsum dolor
       sit amet consectetur, adipisicing elit. Blanditiis nam voluptatem nulla temporibus necessitatibus
       voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
-      voluptatem dolorum perspiciatis quisquam.</p>
-    <ul class="flex mb-2 list-reset xl:text-sm">
-      <li>Classique:</li>
+      voluptatem dolorum perspiciatis quisquam.
+    </p>
+  </div>
+
+  <div class="flex md:flex-no-wrap md:flex-col sm:flex-wrap sm:mt-6 md:mt-4 xl:pt-6 sm:pb-2 md:pb-0">
+    <ul class="flex sm:mb-2 xl:mb-4 list-reset sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
+      <li class="font-bold">Classique:</li>
       <span>Blanditiis nam voluptatem nulla temporibus necessitatibus
         voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
         voluptatem dolorum perspiciatis quisquam.</span>
     </ul>
-    <ul class="flex mb-2 list-reset xl:text-sm">
-      <li class="mr-5">Confort: </li>
+    <ul class="flex sm:mb-2 xl:mb-4 list-reset sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
+      <li class="mr-6 font-bold">Confort: </li>
       <span>Blanditiis nam voluptatem nulla temporibus necessitatibus
         voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
         voluptatem dolorum perspiciatis quisquam.</span>
     </ul>
-    <ul class="flex mb-2 sm:mb-4 list-reset xl:text-sm">
-      <li class="mr-3 ">TopClass:</li>
+    <ul class="flex sm:mb-4 md:mb-0 list-reset sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
+      <li class="mr-4 font-bold">TopClass:</li>
       <span>Blanditiis nam voluptatem nulla temporibus necessitatibus
         voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
         voluptatem dolorum perspiciatis quisquam.</span>
     </ul>
   </div>
-  <div class="sm:flex-wrap-reverse md:mt-8">
+  <div class="sm:flex-wrap-reverse md:mt-6 xl:mt-10">
     <div class="sm:w-full md:flex md:justify-center">
-      <div class="md:flex-1">
-        <img src="assets/images/aPropos/aPropos_inside1.jpg" class="md:py-2 md:h-24 md:mr-4 xl:h-48">
+      <div class="md:w-1/2 md:flex-1 md:flex md:flex-wrap md:-mb-1">
+        <div class="md:w-9/20 md:mr-2">
+          <img src="assets/images/aPropos/aPropos_inside1.jpg" class="w-full h-auto rounded" alt="interieurAutocar">
+        </div>
+        <div class="md:w-9/20">
+          <img src="assets/images/aPropos/aPropos_inside2.jpg" class="w-full h-auto rounded" alt="interieurAutocar">
+        </div>
+        <div class="md:w-9/20 md:mr-2">
+          <img src="assets/images/aPropos/aPropos_inside3.jpg" class="w-full h-auto rounded" alt="interieurAutocar">
+        </div>
+        <div class="md:w-9/20">
+          <img src="assets/images/aPropos/aPropos_inside4.jpg" class="w-full h-auto rounded" alt="interieurAutocar">
+        </div>
       </div>
-      <div class="md:flex-1">
-        <img src="assets/images/aPropos/aPropos_inside2.jpg" class="md:py-2 md:h-24 md:mr-4 xl:h-48">
-      </div>
-      <div class="md:flex-1">
-        <img src="assets/images/aPropos/aPropos_inside3.jpg" class="md:py-2 md:h-24 md:mr-4 xl:h-48">
-      </div>
-      <div class="md:flex-1">
-        <img src="assets/images/aPropos/aPropos_inside2.jpg" class="md:py-2 md:h-24 md:mr-4 xl:h-48">
-      </div>
-      <div class="md:flex-1">
-        <img src="assets/images/aPropos/aPropos_autocar2.jpg" class="md:py-2 md:h-24 md:mr-4 xl:h-48">
+      <div class="md:w-1/2">
+        <img src="assets/images/aPropos/aPropos_autocar2.jpg" class="w-full h-full rounded shadow-md" alt="autocarSetra">
       </div>
     </div>
   </div>
-</div>
-<div id="contact" class="flex justify-center md:mt-6 md:mb-6">
-  <h2 class="text-black justify mt-32 mb-32">Contactez Pimp My Trip</h2>
+</section>
+
+{{!-- ---------------------- contact ------------------------------- --}}
+
+<div id="contact" class="flex justify-center sm:mt-6 md:mt-0 md:mb-6 sm:mb-6 md:mb-14 xxl:mb-20S">
+  <h2 class="bg-grey-transparent text-white justify p-2 sm:my-16 md:my-20 lg:my-34 xxl:my-64 md:text-2xl lg:text-3xl xl:text-4xl xxl:text-6xl rounded-lg">
+    Contactez Pimp My Trip
+  </h2>
 </div>
 <!--Formulaire-->
-<div id="contenu-contact" class="mx-auto  md:mt-6 md:p-4 sm:mb-2 ">
-  <div class="flex sm:flex-wrap ">
+<div id="contenu-contact" class="sm:w-1/2 mx-auto sm:mt-6 xxl:mt-16 md:p-4 sm:mb-2 xxl:mb-16">
+  <div class="flex sm:flex-wrap">
     <div id="write" class="md:mr-6 sm:hidden"></div>
-    <!--<img src="/assets/images/contact/contact_writing.jpg" class="pb-6 mr-6" style="width:200px;height:113px">-->
-    <form class="border border-grey-light mx-auto px-8 pt-6 pb-4 mb-4">
-      <h3 class="text-center sm:text-xl md:text-5xl">Vous avez des questions?</h3>
-      <p class="sm:text-xs md:text-lg pt-2 mb-4">Blanditiis nam voluptatem nulla temporibus necessitatibus
+    <form class="bg-white border border-grey-light mx-auto px-8 pt-6 pb-4 mb-4 rounded shadow-md">
+      <h3 class="text-center sm:text-xl md:text-4xl">Vous avez des questions?</h3>
+      <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl">Blanditiis nam voluptatem nulla temporibus
+        necessitatibus
         voluptatum laboriosam officia officiis? </p>
       <div class=" mx-auto ">
         <div class="mb-4">
           {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" type="text"
+          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
           value=contactFirstname placeholder="Votre prénom"}}
         </div>
         <div class="mb-4">
           {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" type="text"
+          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
           value=contactLastname placeholder="Votre nom"}}
         </div>
         <div class="mb-4">
           {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" type="text" value=contactEmail
+          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
+          value=contactEmail
           placeholder="Votre email"}}
         </div>
         <div class="mb-4">
           {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" type="text"
+          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
           value=contactConfirmEmail placeholder="Confirmez votre email"}}
         </div>
         <div class="mb-4">
           {{textarea rows="4" cols="70" class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" type="textarea"
+          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="textarea"
           value=contactMessage placeholder="Votre message ici"}}
         </div>
       </div>
-      <button onclick={{action "sendMessage"}} class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Envoyer</button>
+      <button onclick={{action "sendMessage"}} class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline xxl:text-2xl">Envoyer</button>
     </form>
   </div>
 </div>
 {{outlet}}
 
 <footer class=" mt-4 bg-blue-transparent text-white pt-3 pb-3 md:justify-center">
-  <div class="flex flex-wrap sm:ml-2 md:ml-8 ml-10 text-xs justify-center">
-    <span>©Copyright 2019 - Pimp my Trip - </span>
-    <span>Technocité Formation "Developpeur JavaScript"</span>
+  <div class="flex flex-wrap sm:ml-2 md:ml-8 ml-10 sm:text-xs xl:text-base justify-center">
+    <span>©Copyright 2019 - Pimp my Trip - &nbsp;</span>
+    <span>Technocité Formation "Developpeur JavaScript" &nbsp; </span>
     <span>Ce site est un site fictif</span>
   </div>
+
   {{!-- <nav>
     <ul class="flex list-reset ml-6 pt-1">
       <li>

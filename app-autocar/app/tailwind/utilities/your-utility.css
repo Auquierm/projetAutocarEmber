@@ -10,14 +10,18 @@
 /* .skew-45 {
   transform: skewY(45deg);
 } */
-.bg-banner-image {
+/* .bg-banner-image {
   background-image: url("/assets/images/accueil/home_header.jpg");
-  background-size: cover;
+  background-size: 120%;
     background-position: center;
     background-repeat: no-repeat;
-}
+} */
 /* .homeCar1 {
   background-image: url("/assets/images/accueil/accueil_inside.jpg"); 
   background-size: cover;
   background-position: center;
 } */
+
+
+
+/* background-color: rgba(128, 128, 128, 0.521); */
