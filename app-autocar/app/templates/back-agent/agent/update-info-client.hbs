@@ -1,0 +1,147 @@
+<div ><a href="#" {{action "back"}}>Retour</a></div>
+<h2>Votre profil</h2>
+<div class="bg-white shadow-md mt-4 md:w-1/2 mb-8">
+  <div class="flex">
+    <div class="flex-1 w-1/2 p-3">
+      Prénom<br>
+      <div class="">{{input type="text" value=model.idUser.firstname class="block appearance-none w-full
+        bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Nom<br>
+      <div class="">{{input type="text" value=model.idUser.lastname class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Age<br>
+      <div class="">{{input type="text" value=model.idUser.age class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Genre<br>
+      <SelectSexe @sexe={{model.idUser.sexe}} onclick={{action "selectOption" "gender"}} />
+
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Email<br>
+      <div class="">{{input type="text" value=model.idUser.email class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      N°téléphone<br>
+      <div class="">{{input type="text" value=model.idUser.phone class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+  <h4 class="p-3">Votre adresse</h4>
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Pays<br>
+      <SelectCountryUser @countryUser={{model.idUser.address.country}} onclick={{action "selectOption" "countryUser"}} />
+
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Ville<br>
+      <div class="">{{input type="text" value=model.idUser.address.city class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Code postal<br>
+      <div class="">{{input type="text" value=model.idUser.address.zip class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Rue<br>
+      <div class="">{{input type="text" value=model.idUser.address.street class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Numéro<br>
+      <div class="">{{input type="text" value=model.idUser.address.number class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+    </div>
+  </div>
+
+  <h4 class="p-3">Votre société</h4>
+
+  <div class="flex">
+    <div class="flex-1 w-1/2 p-3">
+      Nom de société<br>
+      <div class="">{{input type="text" value=model.societe class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      N° Fax<br>
+      <div class="">{{input type="text" value=model.numFax class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      N° TVA<br>
+      <div class="">{{input type="text" value=model.numTva class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      N° compte bancaire<br>
+      <div class="">{{input type="text" value=model.numBank class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Pays<br>
+      <SelectCountry @country={{model.adresseFacturation.country}} onclick={{action "selectOption" "country"}} />
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Ville<br>
+      <div class="">{{input type="text" value=model.adresseFacturation.city class="block appearance-none w-full
+        bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Code postal<br>
+      <div class="">{{input type="text" value=model.adresseFacturation.zip class="block appearance-none w-full
+        bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Rue<br>
+      <div class="">{{input type="text" value=model.adresseFacturation.street class="block appearance-none w-full
+        bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+  </div>
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Numéro<br>
+      <div class="">{{input type="text" value=model.adresseFacturation.number class="block appearance-none w-full
+        bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}</div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+    </div>
+  </div>
+  <div class="flex justify-end p-3">
+    <button class="ml-3" onclick={{action "update"}}>Envoyer la modification</button>
+  </div>
+</div>
+
+{{outlet}}

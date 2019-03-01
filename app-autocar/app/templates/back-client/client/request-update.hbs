@@ -1,5 +1,5 @@
 <div class=" h-full font-sans sm:pt-16 md:pt-0">
-    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
+    <form class="md:w-3/4 lg:w-2/3 xl:w-full px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
 
     {{!---------- div votre devis ----------}}
         <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg">
@@ -42,16 +42,16 @@
                     appendDataInput=true
                     disableMobile=true
                     classNames=classString
-                    date=(readonly dateValue)
+                    date=(readonly model.infoQuote.dateDeparture)
                     enableTime=true
                     locale='fr'
-                    dateFormat="d-m-y H:i"
+                    dateFormat="d-m-Y H:i"
                     minDate=minDate
                     minuteIncrement=1
                     time_24hr=true
                     onClose=(action "onCloseTime")
-                    onChange=(action "onChangeTime" "dateDp")
-                    onReady=(action "onReadyTime" "dateDp")
+                    onChange=(action "onChangeTime" "model.infoQuote.dateDeparture")
+                    onReady=(action "onReadyTime" "model.infoQuote.dateDeparture")
                     class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"
                     placeholder="Départ"
@@ -109,13 +109,13 @@
                     date=(readonly model.infoQuote.dateArrival)
                     enableTime=true
                     locale='fr'
-                    dateFormat="d-m-y H:i"
+                    dateFormat="d-m-Y H:i"
                     minDate=minDate
                     minuteIncrement=1
                     time_24hr=true
                     onClose=(action "onCloseTime")
-                    onChange=(action "onChangeTime" "dateRt")
-                    onReady=(action "onReadyTime" "dateRt")
+                    onChange=(action "onChangeTime" "model.infoQuote.dateArrival")
+                    onReady=(action "onReadyTime" "model.infoQuote.dateArrival")
                     class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"
                     placeholder="Retour"

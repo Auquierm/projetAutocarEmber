@@ -1,12 +1,15 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 export default Controller.extend({
+  session : service(),
   ajax: service(),
   actions: {
     async sendQuote() {
-      console.log('salut jenvoie la proposition !');
-      console.log(this.get('model'));
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
         data: {
           status: 'traitement'
         }
@@ -16,6 +19,10 @@ export default Controller.extend({
     },
     async validateQuote() {
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
         data: {
           status: 'valide'
         }
@@ -25,6 +32,10 @@ export default Controller.extend({
     },
     async refuseQuote() {
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
         data: {
           status: 'refuse'
         }

@@ -39,12 +39,13 @@ Router.map(function () {
       this.route('folders-list');
       this.route('quotes-list');
       this.route('drivers-list');
-      this.route('client-card', { path: '/client-card/:idAgent' });
-      this.route('driver-card', { path: '/driver-card/:idDriver' });
-      this.route('folder-card', { path: '/folder-card/:idFolder' });
-      this.route('quote-card', { path: '/quote-card/:idQuote' });
+      this.route('client-card', { path: '/client-card/:idagent' });
+      this.route('driver-card', { path: '/driver-card/:iddriver' });
+      this.route('folder-card', { path: '/folder-card/:idfolder' });
+      this.route('quote-card', { path: '/quote-card/:idquote' });
       this.route('day-program');
-      this.route('create-quote', { path: ':idClient' });
+      this.route('create-quote', { path: '/create-quote/:idclient' });
+      this.route('update-info-client', {path: '/update-info-client/:idclient'});
     });
   });
   this.route('back-driver', function () {

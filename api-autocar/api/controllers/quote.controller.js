@@ -32,8 +32,6 @@ exports.findOne = async (req, res, next) => {
 */
 exports.add = async (req, res, next) => {
     try {
-        console.log(req.body.dateArrival);
-        console.log(req.body.dateDeparture);
         const numberOfQuote = await Quote.find();
         let numForFolder = (numberOfQuote.length) + 1;
         const quote = await new Quote({

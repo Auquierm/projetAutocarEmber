@@ -1,17 +1,18 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+// import { computed } from '@ember/object';
 import {inject as service} from '@ember/service';
 import Moment from 'moment';
 let larg = window.innerWidth;
 
 export default Controller.extend({
   ajax : service(),
+  session: service(),
   isHidden: larg >= 768 ? true : false,
-  dateValue: computed(() => { return new Date(); }),
-  dateDp:'',
-  dateRt: '',
-  skibox : false,
-  trailer: false,
+  // dateValue: computed(() => { return new Date(); }),
+  // dateDp:'',
+  // dateRt: '',
+  // skibox : false,
+  // trailer: false,
   actions: {
     toggleCheckBox(params) {
       let index = '';
@@ -28,7 +29,6 @@ export default Controller.extend({
         if(this.get('model.isCheckedTrailer') === false && this.get('model.infoQuote.options').includes("Remorque")){
           index = this.get('model.infoQuote.options').indexOf("Remorque");
           this.get('model.infoQuote.options').splice(index, 1);
-          console.log("delete remorque");
         }
         return;
       }
@@ -40,85 +40,52 @@ export default Controller.extend({
 
       if(!this.get('model.infoQuote.options').includes(params)){
         this.get('model.infoQuote.options').push(params);
-        console.log(this.get('model.infoQuote.options'));
       }
     },
     async sendDevis(event){
       event.preventDefault();
-      console.log(this.get('model.infoQuote.placeDeparture.country'));
-      console.log(this.get('model.infoQuote.capacityAutocar'));
-      console.log(this.get('model.infoQuote.placeArrival.country'));
-
-
-      // let client = await this.store.findRecord('client', this.get('model.id'));
-      // let newQuote = await this.store.createRecord('quote',  {
-      //   placeDeparture: {
-      //     street : this.tripDpStreet,
-      //     number : this.tripDpNumber,
-      //     zip : this.tripDpZip,
-      //     city : this.tripDpCity,
-      //     country : this.countryDp
-      //   },
-      //   placeArrival: {
-      //     street : this.tripRtStreet,
-      //     number : this.tripRtNumber,
-      //     zip : this.tripRtZip,
-      //     city : this.tripRtCity,
-      //     country : this.countryRt
-      //   },
-      //   dateArrival: this.dateRt,
-      //   dateDeparture: this.dateDp,
-      //   pax: this.tripPax,
-      //   options: this.arrayOption,
-      //   capacityAutocar: this.placeAutocar,
-      //   status: "attente",
-      //   com : this.quoteCom,
-      //   idClient: client,
-      // });
-      // await newQuote.save();
-      // this.setProperties({
-      //   tripDpCity:'',
-      //   tripDpNumber:'',
-      //   tripDpStreet: '',
-      //   tripDpZip: '',
-      //   tripPax : '',
-      //   countryDp: 'Belgique',
-      //   countryRt: 'Belgique',
-      //   tripRtStreet: '',
-      //   tripRtNumber: '',
-      //   tripRtZip: '',
-      //   tripRtCity: '',
-      //   dateRt: '',
-      //   dateDp: '',
-      //   arrayOption: [],
-      //   placeAutocar: '30',
-      //   quoteCom: '',
-      // });
-      // await this.transitionToRoute('back-client.client.dashboard');
+      await this.ajax.patch(`/quotes/${this.get('model.infoQuote.id')}`, {
+        headers: {
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
+        },
+        data: {
+          placeDeparture: {
+            street : this.get('model.infoQuote.placeDeparture.street'),
+            number : this.get('model.infoQuote.placeDeparture.number'),
+            zip : this.get('model.infoQuote.placeDeparture.zip'),
+            city : this.get('model.infoQuote.placeDeparture.city'),
+            country : this.get('model.infoQuote.placeDeparture.country')
+          },
+          placeArrival: {
+            street : this.get('model.infoQuote.placeArrival.street'),
+            number : this.get('model.infoQuote.placeArrival.number'),
+            zip : this.get('model.infoQuote.placeArrival.zip'),
+            city : this.get('model.infoQuote.placeArrival.city'),
+            country : this.get('model.infoQuote.placeArrival.country')
+          },
+          dateArrival: this.get('model.infoQuote.dateArrival'),
+          dateDeparture: this.get('model.infoQuote.dateDeparture'),
+          pax: this.get('model.infoQuote.pax'),
+          options: this.get('model.infoQuote.options'),
+          capacityAutocar: this.get('model.infoQuote.capacityAutocar'),
+          com : this.get('model.infoQuote.com'),
+        }
+      });
     },
     toggleMenu() {
       this.toggleProperty("isHidden");
     },
     async onChangeTime(params, value) {
       let dateFormatOnChange = Moment(value[0]).format('DD-MM-YYYY HH:mm');
-      // console.log(dateFormat);
-      if(params === "dateRt"){
+      if(params === "model.infoQuote.dateArrival"){
        await this.set(params, dateFormatOnChange);
-        console.log(this.dateRt);
-      }else if(params === "dateDp"){
+      }else if(params === "model.infoQuote.dateDeparture"){
         await this.set(params, dateFormatOnChange);
-        console.log(this.dateDp);
       }
     },
     onCloseTime() { },
-    onReadyTime(params, value) {
-      let dateFormatOnReady = Moment(value[0]).format('DD-MM-YYYY HH:mm');
-      if(params === "dateRt"){
-        this.set(params, dateFormatOnReady);
-      }else if(params === "dateDp"){
-        this.set(params, dateFormatOnReady);
-      }
-    },
+    onReadyTime() { },
     selectOption(params, option){
       this.set(params, option.target.value);
     },

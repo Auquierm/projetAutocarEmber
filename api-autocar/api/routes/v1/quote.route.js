@@ -4,7 +4,7 @@ const Validate = require('express-validator');
 
 const { listQuotes, createQuote, getQuote, updateQuote, removeQuote } = require('./../../validations/quote.validation');
 
-const { authorize, ADMIN } = require('./../../middlewares/auth.middleware');
+const { authorize, ADMIN, CLIENT } = require('./../../middlewares/auth.middleware');
 
 const router = Express.Router();
 
@@ -15,8 +15,8 @@ router
 
 router
     .route('/:quoteId')
-    .get(/*authorize(ADMIN),*/ Validate(getQuote), QuoteController.findOne)
-    .patch(/*authorize(ADMIN),*/ Validate(updateQuote), QuoteController.update)
+    .get(authorize([ADMIN, CLIENT]), Validate(getQuote), QuoteController.findOne)
+    .patch(authorize([ADMIN, CLIENT]), Validate(updateQuote), QuoteController.update)
     .delete(/*authorize(ADMIN),*/ Validate(removeQuote), QuoteController.remove)
 
 

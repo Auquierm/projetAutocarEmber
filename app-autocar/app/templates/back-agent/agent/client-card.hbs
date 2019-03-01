@@ -67,10 +67,9 @@
     </div>
   </div>
   <div class="mt-6 flex">
-    <input type="submit" value="Modifier client" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Nouvelle Offre" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    <input type="submit" value="Modifier client" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow" onclick={{action "updateClientInfo" model.id}}>
+    <input type="submit" value="Nouvelle Offre" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow" onclick={{action "newQuote" model.id}}>
   </div>
-
 
 </div>
 </div>
@@ -91,7 +90,8 @@
       <td class="w-1/4 text-center ">{{quote.id}}</td>
       <td class="w-1/4 text-center">{{quote.status}}</td>
       <td class="w-1/4 text-center">{{link-to quote.placeArrival.city "back-agent.agent.quote-card" quote.id class="text-black"}}</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+      <td class="w-1/4 text-center">{{#link-to 'back-agent.agent.quote-card' quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+
     </tr>
 
 
@@ -120,7 +120,7 @@
         <td class="w-1/6 text-center ">{{quote.dateDeparture}}</td>
         <td class="w-1/6 text-center ">{{quote.dateArrival}}</td>
         <td class="w-1/6 text-center ">{{quote.capacityAutocar}}</td>
-        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
+        <td class="w-1/6 text-center">{{#link-to 'back-agent.agent.folder-card' quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
       </tr>
       {{/if}}
       {{/each}}
