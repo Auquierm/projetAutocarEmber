@@ -1,8 +1,9 @@
-import Route from '@ember/routing/route';
+// import Route from '@ember/routing/route';
 
-export default Route.extend({
+export default Ember.Route.extend({
   model(params) {
     return this.store.findRecord('quote', params.idproposal);
+
   },
   actions: {
     didTransition() {
