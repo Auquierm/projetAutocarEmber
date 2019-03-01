@@ -1,4 +1,4 @@
-<h2 class="mt-6">Devis {{model.id}} - {{model.placeArrival.city}}</h2>
+<h2 class="mt-6">Devis en {{model.status}} n°{{model.id}} - {{model.placeArrival.city}}</h2>
 
 <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
 
@@ -137,8 +137,8 @@
         <div class="pl-2 italic">{{model.placeArrival.country}}</div>
       </div>
     </div>
-    </div>
-    <div class="mb-6">
+  </div>
+  <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4>Infos Voyage:</h4>
       <i class="far fa-edit"></i>
@@ -146,7 +146,7 @@
     <div class="">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Durée du voyage </div>
-        <div class="pl-2 italic text-red font-bold">A calculer DR-DD!{{!--duree du voyage--}}</div>
+        <div class="pl-2 italic text-red font-bold">{{!--duree du voyage--}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Kilométrage estimé:</div>
@@ -210,10 +210,16 @@
 
 
 
-  <div class="mt-6 flex">
-    <input type="submit" value="Valider" class="block appearance-none bgPrimaryBlue text-white sm:w-1/3 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Refuser" class="block appearance-none bgPrimaryBlue text-white sm:w-1/3 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Envoyer" class="block appearance-none bgPrimaryBlue text-white sm:w-1/3 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+  <div class="mt-6 flex justify-end">
+    {{#if (compare model.status '===' 'traitement')}}
+    <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    {{else}}
+    {{#if (compare model.status '===' 'attente')}}
+    <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
+    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
+    {{/if}}
+    {{/if}}
   </div>
 </div>
 
