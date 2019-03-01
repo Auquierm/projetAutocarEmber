@@ -1,18 +1,18 @@
 <select name="gender" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 px-1 py-1 w-full rounded shadow mt-2"
   value="model.idUser.sexe">
-  {{#if (compare sexe '===' 'Homme')}}
-  <option selected value="Homme">Homme</option>
+  {{#if (compare sexe "===" "Homme")}}
+    <option selected value="Homme">Homme</option>
   {{else}}
-  <option value="Homme">Homme</option>
+    <option value="Homme">Homme</option>
   {{/if}}
-  {{#if (compare sexe '===' 'Femme')}}
-  <option selected value="Femme">Femme</option>
+  {{#if (compare sexe "===" "Femme")}}
+    <option selected value="Femme">Femme</option>
   {{else}}
-  <option value="Femme">Femme</option>
+    <option value="Femme">Femme</option>
   {{/if}}
-  {{#if (compare sexe '===' 'Autre')}}
-  <option selected value="Autre">Autre</option>
+  {{#if (compare sexe "===" "Autre")}}
+    <option selected value="Autre">Autre</option>
   {{else}}
-  <option value="Autre">Autre</option>
+    <option value="Autre">Autre</option>
   {{/if}}
 </select>

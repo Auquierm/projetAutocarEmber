@@ -35,7 +35,7 @@
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N° Tva: </div>
-        <div class="pl-2 italic">{{model.idClient.numTVA}}</div>
+        <div class="pl-2 italic">{{model.idClient.numTva}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
@@ -138,89 +138,87 @@
       </div>
     </div>
   </div>
-  <div class="mb-6">
-    <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
-      <h4>Infos Voyage:</h4>
-      <i class="far fa-edit"></i>
-    </div>
-    <div class="">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Durée du voyage </div>
-        <div class="pl-2 italic text-red font-bold">{{!--duree du voyage--}}</div>
+    <div class="mb-6">
+      <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
+        <h4>Infos Voyage:</h4>
+        <i class="far fa-edit"></i>
       </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Kilométrage estimé:</div>
-        <div class="pl-2 italic text-red font-bold">a entrer par l'agent{{!--kms--}}</div>
-      </div>
-    </div>
-    <div class="">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Nombre de passagers:</div>
-        <div class="pl-2 flex italic">{{model.pax}}</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Type de car: </div>
-        <div class="pl-2 italic">{{model.capacityAutocar}} places</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Nombre de chauffeur(s): </div>
-        <div class="pl-2 italic">{{model.numberDriver}}</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Inclus dans le prix: </div>
-        <div class="pl-2 italic">{{model.includeIn}}</div>
-      </div>
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Non inclus dans le prix: </div>
-        <div class="pl-2 italic">{{model.notIncludeIn}}</div>
-      </div>
-    </div>
-    <div class="flex justify-between">
-      <div class="p-2 flex font-bold"> Prix de base: </div>
-      <div class="p-2 italic">1800 €{{!--prix de base--}}</div>
-    </div>
-    <div class="">
-      <div class="flex flex-1 flex-col">
-        <div class="flex justify-between">
-          <div class="p-2 flex font-bold"> Options: </div>
-          <div class="p-2 italic">300 €{{!--suppléments--}}</div>
+      <div class="">
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold"> Durée du voyage </div>
+          <div class="pl-2 italic text-red font-bold">Ouesh donne la durée {{travelTime}}</div>
         </div>
-        <div class="pl-2 italic">{{model.options}}</div>
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold">Kilométrage estimé:</div>
+          <div class="pl-2 italic text-red font-bold">a entrer par l'agent{{!--kms--}}</div>
+        </div>
       </div>
+      <div class="">
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold">Nombre de passagers:</div>
+          <div class="pl-2 flex italic">{{model.pax}}</div>
+        </div>
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold"> Type de car: </div>
+          <div class="pl-2 italic">{{model.capacityAutocar}} places</div>
+        </div>
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold"> Nombre de chauffeur(s): </div>
+          <div class="pl-2 italic">{{model.numberDriver}}</div>
+        </div>
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold"> Inclus dans le prix: </div>
+          <div class="pl-2 italic">{{model.includeIn}}</div>
+        </div>
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold"> Non inclus dans le prix: </div>
+          <div class="pl-2 italic">{{model.notIncludeIn}}</div>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <div class="p-2 flex font-bold"> Prix de base: </div>
+        <div class="p-2 italic">1800 €{{!--prix de base--}}</div>
+      </div>
+      <div class="">
+        <div class="flex flex-1 flex-col">
+          <div class="flex justify-between">
+            <div class="p-2 flex font-bold"> Options: </div>
+            <div class="p-2 italic">300 €{{!--suppléments--}}</div>
+          </div>
+          <div class="pl-2 italic">{{model.options}}</div>
+        </div>
 
 
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Commentaire: </div>
-        <div class="pl-2 italic">{{model.com}}</div>
+        <div class="flex flex-1 flex-col">
+          <div class="p-2 flex font-bold">Commentaire: </div>
+          <div class="pl-2 italic">{{model.com}}</div>
+        </div>
+      </div>
+      <div class="">
+        <div class="flex justify-between">
+          <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
+          <div class="p-2 italic">250 €{{!--suppléments--}}</div>
+        </div>
+        <div class="flex justify-between">
+          <div class="p-2 flex font-bold">Total: </div>
+          <div class="p-2 flex italic border-t-2 border-black ">{{model.price}} €</div>
+        </div>
+
+
       </div>
     </div>
-    <div class="">
-      <div class="flex justify-between">
-        <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
-        <div class="p-2 italic">250 €{{!--suppléments--}}</div>
-      </div>
-      <div class="flex justify-between">
-        <div class="p-2 flex font-bold">Total: </div>
-        <div class="p-2 flex italic border-t-2 border-black ">{{model.price}} €</div>
-      </div>
 
-
+    <div class="mt-6 flex justify-end">
+      {{#if (compare model.status '===' 'traitement')}}
+      <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="button">
+      <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
+      {{else}}
+      {{#if (compare model.status '===' 'attente')}}
+      <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
+      <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
+      {{/if}}
+      {{/if}}
     </div>
-  </div>
-
-
-
-  <div class="mt-6 flex justify-end">
-    {{#if (compare model.status '===' 'traitement')}}
-    <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    {{else}}
-    {{#if (compare model.status '===' 'attente')}}
-    <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
-    {{/if}}
-    {{/if}}
-  </div>
 </div>
 
 {{outlet}}

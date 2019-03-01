@@ -25,6 +25,8 @@ export default {
   'grey-light': '#dae1e7',
   'grey-lighter': '#f1f5f8',
   'grey-lightest': '#f8fafc',
+  'grey-transparent': 'rgba(128, 128, 128, 0.2)',
+  'grey-transparent-op-md': 'rgba(128, 128, 128, 0.5)',
   'white': '#ffffff',
 
   'red-darkest': '#3b0d0c',

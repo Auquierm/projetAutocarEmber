@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
   session : service(),
   ajax: service(),
+
   actions: {
     async sendQuote() {
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
@@ -11,7 +12,7 @@ export default Controller.extend({
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
         },
         data: {
-          status: 'traitement'
+          status: 'traitement',
         }
       });
       this.model.reload();

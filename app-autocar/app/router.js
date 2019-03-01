@@ -39,7 +39,7 @@ Router.map(function () {
       this.route('folders-list');
       this.route('quotes-list');
       this.route('drivers-list');
-      this.route('client-card', { path: '/client-card/:idagent' });
+      this.route('client-card', { path: '/client-card/:idclient' });
       this.route('driver-card', { path: '/driver-card/:iddriver' });
       this.route('folder-card', { path: '/folder-card/:idfolder' });
       this.route('quote-card', { path: '/quote-card/:idquote' });

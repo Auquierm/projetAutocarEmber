@@ -1,68 +1,71 @@
-<nav class="fixed pin-t w-full flex items-center justify-between flex-wrap bg-blue-transparent py-2 z-10">
-    <div class="xl:w-3/5 mx-auto md:flex md:items-center md:justify-between">
-        <div class="flex justify-between items-center">
+<nav class="fixed pin-t w-full flex items-center xxl:py-2 justify-between flex-wrap bg-blue-transparent z-50">
+  <div class="sm:w-full md:w-3/4 xxl:w-2/3 mx-auto md:flex md:items-center md:justify-between">
+    <div class="flex justify-between items-center">
 
-            <div class="">
-                <img src="assets/images/logo.png" width="75px" alt="logoPimpMyTrip">
-            </div>
+      <div class="">
+        <img src="assets/images/logo.png" width="75px" alt="logoPimpMyTrip">
+      </div>
 
-            <div class="block md:hidden">
-                <button {{action "toggleMenu"}} class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
-                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <title>Menu</title>
-                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                    </svg>
-                </button>
-            </div>
-        </div>
+      <div class="block md:hidden">
+        <button {{action "toggleMenu"}} class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <title>Menu</title>
+            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+          </svg>
+        </button>
+      </div>
+    </div>
 
-        {{#if isHidden}}
+    {{#if isHidden}}
 
-        <div class="menuFront">
-            <ul class="text-sm md:flex .prompt font-bold">
-                <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
-                    {{!-- {{link-to "Home" "home"}} --}}
-                    <a href="home#home">Accueil</a>
-                </li>
-                <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white mr-4">
-                    {{!-- {{link-to "Contact" "contact"}} --}}
-                    <a href="home#contact">A propos</a>
-                </li>
-                <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white">
-                    {{!-- {{link-to "About Us" "about-us"}} --}}
-                    <a href="home#about">Contact</a>
-                </li>
-                <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white">
-                    {{!-- {{link-to "About Us" "about-us"}} --}}
-                    <a href="devis">Devis</a>
-                </li>
-            </ul>
-
-        </div>
-        {{/if}}
+    <div class="menuFront">
+      <ul class="sm:text-sm lg:text-lg xl:text-xl md:flex md:justify-between .prompt font-bold text-center pl-0">
+        <li class="block mt-2 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
+          {{!-- {{link-to "Home" "home"}} --}}
+          <a href="home#home">Accueil</a>
+        </li>
+        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
+          {{!-- {{link-to "About Us" "about-us"}} --}}
+          <a href="home#about">A propos</a>
+        </li>
+        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
+          {{!-- {{link-to "Contact" "contact"}} --}}
+          <a href="home#contact">Contact</a>
+        </li>
+        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0">
+          {{!-- {{link-to "Devis" "devis"}} --}}
+          <a href="devis">Devis</a>
+        </li>
+      </ul>
 
     </div>
+    {{/if}}
+
+  </div>
 </nav>
 
-<header class="w-full md:h-32 sm:hidden md:block">
-    <div class="w-full">
-        <img src="/assets/images/voyage/voyage_banner.jpg" alt="photoCar" class="w-full resize-x h-64">
+<header id="home" class="sm:hidden md:block">
+    <div class="bgDevis">
+        <div class="md:w-3/4 xxl:w-2/3 flex md:mx-auto justify-center">
+            <div class=" flex justify-center md:mt-22 md:mb-8 xxl:mt-34 xxl:mb-14">
+                <h1 class="z-20 bg-grey-transparent-op-md text-white text-center md:p-2 rounded-lg md:text-sm lg:text-lg xl:text-2xl xxl:text-4xl">
+                    Planifiez votre voyage
+                </h1>
+            </div>
+        </div>
     </div>
 </header>
-
 {{!-- ---------------------- fin menu ------------------------------- --}}
 
 
 {{!-- ---------------------- debut formulaire ---------------------- --}}
-<div class="mx-auto h-full font-sans sm:pt-16 md:pt-0">
-    <h1 class="text-center sm:text-xl md:text-2xl lg:text-4xl xl:text-5xl sm:text-black md:text-white pt-4 pb-2 sectionTitle">Planifiez
-        votre voyage</h1>
-    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto px-8 sm:pt-0 md:pt-24 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
+<div class="mx-auto h-full sm:pt-16 md:pt-0">
+    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto px-8 sm:pt-0 md:pt-6 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
 
         {{!---------- div votre devis ----------}}
-        <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg">
+        <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg xl:text-2xl">
             <span class="font-bold">Votre Devis</span>
-            <p class="pt-3">
+            <p class="pt-3 sm:text-xs md:text-sm lg:text-lg xl:text-xl">
                 Veuillez remplir intégralement ce formulaire afin qu'un agent prenne en compte vorte demande.
             </p>
         </div>
@@ -121,40 +124,35 @@
                     <ValidationInput @valueInput={{confirmEmail}} @confirmTest={{emailDiff}} @valuePlaceholder={{'Confirmation email'}} />
                 </div>
             </div>
-            {{!----------- div N°Tel et N°Fax -----------}}
-            <div class="md:w-2/5 ml-24 md:flex sm:text-xs lg:text-base">
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+            {{!---------- div tel et ville ----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:w-1/2 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=phone class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Tel"
                     required=true}}
                 </div>
-                {{!-- <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=fax class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° Fax"
-                    required=true}}
-                </div> --}}
-            </div>
-            {{!---------- div ville et rue ----------}}
-            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=city class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"
                     required=true}}
                 </div>
+            </div>
+            {{!---------- div rue et numéro ----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=street class="block appearance-none w-full bg-white
                     border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"
                     required=true}}
                 </div>
-            </div>
-            {{!---------- div numéro et code postal ----------}}
-            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=number class="block appearance-none w-full
                     bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
                     placeholder="Numéro" required=true}}
                 </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+            </div>
+            {{!----------- div code postal -----------}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:w-1/2 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=zip class="block appearance-none w-full bg-white border
                     border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"
                     required=true}}

@@ -4,19 +4,23 @@
 
 <div class="bg-white p-4 shadow-md mt-4">
   <table class="w-full">
-    <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/4">Société</th>
-      <th class="w-1/4">Nom</th>
-      <th class="w-1/4">Prénom</th>
-      <th class="w-1/4">Actions</th>
-    </tr>
+    <thead>
+      <tr class="p-2 text-white bgPrimaryBlue">
+        <th class="w-1/4">Société</th>
+        <th class="w-1/4">Nom</th>
+        <th class="w-1/4">Prénom</th>
+        <th class="w-1/4">Actions</th>
+      </tr>
+    </thead>
     {{#each model as |client|}}
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center ">{{client.societe}}</td>
-      <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{client.idUser.firstname}}</td>
-      <td class="w-1/4 text-center">{{#link-to 'back-agent.agent.client-card' client.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-    </tr>
+      <tbody>
+        <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+          <td class="w-1/4 text-center ">{{client.societe}}</td>
+          <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
+          <td class="w-1/4 text-center">{{client.idUser.firstname}}</td>
+          <td class="w-1/4 text-center">{{#link-to "back-agent.agent.client-card" client.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+        </tr>
+      </tbody>
     {{/each}}
   </table>
   {{!-- <div class="text-right italic text-xs mt-2">
@@ -28,27 +32,28 @@
 
 <div class="bg-white p-4 shadow-md mt-4">
   <table class="w-full">
-    <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/4">Id</th>
-      <th class="w-1/4">Client</th>
-      <th class="w-1/4">Statut</th>
-      <th class="w-1/4">Actions</th>
-    </tr>
-
+    <thead>
+      <tr class="p-2 text-white bgPrimaryBlue">
+        <th class="w-1/4">Id</th>
+        <th class="w-1/4">Client</th>
+        <th class="w-1/4">Destination</th>
+        <th class="w-1/4">Actions</th>
+      </tr>
+    </thead>
     {{#each model as |client|}}
-    {{#each client.quotesId as |quote|}}
-    {{#if (compare quote.status '===' 'attente')}}
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">{{quote.numFolder}}</td>
-      <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{quote.status}}</td>
-      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-    </tr>
-    {{/if}}
+      {{#each client.quotesId as |quote|}}
+        {{#if (compare quote.status "===" "attente")}}
+          <tbody>
+            <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+              <td class="w-1/4 text-center">{{quote.numFolder}}</td>
+              <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
+              <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
+              <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+            </tr>
+          </tbody>
+        {{/if}}
+      {{/each}}
     {{/each}}
-
-    {{/each}}
-
   </table>
   {{!-- <div class="text-right italic text-xs mt-2">
     {{#link-to "back-client.client.proposals"}}Voir toutes les propositions de devis{{/link-to}}
@@ -58,24 +63,27 @@
 
 <div class="bg-white p-4 shadow-md mt-4">
   <table class="w-full">
-    <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/4">Id</th>
-      <th class="w-1/4">Client</th>
-      <th class="w-1/4">Statut</th>
-      <th class="w-1/4">Actions</th>
-    </tr>
-
+    <thead>
+      <tr class="p-2 text-white bgPrimaryBlue">
+        <th class="w-1/4">Id</th>
+        <th class="w-1/4">Client</th>
+        <th class="w-1/4">Destination</th>
+        <th class="w-1/4">Actions</th>
+      </tr>
+    </thead>
     {{#each model as |client|}}
-    {{#each client.quotesId as |quote|}}
-    {{#if (compare quote.status '===' 'traitement')}}
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">{{quote.numFolder}}</td>
-      <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{quote.status}}</td>
-      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-    </tr>
-    {{/if}}
-    {{/each}}
+      {{#each client.quotesId as |quote|}}
+        {{#if (compare quote.status "===" "traitement")}}
+          <tbody>
+            <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+              <td class="w-1/4 text-center">{{quote.numFolder}}</td>
+              <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
+              <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
+              <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+            </tr>
+          </tbody>
+        {{/if}}
+      {{/each}}
 
     {{/each}}
 
@@ -88,25 +96,27 @@
 
 <div class="bg-white p-4 shadow-md mt-4">
   <table class="w-full">
-    <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/4">Id</th>
-      <th class="w-1/4">Client</th>
-      <th class="w-1/4">Statut</th>
-      <th class="w-1/4">Actions</th>
-    </tr>
-
+    <thead>
+      <tr class="p-2 text-white bgPrimaryBlue">
+        <th class="w-1/4">Id</th>
+        <th class="w-1/4">Client</th>
+        <th class="w-1/4">Destination</th>
+        <th class="w-1/4">Actions</th>
+      </tr>
+    </thead>
     {{#each model as |client|}}
-    {{#each client.quotesId as |quote|}}
-    {{#if (compare quote.status '===' 'valide')}}
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">{{quote.numFolder}}</td>
-      <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{quote.status}}</td>
-      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.folder-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-    </tr>
-    {{/if}}
-    {{/each}}
-
+      {{#each client.quotesId as |quote|}}
+        {{#if (compare quote.status "===" "valide")}}
+          <tbody>
+            <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+              <td class="w-1/4 text-center">{{quote.numFolder}}</td>
+              <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
+              <td class="w-1/4 text-center">{{quote.status}}</td>
+              <td class="w-1/4 text-center">{{#link-to "back-agent.agent.folder-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+            </tr>
+          </tbody>
+        {{/if}}
+      {{/each}}
     {{/each}}
 
   </table>

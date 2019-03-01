@@ -10,7 +10,7 @@ const router = Express.Router();
 
 router
     .route('/')
-    .get(/*authorize(ADMIN),*/ Validate(listQuotes), QuoteController.findAll)
+    .get(authorize(ADMIN), Validate(listQuotes), QuoteController.findAll)
     .post(Validate(createQuote), QuoteController.add)
 
 router
