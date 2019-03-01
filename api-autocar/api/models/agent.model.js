@@ -5,22 +5,22 @@ let Schema = Mongoose.Schema;
 // let langues = ['français', 'anglais', 'neerlandais', 'allemand'];
 
 let schema = new Schema({
-    uniqueField : {
-        type : String,
-        required : true,
-        unique : true
+    uniqueField: {
+        type: String,
+        required: true,
+        unique: true
     },
-    servicePhone : {
-        type : String,
+    servicePhone: {
+        type: String,
         required: true,
     },
-    language : {
+    language: {
         type: String,
         required: true,
         enum: UserModel.langues,
     },
-    idUser : {
-        type : String,
+    idUser: {
+        type: String,
     }
 });
 

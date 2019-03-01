@@ -10,29 +10,12 @@
       <th class="w-1/4">Actions</th>
     </tr>  {{#each model as |driver|}}
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center ">{{driver.id}}</td>
-      <td class="w-1/4 text-center">{{driver.firstname}}</td>
-      <td class="w-1/4 text-center">{{driver.lastname}}-{{driver.onModel}}</td>
+      <td class="w-1/4 text-center ">{{link-to driver.id "back-agent.agent.driver-card" driver.id class="text-black"}}</td>
+      <td class="w-1/4 text-center">{{driver.idUser.firstname}}</td>
+      <td class="w-1/4 text-center">{{driver.idUser.lastname}}</td>
       <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
     </tr>  {{/each}}
-    {{!-- <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">3</td>
-      <td class="w-1/4 text-center">Emilio</td>
-      <td class="w-1/4 text-center">Trotro</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">4</td>
-      <td class="w-1/4 text-center">Harry</td>
-      <td class="w-1/4 text-center">Georges</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">5</td>
-      <td class="w-1/4 text-center">Francis</td>
-      <td class="w-1/4 text-center">Moustache</td>
-      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-    </tr> --}}
+
   </table>
 
   {{!-- <div class="text-right italic text-xs mt-2">

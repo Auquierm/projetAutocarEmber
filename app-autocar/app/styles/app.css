@@ -27,7 +27,7 @@ li{
   margin-right: 10px;
 }
 
-a{
+.menuFront a{
   text-decoration: none;
   color: white;
 }
@@ -96,7 +96,7 @@ p {
 
 /* --------------------- buttons ------------------- */
 
-button{
+button, .button{
   padding: 0.5rem 1rem;
   background-color:#17B3F6;
   border:none;
@@ -110,6 +110,11 @@ button{
 .menuBack a, .footer a{
   text-decoration: none;
   color:black;
+}
+
+.bodyBack a{
+  color:black;
+  text-decoration:none;
 }
 
 
@@ -176,4 +181,11 @@ tr:nth-child(2n) {
 .py-030{
   padding-bottom: .30rem;
   padding-top: .30rem;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

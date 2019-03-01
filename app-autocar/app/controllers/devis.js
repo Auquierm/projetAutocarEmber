@@ -1,53 +1,22 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import {inject as service} from '@ember/service';
+import Moment from 'moment';
 let larg = window.innerWidth;
 
 export default Controller.extend({
   ajax : service(),
   isHidden: larg >= 768 ? true : false,
   dateValue: computed(() => { return new Date(); }),
-  // Info client/user
-  // firstname : '',
-  // lastname : '',
   gender : 'Femme',
   country : 'Belgique',
-  // age : '',
-  // email: '',
-  // confirmEmail : '',
-  // phone: '',
-  // fax: '',
-  // city: '',
-  // street: '',
-  // number : '',
-  // zip: '',
-  // societyTva :'',
-  // societyName : '',
-  // societyFax : '',
-  // societyPhone : '',
-  // societyCity : '',
-  // societyStreet: '',
-  // societyNumber : '',
-  // societyZip : '',
   societeCountry: 'Belgique',
-  // societyBankNumber: '',
   emailDiff : false,
-  // info devis
-
-  // tripPax : '',
   placeAutocar: '30',
   dateDp:'',
   countryDp: 'Belgique',
-  // tripDpCity: '',
-  // tripDpStreet: '',
-  // tripDpNumber :'',
-  // tripDpZip: '',
   dateRt: '',
   countryRt : 'Belgique',
-  // tripRtCity: '',
-  // tripRtStreet: '',
-  // tripRtNumber: '',
-  // tripRtZip: '',
   skibox : false,
   trailer: false,
   arrayOption : [],
@@ -58,14 +27,14 @@ export default Controller.extend({
     toggleCheckBox(params) {
       let {arrayOption, trailer, skibox} = this;
       let index = '';
-      if(params ==="skibox" && skibox===true || params ==="trailer" && trailer===true){
+      if(params ==="Box de ski" && skibox===true || params ==="trailer" && trailer===true){
         this.set(params, false);
-        if(this.skibox === false && arrayOption.includes("skibox")){
-          index = arrayOption.indexOf("skibox");
+        if(this.skibox === false && arrayOption.includes("Box de ski")){
+          index = arrayOption.indexOf("Box de ski");
           arrayOption.splice(index, 1);
         }
-        if(this.trailer === false && arrayOption.includes("trailer")){
-          index = arrayOption.indexOf("trailer");
+        if(this.trailer === false && arrayOption.includes("Remorque")){
+          index = arrayOption.indexOf("Remorque");
           arrayOption.splice(index, 1);
         }
         return;
@@ -105,11 +74,12 @@ export default Controller.extend({
             },
             societeTel : this.societyPhone,
             numTva : this.societyTva,
-            numFax : this.societyfax,
+            numFax : this.societyFax,
             societe : this.societyName,
             numBank : this.societyBankNumber
           }
         });
+        let client = await this.store.findRecord('client', newClient._id);
         let newQuote = this.store.createRecord('quote',  {
           placeDeparture: {
             street : this.tripDpStreet,
@@ -132,7 +102,7 @@ export default Controller.extend({
           capacityAutocar: this.placeAutocar,
           status: "attente",
           com : this.quoteCom,
-          idClient: newClient._id
+          idClient: client
         });
         await newQuote.save();
       }else{
@@ -142,22 +112,24 @@ export default Controller.extend({
     toggleMenu() {
       this.toggleProperty("isHidden");
     },
-    onChangeTime(params, value) {
-      // console.log(value);
+    async onChangeTime(params, value) {
+      let dateFormatOnChange = Moment(value[0]).format('DD-MM-YYYY HH:mm');
+      // console.log(dateFormat);
       if(params === "dateRt"){
-        this.set(params, value[0]);
+       await this.set(params, dateFormatOnChange);
         console.log(this.dateRt);
       }else if(params === "dateDp"){
-        this.set(params, value[0]);
+        await this.set(params, dateFormatOnChange);
         console.log(this.dateDp);
       }
     },
     onCloseTime() { },
     onReadyTime(params, value) {
+      let dateFormatOnReady = Moment(value[0]).format('DD-MM-YYYY HH:mm');
       if(params === "dateRt"){
-        this.set(params, value[0]);
+        this.set(params, dateFormatOnReady);
       }else if(params === "dateDp"){
-        this.set(params, value[0]);
+        this.set(params, dateFormatOnReady);
       }
     },
   }

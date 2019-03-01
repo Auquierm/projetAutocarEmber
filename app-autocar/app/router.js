@@ -19,49 +19,43 @@ Router.map(function () {
     this.route('client', { path: ':id' }, function () {
       this.route('dashboard');
       this.route('proposals');
-      this.route('proposal');
+      this.route('proposal', { path: '/proposal/:idproposal' });
       this.route('requests');
-      this.route('request');
+      this.route('request', { path: '/request/:idrequest' });
       this.route('folders');
-      this.route('folder');
+      this.route('folder', { path: '/folder/:idfolder' });
       this.route('profile');
       this.route('profile-update');
       this.route('create-quote');
+      this.route('request-update', {path : '/request-update/:idrequestupdate'});
     });
   });
   this.route('tokenauth', { path: 'tokenauth/:token' });
 
-  this.route('back-agent', function() {
-    this.route('agent', { path: ':id' }, function() {
+  this.route('back-agent', function () {
+    this.route('agent', { path: ':id' }, function () {
       this.route('dashboard');
-      this.route('clients-list', function() {
-      +  this.route('client-card');
-      });
-      this.route('folders-list', function() {
-        this.route('folder-card');
-      });
-      this.route('quotes-list', function() {
-        this.route('quote-card');
-      });
-      this.route('drivers-list', function() {
-        this.route('driver-card');
-      });
-      this.route('client-card');
-      this.route('driver-card');
-      this.route('folder-card');
-      this.route('quote-card');
+      this.route('clients-list');
+      this.route('folders-list');
+      this.route('quotes-list');
+      this.route('drivers-list');
+      this.route('client-card', { path: '/client-card/:idclient' });
+      this.route('driver-card', { path: '/driver-card/:iddriver' });
+      this.route('folder-card', { path: '/folder-card/:idfolder' });
+      this.route('quote-card', { path: '/quote-card/:idquote' });
       this.route('day-program');
+      this.route('create-quote', { path: ':idclient' });
     });
   });
-  this.route('back-driver', function() {
-    this.route('driver', function() {
+  this.route('back-driver', function () {
+    this.route('driver', function () {
       this.route('dashboard');
 
-      this.route('scheduled-trips', function() {
+      this.route('scheduled-trips', function () {
         this.route('trip-card');
       });
 
-      this.route('ended-trips', function() {
+      this.route('ended-trips', function () {
         this.route('trip-card');
       });
       this.route('trip-card');

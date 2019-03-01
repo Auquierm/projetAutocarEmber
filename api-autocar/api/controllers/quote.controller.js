@@ -1,15 +1,16 @@
 const Quote = require('./../models/quote.model');
 const Client = require('./../controllers/client.controller');
+const DateQuote = require('./../services/dateCreationQuote.service');
 const Boom = require('boom');
 
 /** 
 * GET all quotes
 */
 exports.findAll = async (req, res, next) => {
-    try{
+    try {
         const quotes = await Quote.find();
         return res.json(quotes);
-    }catch(err){
+    } catch (err) {
         next(Boom.badImplementation(err));
     }
 };
@@ -17,7 +18,7 @@ exports.findAll = async (req, res, next) => {
 /** 
 * GET one quote 
 */
-exports.findOne = async(req, res, next) =>{
+exports.findOne = async (req, res, next) => {
     try {
         const quote = await Quote.findById(req.params.quoteId);
         return res.json(quote);
@@ -29,23 +30,27 @@ exports.findOne = async(req, res, next) =>{
 /** 
 * POST one quote 
 */
-exports.add = async (req, res, next) =>{
-    try{
-        const quote = new Quote({
-            numFolder: 0,
-            placeDeparture:{ 
+exports.add = async (req, res, next) => {
+    try {
+        console.log(req.body.dateArrival);
+        console.log(req.body.dateDeparture);
+        const numberOfQuote = await Quote.find();
+        let numForFolder = (numberOfQuote.length) + 1;
+        const quote = await new Quote({
+            numFolder: numForFolder,
+            placeDeparture: {
                 street: req.body.placeDeparture.street,
                 number: req.body.placeDeparture.number,
                 zip: req.body.placeDeparture.zip,
                 city: req.body.placeDeparture.city,
-                country: req.body.placeDeparture.country 
+                country: req.body.placeDeparture.country
             },
-            placeArrival:{ 
+            placeArrival: {
                 street: req.body.placeArrival.street,
                 number: req.body.placeArrival.number,
                 zip: req.body.placeArrival.zip,
                 city: req.body.placeArrival.city,
-                country: req.body.placeArrival.country 
+                country: req.body.placeArrival.country
             },
             dateArrival: req.body.dateArrival,
             dateDeparture: req.body.dateDeparture,
@@ -53,20 +58,20 @@ exports.add = async (req, res, next) =>{
             options: req.body.options,
             capacityAutocar: req.body.capacityAutocar,
             status: req.body.status,
-            numFolder: 0,
             totalKm: 0,
             numberDriver: 0,
-            numberAutocar : 0,
+            numberAutocar: 0,
             includeIn: ' ',
             notIncludeIn: ' ',
             price: 0,
-            com : req.body.com,
-            idClient: req.body.idClient
+            com: req.body.com,
+            idClient: req.body.idClient,
+            dateCreation: DateQuote.createDateQuote(),
         });
         await quote.save();
         await Client.updateIdQuotes(req, res, next, req.body.idClient, quote._id);
         return res.json(quote);
-    }catch(err){
+    } catch (err) {
         console.log(err.message);
         next(Boom.badImplementation(err.message));
     }
@@ -75,9 +80,9 @@ exports.add = async (req, res, next) =>{
 /** 
 * PATCH quote 
 */
-exports.update = async (req, res, next) =>{
+exports.update = async (req, res, next) => {
     try {
-        const quote = await Quote.findByIdAndUpdate(req.params.quoteId, req.body, {new : true});
+        const quote = await Quote.findByIdAndUpdate(req.params.quoteId, req.body, { new: true });
         return res.json(quote);
     } catch (err) {
         next(Boom.badImplementation(err.message));
@@ -87,7 +92,7 @@ exports.update = async (req, res, next) =>{
 /** 
 * DELETE quote 
 */
-exports.remove = async (req, res, next) =>{
+exports.remove = async (req, res, next) => {
     try {
         const quote = await Quote.findByIdAndDelete(req.params.quoteId)
         return res.json(quote);

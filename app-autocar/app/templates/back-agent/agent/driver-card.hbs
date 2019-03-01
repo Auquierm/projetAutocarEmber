@@ -1,4 +1,4 @@
-<h2 class="mt-6">Fiche chauffeur #ID</h2>
+<h2 class="mt-6">Fiche chauffeur - {{model.idUser.firstname}} {{model.idUser.lastname}}</h2>
 <div class="flex">
 <div class="flex w-1/2">
 <div class=" bg-white p-4 shadow-md mt-4 text-black w-full">
@@ -6,71 +6,68 @@
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Prénom:</div>
-        <div class="pl-2 flex italic">Aurore{{driver.firstname}}</div>
+        <div class="pl-2 flex italic">{{model.idUser.firstname}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Nom: </div>
-        <div class="pl-2 italic">Liétard{{driver.lastname}}</div>
+        <div class="pl-2 italic">{{model.idUser.lastname}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Email: </div>
-        <div class="pl-2 italic">aurore.lietard@gmail.com{{user.email}}</div>
+        <div class="pl-2 italic">{{model.idUser.email}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Genre: </div>
-        <div class="pl-2 italic">Féminin{{driver.sexe}}</div>
+        <div class="pl-2 italic">{{model.idUser.sexe}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Téléphone de service: </div>
-        <div class="pl-2 italic">047477777{{driver.servicePhone}}</div>
+        <div class="pl-2 italic">{{model.servicePhone}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Téléphone privé: </div>
-        <div class="pl-2 italic">0471777777{{driver.phone}}</div>
+        <div class="pl-2 italic">{{model.idUser.phone}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> N°Tel: </div>
-        <div class="pl-2 italic">003269777777{{driver.phone}}</div>
-      </div>
+     
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N°Permis: </div>
-        <div class="pl-2 italic">0fe032777776{{driver.numPermis}}</div>
+        <div class="pl-2 italic">{{model.numPermis}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Date sélection médicale: </div>
-        <div class="pl-2 italic">12/05/2021{{driver.medicalDate}}</div>
+        <div class="pl-2 italic">{{model.medicalDate}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Date CAP: </div>
-        <div class="pl-2 italic">25/01/2022{{driver.capDate}}</div>
+        <div class="pl-2 italic">{{model.capDate}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Ville: </div>
-        <div class="pl-2 italic">Vezon{{driver.address.city}}</div>
+        <div class="pl-2 italic">{{model.idUser.address.city}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Rue: </div>
-        <div class="pl-2 italic">Rue des Italiens{{driver.address.street}}</div>
+        <div class="pl-2 italic">{{model.idUser.address.street}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N°: </div>
-        <div class="pl-2 italic">69{{driver.address.number}}</div>
+        <div class="pl-2 italic">{{model.idUser.address.number}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Pays: </div>
-        <div class="pl-2 italic">Belgique{{driver.address.country}}</div>
+        <div class="pl-2 italic">{{model.idUser.address.country}}</div>
       </div>
     </div>
   </div>
@@ -168,7 +165,7 @@
         <td class="w-1/6 text-center ">2</td>
         <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
       </tr>
-      
+
       <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
         <td class="w-1/6 text-center ">2</td>
         <td class="w-1/6 text-center ">2</td>

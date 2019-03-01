@@ -40,6 +40,7 @@
     "ember-flatpickr": "^2.12.0",
     "ember-load-initializers": "^1.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-moment": "^7.8.1",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
     "ember-simple-auth-token": "^4.0.6",
@@ -53,7 +54,7 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "nodemailer": "^5.1.1",
-    "ember-simple-auth": "^1.8.1"
+    "ember-simple-auth": "^1.8.1",
+    "nodemailer": "^5.1.1"
   }
 }

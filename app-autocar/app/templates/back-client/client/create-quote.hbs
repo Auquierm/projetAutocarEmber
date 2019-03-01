@@ -1,251 +1,194 @@
-<h2>Planifiez un nouveau voyage</h2>
+<div class=" h-full font-sans sm:pt-16 md:pt-0">
+    <form class="md:w-3/4 lg:w-2/3 xl:w-1/2 px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
 
-<form class="mb-10">
-  <h3 class="etape">Étape 1</h3>
-  <div class="mt-4">
-    {{!-- div nom et prénom --}}
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Prénom
-        {{input type="text" value=contactConfirmPrenom class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Prénom"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Nom
-        {{input type="text" value=contactConfirmNom class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom"}}
-      </div>
-    </div>
-    {{!-- div email, genre et pays --}}
-    <div class="md:w-4/5 mx-auto md:flex sm:warp">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Email
-        {{input type="text" value=contactConfirmEmail class="block appearance-none w-full bg-white border
-        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Email"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4 flex">
-        <div class="w-1/2">
-          Genre<br>
-          <select onchange="myFunctiongender" name="gender" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 w-full rounded shadow">
-            <option class="inline-block" value="femme">Femme</option>
-            <option value="homme">Homme</option>
-            <option value="autre">Autre</option>
-          </select>
+    {{!---------- div votre devis ----------}}
+        <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg">
+            <span class="font-bold">Votre Devis</span>
+            <p class="pt-3">
+                Veuillez remplir intégralement ce formulaire afin qu'un agent prenne en compte vorte demande.
+            </p>
         </div>
 
-        <div class="w-1/2">
-          Pays<br>
-          <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 w-full rounded shadow">
-            <option value="belgique">Belgique</option>
-            <option value="france">France</option>
-            <option value="espagne">Espagne</option>
-          </select>
+        <div>
+            <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 1 : Informations voyage</span>
+            </div>
+            {{!-- div Nbre passagers et type de car --}}
+            <div class="md:w-4/5 mx-auto md:flex  sm:text-xs lg:text-base pt-2">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="number" value=tripPax class="block appearance-none w-full bg-white border
+                    border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nbre de passagers" required=true}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+                    <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
+                    border-grey-light hover:border-grey px-1 rounded shadow h-full"
+                        required onchange={{action "selectOption" "placeAutocar" }} value="target.value">
+                        <option value="30">30-Pl</option>
+                        <option value="50">50-Pl</option>
+                        <option value="70">70-Pl</option>
+                    </select>
+                    <input type="hidden" id="printFlags">
+                </div>
+            </div>
+            {{!-- Départ --}}
+            <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Départ</span>
+            </div>
+            {{!-- div (date/heure départ) pays et ville --}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{ember-flatpickr
+                    allowInput=true
+                    appendDataInput=true
+                    disableMobile=true
+                    classNames=classString
+                    date=(readonly dateValue)
+                    enableTime=true
+                    locale='fr'
+                    altFormat='Y-m-d'
+                    minDate=minDate
+                    minuteIncrement=1
+                    time_24hr=true
+                    onClose=(action "onCloseTime")
+                    onChange=(action "onChangeTime" "dateDp")
+                    onReady=(action "onReadyTime" "dateDp")
+                    class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+                    py-2 rounded shadow"
+                    placeholder="Départ"
+                    }}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+                    <div class="w-1/2 md:flex-1">
+                        <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+                    border-grey-light hover:border-grey px-2 h-full w-full rounded shadow"
+                             required onchange={{action "selectOption" "countryDp" }} value="target.value">
+                            <option value="belgique">Belgique</option>
+                            <option value="france">France</option>
+                            <option value="espagne">Espagne</option>
+                        </select>
+                        <input type="hidden" id="printFlags">
+                    </div>
+                    <div class="w-1/2 md:flex-1">
+                        {{input type="text" value=tripDpCity class="block appearance-none w-full
+                        bg-white
+                        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville" required=true}}
+                    </div>
+                </div>
+            </div>
+            {{!-- div Rue, numéro et code postal --}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=tripDpStreet class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+                    <div class="flex-1">
+                        {{input type="text" value=tripDpNumber class="block appearance-none w-full
+                        bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                        placeholder="Numéro" required=true}}
+                    </div>
+                    <div class="flex-1">
+                        {{input type="text" value=tripDpZip class="block appearance-none w-full bg-white border
+                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
+                    </div>
+                </div>
+            </div>
+            {{!---------- Retour -----------}}
+            <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Retour</span>
+            </div>
+            {{!-- div (date/heure retour) pays et ville --}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{ember-flatpickr
+                    allowInput=true
+                    appendDataInput=true
+                    disableMobile=true
+                    classNames=classString
+                    date=(readonly dateValue)
+                    enableTime=true
+                    locale='fr'
+                    altFormat='Y-m-d'
+                    minDate=minDate
+                    minuteIncrement=1
+                    time_24hr=true
+                    onClose=(action "onCloseTime")
+                    onChange=(action "onChangeTime" "dateRt")
+                    onReady=(action "onReadyTime" "dateRt")
+                    class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+                    py-2 rounded shadow"
+                    placeholder="Retour"
+                    }}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+                    <div class="w-1/2 md:flex-1">
+                        <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+                    border-grey-light hover:border-grey px-2 w-full rounded shadow h-full"
+                            required  onchange={{action "selectOption" "countryRt" }} value="target.value">
+                            <option value="belgique">Belgique</option>
+                            <option value="france">France</option>
+                            <option value="espagne">Espagne</option>
+                        </select>
+                        <input type="hidden" id="printFlags">
+                    </div>
+                    <div class="w-1/2 md:flex-1">
+                        {{input type="text" value=tripRtCity required=true class="block appearance-none w-full
+                        bg-white
+                        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville"}}
+                    </div>
+                </div>
+            </div>
+            {{!-- div Rue, numéro et code postal --}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="text" value=tripRtStreet class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
+                </div>
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+                    <div class="flex-1">
+                        {{input type="text" value=tripRtNumber class="block appearance-none w-full
+                        bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+                        placeholder="Numéro" required=true}}
+                    </div>
+                    <div class="flex-1">
+                        {{input type="text" value=tripRtZip class="block appearance-none w-full bg-white border
+                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
+                    </div>
+                </div>
+            </div>
+            <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Options</span>
+            </div>
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
+                  <input type="checkbox" id="skibox" name="skibox" value="Skibox" onclick={{action "toggleCheckBox" "Box de ski"}}>
+                    <label for="skibox">Box de ski</label>
+                </div>
+                <div class="pb-1 sm:mb-2 lg:mb-4 pt-2 pl-1 md:flex-1">
+                    <input type="checkbox" id="trailer" name="trailer" value="Trailer" onclick={{action "toggleCheckBox" "Remorque"}}>
+                    <label for="trailer">Remorque</label>
+                </div>
+            </div>
         </div>
 
-
-      </div>
-    </div>
-    {{!-- div comfirmation email et nom de société --}}
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Confirmation de votre email
-        {{input type="text" value=contactConfirmEmail class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Confirmation email"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Nom de société
-        {{input type="text" value=contactConfirmSociety class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom de société"}}
-      </div>
-    </div>
-    {{!-- div N°Tva et rue --}}
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        N° TVA
-        {{input type="text" value=contactConfirmTva class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° TVA"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Rue
-        {{input type="text" value=contactConfirmStreet class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
-      </div>
-    </div>
-    {{!-- div ville, numéro et code postal --}}
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Ville
-        {{input type="text" value=contactConfirmCity class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4 flex justify-between">
-        <div class="w-1/2">
-          Numéro
-          {{input type="text" value=contactConfirmNumber class="block appearance-none flex-1 w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Numéro"}}
+    {{!---------- div étape 2 : commentaire ----------}}
+        <div>
+            <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+                <span class="sm:text-xs lg:text-lg text-blue font-bold">Étape 2 : Commentaires</span>
+            </div>
+            {{!-- div (date/heure départ) pays et ville --}}
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{textarea id="story" value=quoteCom name="story" rows="5" cols="33" class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+                    py-2 rounded shadow"}}
+                </div>
+            </div>
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex justify-end">
+                    <input type="submit" value="Envoyer" class="block appearance-none bg-blue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2
+                    py-2 rounded shadow">
+                </div>
+            </div>
         </div>
-        <div class="w-1/2">
-          Code postal
-          {{input type="text" value=contactConfirmPc class="block appearance-none flex-1 w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
-        </div>
-      </div>
-    </div>
-
-  </div>
-  {{!-- Etape 2 --}}
-  <h3 class="etape">Étape 2</h3>
-  <div class="mt-4">
-    {{!-- div date de départ et de retour, heure de départ et de retour --}}
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Date de départ
-        {{input type="date" value=contactDepartureDate class="block without appearance-none w-2/3 bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" min="2019-03-8"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Date de retour
-        {{input type="date" value=contactBackDate class="block appearance-none w-2/3 bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" min="2019-03-8"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Heure de départ
-        {{input type="time" value=contactDepartureTime class="block appearance-none w-2/3 bg-white border
-        border-grey-light hover:border-grey px-2 py-2 rounded shadow"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Heure de retour
-        {{input type="time" value=contactBackTime class="block appearance-none w-2/3 bg-white border
-        border-grey-light hover:border-grey px-2 py-2 rounded shadow"}}
-      </div>
-    </div>
-
-
-    {{!-- div adresse de destination --}}
-    <div class="md:w-4/5 mx-auto mb-2">
-      <h4>Destination</h4>
-    </div>
-    <div class="md:w-4/5 mx-auto md:flex">
-
-      <div class="md:flex-1 md:px-1 mb-4">
-        Rue
-        {{input type="text" value=contactStreet class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4 flex">
-        <div class="w-1/2">
-          Numéro
-          {{input type="text" value=contactNumber class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Numéro"}}
-        </div>
-        <div class="w-1/2">
-          Code postal
-          {{input type="text" value=contactConfirmStreet class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Ville
-        {{input type="text" value=contactConfirmTva class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Pays<br>
-        <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 w-1/2 rounded shadow">
-          <option value="belgique">Belgique</option>
-          <option value="france">France</option>
-          <option value="espagne">Espagne</option>
-        </select>
-      </div>
-    </div>
-    {{!-- div lieu de départ--}}
-    <div class="md:w-4/5 mx-auto mb-2">
-      <h4>Lieu de départ</h4>
-    </div>
-    <div class="md:w-4/5 mx-auto md:flex">
-
-      <div class="md:flex-1 md:px-1 mb-4">
-        Rue
-        {{input type="text" value=contactStreet class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4 flex">
-        <div class="w-1/2">
-          Numéro
-          {{input type="text" value=contactNumber class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Numéro"}}
-        </div>
-        <div class="w-1/2">
-          Code postal
-          {{input type="text" value=contactConfirmStreet class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal"}}
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Ville
-        {{input type="text" value=contactConfirmTva class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Ville"}}
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Pays<br>
-        <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 w-1/2 rounded shadow">
-          <option value="belgique">Belgique</option>
-          <option value="france">France</option>
-          <option value="espagne">Espagne</option>
-        </select>
-      </div>
-    </div>
-    <div class="md:w-4/5 mx-auto md:flex">
-      <div class="md:flex-1 md:px-1 mb-4">
-        Nombre de passagers<br>
-        <select class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 w-1/3 rounded shadow">
-          <option>1-10</option>
-          <option>11-30</option>
-          <option>31-60</option>
-        </select>
-      </div>
-      <div class="md:flex-1 md:px-1 mb-4">
-        Type de car<br>
-        <select class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 w-1/2 rounded shadow">
-          <option>Classique</option>
-          <option>Confort</option>
-          <option>Top Classe</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  {{!-- Etape 3 --}}
-  <h3 class="etape">Étape 3</h3>
-  <div class="md:w-4/5 mx-auto mt-4">
-    Options
-    <div class="ml-4 italic my-2">
-      <input type="checkbox" name="toilet" value="Toilette"> Toilette<br>
-      <input type="checkbox" name="skiChest" value="Bac à skis"> Bac à skis<br>
-      <input type="checkbox" name="cargo" value="Remorque"> Remorque<br>
-      <input type="checkbox" name="bikeCargo" value="Remorque à vélos"> Remorque à vélos<br>
-    </div>
-
-    Commentaires
-
-    <div class="mt-2">
-      <textarea class="border-2 border-grey w-full" rows="5" cols="70"></textarea>
-    </div>
-
-    <div class="text-right content-end">
-      <button class="mt-4 mr-0" type="submit">Envoyer</button>
-    </div>
-
-  </div>
-</form>
-
-{{outlet}}
+    </form>
+</div>
