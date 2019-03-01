@@ -1,4 +1,4 @@
-<h2>Tableau de bord - {{model.idUser.firstname}} {{model.idUser.lastname}}</h2>
+<h2>Tableau de bord - Agent</h2>
 
 <h3 class="mt-2">Liste clients</h3>
 
@@ -31,7 +31,7 @@
     <tr class="p-2 text-white bgPrimaryBlue">
       <th class="w-1/4">Id</th>
       <th class="w-1/4">Client</th>
-      <th class="w-1/4">Statut</th>
+      <th class="w-1/4">Destination</th>
       <th class="w-1/4">Actions</th>
     </tr>
 
@@ -41,8 +41,8 @@
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
       <td class="w-1/4 text-center">{{quote.numFolder}}</td>
       <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{quote.status}}</td>
-      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+      <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
+      {{!-- <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td> --}}
     </tr>
      {{/if}}
     {{/each}}
@@ -61,7 +61,7 @@
     <tr class="p-2 text-white bgPrimaryBlue">
       <th class="w-1/4">Id</th>
       <th class="w-1/4">Client</th>
-      <th class="w-1/4">Statut</th>
+      <th class="w-1/4">Destination</th>
       <th class="w-1/4">Actions</th>
     </tr>
 
@@ -71,8 +71,8 @@
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
       <td class="w-1/4 text-center">{{quote.numFolder}}</td>
       <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{quote.status}}</td>
-      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+      <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
+      {{!-- <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td> --}}
     </tr>
      {{/if}}
     {{/each}}
@@ -91,7 +91,7 @@
     <tr class="p-2 text-white bgPrimaryBlue">
       <th class="w-1/4">Id</th>
       <th class="w-1/4">Client</th>
-      <th class="w-1/4">Statut</th>
+      <th class="w-1/4">Destination</th>
       <th class="w-1/4">Actions</th>
     </tr>
 
@@ -101,8 +101,8 @@
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
       <td class="w-1/4 text-center">{{quote.numFolder}}</td>
       <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{quote.status}}</td>
-      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+      <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
+      <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
     </tr>
      {{/if}}
     {{/each}}
