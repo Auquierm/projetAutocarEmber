@@ -9,7 +9,7 @@
 body{
   font-family:'Roboto';
   font-size:14px;
-  background-color: #F6F6F6;
+  background-color: rgb(239, 248, 252);
 
 }
 
@@ -34,6 +34,7 @@ a{
 h1{
   font-family: 'Prompt', sans-serif;
 }
+
 p {
   font-size: 12px;
 }
@@ -55,6 +56,24 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   width: 400px;
+}
+
+.bgAccueil {
+  background-image: url("/assets/images/accueil/home_header_bigger.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  width: 100%;
+  height: auto;
+}
+
+.bgDevis {
+  background-image: url("/assets/images/voyage/voyage_banner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: auto;
 }
 
 /* --------------------- colors --------------------- */
