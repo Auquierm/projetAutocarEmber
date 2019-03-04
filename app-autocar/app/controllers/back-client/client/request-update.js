@@ -72,6 +72,7 @@ export default Controller.extend({
           com : this.get('model.infoQuote.com'),
         }
       });
+      this.transitionToRoute('back-client.client.request', this.get('model.infoQuote.id'));
     },
     toggleMenu() {
       this.toggleProperty("isHidden");

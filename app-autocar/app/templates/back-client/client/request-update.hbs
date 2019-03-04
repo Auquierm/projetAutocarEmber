@@ -1,4 +1,5 @@
 <div class=" h-full font-sans sm:pt-16 md:pt-0">
+  <div ><a href="#" {{action "back"}}>Retour</a></div>
     <form class="md:w-3/4 lg:w-2/3 xl:w-full px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
 
     {{!---------- div votre devis ----------}}
@@ -26,6 +27,7 @@
                         <option value="50">50-Pl</option>
                         <option value="70">70-Pl</option>
                     </select> --}}
+                    {{!-- {{log model.infoQuote.capacityAutocar}} --}}
                     <SelectPlaceAutocarQuote @placeAutocar={{model.infoQuote.capacityAutocar}} onclick={{action "selectOption" "model.infoQuote.capacityAutocar"}}/>
                     {{!-- <input type="hidden" id="printFlags"> --}}
                 </div>

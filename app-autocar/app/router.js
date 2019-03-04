@@ -11,6 +11,7 @@ Router.map(function () {
   this.route('about-us');
   this.route('contact');
   this.route('devis');
+  this.route('message-create-account', {path : '/message-create-account/:idclient'});
   this.route('login');
   this.route('agent');
   this.route('driver');

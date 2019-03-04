@@ -28,6 +28,8 @@ export function compare(params) {
       return !!(v1 && v2);
     case '||':
       return !!(v1 || v2);
+    case '===s':
+      return (parseInt(v1) === parseInt(v2))
     default:
       return false;
   }

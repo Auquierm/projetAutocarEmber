@@ -68,6 +68,9 @@
             <p class="pt-3 sm:text-xs md:text-sm lg:text-lg xl:text-xl">
                 Veuillez remplir intégralement ce formulaire afin qu'un agent prenne en compte vorte demande.
             </p>
+            {{#if emailDiff}}
+              <p class="text-red text-xl pt-2">Votre email ne correspond pas !!!</p>
+            {{/if}}
         </div>
 
         {{!---------- div étape 1 : Informations personelles----------}}
@@ -89,7 +92,12 @@
                 </div>
             </div>
             {{!---------- div age, genre et pays ----------}}
-            <div class="md:w-4/5 mx-auto md:flex md:flex-row-reverse sm:text-xs lg:text-base">
+            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                    {{input type="number" value=age class="block appearance-none w-full bg-white
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Âge"
+                    required=true}}
+                </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
                     <select onchange="myFunctiongender" name="gender" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
@@ -108,11 +116,7 @@
                     </select>
                     {{!-- <input type="hidden" id="printFlags"> --}}
                 </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="number" value=age class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Âge"
-                    required=true}}
-                </div>
+
             </div>
             {{!----------- div email et confirmation email -----------}}
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
@@ -121,7 +125,11 @@
                     border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Email" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    <ValidationInput @valueInput={{confirmEmail}} @confirmTest={{emailDiff}} @valuePlaceholder={{'Confirmation email'}} />
+                    {{#if emailDiff}}
+                      {{input type="text" value=confirmEmail required=true class="block appearance-none w-full bg-white border border-red hover:border-grey px-2 py-2 rounded shadow" placeholder='Confirmation email'}}
+                    {{else}}
+                      {{input type="text" value=confirmEmail required=true class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder='Confirmation email'}}
+                    {{/if}}
                 </div>
             </div>
             {{!---------- div tel et ville ----------}}
@@ -171,8 +179,7 @@
             <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=societyName class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom de la
-                    société" required=true}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nom de la société" required=true}}
                 </div>
                 <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
                     {{input type="text" value=societyTva class="block appearance-none w-full bg-white
@@ -233,8 +240,7 @@
                 </div>
                 <div class="flex-1">
                     {{input type="text" value=societyBankNumber class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° compte
-                    bancaire" required=true}}
+                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="N° compte bancaire" required=true}}
                 </div>
             </div>
         </div>
@@ -346,7 +352,8 @@
                     date=(readonly dateValue)
                     enableTime=true
                     locale='fr'
-                    altFormat='Y-m-d'
+                    altFormat="d-m-Y H:i"
+                    dateFormat="d-m-y H:i"
                     minDate=minDate
                     minuteIncrement=1
                     time_24hr=true
@@ -430,6 +437,9 @@
                     py-2 rounded shadow">
                 </div>
             </div>
+            {{#if emailDiff}}
+              <p class="text-red text-xl">Votre email ne correspond pas !!!</p>
+            {{/if}}
         </div>
     </form>
 </div>
