@@ -8,7 +8,6 @@ export default Controller.extend({
     sendMessage() {
       let newMessage = Contact.create({ contactFirstname: this.get('contactFirstname') });
       this.model.pushObject(newMessage);
-      console.log(newMessage);
     }
   }
 });

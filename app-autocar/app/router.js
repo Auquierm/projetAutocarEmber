@@ -27,7 +27,7 @@ Router.map(function () {
       this.route('profile');
       this.route('profile-update');
       this.route('create-quote');
-      this.route('request-update', {path : '/request-update/:idrequestupdate'});
+      this.route('request-update', { path: '/request-update/:idrequestupdate' });
     });
   });
   this.route('tokenauth', { path: 'tokenauth/:token' });
@@ -45,6 +45,7 @@ Router.map(function () {
       this.route('quote-card', { path: '/quote-card/:idquote' });
       this.route('day-program');
       this.route('create-quote', { path: '/create-quote/:idclient' });
+      this.route('update-info-client', { path: '/update-info-client/:idclient' });
     });
   });
   this.route('back-driver', function () {

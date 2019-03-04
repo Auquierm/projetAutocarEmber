@@ -5,7 +5,6 @@
       <div class="">
         <img src="assets/images/logo.png" width="75px" alt="logoPimpMyTrip">
       </div>
-
       <div class="block md:hidden">
         <button {{action "toggleMenu"}} class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
           <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -17,28 +16,27 @@
     </div>
 
     {{#if isHidden}}
+      <div class="menuFront">
+        <ul class="sm:text-sm lg:text-lg xl:text-xl md:flex md:justify-between .prompt font-bold text-center pl-0">
+          <li class="block mt-2 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
+            {{!-- {{link-to "Home" "home"}} --}}
+            <a href="#home">Accueil</a>
+          </li>
+          <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
+            {{!-- {{link-to "About Us" "about-us"}} --}}
+            <a href="#about">A propos</a>
+          </li>
+          <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
+            {{!-- {{link-to "Contact" "contact"}} --}}
+            <a href="#contact">Contact</a>
+          </li>
+          <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0">
+            {{!-- {{link-to "Devis" "devis"}} --}}
+            <a href="devis">Devis</a>
+          </li>
+        </ul>
 
-    <div class="menuFront">
-      <ul class="sm:text-sm lg:text-lg xl:text-xl md:flex md:justify-between .prompt font-bold text-center pl-0">
-        <li class="block mt-2 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
-          {{!-- {{link-to "Home" "home"}} --}}
-          <a href="#home">Accueil</a>
-        </li>
-        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
-          {{!-- {{link-to "About Us" "about-us"}} --}}
-          <a href="#about">A propos</a>
-        </li>
-        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0 md:mr-4">
-          {{!-- {{link-to "Contact" "contact"}} --}}
-          <a href="#contact">Contact</a>
-        </li>
-        <li class="block mt-4 md:inline-block md:mt-0 text-teal-lighter hover:text-white sm:mr-0">
-          {{!-- {{link-to "Devis" "devis"}} --}}
-          <a href="devis">Devis</a>
-        </li>
-      </ul>
-
-    </div>
+      </div>
     {{/if}}
 
   </div>
@@ -115,8 +113,7 @@
 {{!-- ---------------------- A propos ------------------------------- --}}
 
 <div id="about" class="flex justify-center">
-  <h2 class="text-white sm:my-16 md:my-20 lg:my-34 xxl:my-64 md:text-2xl lg:text-3xl xl:text-4xl xxl:text-6xl">L'agence Pimp My
-    Trip</h2>
+  <h2 class="text-white sm:my-16 md:my-20 lg:my-34 xxl:my-64 md:text-2xl lg:text-3xl xl:text-4xl xxl:text-6xl">L'agence Pimp My Trip</h2>
 </div>
 
 <section id="contenu-about" class="md:bg-white md:px-6 sm:pt-16 sm:pb-6 lg:py-10 sm:w-4/5 md:w-3/4 xxl:w-2/3 mx-auto">
@@ -138,44 +135,41 @@
   </article>
 
   <div class="md:flex-col">
-    <span class="sm:text-xs lg:text-sm xl:text-base xxl:text-3xl text-blue font-bold">Nos cars:</span>
-    <p class="sm:pb-4 md:pb-2 xl:pb-4 sm:pt-1 md:pt-2 xl:pt-4 text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl">Lorem ipsum
-      dolor sit amet
-      consectetur adipisicing elit.
-      Officia, aliquam
-      unde? At, eaque laboriosam, tempora eius mollitia perspiciatis exercitationem animi optio fugiat omnis.
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus iste omnis rem provident expedita
-      nostrum ipsa tempora quidem maxime, eum molestiae!
-      ullam nihil odit delectus voluptatem ratione quod!
+    <span class="sm:text-xs lg:text-sm xl:text-base xxl:text-3xl text-blue font-bold">
+      Nos cars:
+    </span>
+    <p class="sm:pb-4 md:pb-2 xl:pb-4 sm:pt-1 md:pt-2 xl:pt-4 text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, aliquam unde? At, eaque laboriosam, tempora eius mollitia perspiciatis exercitationem animi optio fugiat omnis. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus iste omnis rem provident expedita nostrum ipsa tempora quidem maxime, eum molestiae! ullam nihil odit delectus voluptatem ratione quod!
     </p>
-    <p class="text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl">Lorem ipsum dolor sit amet
-      Lorem ipsum dolor sit amet, consectetur
-      adipisicing elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in
-      nesciunt debitis magnam sint corrupti, rerum consequatur, similique cumque eos quis. Lorem ipsum dolor
-      sit amet consectetur, adipisicing elit. Blanditiis nam voluptatem nulla temporibus necessitatibus
-      voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
-      voluptatem dolorum perspiciatis quisquam.
+    <p class="text-justify sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
+      Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, deleniti provident. Expedita ducimus autem neque possimus nostrum aut in nesciunt debitis magnam sint corrupti, rerum consequatur, similique cumque eos quis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis nam voluptatem nulla temporibus necessitatibus voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias voluptatem dolorum perspiciatis quisquam.
     </p>
   </div>
 
   <div class="flex md:flex-no-wrap md:flex-col sm:flex-wrap sm:mt-6 md:mt-4 xl:pt-6 sm:pb-2 md:pb-0">
     <ul class="flex sm:mb-2 xl:mb-4 list-reset sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
-      <li class="font-bold">Classique:</li>
-      <span>Blanditiis nam voluptatem nulla temporibus necessitatibus
-        voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
-        voluptatem dolorum perspiciatis quisquam.</span>
+      <li class="font-bold">
+        Classique:
+      </li>
+      <span>
+        Blanditiis nam voluptatem nulla temporibus necessitatibus voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias voluptatem dolorum perspiciatis quisquam.
+      </span>
     </ul>
     <ul class="flex sm:mb-2 xl:mb-4 list-reset sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
-      <li class="mr-6 font-bold">Confort: </li>
-      <span>Blanditiis nam voluptatem nulla temporibus necessitatibus
-        voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
-        voluptatem dolorum perspiciatis quisquam.</span>
+      <li class="mr-6 font-bold">
+        Confort:
+      </li>
+      <span>
+        Blanditiis nam voluptatem nulla temporibus necessitatibus voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias voluptatem dolorum perspiciatis quisquam.
+      </span>
     </ul>
     <ul class="flex sm:mb-4 md:mb-0 list-reset sm:text-xs lg:text-sm xl:text-base xxl:text-xl">
-      <li class="mr-4 font-bold">TopClass:</li>
-      <span>Blanditiis nam voluptatem nulla temporibus necessitatibus
-        voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias
-        voluptatem dolorum perspiciatis quisquam.</span>
+      <li class="mr-4 font-bold">
+        TopClass:
+      </li>
+      <span>
+        Blanditiis nam voluptatem nulla temporibus necessitatibus voluptatum laboriosam officia officiis? Repudiandae repellendus soluta sit odio cum eveniet alias voluptatem dolorum perspiciatis quisquam.
+      </span>
     </ul>
   </div>
   <div class="sm:flex-wrap-reverse md:mt-6 xl:mt-10">
@@ -208,41 +202,32 @@
     Contactez Pimp My Trip
   </h2>
 </div>
-<!--Formulaire-->
+{{!-- <!--Formulaire--> --}}
 <div id="contenu-contact" class="sm:w-1/2 mx-auto sm:mt-6 xxl:mt-16 md:p-4 sm:mb-2 xxl:mb-16">
   <div class="flex sm:flex-wrap">
     <div id="write" class="md:mr-6 sm:hidden"></div>
     <form class="bg-white border border-grey-light mx-auto px-8 pt-6 pb-4 mb-4 rounded shadow-md">
-      <h3 class="text-center sm:text-xl md:text-4xl">Vous avez des questions?</h3>
-      <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl">Blanditiis nam voluptatem nulla temporibus
-        necessitatibus
-        voluptatum laboriosam officia officiis? </p>
+      <h3 class="text-center sm:text-xl md:text-4xl">
+        Vous avez des questions?
+      </h3>
+      <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl">
+        Blanditiis nam voluptatem nulla temporibus necessitatibus voluptatum laboriosam officia officiis?
+      </p>
       <div class=" mx-auto ">
         <div class="mb-4">
-          {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
-          value=contactFirstname placeholder="Votre prénom"}}
+          {{input class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text" value=contactFirstname placeholder="Votre prénom"}}
         </div>
         <div class="mb-4">
-          {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
-          value=contactLastname placeholder="Votre nom"}}
+          {{input class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text" value=contactLastname placeholder="Votre nom"}}
         </div>
         <div class="mb-4">
-          {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
-          value=contactEmail
-          placeholder="Votre email"}}
+          {{input class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text" value=contactEmail placeholder="Votre email"}}
         </div>
         <div class="mb-4">
-          {{input class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text"
-          value=contactConfirmEmail placeholder="Confirmez votre email"}}
+          {{input class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="text" value=contactConfirmEmail placeholder="Confirmez votre email"}}
         </div>
         <div class="mb-4">
-          {{textarea rows="4" cols="70" class="block appearance-none w-full bg-white
-          border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="textarea"
-          value=contactMessage placeholder="Votre message ici"}}
+          {{textarea rows="4" cols="70" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow xxl:text-xl" type="textarea" value=contactMessage placeholder="Votre message ici"}}
         </div>
       </div>
       <button onclick={{action "sendMessage"}} class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline xxl:text-2xl">Envoyer</button>
@@ -261,14 +246,12 @@
   {{!-- <nav>
     <ul class="flex list-reset ml-6 pt-1">
       <li>
-        {{!-- {{link-to "Home" "home"}} --}}
-        {{!-- <a href="#home">Home</a>
+        {{!-- {{link-to "Home" "home"}} --}}{{!-- <a href="#home">Home</a>
       </li>
       <!-- <li> {{link-to "Contact" "contact"}} </li>-->
       <li><a href="#contact">Contact</a></li>
       <li>
-        {{!-- {{link-to "About Us" "about-us"}} --}}
-        {{!-- <a href="#about">About Us</a> </li>
+        {{!-- {{link-to "About Us" "about-us"}} --}} {{!-- <a href="#about">About Us</a> </li>
 
       <li> {{link-to "Devis" "devis"}} </li>
     </ul>

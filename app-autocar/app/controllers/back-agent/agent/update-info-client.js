@@ -52,12 +52,11 @@ export default Controller.extend({
       });
       this.model.reload();
       this.model.idUser.reload();
-      this.transitionToRoute('back-client.client.profile');
+      this.transitionToRoute('back-agent.agent.client-card', this.get('model.id'));
     },
 
     selectOption(params, option) {
       this.set(params, option.target.value)
-      // console.log(params, option.target.value);
     }
   }
 });

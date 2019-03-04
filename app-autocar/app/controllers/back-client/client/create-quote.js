@@ -21,10 +21,17 @@ export default Controller.extend({
       this.set(params, option.target.value);
     },
     toggleCheckBox(params) {
+      // console.log(params);
       let { arrayOption, trailer, skibox } = this;
       let index = '';
       if (params === "Box de ski" && skibox === true || params === "Remorque" && trailer === true) {
-        this.set(params, false);
+
+        if(params === "Box de ski"){
+          this.set('skibox', false)
+        }else if(params === "Remorque"){
+          this.set('trailer', false)
+        }
+
         if (this.skibox === false && arrayOption.includes("Box de ski")) {
           index = arrayOption.indexOf("Box de ski");
           arrayOption.splice(index, 1);
@@ -35,7 +42,13 @@ export default Controller.extend({
         }
         return;
       }
-      this.set(params, true);
+
+      if(params === "Box de ski"){
+        this.set('skibox', true)
+      }else if(params === "Remorque"){
+        this.set('trailer', true)
+      }
+
       if (!arrayOption.includes(params)) {
         arrayOption.push(params);
       }

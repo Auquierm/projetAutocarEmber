@@ -35,7 +35,7 @@
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">N° Tva: </div>
-        <div class="pl-2 italic">{{model.idClient.numTVA}}</div>
+        <div class="pl-2 italic">{{model.idClient.numTva}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
@@ -146,7 +146,7 @@
     <div class="">
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold"> Durée du voyage </div>
-        <div class="pl-2 italic text-red font-bold">{{!--duree du voyage--}}</div>
+        <div class="pl-2 italic text-red font-bold">Ouesh donne la durée {{travelTime}}</div>
       </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Kilométrage estimé:</div>
@@ -208,19 +208,16 @@
     </div>
   </div>
 
-
-
   <div class="mt-6 flex justify-end">
-    {{#if (compare model.status '===' 'traitement')}}
-    <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+    {{#if (compare model.status "===" "traitement")}}
+      <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="button">
+      <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
     {{else}}
-    {{#if (compare model.status '===' 'attente')}}
-    <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
-    {{/if}}
+      {{#if (compare model.status "===" "attente")}}
+        <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
+        <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
+      {{/if}}
     {{/if}}
   </div>
 </div>
-
 {{outlet}}
