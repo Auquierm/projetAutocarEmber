@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import {inject as service} from '@ember/service';
+import Moment from 'moment';
 let larg = window.innerWidth;
 
 export default Controller.extend({
@@ -22,25 +23,38 @@ export default Controller.extend({
     toggleCheckBox(params) {
       let {arrayOption, trailer, skibox} = this;
       let index = '';
-      if(params ==="skibox" && skibox===true || params ==="trailer" && trailer===true){
-        this.set(params, false);
-        if(this.skibox === false && arrayOption.includes("skibox")){
-          index = arrayOption.indexOf("skibox");
+      if (params === "Box de ski" && skibox === true || params === "Remorque" && trailer === true) {
+
+        if(params === "Box de ski"){
+          this.set('skibox', false)
+        }else if(params === "Remorque"){
+          this.set('trailer', false)
+        }
+
+        if (this.skibox === false && arrayOption.includes("Box de ski")) {
+          index = arrayOption.indexOf("Box de ski");
           arrayOption.splice(index, 1);
         }
-        if(this.trailer === false && arrayOption.includes("trailer")){
-          index = arrayOption.indexOf("trailer");
+        if (this.trailer === false && arrayOption.includes("Remorque")) {
+          index = arrayOption.indexOf("Remorque");
           arrayOption.splice(index, 1);
         }
         return;
       }
-      this.set(params, true);
-      if(!arrayOption.includes(params)){
+
+      if(params === "Box de ski"){
+        this.set('skibox', true)
+      }else if(params === "Remorque"){
+        this.set('trailer', true)
+      }
+
+      if (!arrayOption.includes(params)) {
         arrayOption.push(params);
       }
     },
     async sendDevis(event){
       event.preventDefault();
+      let client = await this.store.findRecord('client', this.get('model.idclient'));
         let newQuote = this.store.createRecord('quote',  {
           placeDeparture: {
             street : this.tripDpStreet,
@@ -63,7 +77,7 @@ export default Controller.extend({
           capacityAutocar: this.placeAutocar,
           status: "attente",
           com : this.quoteCom,
-          idClient: this.get('model.id'),
+          idClient: client,
         });
         await newQuote.save();
         this.setProperties({
@@ -84,27 +98,26 @@ export default Controller.extend({
           placeAutocar: '30',
           quoteCom: '',
         });
-        await this.transitionToRoute('back-agent.agent.dashboard');
+        await this.transitionToRoute('back-agent.agent.client-card', this.get('model.idclient'));
     },
     toggleMenu() {
       this.toggleProperty("isHidden");
     },
     onChangeTime(params, value) {
-      // console.log(value);
+      let dateFormatOnChange = Moment(value[0]).format('DD-MM-YYYY HH:mm');
       if(params === "dateRt"){
-        this.set(params, value[0]);
-        console.log(this.dateRt);
+        this.set(params, dateFormatOnChange);
       }else if(params === "dateDp"){
-        this.set(params, value[0]);
-        console.log(this.dateDp);
+        this.set(params, dateFormatOnChange);;
       }
     },
     onCloseTime() { },
     onReadyTime(params, value) {
+      let dateFormatOnChange = Moment(value[0]).format('DD-MM-YYYY HH:mm');
       if(params === "dateRt"){
-        this.set(params, value[0]);
+        this.set(params, dateFormatOnChange);
       }else if(params === "dateDp"){
-        this.set(params, value[0]);
+        this.set(params, dateFormatOnChange);
       }
     },
   }

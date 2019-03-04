@@ -15,9 +15,9 @@ router
 
 router
     .route('/:quoteId')
-    .get(authorize(ADMIN), Validate(getQuote), QuoteController.findOne)
+    .get(authorize([ADMIN, CLIENT]), Validate(getQuote), QuoteController.findOne)
     .patch(authorize([ADMIN, CLIENT]), Validate(updateQuote), QuoteController.update)
-    .delete(authorize(ADMIN), Validate(removeQuote), QuoteController.remove)
+    .delete(/*authorize(ADMIN),*/ Validate(removeQuote), QuoteController.remove)
 
 
 module.exports = router;

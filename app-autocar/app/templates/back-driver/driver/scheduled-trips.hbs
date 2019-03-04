@@ -2,38 +2,42 @@
 
 <div class="bg-white p-4 shadow-md mt-4">
   <table class="w-full">
-    <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/6">Id</th>
-      <th class="w-1/6">Destination</th>
-      <th class="w-1/6">Nom client</th>
-      <th class="w-1/6">Date départ</th>
-      <th class="w-1/6">Date retour</th>
-      <th class="w-1/6">Actions</th>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/6 text-center ">2</td>
-      <td class="w-1/6 text-center">Paris</td>
-      <td class="w-1/6 text-center">Bourlet</td>
-      <td class="w-1/6 text-center">21/04/2019</td>
-      <td class="w-1/6 text-center">29/04/2019</td>
-      <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i><i class="fas fa-download"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/6 text-center ">3</td>
-      <td class="w-1/6 text-center">Bruxelles</td>
-      <td class="w-1/6 text-center">Poulet</td>
-      <td class="w-1/6 text-center">19/03/2019</td>
-      <td class="w-1/6 text-center">19/03/2019</td>
-      <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i><i class="fas fa-download"></i></td>
-    </tr>
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/6 text-center ">4</td>
-      <td class="w-1/6 text-center">Londres</td>
-      <td class="w-1/6 text-center">Cascouilles</td>
-      <td class="w-1/6 text-center">01/05/2019</td>
-      <td class="w-1/6 text-center">03/05/2019</td>
-      <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i><i class="fas fa-download"></i></td>
-    </tr>
+    <thead>
+      <tr class="p-2 text-white bgPrimaryBlue">
+        <th class="w-1/6">Id</th>
+        <th class="w-1/6">Destination</th>
+        <th class="w-1/6">Nom client</th>
+        <th class="w-1/6">Date départ</th>
+        <th class="w-1/6">Date retour</th>
+        <th class="w-1/6">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+        <td class="w-1/6 text-center ">2</td>
+        <td class="w-1/6 text-center">Paris</td>
+        <td class="w-1/6 text-center">Bourlet</td>
+        <td class="w-1/6 text-center">21/04/2019</td>
+        <td class="w-1/6 text-center">29/04/2019</td>
+        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i><i class="fas fa-download"></i></td>
+      </tr>
+      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+        <td class="w-1/6 text-center ">3</td>
+        <td class="w-1/6 text-center">Bruxelles</td>
+        <td class="w-1/6 text-center">Poulet</td>
+        <td class="w-1/6 text-center">19/03/2019</td>
+        <td class="w-1/6 text-center">19/03/2019</td>
+        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i><i class="fas fa-download"></i></td>
+      </tr>
+      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+        <td class="w-1/6 text-center ">4</td>
+        <td class="w-1/6 text-center">Londres</td>
+        <td class="w-1/6 text-center">Cascouilles</td>
+        <td class="w-1/6 text-center">01/05/2019</td>
+        <td class="w-1/6 text-center">03/05/2019</td>
+        <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i><i class="fas fa-download"></i></td>
+      </tr>
+    </tbody>
   </table>
   {{!-- <div class="text-right italic text-xs mt-2">
     {{#link-to "back-client.client.requests"}}Voir toutes vos demandes de devis{{/link-to}}

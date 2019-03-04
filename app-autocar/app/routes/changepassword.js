@@ -6,6 +6,6 @@ export default Route.extend({
   session: service(),
   async model() {
 
-    console.log(this.session);
+    // console.log(this.session);
   }
 });

@@ -1,12 +1,11 @@
-// import Controller from '@ember/controller';
-import Ember from 'ember';
+import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-export default Ember.Controller.extend({
+export default Controller.extend({
   session: service(),
   ajax: service(),
+
   actions: {
     async sendQuote() {
-      console.log(this.get('model'));
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
         headers: {
           'Content-type': 'application/json',

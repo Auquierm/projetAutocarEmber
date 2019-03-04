@@ -4,42 +4,27 @@
 
 
   <table class="w-full">
-    <tr class="p-2 text-white bgPrimaryBlue">
-      <th class="w-1/4">Société</th>
-      <th class="w-1/4">Nom</th>
-      <th class="w-1/4">Prénom</th>
-      <th class="w-1/4">Actions</th>
-    </tr>
-
-
-
-    {{#each model as |client|}}
-
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center ">{{client.societe}}</td>
-      <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{client.idUser.firstname}}</td>
-      <td class="w-1/4 text-center">{{#link-to 'back-agent.agent.client-card' client.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-
-
-    </tr>
-    {{/each}}
-
-
+    <thead>
+      <tr class="p-2 text-white bgPrimaryBlue">
+        <th class="w-1/4">Société</th>
+        <th class="w-1/4">Nom</th>
+        <th class="w-1/4">Prénom</th>
+        <th class="w-1/4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model as |client|}}
+        <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+          <td class="w-1/4 text-center">{{client.societe}}</td>
+          <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
+          <td class="w-1/4 text-center">{{client.idUser.firstname}}</td>
+          <td class="w-1/4 text-center">{{#link-to "back-agent.agent.client-card" client.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
   </table>
-
-
   {{!-- <div class="text-right italic text-xs mt-2">
     {{#link-to "back-client.client.requests"}}Voir toutes vos demandes de devis{{/link-to}}
   </div> --}}
-
 </div>
-
-
-
-
-
-
-
-
 {{outlet}}

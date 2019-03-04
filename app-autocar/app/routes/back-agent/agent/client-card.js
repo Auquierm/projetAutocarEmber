@@ -7,6 +7,6 @@ export default Route.extend({
   actions: {
     didTransition() {
       document.title = 'Agent - Fiche client';
-    }
+    },
   }
 });
