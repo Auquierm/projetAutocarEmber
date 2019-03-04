@@ -125,10 +125,10 @@ export default Controller.extend({
       // console.log(dateFormat);
       if(params === "dateRt"){
        await this.set(params, dateFormatOnChange);
-        console.log(this.dateRt);
+        // console.log(this.dateRt);
       }else if(params === "dateDp"){
         await this.set(params, dateFormatOnChange);
-        console.log(this.dateDp);
+        // console.log(this.dateDp);
       }
     },
     onCloseTime() { },

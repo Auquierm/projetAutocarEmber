@@ -10,19 +10,18 @@
         <th class="w-1/4">Actions</th>
       </tr>
     </thead>
-    {{#each model as |quote|}}
-      {{#if (compare quote.status "===" "valide")}}
-        <tbody>
+    <tbody>
+      {{#each model as |quote|}}
+        {{#if (compare quote.status "===" "valide")}}
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
             <td class="w-1/4 text-center">{{quote.dateCreation}}</td>
             <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}}</td>
             <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
             <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
-        </tbody>
-      {{/if}}
-    {{/each}}
-
+        {{/if}}
+      {{/each}}
+    </tbody>
   </table>
   {{!-- <div class="text-right italic text-xs mt-2">
     {{#link-to "back-client.client.folders"}}Voir tous vos devis acceptés{{/link-to}}

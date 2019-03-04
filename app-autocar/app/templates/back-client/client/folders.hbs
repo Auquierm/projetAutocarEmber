@@ -9,17 +9,17 @@
         <th class="w-1/3">Actions</th>
       </tr>
     </thead>
-    {{#each model.quotesId as |quote|}}
-      {{#if (compare quote.status "===" "valide") }}
-        <tbody>
+    <tbody>
+      {{#each model.quotesId as |quote|}}
+        {{#if (compare quote.status "===" "valide") }}
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
             <td class="w-1/3 text-center">{{quote.numFolder}}</td>
             <td class="w-1/3 text-center">{{quote.dateCreation}}</td>
             <td class="w-1/3 text-center">{{#link-to "back-client.client.folder" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
           </tr>
-        </tbody>
-      {{/if}}
-    {{/each}}
+        {{/if}}
+      {{/each}}
+    </tbody>
   </table>
 </div>
 

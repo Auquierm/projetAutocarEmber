@@ -21,7 +21,7 @@ export default Controller.extend({
       this.set(params, option.target.value);
     },
     toggleCheckBox(params) {
-      console.log(params);
+      // console.log(params);
       let { arrayOption, trailer, skibox } = this;
       let index = '';
       if (params === "Box de ski" && skibox === true || params === "Remorque" && trailer === true) {

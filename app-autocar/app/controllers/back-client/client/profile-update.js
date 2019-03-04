@@ -57,7 +57,7 @@ export default Controller.extend({
 
     selectOption(params, option) {
       this.set(params, option.target.value)
-      console.log(params, option.target.value);
+      // console.log(params, option.target.value);
     }
   }
 });
