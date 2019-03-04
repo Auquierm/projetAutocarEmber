@@ -4,16 +4,8 @@ import { inject as service } from '@ember/service';
 export default Ember.Controller.extend({
   session: service(),
   ajax: service(),
-  travelTime: '12',
-  init(...args) {
-    this._super.apply(this, args);
-    console.log(this.model);
-    console.log(this.get('model'));
-    console.log(this.get('currentmodel'));
-  },
   actions: {
     async sendQuote() {
-      console.log('salut jenvoie la proposition !');
       console.log(this.get('model'));
       await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
         headers: {
@@ -22,6 +14,7 @@ export default Ember.Controller.extend({
         },
         data: {
           status: 'traitement',
+
         }
       });
       this.model.reload();
