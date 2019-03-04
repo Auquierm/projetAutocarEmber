@@ -1,8 +1,7 @@
-// import { helper } from '@ember/component/helper';
-
+import {helper as buildHelper} from '@ember/component/helper'
 
 export function compare(params) {
-  if (params[3]) {  //handle case insensitive conditions if 4 param is passed.
+  if (params[3]) {
     params[0] = params[0].toLowerCase();
     params[2] = params[2].toLowerCase();
   }
@@ -34,5 +33,4 @@ export function compare(params) {
       return false;
   }
 }
-
-export default Ember.Helper.helper(compare);
+export default buildHelper(compare);

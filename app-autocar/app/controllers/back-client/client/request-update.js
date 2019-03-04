@@ -8,11 +8,6 @@ export default Controller.extend({
   ajax : service(),
   session: service(),
   isHidden: larg >= 768 ? true : false,
-  // dateValue: computed(() => { return new Date(); }),
-  // dateDp:'',
-  // dateRt: '',
-  // skibox : false,
-  // trailer: false,
   actions: {
     toggleCheckBox(params) {
       let index = '';

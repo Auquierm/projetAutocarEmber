@@ -18,7 +18,7 @@ export default Route.extend({
       this.set('transitioningToBack', false);
     },
     back() {
-      var last = this.get('transitionHistory').pop();
+      let last = this.get('transitionHistory').pop();
       last = last ? last : '/dash';
       this.set('transitioningToBack', true);
       this.transitionTo(last);
