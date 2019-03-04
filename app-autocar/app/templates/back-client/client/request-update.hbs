@@ -3,7 +3,7 @@
     <form class="md:w-3/4 lg:w-2/3 xl:w-full px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4" onsubmit={{action "sendDevis"}}>
 
     {{!---------- div votre devis ----------}}
-    <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg">
+    <div class="sm:mb-2 lg:mb-4 sm:text-xs md:text-sm lg:text-lg text-center">
       <span class="font-bold">Votre Devis</span>
       <p class="pt-3">
         Veuillez ne pas laisser de champs libre dans ce formulaire.
@@ -63,69 +63,70 @@
                     <div class="w-1/2 md:flex-1">
                         {{!-- <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 h-full w-full rounded shadow"
-                             required onchange={{action "selectOption" "countryDp" }} value="target.value">
-                            <option value="belgique">Belgique</option>
-                            <option value="france">France</option>
-                            <option value="espagne">Espagne</option>
-                        </select> --}}
-                         <SelectCountryRequest @countryRequest={{model.infoQuote.placeDeparture.country}} onclick={{action "selectOption" "model.infoQuote.placeDeparture.country"}} />
-                        <input type="hidden" id="printFlags">
-                    </div>
-                    <div class="w-1/2 md:flex-1">
-                        {{input type="text" value=model.infoQuote.placeDeparture.city class="block appearance-none w-full
-                        bg-white
-                        border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville" required=true}}
-                    </div>
-                </div>
-            </div>
-            {{!-- div Rue, numéro et code postal --}}
-            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{input type="text" value=model.infoQuote.placeDeparture.street class="block appearance-none w-full bg-white
-                    border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
-                </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-                    <div class="flex-1">
-                        {{input type="text" value=model.infoQuote.placeDeparture.number class="block appearance-none w-full
-                        bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
-                        placeholder="Numéro" required=true}}
-                    </div>
-                    <div class="flex-1">
-                        {{input type="text" value=model.infoQuote.placeDeparture.zip class="block appearance-none w-full bg-white border
-                        border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
-                    </div>
-                </div>
-            </div>
-            {{!---------- Retour -----------}}
-            <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
-                <span class="sm:text-xs lg:text-lg text-blue font-bold">Retour</span>
-            </div>
-            {{!-- div (date/heure retour) pays et ville --}}
-            <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                    {{ember-flatpickr
-                    allowInput=true
-                    appendDataInput=true
-                    disableMobile=true
-                    classNames=classString
-                    date=(readonly model.infoQuote.dateArrival)
-                    enableTime=true
-                    locale='fr'
-                    dateFormat="d-m-Y H:i"
-                    minDate=minDate
-                    minuteIncrement=1
-                    time_24hr=true
-                    onClose=(action "onCloseTime")
-                    onChange=(action "onChangeTime" "model.infoQuote.dateArrival")
-                    onReady=(action "onReadyTime" "model.infoQuote.dateArrival")
-                    class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
-                    py-2 rounded shadow"
-                    placeholder="Retour"
-                    }}
-                </div>
-                <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-                    <div class="w-1/2 md:flex-1">
-                        {{!-- <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+              required onchange={{action "selectOption" "countryDp" }} value="target.value">
+              <option value="belgique">Belgique</option>
+              <option value="france">France</option>
+              <option value="espagne">Espagne</option>
+            </select> --}}
+            <SelectCountryRequest @countryRequest={{model.infoQuote.placeDeparture.country}} onclick={{action "selectOption" "model.infoQuote.placeDeparture.country"}} />
+            <input type="hidden" id="printFlags">
+          </div>
+          <div class="w-1/2 md:flex-1">
+            {{input type="text" value=model.infoQuote.placeDeparture.city class="block appearance-none w-full
+            bg-white
+            border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="ville" required=true}}
+          </div>
+        </div>
+      </div>
+      {{!-- div Rue, numéro et code postal --}}
+      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+          {{input type="text" value=model.infoQuote.placeDeparture.street class="block appearance-none w-full bg-white
+          border border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Rue" required=true}}
+        </div>
+        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+          <div class="flex-1">
+            {{input type="text" value=model.infoQuote.placeDeparture.number class="block appearance-none w-full
+            bg-white border border-grey-light hover:border-grey px-2 py-2 rounded shadow"
+            placeholder="Numéro" required=true}}
+          </div>
+          <div class="flex-1">
+            {{input type="text" value=model.infoQuote.placeDeparture.zip class="block appearance-none w-full bg-white
+            border
+            border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Code postal" required=true}}
+          </div>
+        </div>
+      </div>
+      {{!---------- Retour -----------}}
+      <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
+        <span class="sm:text-xs lg:text-lg text-blue font-bold">Retour</span>
+      </div>
+      {{!-- div (date/heure retour) pays et ville --}}
+      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+          {{ember-flatpickr
+          allowInput=true
+          appendDataInput=true
+          disableMobile=true
+          classNames=classString
+          date=(readonly model.infoQuote.dateArrival)
+          enableTime=true
+          locale="fr"
+          dateFormat="d-m-Y H:i"
+          minDate=minDate
+          minuteIncrement=1
+          time_24hr=true
+          onClose=(action "onCloseTime")
+          onChange=(action "onChangeTime" "model.infoQuote.dateArrival")
+          onReady=(action "onReadyTime" "model.infoQuote.dateArrival")
+          class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+          py-2 rounded shadow"
+          placeholder="Retour"
+          }}
+        </div>
+        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
+          <div class="w-1/2 md:flex-1">
+            {{!-- <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 w-full rounded shadow h-full"
               required onchange={{action "selectOption" "countryRt" }} value="target.value">
               <option value="belgique">Belgique</option>

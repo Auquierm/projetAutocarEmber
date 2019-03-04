@@ -1,147 +1,149 @@
-<div ><a href="#" {{action "back"}}>Retour</a></div>
+<div><a href="#" {{action "back"}}>Retour</a></div>
 <h2>Votre demande de devis N° {{model.numFolder}}</h2>
 
 <div class=" h-full font-sans sm:pt-16 md:pt-0">
-  <div class="md:w-3/4 lg:w-2/3 xl:w-1/2 px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4">
+  <div class="px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4">
 
     {{!---------- div votre devis ----------}}
 
     <div>
       <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg text-blue font-bold">Informations voyage</span>
+        <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Informations voyage</span>
       </div>
       {{!-- div Nbre passagers et type de car --}}
-      <div class="md:w-4/5 mx-auto md:flex  sm:text-xs lg:text-base pt-2">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Nombre de passagers :</p>
-          <p class="font-bold pt-2 pb-2">{{model.pax}} personnes</p>
+      <div class="md:w-4/5 mx-auto md:flex pt-2">
+        <div class="md:flex-1 md:px-1 sm:mb-2">
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Nombre de passagers :</p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.pax}}
+            personnes</p>
         </div>
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Type de car : </p>
-          <p class="font-bold pt-2 pb-2">{{model.capacityAutocar}} places</p>
+        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 sm:text-xs lg:text-base xl:text-xl">
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Type de car : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.capacityAutocar}}
+            places</p>
         </div>
       </div>
       {{!-- Départ --}}
-      <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg text-blue font-bold">Départ</span>
+      <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+        <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Départ</span>
       </div>
       {{!-- div (date/heure départ) pays --}}
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+      <div class="md:w-4/5 mx-auto md:flex">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Date et Heure de départ : </p>
-          <p class="font-bold pt-2 pb-2">{{model.dateDeparture}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Date et Heure de départ : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.dateDeparture}}</p>
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
           <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Pays : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeDeparture.country}}</p>
+            <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Pays : </p>
+            <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeDeparture.country}}</p>
           </div>
         </div>
       </div>
       {{!-- div Ville, Rue--}}
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+      <div class="md:w-4/5 mx-auto md:flex">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Ville : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeDeparture.city}}</p>
+          <p class="font-bold  lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Ville : </p>
+          <p class="pt-2 pb-2  lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeDeparture.city}}</p>
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Rue : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeDeparture.street}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Rue : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeDeparture.street}}</p>
         </div>
       </div>
       {{!-- div N°, Code postal--}}
       <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>N° : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeDeparture.number}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">N° : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeDeparture.number}}</p>
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Code postal : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeDeparture.zip}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Code postal : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeDeparture.zip}}</p>
         </div>
       </div>
       {{!---------- Retour -----------}}
-      <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg text-blue font-bold">Retour</span>
+      <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+        <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Retour</span>
       </div>
       {{!-- div (date/heure retour) pays --}}
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+      <div class="md:w-4/5 mx-auto md:flex">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Date et Heure de retour : </p>
-          <p class="font-bold pt-2 pb-2">{{model.dateArrival}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Date et Heure de retour : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.dateArrival}}</p>
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
           <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Pays : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeArrival.country}}</p>
+            <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Pays : </p>
+            <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeArrival.country}}</p>
           </div>
         </div>
       </div>
       {{!-- div Ville, Rue--}}
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+      <div class="md:w-4/5 mx-auto md:flex ">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Ville : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeArrival.city}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Ville : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeArrival.city}}</p>
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Rue : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeArrival.street}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Rue : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeArrival.street}}</p>
         </div>
       </div>
       {{!-- div N°, Code postal--}}
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+      <div class="md:w-4/5 mx-auto md:flex">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>N° : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeArrival.number}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">N° : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.placeArrival.number}}</p>
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Code postal : </p>
-          <p class="font-bold pt-2 pb-2">{{model.placeArrival.zip}}</p>
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Code postal : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark text-grey-dark">{{model.placeArrival.zip}}</p>
         </div>
       </div>
-      <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg text-blue font-bold">Options</span>
+      <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+        <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Options</span>
       </div>
       {{!-- div option --}}
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base xl:text-xl">
         {{#if model.options}}
-          {{#each model.options as |test|}}
-            <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-              <p>{{test}} : </p>
-              <p class="font-bold pt-2 pb-2">Oui</p>
-            </div>
-          {{/each}}
+        {{#each model.options as |test|}}
+        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+          <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">{{test}} : </p>
+          <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">Oui</p>
+        </div>
+        {{/each}}
         {{else}}
-          <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Aucune option choisie</p>
-          </div>
+        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+          <p class="sm:text-xs lg:text-base xl:text-xl">Aucune option choisie</p>
+        </div>
         {{/if}}
       </div>
-    </div>
-
-
-
-    {{!---------- commentaire ----------}}
-    <div>
-      <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg text-blue font-bold">Commentaires</span>
-      </div>
-      {{!-- commentaire --}}
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base pt-2">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <p>Commentaires : </p>
-          <p class="font-bold pt-2 pb-2">{{model.com}}</p>
+      {{!---------- commentaire ----------}}
+      <div>
+        <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+          <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Commentaires</span>
         </div>
-      </div>
-      <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex justify-end">
-          <input type="submit" value="Mis à jour" class="block appearance-none bg-blue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2
+        {{!-- commentaire --}}
+        <div class="md:w-4/5 mx-auto md:flex pt-2">
+          <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+            <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Commentaires : </p>
+            <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.com}}</p>
+          </div>
+        </div>
+        <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+          <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex justify-end">
+            <input type="submit" value="Misé à jour" class="block appearance-none bg-blue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"
-            onclick={{action "sendToUpdateRequest"}}>
+              onclick={{action "sendToUpdateRequest"}}>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
 
 {{outlet}}

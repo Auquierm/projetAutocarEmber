@@ -11,9 +11,9 @@
         <th class="w-1/5">Actions</th>
       </tr>
     </thead>
-    {{#each model as |quote|}}
-      {{#if (compare quote.status "===" "attente" )}}
-        <tbody>
+    <tbody>
+      {{#each model as |quote|}}
+        {{#if (compare quote.status "===" "attente" )}}
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
             <td class="w-1/5 text-center">{{quote.dateCreation}}</td>
             <td class="w-1/5 text-center">{{quote.idClient.idUser.firstname}}</td>
@@ -21,9 +21,10 @@
             <td class="w-1/5 text-center">{{quote.status}}</td>
             <td class="w-1/5 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
           </tr>
-        </tbody>
-      {{/if}}
-    {{/each}}
+        {{/if}}
+      {{/each}}
+    </tbody>
+
 
   </table>
   {{!-- <div class="text-right italic text-xs mt-2">

@@ -72,8 +72,8 @@
         </div>
       </div>
       <div class="mt-6 flex">
-        <input type="submit" value="Modifier chauffeurs" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-        <input type="submit" value="Assigner voyage" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+        <input type="submit" value="Modifier chauffeurs" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+        <input type="submit" value="Assigner voyage" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
       </div>
 
 
@@ -85,56 +85,41 @@
       <table class="w-full mt-3">
         <thead>
           <tr class="p-2 text-white bgPrimaryBlue">
-            <th class="w-1/3">Id</th>
-            <th class="w-1/3">Cloturé</th>
-            <th class="w-1/3">Actions</th>
+            <th class="w-1/4">Id</th>
+            <th class="w-1/4">Date de retour</th>
+            <th class="w-1/4">Destination</th>
+            <th class="w-1/4">Actions</th>
           </tr>
         </thead>
         <tbody>
+          {{!-- {{log model}}
+          {{log model.tripDone}}
+          {{log model.tripDone.voyageDone1}} --}}
+          {{!-- {{#each model as |trip|}} --}}
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center ">2</td>
-            <td class="w-1/3 text-center">Non</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
+            <td class="w-1/4 text-center ">1</td>
+            <td class="w-1/4 text-center">01/02/2019</td>
+            <td class="w-1/4 text-center">Dupont</td>
+            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+          </tr>
+          {{!-- {{/each}} --}}
+          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+            <td class="w-1/4 text-center ">2</td>
+            <td class="w-1/4 text-center">04/02/2019</td>
+            <td class="w-1/4 text-center">Dumond</td>
+            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">3</td>
-            <td class="w-1/3 text-center">Oui</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
+            <td class="w-1/4 text-center ">3</td>
+            <td class="w-1/4 text-center">14/02/2019</td>
+            <td class="w-1/4 text-center">Dumont</td>
+            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">4</td>
-            <td class="w-1/3 text-center">Oui</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">5</td>
-            <td class="w-1/3 text-center">Non</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">5</td>
-            <td class="w-1/3 text-center">Non</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">5</td>
-            <td class="w-1/3 text-center">Non</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">5</td>
-            <td class="w-1/3 text-center">Non</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">5</td>
-            <td class="w-1/3 text-center">Non</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/3 text-center">5</td>
-            <td class="w-1/3 text-center">Non</td>
-            <td class="w-1/3 text-center"><i class="fas fa-info-circle"></i></td>
+            <td class="w-1/4 text-center ">4</td>
+            <td class="w-1/4 text-center">17/02/2019</td>
+            <td class="w-1/4 text-center">Ducont</td>
+            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
         </tbody>
       </table>
@@ -156,55 +141,52 @@
         </thead>
         <tbody>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
+            <td class="w-1/6 text-center ">10</td>
+            <td class="w-1/6 text-center ">Colmar</td>
+            <td class="w-1/6 text-center ">12/04/2019</td>
+            <td class="w-1/6 text-center ">17/04/2019</td>
+            <td class="w-1/6 text-center ">Betzel</td>
             <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
+            <td class="w-1/6 text-center ">11</td>
+            <td class="w-1/6 text-center ">La Panne</td>
+            <td class="w-1/6 text-center ">18/04/2019</td>
+            <td class="w-1/6 text-center ">18/04/2019</td>
+            <td class="w-1/6 text-center ">Lorion</td>
             <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
 
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
-            <td class="w-1/6 text-center ">2</td>
+            <td class="w-1/6 text-center ">12</td>
+            <td class="w-1/6 text-center ">Lloret de Mar</td>
+            <td class="w-1/6 text-center ">21/04/2019</td>
+            <td class="w-1/6 text-center ">29/04/2019</td>
+            <td class="w-1/6 text-center ">Bertiaux</td>
             <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center">3</td>
-            <td class="w-1/6 text-center">3</td>
-            <td class="w-1/6 text-center">3</td>
-            <td class="w-1/6 text-center">3</td>
-
-            <td class="w-1/6 text-center">3</td>
+            <td class="w-1/6 text-center">13</td>
+            <td class="w-1/6 text-center">Amsterdam</td>
+            <td class="w-1/6 text-center">30/04/2019</td>
+            <td class="w-1/6 text-center">05/05/2019</td>
+            <td class="w-1/6 text-center">Duth</td>
             <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center">4</td>
-            <td class="w-1/6 text-center">3</td>
-            <td class="w-1/6 text-center">3</td>
-            <td class="w-1/6 text-center">3</td>
-
-            <td class="w-1/6 text-center">3</td>
+            <td class="w-1/6 text-center">14</td>
+            <td class="w-1/6 text-center">Nantes</td>
+            <td class="w-1/6 text-center">07/05/2019</td>
+            <td class="w-1/6 text-center">14/05/2019</td>
+            <td class="w-1/6 text-center">Brochard</td>
             <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
           <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center">5</td>
-            <td class="w-1/6 text-center">3</td>
-            <td class="w-1/6 text-center">3</td>
-            <td class="w-1/6 text-center">3</td>
-
-            <td class="w-1/6 text-center">3</td>
+            <td class="w-1/6 text-center">15</td>
+            <td class="w-1/6 text-center">Venise</td>
+            <td class="w-1/6 text-center">14/05/2019</td>
+            <td class="w-1/6 text-center">21/05/2019</td>
+            <td class="w-1/6 text-center">Danoisse</td>
             <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
           </tr>
         </tbody>
@@ -216,3 +198,4 @@
 </div>
 
 {{outlet}}
+
