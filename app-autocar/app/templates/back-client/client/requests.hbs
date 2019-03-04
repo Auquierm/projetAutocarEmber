@@ -2,26 +2,23 @@
 
 <div class="bg-white p-4 shadow-md mt-4">
   <table class="w-full">
-    <thead>
-      <tr class="p-2 text-white bgPrimaryBlue">
-        <th class="w-1/3">Id</th>
-        <th class="w-1/3">Date du devis</th>
-        <th class="w-1/3">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each model.quotesId as |quote|}}
-        {{#if (compare quote.status "===" "attente")}}
-          <tr class="p-2 text-black">
-            <td class="w-1/3 text-center">{{quote.numFolder}}</td>
-            <td class="w-1/3 text-center">{{quote.dateCreation}}</td>
-            <td class="w-1/3 text-center">
-              {{#link-to "back-client.client.request" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}
-            </td>
-          </tr>
-        {{/if}}
-      {{/each}}
-    </tbody>
+    <tr class="p-2 text-white bgPrimaryBlue sm:text-xs lg:text-base xl:text-xl">
+      <th class="w-1/3">Id</th>
+      <th class="w-1/3">Date du devis</th>
+      <th class="w-1/3">Actions</th>
+    </tr>
+    {{#each model.quotesId as |quote|}}
+      {{#if (compare quote.status "===" "attente")}}
+        <tr class="p-2 text-black sm:text-xs lg:text-base xl:text-xl">
+          <td class="w-1/3 text-center py-1">{{quote.numFolder}}</td>
+          <td class="w-1/3 text-center py-1">{{quote.dateCreation}}</td>
+          <td class="w-1/3 text-center py-1">
+            {{#link-to "back-client.client.request" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}
+          </td>
+        </tr>
+      {{/if}}
+    {{/each}}
+
   </table>
 </div>
 

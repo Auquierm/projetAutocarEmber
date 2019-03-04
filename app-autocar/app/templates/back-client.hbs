@@ -1,28 +1,28 @@
-<div class="bgPrimaryBlue w-full md:w-1/5 md:h-screen md:float-left md:fixed">
+<div class="bgPrimaryBlue md:w-1/4 lg:w-1/5 w-full md:h-screen md:float-left md:fixed">
 
   <div class="bgGreyBlack m-0 text-center banner">
-    <h3 class="m-0 p-0 text-white">Pimp My Trip - backoffice</h3>
+    <h3 class="m-0 p-0 text-white sm:text-xs lg:text-base xl:text-xl">Pimp My Trip - backoffice</h3>
   </div>
 
   <div class="p-6 text-center">
-    <span class="m-0 font-thin tracking-wide">Navigation - Client</span>
+    <span class="m-0 font-thin tracking-wide sm:text-xs lg:text-base xl:text-xl">Navigation - Client</span>
   </div>
 
   {{!-- Menu --}}
   <nav>
-    <ul class="menuBack list-reset">
-      {{#link-to "back-client.client.dashboard"}}<li><i class="fas fa-home"></i> Tableau de bord</li>{{/link-to}}
-      {{#link-to "back-client.client.profile"}}<li><i class="fas fa-user-circle"></i> Votre profil</li>{{/link-to}}
-      {{#link-to "back-client.client.create-quote"}}<li><i class="far fa-file-alt"></i> Demander un devis</li>{{/link-to}}
-      {{#link-to "back-client.client.requests"}}<li><i class="far fa-copy"></i> Vos demandes de devis</li>{{/link-to}}
-      {{#link-to "back-client.client.proposals"}}<li><i class="fas fa-question"></i> Propositions de devis</li>{{/link-to}}
-      {{#link-to "back-client.client.folders"}}<li><i class="far fa-check-circle"></i> Devis acceptés</li>{{/link-to}}
+    <ul class="menuBack list-reset sm:text-xs lg:text-base xl:text-xl">
+      {{#link-to "back-client.client.dashboard"}}<li><i class="fas fa-home mr-2"></i> Tableau de bord</li>{{/link-to}}
+      {{#link-to "back-client.client.profile"}}<li><i class="fas fa-user-circle mr-3"></i> Votre profil</li>{{/link-to}}
+      {{#link-to "back-client.client.create-quote"}}<li><i class="far fa-file-alt mr-3"></i> Demander un devis</li>{{/link-to}}
+      {{#link-to "back-client.client.requests"}}<li><i class="far fa-copy mr-3"></i> Vos demandes de devis</li>{{/link-to}}
+      {{#link-to "back-client.client.proposals"}}<li><i class="fas fa-question mr-3"></i> Propositions de devis</li>{{/link-to}}
+      {{#link-to "back-client.client.folders"}}<li><i class="far fa-check-circle mr-3"></i> Devis acceptés</li>{{/link-to}}
     </ul>
   </nav>
 </div>
 
 {{!-- body --}}
-<div class="md:w-4/5 md:float-right relative md:min-h-screen">
+<div class="md:w-3/4 lg:w-4/5 md:float-right relative md:min-h-screen">
   <div class="bgGreyBlack text-white pr-20 banner text-center md:text-right">
     <input class="bgPrimaryBlue hover:bg-white hover:text-blue text-white font-bold py-2 px-4 rounded-sm" type="button"
       value="Logout" onclick={{action "logout"}}>
@@ -33,18 +33,17 @@
   </div>
 
   {{!-- footer --}}
-  <div class="footer bg-white pr-20 banner text-center md:flex md:justify-between absolute pin-b w-full text-xs text-grey-dark -mb-24 md:-mb-0">
-    <div class="md:text-left">
-      Copyright © 2019 Technocité, Pimp My Trip. Tous droits réservés
-    </div>
+  <div class="footer bg-white pr-20 banner text-center absolute pin-b w-full text-grey-dark -mb-24 md:-mb-0">
     <div class="mt-3 md:mt-0">
       <ul class="list-reset flex justify-center">
-        <li>{{#link-to "home"}}Home{{/link-to}}</li>
-        <li class="pl-4">{{#link-to "devis"}}Voyage{{/link-to}}</li>
-        <li class="pl-4">{{#link-to "home"}}A propos{{/link-to}}</li>
-        <li class="pl-4">{{#link-to "home"}}Contact{{/link-to}}</li>
+        <li class="sm:text-xs lg:text-base xl:text-xl">{{#link-to "home"}}Home{{/link-to}}</li>
+        <li class="sm:text-xs lg:text-base xl:text-xl pl-4">{{#link-to "devis"}}Voyage{{/link-to}}</li>
+        <li class="sm:text-xs lg:text-base xl:text-xl pl-4">{{#link-to "home"}}A propos{{/link-to}}</li>
+        <li class="sm:text-xs lg:text-base xl:text-xl pl-4">{{#link-to "home"}}Contact{{/link-to}}</li>
       </ul>
     </div>
-
+    <div class="md:text-center text-xs">
+      Copyright © 2019 Technocité, Pimp My Trip. Tous droits réservés
+    </div>
   </div>
 </div>
