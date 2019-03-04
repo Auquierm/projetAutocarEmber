@@ -11,6 +11,7 @@
       <th class="w-1/4">Actions</th>
     </tr>
     {{#each model as |client|}}
+    {{log client.id}}
     <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
       <td class="w-1/4 text-center ">{{client.societe}}</td>
       <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
@@ -42,7 +43,7 @@
       <td class="w-1/4 text-center">{{quote.numFolder}}</td>
       <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
       <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
-      {{!-- <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td> --}}
+      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
     </tr>
     {{/if}}
     {{/each}}

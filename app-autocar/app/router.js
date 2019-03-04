@@ -44,7 +44,7 @@ Router.map(function () {
       this.route('folder-card', { path: '/folder-card/:idfolder' });
       this.route('quote-card', { path: '/quote-card/:idquote' });
       this.route('day-program');
-      this.route('create-quote', { path: ':idclient' });
+      this.route('create-quote', { path: '/create-quote/:idclient' });
     });
   });
   this.route('back-driver', function () {
