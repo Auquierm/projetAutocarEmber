@@ -91,7 +91,7 @@
       {{!---------- div age, genre et pays ----------}}
       <div class="md:w-4/5 mx-auto md:flex md:flex-row-reverse sm:text-xs lg:text-base">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-          <select onchange="myFunctiongender" name="gender" class="nofocus flex-1 appearance-none bg-white border
+          <select name="gender" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
             id="gender" onchange={{action "selectOption" "gender" }} value="target.value">
             <option value="femme">Femme</option>
@@ -99,7 +99,7 @@
             <option value="autre">Autre</option>
           </select>
           <input type="hidden" id="printFlags">
-          <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
+          <select name="flag" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
             id="flags" required onchange={{action "selectOption" "country" }} value="target.value">
             <option value="belgique">Belgique</option>
@@ -223,7 +223,7 @@
       {{!---------- div pays et compte bancaire ----------}}
       <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-          <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none w-full bg-white
+          <select name="flag" class="nofocus appearance-none w-full bg-white
                     border border-grey-light hover:border-grey py-030 rounded shadow h-full"
             required onchange={{action "selectOption" "societeCountry" }} value="target.value">
             <option value="belgique">Belgique</option>
@@ -254,7 +254,7 @@
           required=true}}
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-          <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
+          <select name="flag" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
             required onchange={{action "selectOption" "placeAutocar" }} value="target.value">
             <option value="30">30-Pl</option>
@@ -294,7 +294,7 @@
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
           <div class="w-1/2 md:flex-1">
-            <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+            <select name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 h-full w-full rounded shadow"
               required onchange={{action "selectOption" "countryDp" }} value="target.value">
               <option value="belgique">Belgique</option>
@@ -360,7 +360,7 @@
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
           <div class="w-1/2 md:flex-1">
-            <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+            <select name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 w-full rounded shadow h-full"
               required onchange={{action "selectOption" "countryRt" }} value="target.value">
               <option value="belgique">Belgique</option>
