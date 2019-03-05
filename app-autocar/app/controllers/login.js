@@ -14,5 +14,3 @@ export default Controller.extend({
     }
   }
 });
-//EpDPdeOQZv5W
-// james1223bond@gmail.com

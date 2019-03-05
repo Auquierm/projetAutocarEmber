@@ -8,6 +8,7 @@ export default Controller.extend({
   ajax : service(),
   isHidden: larg >= 768 ? true : false,
   dateValue: computed(() => { return new Date(); }),
+  confirmEmail: '',
   gender : 'Femme',
   country : 'Belgique',
   societeCountry: 'Belgique',
@@ -55,7 +56,6 @@ export default Controller.extend({
     async sendDevis(event){
       event.preventDefault();
       let{confirmEmail, email} = this;
-
       if(email === confirmEmail){
         this.set('emailDiff', false);
         let newClient = await this.ajax.post('/clients', {
@@ -113,6 +113,7 @@ export default Controller.extend({
           idClient: client
         });
         await newQuote.save();
+        this.transitionToRoute('message-create-account', newClient._id);
       }else{
         this.set('emailDiff', true);
       }
@@ -122,13 +123,10 @@ export default Controller.extend({
     },
     async onChangeTime(params, value) {
       let dateFormatOnChange = Moment(value[0]).format('DD-MM-YYYY HH:mm');
-      // console.log(dateFormat);
       if(params === "dateRt"){
        await this.set(params, dateFormatOnChange);
-        // console.log(this.dateRt);
       }else if(params === "dateDp"){
         await this.set(params, dateFormatOnChange);
-        // console.log(this.dateDp);
       }
     },
     onCloseTime() { },

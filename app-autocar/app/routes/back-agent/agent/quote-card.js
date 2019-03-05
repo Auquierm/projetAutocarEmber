@@ -10,8 +10,6 @@ export default Route.extend({
   actions: {
     didTransition() {
       document.title = 'Agent - Fiche devis';
-      // console.log(this.get('controller.model'));
-      // this.set('controller.model',)
     }
   }
 });

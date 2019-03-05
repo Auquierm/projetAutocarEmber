@@ -17,4 +17,9 @@ export default Route.extend({
     this.skibox = false,
     this.trailer = false;
   },
+  actions: {
+    didTransition() {
+      document.title = 'Client - Mise à jour de votre voyage';
+    }
+  }
 });
