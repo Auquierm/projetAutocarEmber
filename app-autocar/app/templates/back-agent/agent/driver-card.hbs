@@ -1,4 +1,4 @@
-<h2 class="mt-6">Fiche chauffeur - {{model.idUser.firstname}} {{model.idUser.lastname}}</h2>
+<h2 class="mt-6">Fiche chauffeur - {{driver.idUser.firstname}} {{driver.idUser.lastname}}</h2>
 <div class="flex">
   <div class="flex w-1/2">
     <div class=" bg-white p-4 shadow-md mt-4 text-black w-full">
@@ -6,79 +6,77 @@
         <div class="flex space-between mb-2">
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Prénom:</div>
-            <div class="pl-2 flex italic">{{model.idUser.firstname}}</div>
+            <div class="pl-2 flex italic">{{driver.idUser.firstname}}</div>
           </div>
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold"> Nom: </div>
-            <div class="pl-2 italic">{{model.idUser.lastname}}</div>
+            <div class="pl-2 italic">{{driver.idUser.lastname}}</div>
           </div>
         </div>
         <div class="flex space-between mb-2">
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Email: </div>
-            <div class="pl-2 italic">{{model.idUser.email}}</div>
+            <div class="pl-2 italic">{{driver.idUser.email}}</div>
           </div>
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Genre: </div>
-            <div class="pl-2 italic">{{model.idUser.sexe}}</div>
+            <div class="pl-2 italic">{{driver.idUser.sexe}}</div>
           </div>
         </div>
         <div class="flex space-between mb-2">
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Téléphone de service: </div>
-            <div class="pl-2 italic">{{model.servicePhone}}</div>
+            <div class="pl-2 italic">{{driver.servicePhone}}</div>
           </div>
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Téléphone privé: </div>
-            <div class="pl-2 italic">{{model.idUser.phone}}</div>
+            <div class="pl-2 italic">{{driver.idUser.phone}}</div>
           </div>
         </div>
         <div class="flex space-between mb-2">
 
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">N°Permis: </div>
-            <div class="pl-2 italic">{{model.numPermis}}</div>
+            <div class="pl-2 italic">{{driver.numPermis}}</div>
           </div>
         </div>
         <div class="flex space-between mb-2">
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Date sélection médicale: </div>
-            <div class="pl-2 italic">{{model.medicalDate}}</div>
+            <div class="pl-2 italic">{{driver.medicalDate}}</div>
           </div>
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Date CAP: </div>
-            <div class="pl-2 italic">{{model.capDate}}</div>
+            <div class="pl-2 italic">{{driver.capDate}}</div>
           </div>
         </div>
         <div class="flex space-between mb-2">
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold"> Ville: </div>
-            <div class="pl-2 italic">{{model.idUser.address.city}}</div>
+            <div class="pl-2 italic">{{driver.idUser.address.city}}</div>
           </div>
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Rue: </div>
-            <div class="pl-2 italic">{{model.idUser.address.street}}</div>
+            <div class="pl-2 italic">{{driver.idUser.address.street}}</div>
           </div>
         </div>
         <div class="flex space-between mb-2">
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">N°: </div>
-            <div class="pl-2 italic">{{model.idUser.address.number}}</div>
+            <div class="pl-2 italic">{{driver.idUser.address.number}}</div>
           </div>
           <div class="flex flex-1 flex-col">
             <div class="p-2 flex font-bold">Pays: </div>
-            <div class="pl-2 italic">{{model.idUser.address.country}}</div>
+            <div class="pl-2 italic">{{driver.idUser.address.country}}</div>
           </div>
         </div>
       </div>
       <div class="mt-6 flex">
         <input type="submit" value="Modifier chauffeurs" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-        <input type="submit" value="Assigner voyage" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
       </div>
-
-
     </div>
   </div>
+
   <div class="flex w-1/2 flex-col ml-4">
     <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
       <h4>Voyages effectués</h4>
@@ -92,37 +90,10 @@
           </tr>
         </thead>
         <tbody>
-          {{!-- {{log model}}
-          {{log model.tripDone}}
-          {{log model.tripDone.voyageDone1}} --}}
-          {{!-- {{#each model as |trip|}} --}}
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/4 text-center ">1</td>
-            <td class="w-1/4 text-center">01/02/2019</td>
-            <td class="w-1/4 text-center">Dupont</td>
-            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          {{!-- {{/each}} --}}
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/4 text-center ">2</td>
-            <td class="w-1/4 text-center">04/02/2019</td>
-            <td class="w-1/4 text-center">Dumond</td>
-            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/4 text-center ">3</td>
-            <td class="w-1/4 text-center">14/02/2019</td>
-            <td class="w-1/4 text-center">Dumont</td>
-            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/4 text-center ">4</td>
-            <td class="w-1/4 text-center">17/02/2019</td>
-            <td class="w-1/4 text-center">Ducont</td>
-            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
+
         </tbody>
       </table>
+      <p>Aucun Voyage terminé.</p>
 
     </div>
     <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
@@ -140,62 +111,43 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center ">10</td>
-            <td class="w-1/6 text-center ">Colmar</td>
-            <td class="w-1/6 text-center ">12/04/2019</td>
-            <td class="w-1/6 text-center ">17/04/2019</td>
-            <td class="w-1/6 text-center ">Betzel</td>
-            <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center ">11</td>
-            <td class="w-1/6 text-center ">La Panne</td>
-            <td class="w-1/6 text-center ">18/04/2019</td>
-            <td class="w-1/6 text-center ">18/04/2019</td>
-            <td class="w-1/6 text-center ">Lorion</td>
-            <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
 
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center ">12</td>
-            <td class="w-1/6 text-center ">Lloret de Mar</td>
-            <td class="w-1/6 text-center ">21/04/2019</td>
-            <td class="w-1/6 text-center ">29/04/2019</td>
-            <td class="w-1/6 text-center ">Bertiaux</td>
-            <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center">13</td>
-            <td class="w-1/6 text-center">Amsterdam</td>
-            <td class="w-1/6 text-center">30/04/2019</td>
-            <td class="w-1/6 text-center">05/05/2019</td>
-            <td class="w-1/6 text-center">Duth</td>
-            <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center">14</td>
-            <td class="w-1/6 text-center">Nantes</td>
-            <td class="w-1/6 text-center">07/05/2019</td>
-            <td class="w-1/6 text-center">14/05/2019</td>
-            <td class="w-1/6 text-center">Brochard</td>
-            <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
-          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-            <td class="w-1/6 text-center">15</td>
-            <td class="w-1/6 text-center">Venise</td>
-            <td class="w-1/6 text-center">14/05/2019</td>
-            <td class="w-1/6 text-center">21/05/2019</td>
-            <td class="w-1/6 text-center">Danoisse</td>
-            <td class="w-1/6 text-center"><i class="fas fa-info-circle"></i></td>
-          </tr>
+          {{#each quote as |quoteInfo|}}
+            {{#each quoteInfo.nameDriver as |driverInclude|}}
+              {{#if (compare driverInclude "===" driver.id)}}
+                <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+                  <td class="w-1/6 text-center ">{{quoteInfo.numFolder}}</td>
+                  <td class="w-1/6 text-center ">{{quoteInfo.placeArrival.city}}</td>
+                  <td class="w-1/6 text-center ">{{quoteInfo.dateDeparture}}</td>
+                  <td class="w-1/6 text-center ">{{quoteInfo.dateArrival}}</td>
+                  <td class="w-1/6 text-center ">{{quoteInfo.idClient.idUser.firstname}}</td>
+                  <td class="w-1/6 text-center">{{#link-to "back-agent.agent.folder-card" quoteInfo.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+                </tr>
+              {{/if}}
+            {{/each}}
+          {{/each}}
         </tbody>
       </table>
-
     </div>
+    <form class="w-full bg-white p-4 shadow-md mt-4" onsubmit={{action "linkFolderToDriver"}}>
+      <h4>Lier un dossier</h4>
+        {{#if (compare emptySelect "===" 0)}}
+          <p>Aucun dossier ne peut être lié à ce chauffeur!</p>
+        {{else}}
+        <label>Choisir un Dossier:</label>
+        <select class="ml-6" onchange={{action "selectOption" "folderNum" }} value="target.value">
+          {{#each quote as |quoteInfo|}}
+            {{#if (compare quoteInfo.nameDriver.length "===" 0)}}
+              {{#if (compare quoteInfo.status '===' 'valide')}}
+                <option selected>{{quoteInfo.id}} - {{quoteInfo.placeDeparture.city}} à {{quoteInfo.placeArrival.city}}</option>
+              {{/if}}
+            {{/if}}
+          {{/each}}
+        </select>
+        <input type="submit" class="pt-2 pb-2 pr-6 pl-6 ml-6 text-white bgPrimaryBlue rounded" value="Lier">
+        {{/if}}
+    </form>
   </div>
-
 </div>
 
 {{outlet}}
-

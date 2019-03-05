@@ -111,6 +111,9 @@ let schema = new Schema({
     },
     timeTravel: {
         type: Number
+    },
+    nameDriver : {
+        type : Array,
     }
 });
 

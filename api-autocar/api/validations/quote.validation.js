@@ -35,7 +35,8 @@ module.exports = {
             price: Joi.number(),
             com: Joi.string(),
             dateCreation: Joi.string().required(),
-            timeTravel: Joi.number()
+            timeTravel: Joi.number(),
+            nameDriver : Joi.array()
         },
     },
     // POST /v1/quotes
@@ -71,7 +72,8 @@ module.exports = {
             price: Joi.number(),
             com: Joi.string(),
             dateCreation: Joi.string().required(),
-            timeTravel: Joi.number()
+            timeTravel: Joi.number(),
+            nameDriver : Joi.array()
         },
     },
     // GET /v1/quotes/:quoteId
@@ -113,7 +115,8 @@ module.exports = {
             price: Joi.number(),
             com: Joi.string(),
             dateCreation: Joi.string().required(),
-            timeTravel: Joi.number()
+            timeTravel: Joi.number(),
+            nameDriver : Joi.array()
         },
         params: {
             quoteId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

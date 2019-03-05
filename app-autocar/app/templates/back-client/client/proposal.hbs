@@ -1,160 +1,174 @@
-<div ><a href="#" {{action "back"}}>Retour</a></div>
-<h2>Proposition du devis n°{{model.numFolder}} de la part de l'agent</h2>
+<div><a href="#" {{action "back"}}>Retour</a></div>
+<div class="text-center">
+  <h2 class="sm:text-xs lg:text-lg xl:text-2xl">Proposition du devis n°{{model.numFolder}} de la part de l'agent</h2>
+</div>
 {{!-- {{log model.idClient}} --}}
 
 
-<div class="bg-white shadow-md mt-4 md:w-1/2">
-
-  <div class="flex">
+<div class="mt-10 mb-10 px-8">
+  {{!---------- div Votre identité ----------}}
+  <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+    <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Votre identité</span>
+  </div>
+  {{!-- div Prénom et nom --}}
+  <div class="flex md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Prénom<br>
-      <div class="italic text-grey-dark">{{model.idClient.idUser.firstname}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.idUser.firstname}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Nom<br>
-      <div class="italic text-grey-dark">{{model.idClient.idUser.lastname}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.idUser.lastname}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Email et genre --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Email<br>
-      <div class="italic text-grey-dark">{{model.idClient.idUser.email}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.idUser.email}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Genre<br>
-      <div class="italic text-grey-dark">{{model.idClient.idUser.sexe}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.idUser.sexe}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Email et genre --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Nom de société<br>
-      <div class="italic text-grey-dark">{{model.idClient.societe}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.societe}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       N° TVA<br>
-      <div class="italic text-grey-dark">{{model.idClient.numTva}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.numTva}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Pays et ville --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Pays<br>
-      <div class="italic text-grey-dark">{{model.idClient.adresseFacturation.country}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.adresseFacturation.country}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Ville<br>
-      <div class="italic text-grey-dark">{{model.idClient.adresseFacturation.city}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.adresseFacturation.city}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Code postal et rue --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Code postal<br>
-      <div class="italic text-grey-dark">{{model.idClient.adresseFacturation.zip}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.adresseFacturation.zip}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Rue<br>
-      <div class="italic text-grey-dark">{{model.idClient.adresseFacturation.street}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.adresseFacturation.street}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Numéro --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Numéro<br>
-      <div class="italic text-grey-dark">{{model.idClient.adresseFacturation.number}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.idClient.adresseFacturation.number}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!---------- div Votre voyage ----------}}
+  <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+    <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Votre voyage</span>
+  </div>
+  {{!-- div Date de départ et date de retour --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Date de départ<br>
-      <div class="italic text-grey-dark">{{model.dateDeparture}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.dateDeparture}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Date de retour<br>
-      <div class="italic text-grey-dark">{{model.dateArrival}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.dateArrival}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Heure de départ et heure de retour --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Heure de départ<br>
-      <div class="italic text-grey-dark">heure à mettre</div>
+      <div class="italic text-grey-dark pt-3">heure à mettre</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Heure de retour<br>
-      <div class="italic text-grey-dark">heure à mettre</div>
+      <div class="italic text-grey-dark pt-3">heure à mettre</div>
     </div>
   </div>
-
-  <h4 class="p-3">Destination</h4>
-
-  <div class="flex mt-4">
+  {{!---------- div Destination ----------}}
+  <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+    <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Destination</span>
+  </div>
+  {{!-- div Pays et ville --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Pays<br>
-      <div class="italic text-grey-dark">{{model.placeArrival.country}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeArrival.country}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Ville<br>
-      <div class="italic text-grey-dark">{{model.placeArrival.city}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeArrival.city}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Rue et numéro --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Rue<br>
-      <div class="italic text-grey-dark">{{model.placeArrival.street}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeArrival.street}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Numéro<br>
-      <div class="italic text-grey-dark">{{model.placeArrival.number}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeArrival.number}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Code postal --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Code postal<br>
-      <div class="italic text-grey-dark">{{model.placeArrival.zip}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeArrival.zip}}</div>
     </div>
   </div>
-
-  <h4 class="p-3">Lieu de départ</h4>
-
-  <div class="flex mt-4">
+  {{!---------- div Lieu de départ ----------}}
+  <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+    <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Lieu de départ</span>
+  </div>
+  {{!-- div Pays et ville --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Pays<br>
-      <div class="italic text-grey-dark">{{model.placeDeparture.country}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeDeparture.country}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Ville<br>
-      <div class="italic text-grey-dark">{{model.placeDeparture.city}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeDeparture.city}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Rue et numéro --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Rue<br>
-      <div class="italic text-grey-dark">{{model.placeDeparture.street}}s</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeDeparture.street}}s</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Numéro<br>
-      <div class="italic text-grey-dark">{{model.placeDeparture.number}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeDeparture.number}}</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Code postal --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Code postal<br>
-      <div class="italic text-grey-dark">{{model.placeDeparture.zip}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.placeDeparture.zip}}</div>
     </div>
   </div>
 
-  <div class="mt-4">
+  <div class="mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="p-3">
       Commentaires<br>
-      <div class="italic text-grey-dark">{{model.com}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.com}}</div>
     </div>
   </div>
 
@@ -169,25 +183,26 @@
     </div>
   </div> --}}
 
-  <div class="flex mt-4">
+  {{!-- div Distance du voyage --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Distance du voyage<br>
-      <div class="italic text-grey-dark">{{model.totalKm}}km</div>
+      <div class="italic text-grey-dark pt-3">{{model.totalKm}}km</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       <br>
-      <div class="font-bold text-right w-1/3">???€</div>
+      <div class="italic text-grey-dark pt-3">???€</div>
     </div>
   </div>
-
-  <div class="flex mt-4">
+  {{!-- div Nombre de passagers --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Nombre de passagers<br>
-      <div class="italic text-grey-dark">{{model.capacityAutocar}}</div>
+      <div class="italic text-grey-dark pt-3">{{model.capacityAutocar}}</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       <br>
-      <div class="font-bold text-right w-1/3">???</div>
+      <div class="italic text-grey-dark pt-3">???</div>
     </div>
   </div>
 
@@ -202,66 +217,67 @@
     </div>
   </div> --}}
 
-  <div class="flex mt-4">
+  {{!-- div Options --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Options<br>
       {{#each model.options as |option|}}
-        <div class="italic text-grey-dark">{{option}}</div>
+        <div class="italic text-grey-dark pt-3">{{option}}</div>
       {{/each}}
     </div>
     <div class="flex-1 w-1/2 p-3">
       <br>
-      {{!-- {{#each model.options as |option|}} --}}
-      <div class="font-bold text-right w-1/3">{{prix1}}</div>
-      {{!-- {{/each}} --}}
+      {{#each model.options as |option|}}
+        <div class="italic text-grey-dark pt-3">{{prix1}}</div>
+      {{/each}}
     </div>
-
   </div>
 
-  <div class="flex mt-4">
+  {{!-- div Options --}}
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Coûts supplémentaires<br>
-      <div class="italic text-grey-dark">Voici un coût supplémentaire</div>
+      <div class="italic text-grey-dark pt-3">Voici un coût supplémentaire</div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       <br>
-      <div class="font-bold text-right w-1/3">???</div>
+      <div class="italic text-grey-dark pt-3">???</div>
     </div>
   </div>
 
-  <div class="flex justify-end m-4">
-    <div class="p-3 w-1/5">
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
+    <div class="flex-1 w-1/2 p-3">
       Total
     </div>
-    <div class="p-3 w-1/5 font-bold">
+    <div class="flex-1 w-1/2 p-3">
+      <div>
+
+      </div>
       {{model.price}}€
     </div>
   </div>
 
-  <div class="flex mt-4">
-    <div class="flex-1 w-1/2 p-3">
-      <div class="font-bold">Informations de votre agent</div>
-      <div class="">Si vous désirez contacter l'agent qui s'occupe de votre devis :</div>
-    </div>
+  <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+    <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Informations de votre agent</span>
   </div>
 
-  <div class="flex">
+  <div class="flex md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Numéro téléphone de service<br>
-      <div class="italic text-grey-dark">numéro de l'agent</div>
+      <div class="italic text-grey-dark pt-3">numéro de l'agent</div>
     </div>
   </div>
 
-  <div class="flex mt-4">
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Email<br>
-      <div class="italic text-grey-dark">email de l'agent</div>
+      <div class="italic text-grey-dark pt-3">email de l'agent</div>
     </div>
   </div>
 
-  <div class="flex justify-end p-3">
-    <button>Accepter</button>
-    <button class="ml-3">Refuser</button>
+  <div class="flex justify-end p-3 pb-10">
+    <button onclick={{action "acceptProposal"}}>Accepter</button>
+    <button onclick={{action "rejectProposal"}} class="ml-3">Refuser</button>
   </div>
 
 

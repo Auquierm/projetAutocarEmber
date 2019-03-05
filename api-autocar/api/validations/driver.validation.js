@@ -10,12 +10,8 @@ module.exports = {
             numPermis: Joi.string().required(),
             medicalDate: Joi.string().required(),
             capDate: Joi.string().required(),
-            tripDone: {
-                voyageDone1: Joi.string().required()
-            },
-            tripToDo: {
-                voyageToDo1: Joi.string().required()
-            },
+            tripDone: Joi.array(),
+            tripToDo: Joi.array(),
             surveyNote: Joi.string().required()
         },
     },
@@ -42,12 +38,8 @@ module.exports = {
             numPermis: Joi.string().required(),
             medicalDate: Joi.string().required(),
             capDate: Joi.string().required(),
-            tripDone: {
-                voyageDone1: Joi.string().required()
-            },
-            tripToDo: {
-                voyageToDo1: Joi.string().required()
-            },
+            tripDone: Joi.array(),
+            tripToDo: Joi.array(),
             surveyNote: Joi.string().required()
         },
     },
@@ -80,12 +72,8 @@ module.exports = {
             numPermis: Joi.string().required(),
             medicalDate: Joi.string().required(),
             capDate: Joi.string().required(),
-            tripDone: {
-                voyageDone1: Joi.string().required()
-            },
-            tripToDo: {
-                voyageToDo1: Joi.string().required()
-            },
+            tripDone: Joi.array(),
+            tripToDo: Joi.array(),
             surveyNote: Joi.string().required()
         },
         params: {

@@ -21,5 +21,6 @@ export default DS.Model.extend({
   com: attr('string'),
   idClient: belongsTo('client'),
   dateCreation: attr('string'),
-  timeTravel: attr('number')
+  timeTravel: attr('number'),
+  nameDriver : attr()
 });
