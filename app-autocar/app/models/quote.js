@@ -13,12 +13,14 @@ export default DS.Model.extend({
   options: attr(),
   numberDriver: attr('number'),
   capacityAutocar: attr('number'),
-  includeIn: attr('string'),
-  notIncludeIn: attr('string'),
+  includeIn: attr('number'),
+  notIncludeIn: attr('number'),
   numberAutocar: attr('number'),
   price: attr('number'),
   status: attr('string'),
   com: attr('string'),
   idClient: belongsTo('client'),
-  dateCreation: attr('string')
+  dateCreation: attr('string'),
+  timeTravel: attr('number'),
+  nameDriver : attr()
 });
