@@ -121,105 +121,27 @@
                 </div>
                 {{/if}}
             </div>
-        </div>
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Rue : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeDeparture.street}}</p>
-        </div>
-    </div>
-    {{!-- div N°, Code postal--}}
-    <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>N° : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeDeparture.number}}</p>
-        </div>
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Code postal : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeDeparture.zip}}</p>
-        </div>
-    </div>
-    {{!---------- Retour -----------}}
-    <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg text-blue font-bold">Retour</span>
-    </div>
-    {{!-- div (date/heure retour) pays --}}
-    <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Date et Heure de retour : </p>
-            <p class="font-bold pt-2 pb-2">{{model.dateArrival}}</p>
-        </div>
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-            <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-                <p>Pays : </p>
-                <p class="font-bold pt-2 pb-2">{{model.placeArrival.country}}</p>
+            {{!---------- commentaire ----------}}
+            <div>
+                <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+                    <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Commentaires</span>
+                </div>
+                {{!-- commentaire --}}
+                <div class="md:w-4/5 mx-auto md:flex pt-2">
+                    <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+                        <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Commentaires : </p>
+                        <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.com}}</p>
+                    </div>
+                </div>
+                <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
+                    <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex justify-end">
+                        <input type="submit" value="Misé à jour" class="block appearance-none bg-blue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2
+                    py-2 rounded shadow"
+                            onclick={{action "sendToUpdateRequest"}}>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    {{!-- div Ville, Rue--}}
-    <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Ville : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeArrival.city}}</p>
-        </div>
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Rue : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeArrival.street}}</p>
-        </div>
-    </div>
-    {{!-- div N°, Code postal--}}
-    <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>N° : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeArrival.number}}</p>
-        </div>
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Code postal : </p>
-            <p class="font-bold pt-2 pb-2">{{model.placeArrival.zip}}</p>
-        </div>
-    </div>
-    <div class="pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg text-blue font-bold">Options</span>
-    </div>
-    {{!-- div option --}}
-    <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-        {{#if model.options}}
-        {{#each model.options as |test|}}
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>{{test}} : </p>
-            <p class="font-bold pt-2 pb-2">Oui</p>
-        </div>
-        {{/each}}
-        {{else}}
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p>Aucune option choisie</p>
-        </div>
-        {{/if}}
-    </div>
 </div>
-
-
-
-{{!---------- commentaire ----------}}
-<div>
-    <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
-        <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Commentaires</span>
-    </div>
-    {{!-- commentaire --}}
-    <div class="md:w-4/5 mx-auto md:flex pt-2">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
-            <p class="font-bold lg:mb-2 sm:text-xs lg:text-base xl:text-xl">Commentaires : </p>
-            <p class="pt-2 pb-2 lg:mb-2 sm:text-xs lg:text-base xl:text-xl text-grey-dark">{{model.com}}</p>
-        </div>
-    </div>
-    <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
-        <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex justify-end">
-            <input type="submit" value="Misé à jour" class="block appearance-none bg-blue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2
-                    py-2 rounded shadow"
-                onclick={{action "sendToUpdateRequest"}}>
-        </div>
-    </div>
-</div>
-
-
-
 {{outlet}}
