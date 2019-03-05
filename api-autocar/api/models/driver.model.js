@@ -22,18 +22,18 @@ let schema = new Schema({
         required : true,
     },
     medicalDate : {
-        type : Date,
+        type : String,
         required : true,
     },
     capDate : {
-        type : Date,
+        type : String,
         required : true,
     },
     tripDone : {
-        type : Object,
+        type : Array,
     },
     tripToDo: {
-        type : Object,
+        type : Array,
     },
     surveyNote : {
         type : Number,

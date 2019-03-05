@@ -111,6 +111,9 @@ let schema = new Schema({
     dateCreation: {
         type: String,
         required: true,
+    },
+    nameDriver : {
+        type : Array,
     }
 });
 

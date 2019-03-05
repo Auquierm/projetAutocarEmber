@@ -20,5 +20,6 @@ export default DS.Model.extend({
   status: attr('string'),
   com: attr('string'),
   idClient: belongsTo('client'),
-  dateCreation: attr('string')
+  dateCreation: attr('string'),
+  nameDriver : attr()
 });
