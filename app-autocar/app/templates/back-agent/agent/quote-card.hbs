@@ -1,68 +1,71 @@
-<div><a href="#" {{action "back"}}>Retour</a></div>
-<h2 class="mt-6">Devis en {{model.status}} n°{{model.id}} - {{model.placeArrival.city}}</h2>
-<div class="bg-white p-4 shadow-md mt-4 text-black w-full">
+<div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i>&nbsp; Retour</a></div>
+<div class="text-center sm:text-xs lg:text-base xl:text-xl">
+  <h2>Devis en {{quote.status}} n°{{quote.id}} - {{quote.placeArrival.city}}</h2>
+</div>
+
+<div class="bg-white p-4 shadow-md mt-4 text-black w-full mb-8">
   {{!--Infos clients--}}
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
-      <h4 class="">Infos client:</h4>
+      <h4 class="sm:text-xs lg:text-base xl:text-xl">Infos client:</h4>
       {{!-- <i class="fas fa-user-edit"></i> --}}
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Prénom:</div>
         <div class="pl-2 flex italic">{{quote.idClient.idUser.firstname}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold"> Nom: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.lastname}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Email: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.email}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Genre: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.sexe}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Société: </div>
         <div class="pl-2 italic">{{quote.idClient.societe}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">N° Tva: </div>
         <div class="pl-2 italic">{{quote.idClient.numTva}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold"> N°Tel: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.phone}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">N°Fax: </div>
         <div class="pl-2 italic">{{quote.idClient.numFax}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold"> Ville: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.address.city}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Rue: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.address.street}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">N°: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.phone}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Pays: </div>
         <div class="pl-2 italic">{{quote.idClient.idUser.address.country}}</div>
       </div>
@@ -73,32 +76,32 @@
   {{!--Infos voyage--}}
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
-      <h4>Infos Départ:</h4>
+      <h4 class="sm:text-xs lg:text-base xl:text-xl">Infos Départ:</h4>
       {{!-- <i class="far fa-edit"></i> --}}
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Date et heure de départ: </div>
         <div class="pl-2 italic">{{quote.dateDeparture}}</div>
       </div>
 
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold"> Ville: </div>
         <div class="pl-2 italic">{{quote.placeDeparture.city}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Rue: </div>
         <div class="pl-2 italic">{{quote.placeDeparture.street}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">N°: </div>
         <div class="pl-2 italic">{{quote.placeDeparture.number}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Pays: </div>
         <div class="pl-2 italic">{{quote.placeDeparture.country}}</div>
       </div>
@@ -106,32 +109,32 @@
   </div>
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
-      <h4>Infos Retour:</h4>
+      <h4 class="sm:text-xs lg:text-base xl:text-xl">Infos Retour:</h4>
       {{!-- <i class="far fa-edit"></i> --}}
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Date et heure de retour: </div>
         <div class="pl-2 italic">{{quote.dateArrival}}</div>
       </div>
 
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold"> Ville: </div>
         <div class="pl-2 italic">{{quote.placeArrival.city}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Rue: </div>
         <div class="pl-2 italic">{{quote.placeArrival.street}}</div>
       </div>
     </div>
     <div class="flex space-between mb-2">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">N°: </div>
         <div class="pl-2 italic">{{quote.placeArrival.number}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Pays: </div>
         <div class="pl-2 italic">{{quote.placeArrival.country}}</div>
       </div>
@@ -139,30 +142,30 @@
   </div>
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
-      <h4>Infos Voyage:</h4>
+      <h4 class="sm:text-xs lg:text-base xl:text-xl">Infos Voyage:</h4>
       {{!-- <i class="far fa-edit"></i> --}}
     </div>
-    <div class="flex flex-1 flex-col">
+    <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
       <div class="p-2 flex font-bold">Nombre de passagers:</div>
       <div class="pl-2 flex italic">{{quote.pax}}</div>
     </div>
-    <div class="flex flex-1 flex-col">
+    <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
       <div class="p-2 flex font-bold"> Type de car: </div>
       <div class="pl-2 italic">{{quote.capacityAutocar}} places</div>
     </div>
     <div class="">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="flex justify-between">
           <div class="p-2 flex font-bold"> Options: </div>
         </div>
         <div class="pl-2 italic">{{quote.options}}</div>
       </div>
 
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Commentaire: </div>
         <div class="pl-2 italic">{{quote.com}}</div>
       </div>
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Kilométrage estimé:</div>
         {{!-- <div class="pl-2 italic text-red font-bold">{{input type='text' value=totalKm placeholder="km"}}</div>
         --}}
@@ -171,29 +174,29 @@
 
     {{#if (compare quote.status '!=' 'attente')}}
     <div class="">
-      <div class="flex flex-1 flex-col">
+      <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold"> Durée du voyage </div>
         <div class="pl-2 italic text-red font-bold">{{nbDays}}</div>
       </div>
     </div>
-    {{!-- <div class="flex flex-1 flex-col">
+    {{!-- <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
       <div class="p-2 flex font-bold"> Inclus dans le prix: </div>
       <div class="pl-2 italic">{{quote.includeIn}}</div>
     </div>
-    <div class="flex flex-1 flex-col">
+    <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
       <div class="p-2 flex font-bold"> Non inclus dans le prix: </div>
       <div class="pl-2 italic">{{quote.notIncludeIn}}</div>
     </div> --}}
-    {{!-- <div class="flex justify-between">
+    {{!-- <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
       <div class="p-2 flex font-bold"> Prix de base: </div>
       <div class="p-2 italic">1800 €</div>
     </div> --}}
     <div class="">
-      <div class="flex justify-between">
+      <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
         <div class="p-2 italic">250 €</div>
       </div>
-      <div class="flex justify-between">
+      <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
         <div class="p-2 flex font-bold">Total: </div>
         <div class="p-2 flex italic border-t-2 border-black ">{{quote.price}} €</div>
       </div>
@@ -205,12 +208,12 @@
 
   <div class="mt-6 flex justify-end">
     {{#if (compare quote.status "===" "traitement")}}
-    <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="button">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
+    <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
+    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
     {{else}}
     {{#if (compare quote.status "===" "attente")}}
-    <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button">
+    <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
+    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
     {{/if}}
     {{/if}}
   </div>
