@@ -1,11 +1,11 @@
 <div><a href="#" {{action "back"}}>Retour</a></div>
-<h2 class="mt-6">Devis en {{model.status}} n°{{model.id}} - {{model.placeArrival.city}}</h2>
-<div class="bg-white p-4 shadow-md mt-4 text-black w-full">
-  {{!--Infos clients--}}
+<h2 class="mt-6">Devis en {{quote.status}} n°{{quote.numFolder}} - {{quote.placeArrival.city}}</h2>
+<div class="bg-white p-4 shadow-md mt-4 text-black w-full mb-8">
+
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4 class="">Infos client:</h4>
-      {{!-- <i class="fas fa-user-edit"></i> --}}
+
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
@@ -70,11 +70,11 @@
   </div>
 
 
-  {{!--Infos voyage--}}
+
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4>Infos Départ:</h4>
-      {{!-- <i class="far fa-edit"></i> --}}
+     
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
@@ -107,7 +107,7 @@
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4>Infos Retour:</h4>
-      {{!-- <i class="far fa-edit"></i> --}}
+  
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
@@ -140,7 +140,7 @@
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4>Infos Voyage:</h4>
-      {{!-- <i class="far fa-edit"></i> --}}
+      
     </div>
     <div class="flex flex-1 flex-col">
       <div class="p-2 flex font-bold">Nombre de passagers:</div>
@@ -148,59 +148,92 @@
     </div>
     <div class="flex flex-1 flex-col">
       <div class="p-2 flex font-bold"> Type de car: </div>
-      <div class="pl-2 italic">{{quote.capacityAutocar}} places</div>
+      <div class="flex justify-between">
+        <div class="pl-2 italic">{{quote.capacityAutocar}} places</div>
+        {{#if (compare quote.capacityAutocar '===' 30)}}
+        <div class="p-2 italic">{{pricing.firstObject.capacity.car1}} €</div>
+        {{else}}
+        {{#if (compare quote.capacityAutocar '===' 50)}}
+        <div class="p-2 italic">{{pricing.firstObject.capacity.car2}} €</div>
+        {{else}}
+        <div class="p-2 italic">{{pricing.firstObject.capacity.car3}} €</div>
+        {{/if}}
+        {{/if}}
+      </div>
     </div>
     <div class="">
       <div class="flex flex-1 flex-col">
         <div class="flex justify-between">
           <div class="p-2 flex font-bold"> Options: </div>
         </div>
-        <div class="pl-2 italic">{{quote.options}}</div>
+        {{#each quote.options as |option|}}
+        <div class="flex justify-between">
+          <div class="pl-2 italic">{{option}}</div>
+          {{#if (compare option '===' 'remorque')}}
+          <div class="p-2 italic">{{pricing.firstObject.options.remorque}} €</div>
+          {{else}}
+          <div class="p-2 italic">{{pricing.firstObject.options.ski}} €</div>
+          {{/if}}
+        </div>
+        {{/each}}
       </div>
 
+
+      {{#if (compare quote.status '===' 'attente')}}
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold items-center">Kilométrage estimé: {{input class="ml-2 p-2 italic" type='value'
+          key-up=(action
+          "updateTotalKm") value=totalKm
+          placeholder="km"}}</div>
+      </div>
       <div class="flex flex-1 flex-col">
         <div class="p-2 flex font-bold">Commentaire: </div>
         <div class="pl-2 italic">{{quote.com}}</div>
       </div>
       <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold">Kilométrage estimé:</div>
-        {{!-- <div class="pl-2 italic text-red font-bold">{{input type='text' value=totalKm placeholder="km"}}</div>
-        --}}
+        <div class="p-2 flex font-bold items-center">Coûts supplémentaires: {{input class="ml-2 p-2 italic"
+          type='value'
+          key-up=(action
+          "updateAddCost") value=addCost
+          placeholder="coûts supplémentaires"}}</div>
       </div>
-    </div>
-
-    {{#if (compare quote.status '!=' 'attente')}}
-    <div class="">
+      {{else}}
       <div class="flex flex-1 flex-col">
-        <div class="p-2 flex font-bold"> Durée du voyage </div>
-        <div class="pl-2 italic text-red font-bold">{{nbDays}}</div>
-      </div>
-    </div>
-    {{!-- <div class="flex flex-1 flex-col">
-      <div class="p-2 flex font-bold"> Inclus dans le prix: </div>
-      <div class="pl-2 italic">{{quote.includeIn}}</div>
-    </div>
-    <div class="flex flex-1 flex-col">
-      <div class="p-2 flex font-bold"> Non inclus dans le prix: </div>
-      <div class="pl-2 italic">{{quote.notIncludeIn}}</div>
-    </div> --}}
-    {{!-- <div class="flex justify-between">
-      <div class="p-2 flex font-bold"> Prix de base: </div>
-      <div class="p-2 italic">1800 €</div>
-    </div> --}}
-    <div class="">
-      <div class="flex justify-between">
-        <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
-        <div class="p-2 italic">250 €</div>
-      </div>
-      <div class="flex justify-between">
-        <div class="p-2 flex font-bold">Total: </div>
-        <div class="p-2 flex italic border-t-2 border-black ">{{quote.price}} €</div>
-      </div>
-    </div>
-    {{/if}}
+        <div class="p-2 flex font-bold items-center">Kilométrage estimé: </div>
+        <div class="flex justify-between">
+          <div class="pl-2 italic">{{quote.totalKm}} km</div>
+          <div class="p-2 italic">{{multiply quote.totalKm
+            pricing.firstObject.priceKms}} €</div>
+        </div>
 
+      </div>
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold">Commentaire: </div>
+        <div class="pl-2 italic">{{quote.com}}</div>
+      </div>
 
+      <div class="flex flex-1 flex-col">
+        <div class="p-2 flex font-bold"> Durée du voyage:</div>
+        <div class="flex justify-between">
+          <div class="p-2 italic">{{quote.timeTravel}} jours</div>
+          <div class="p-2 italic">{{multiply quote.timeTravel
+            pricing.firstObject.priceDriver.oneDriver}} €</div>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="flex justify-between">
+          <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
+          <div class="p-2 italic">{{quote.notIncludeIn}} €</div>
+        </div>
+        <div class="flex justify-between">
+          <div class="p-2 flex font-bold">Total: </div>
+          <div class="p-2 flex italic border-t-2 border-black ">{{quote.price}} €</div>
+        </div>
+      </div>
+      {{/if}}
+
+    </div>
   </div>
 
   <div class="mt-6 flex justify-end">

@@ -30,11 +30,12 @@ module.exports = {
             numberDriver: Joi.number().required(),
             capacityAutocar: Joi.number().required(),
             numberAutocar: Joi.number().required(),
-            includeIn: Joi.string().required(),
-            notIncludeIn: Joi.string().required(),
-            price: Joi.number().required(),
+            includeIn: Joi.number(),
+            notIncludeIn: Joi.number(),
+            price: Joi.number(),
             com: Joi.string(),
-            dateCreation: Joi.string().required()
+            dateCreation: Joi.string().required(),
+            timeTravel: Joi.number()
         },
     },
     // POST /v1/quotes
@@ -65,11 +66,12 @@ module.exports = {
             numberDriver: Joi.number().required(),
             capacityAutocar: Joi.number().required(),
             numberAutocar: Joi.number().required(),
-            includeIn: Joi.string().required(),
-            notIncludeIn: Joi.string().required(),
-            price: Joi.number().required(),
+            includeIn: Joi.number(),
+            notIncludeIn: Joi.number(),
+            price: Joi.number(),
             com: Joi.string(),
-            dateCreation: Joi.string().required()
+            dateCreation: Joi.string().required(),
+            timeTravel: Joi.number()
         },
     },
     // GET /v1/quotes/:quoteId
@@ -106,11 +108,12 @@ module.exports = {
             numberDriver: Joi.number().required(),
             capacityAutocar: Joi.number().required(),
             numberAutocar: Joi.number().required(),
-            includeIn: Joi.string().required(),
-            notIncludeIn: Joi.string().required(),
-            price: Joi.number().required(),
+            includeIn: Joi.number(),
+            notIncludeIn: Joi.number(),
+            price: Joi.number(),
             com: Joi.string(),
-            dateCreation: Joi.string().required()
+            dateCreation: Joi.string().required(),
+            timeTravel: Joi.number()
         },
         params: {
             quoteId: Joi.string().regex(/^[a-fA-F0-9]{24}$/).required(),

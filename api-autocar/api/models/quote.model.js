@@ -94,16 +94,13 @@ let schema = new Schema({
         required: true,
     },
     includeIn: {
-        type: String,
-        required: true,
+        type: Number,
     },
     notIncludeIn: {
-        type: String,
-        required: true,
+        type: Number,
     },
     price: {
-        type: Number,
-        required: true,
+        type: Number
     },
     com: {
         type: String,
@@ -111,6 +108,9 @@ let schema = new Schema({
     dateCreation: {
         type: String,
         required: true,
+    },
+    timeTravel: {
+        type: Number
     }
 });
 

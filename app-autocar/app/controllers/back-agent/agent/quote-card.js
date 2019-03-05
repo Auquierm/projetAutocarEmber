@@ -3,9 +3,19 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
   session: service(),
   ajax: service(),
+  totalKm: 0,
+  addCost: 0,
   actions: {
+    updateTotalKm() {
+      this.set(this.totalKm, this.get('totalKm'));
+      console.log('nbreKm encodé : ' + this.get('totalKm'));
+    },
+    updateAddCost() {
+      this.set(this.addCost, this.get('addCost'));
+      console.log('Coûts supp : ' + this.get('addCost'));
+    },
     async sendQuote() {
-      let pricing = this.get('pricing._arrangedContent.0.__recordData.__data');
+      let pricing = this.get('pricing').firstObject;
       let price = 0;
       let quote = this.get('quote');
       //calculer la durée du voyage et le prix
@@ -31,6 +41,7 @@ export default Controller.extend({
           nbDays += 30;
         }
       }
+
       console.log('la durée est de ' + nbDays + ' jour');
       let priceForTime = nbDays * pricePerDay;
       console.log('le coût pour la durée du voyage est de : ' + priceForTime + '€');
@@ -54,19 +65,31 @@ export default Controller.extend({
       }
 
       //calcul du coût des options
-      quote.options.forEach(option => {
+      this.get('quote.options').forEach(option => {
         if (option === 'remorque') {
-          price += pricing.options.ski;
+          console.log('ajout de loption remorque');
+          price += pricing.options.remorque;
         } else if (option === 'Box de ski') {
-          price += pricing.options.remorque
+          console.log('ajout de loption ski');
+          price += pricing.options.ski;
         }
       });
 
       //calcul du prix par km
-      let totalKm = this.get('totalKm');
-      // console.log('nombre de km : ' + totalkm);
+      let totalKm = this.totalKm;
+      console.log('nombre de km : ' + totalKm);
+      let priceForKm = totalKm * pricing.priceKms;
+      console.log('Prix pour le nombre de km : ' + priceForKm);
+      price += priceForKm;
 
-      console.log(price);
+      //calcul du rajout cout supp
+      let addCost = this.addCost;
+      console.log('Coûts supp qui va se rajouter au total : ' + addCost);
+      if (addCost > 0) {
+        price += parseInt(addCost);
+      }
+
+      console.log('Prix total : ' + price);
 
       await this.ajax.patch(`/quotes/${this.get('quote.id')}`, {
         headers: {
@@ -75,7 +98,10 @@ export default Controller.extend({
         },
         data: {
           status: 'traitement',
-          price: price
+          price: price,
+          totalKm: totalKm,
+          timeTravel: nbDays,
+          notIncludeIn: addCost
         }
       });
       this.get('quote').reload();
