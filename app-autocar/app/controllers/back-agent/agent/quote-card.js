@@ -117,7 +117,7 @@ export default Controller.extend({
           status: 'valide'
         }
       });
-      this.model.reload();
+      this.get('quote').reload();
       this.transitionToRoute('back-agent.agent.dashboard');
     },
     async refuseQuote() {
@@ -130,7 +130,7 @@ export default Controller.extend({
           status: 'refuse'
         }
       });
-      this.model.reload();
+      this.get('quote').reload();
       this.transitionToRoute('back-agent.agent.dashboard');
     },
   }
