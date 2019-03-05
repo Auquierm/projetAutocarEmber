@@ -47,6 +47,7 @@ Router.map(function () {
       this.route('day-program');
       this.route('create-quote', { path: '/create-quote/:idclient' });
       this.route('update-info-client', { path: '/update-info-client/:idclient' });
+      this.route('driver-profile-update');
     });
   });
   this.route('back-driver', function () {
