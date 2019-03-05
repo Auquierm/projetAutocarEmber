@@ -1,4 +1,8 @@
-<h2 class="mt-6">Fiche client - {{model.idUser.firstname}} {{model.idUser.lastname}} </h2>
+<div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i>&nbsp; Retour</a></div>
+<div class="text-center">
+  <h2>Fiche client - {{model.idUser.firstname}} {{model.idUser.lastname}} </h2>
+</div>
+
 <div class="flex">
   <div class="flex w-1/2">
     <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
@@ -90,12 +94,13 @@
         </thead>
         <tbody>
           {{#each model.quotesId as |quote|}}
-            <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-              <td class="w-1/4 text-center ">{{quote.id}}</td>
-              <td class="w-1/4 text-center">{{quote.status}}</td>
-              <td class="w-1/4 text-center">{{link-to quote.placeArrival.city "back-agent.agent.quote-card" quote.id class="text-black"}}</td>
-              <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-            </tr>
+          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+            <td class="w-1/4 text-center ">{{quote.id}}</td>
+            <td class="w-1/4 text-center">{{quote.status}}</td>
+            <td class="w-1/4 text-center">{{link-to quote.placeArrival.city "back-agent.agent.quote-card" quote.id
+              class="text-black"}}</td>
+            <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+          </tr>
           {{/each}}
         </tbody>
       </table>
@@ -118,16 +123,17 @@
         </thead>
         <tbody>
           {{#each model.quotesId as |quote|}}
-            {{#if (compare quote.status "===" "valide")}}
-              <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-                <td class="w-1/6 text-center ">D{{quote.numFolder}}</td>
-                <td class="w-1/6 text-center ">{{link-to quote.placeArrival.city "back-agent.agent.folder-card" quote.id class="text-black"}}</td>
-                <td class="w-1/6 text-center ">{{quote.dateDeparture}}</td>
-                <td class="w-1/6 text-center ">{{quote.dateArrival}}</td>
-                <td class="w-1/6 text-center ">{{quote.capacityAutocar}}</td>
-                <td class="w-1/6 text-center">{{#link-to "back-agent.agent.folder-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-              </tr>
-            {{/if}}
+          {{#if (compare quote.status "===" "valide")}}
+          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+            <td class="w-1/6 text-center ">D{{quote.numFolder}}</td>
+            <td class="w-1/6 text-center ">{{link-to quote.placeArrival.city "back-agent.agent.folder-card" quote.id
+              class="text-black"}}</td>
+            <td class="w-1/6 text-center ">{{quote.dateDeparture}}</td>
+            <td class="w-1/6 text-center ">{{quote.dateArrival}}</td>
+            <td class="w-1/6 text-center ">{{quote.capacityAutocar}}</td>
+            <td class="w-1/6 text-center">{{#link-to "back-agent.agent.folder-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+          </tr>
+          {{/if}}
           {{/each}}
         </tbody>
       </table>

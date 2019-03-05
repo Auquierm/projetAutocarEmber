@@ -222,13 +222,13 @@
     <div class="flex-1 w-1/2 p-3">
       Options<br>
       {{#each model.options as |option|}}
-      <div class="italic text-grey-dark pt-3">{{option}}</div>
+        <div class="italic text-grey-dark pt-3">{{option}}</div>
       {{/each}}
     </div>
     <div class="flex-1 w-1/2 p-3">
       <br>
       {{#each model.options as |option|}}
-      <div class="italic text-grey-dark pt-3">{{prix1}}</div>
+        <div class="italic text-grey-dark pt-3">{{prix1}}</div>
       {{/each}}
     </div>
   </div>
@@ -276,8 +276,8 @@
   </div>
 
   <div class="flex justify-end p-3 pb-10">
-    <button>Accepter</button>
-    <button class="ml-3">Refuser</button>
+    <button onclick={{action "acceptProposal"}}>Accepter</button>
+    <button onclick={{action "rejectProposal"}} class="ml-3">Refuser</button>
   </div>
 
 
