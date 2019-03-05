@@ -16,24 +16,24 @@
     </thead>
     <tbody>
       {{#each model as |quote|}}
-      {{#if (compare quote.status "===" "attente" )}}
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest sm:text-xs lg:text-base xl:text-xl">
-        <td class="w-1/5 text-center py-1">{{quote.dateCreation}}</td>
-        <td class="w-1/5 text-center py-1">{{quote.idClient.idUser.firstname}}</td>
-        <td class="w-1/5 text-center py-1">{{quote.placeArrival.city}}</td>
-        <td class="w-1/5 text-center py-1">{{quote.status}}</td>
-        <td class="w-1/5 text-center py-1">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-      </tr>
-      {{/if}}
-      {{#if (compare quote.status "===" "traitement" )}}
-      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest sm:text-xs lg:text-base xl:text-xl">
-        <td class="w-1/5 text-center py-1">{{quote.dateCreation}}</td>
-        <td class="w-1/5 text-center py-1">{{quote.idClient.idUser.firstname}}</td>
-        <td class="w-1/5 text-center py-1">{{quote.placeArrival.city}}</td>
-        <td class="w-1/5 text-center py-1">{{quote.status}}</td>
-        <td class="w-1/5 text-center py-1">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-      </tr>
-      {{/if}}
+        {{#if (compare quote.status "===" "attente" )}}
+          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest sm:text-xs lg:text-base xl:text-xl">
+            <td class="w-1/5 text-center py-1">{{quote.dateCreation}}</td>
+            <td class="w-1/5 text-center py-1">{{quote.idClient.idUser.firstname}}</td>
+            <td class="w-1/5 text-center py-1">{{quote.placeArrival.city}}</td>
+            <td class="w-1/5 text-center py-1">{{quote.status}}</td>
+            <td class="w-1/5 text-center py-1">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+          </tr>
+        {{/if}}
+        {{#if (compare quote.status "===" "traitement" )}}
+          <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest sm:text-xs lg:text-base xl:text-xl">
+            <td class="w-1/5 text-center py-1">{{quote.dateCreation}}</td>
+            <td class="w-1/5 text-center py-1">{{quote.idClient.idUser.firstname}}</td>
+            <td class="w-1/5 text-center py-1">{{quote.placeArrival.city}}</td>
+            <td class="w-1/5 text-center py-1">{{quote.status}}</td>
+            <td class="w-1/5 text-center py-1">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+          </tr>
+        {{/if}}
       {{/each}}
     </tbody>
   </table>

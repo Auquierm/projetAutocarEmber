@@ -172,35 +172,35 @@
       </div>
     </div>
 
-    {{#if (compare quote.status '!=' 'attente')}}
-    <div class="">
+    {{#if (compare quote.status "!=" "attente")}}
+      <div class="">
+        <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
+          <div class="p-2 flex font-bold"> Durée du voyage </div>
+          <div class="pl-2 italic text-red font-bold">{{nbDays}}</div>
+        </div>
+      </div>
+      {{!-- <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
+        <div class="p-2 flex font-bold"> Inclus dans le prix: </div>
+        <div class="pl-2 italic">{{quote.includeIn}}</div>
+      </div>
       <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
-        <div class="p-2 flex font-bold"> Durée du voyage </div>
-        <div class="pl-2 italic text-red font-bold">{{nbDays}}</div>
+        <div class="p-2 flex font-bold"> Non inclus dans le prix: </div>
+        <div class="pl-2 italic">{{quote.notIncludeIn}}</div>
+      </div> --}}
+      {{!-- <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
+        <div class="p-2 flex font-bold"> Prix de base: </div>
+        <div class="p-2 italic">1800 €</div>
+      </div> --}}
+      <div class="">
+        <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
+          <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
+          <div class="p-2 italic">250 €</div>
+        </div>
+        <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
+          <div class="p-2 flex font-bold">Total: </div>
+          <div class="p-2 flex italic border-t-2 border-black ">{{quote.price}} €</div>
+        </div>
       </div>
-    </div>
-    {{!-- <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
-      <div class="p-2 flex font-bold"> Inclus dans le prix: </div>
-      <div class="pl-2 italic">{{quote.includeIn}}</div>
-    </div>
-    <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
-      <div class="p-2 flex font-bold"> Non inclus dans le prix: </div>
-      <div class="pl-2 italic">{{quote.notIncludeIn}}</div>
-    </div> --}}
-    {{!-- <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
-      <div class="p-2 flex font-bold"> Prix de base: </div>
-      <div class="p-2 italic">1800 €</div>
-    </div> --}}
-    <div class="">
-      <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
-        <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
-        <div class="p-2 italic">250 €</div>
-      </div>
-      <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
-        <div class="p-2 flex font-bold">Total: </div>
-        <div class="p-2 flex italic border-t-2 border-black ">{{quote.price}} €</div>
-      </div>
-    </div>
     {{/if}}
 
 
@@ -208,13 +208,13 @@
 
   <div class="mt-6 flex justify-end">
     {{#if (compare quote.status "===" "traitement")}}
-    <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
+      <input type="submit" value="Valider" onclick={{action "validateQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
+      <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
     {{else}}
-    {{#if (compare quote.status "===" "attente")}}
-    <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
-    <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
-    {{/if}}
+      {{#if (compare quote.status "===" "attente")}}
+        <input type="submit" value="Envoyer" onclick={{action "sendQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
+        <input type="submit" value="Refuser" onclick={{action "refuseQuote"}} class="button sm:text-xs lg:text-base xl:text-xl">
+      {{/if}}
     {{/if}}
   </div>
 </div>
