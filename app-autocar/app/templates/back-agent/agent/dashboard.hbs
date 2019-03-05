@@ -1,5 +1,4 @@
 <h2>Tableau de bord - Agent</h2>
-
 <h3 class="mt-2">Liste clients</h3>
 
 <div class="bg-white p-4 shadow-md mt-4">
@@ -12,21 +11,20 @@
         <th class="w-1/4">Actions</th>
       </tr>
     </thead>
-    {{#each model as |client|}}
-    {{log client.id}}
     <tbody>
+      {{#each model as |client|}}
       <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
         <td class="w-1/4 text-center ">{{client.societe}}</td>
         <td class="w-1/4 text-center">{{client.idUser.lastname}}</td>
         <td class="w-1/4 text-center">{{client.idUser.firstname}}</td>
-        <td class="w-1/4 text-center">{{#link-to 'back-agent.agent.client-card' client.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+        <td class="w-1/4 text-center">{{#link-to "back-agent.agent.client-card" client.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
       </tr>
+      {{/each}}
     </tbody>
-    {{/each}}
   </table>
-  {{!-- <div class="text-right italic text-xs mt-2">
-    {{#link-to "back-client.client.requests"}}Voir toutes vos demandes de devis{{/link-to}}
-  </div> --}}
+  <div class="text-right italic text-xs mt-2">
+    {{#link-to "back-agent.agent.clients-list"}}Voir tous les clients{{/link-to}}
+  </div>
 </div>
 <h3 class="mt-4">Liste devis en attente</h3>
 <div class="bg-white p-4 shadow-md mt-4">
@@ -39,24 +37,24 @@
         <th class="w-1/4">Actions</th>
       </tr>
     </thead>
-    {{#each model as |client|}}
-    {{#each client.quotesId as |quote|}}
-    {{#if (compare quote.status '===' 'attente')}}
-    <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-      <td class="w-1/4 text-center">{{quote.numFolder}}</td>
-      <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
-      <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
-      <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-    </tr>
-    {{/if}}
-    {{/each}}
-
-    {{/each}}
-
+    <tbody>
+      {{#each model as |client|}}
+      {{#each client.quotesId as |quote|}}
+      {{#if (compare quote.status "===" "attente")}}
+      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
+        <td class="w-1/4 text-center">{{quote.numFolder}}</td>
+        <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}} {{quote.idClient.idUser.lastname}}</td>
+        <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
+        <td class="w-1/4 text-center">{{#link-to "back-agent.agent.quote-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+      </tr>
+      {{/if}}
+      {{/each}}
+      {{/each}}
+    </tbody>
   </table>
-  {{!-- <div class="text-right italic text-xs mt-2">
-    {{#link-to "back-client.client.proposals"}}Voir toutes les propositions de devis{{/link-to}}
-  </div> --}}
+  <div class="text-right italic text-xs mt-2">
+    {{#link-to "back-agent.agent.quotes-list"}}Voir tous les devis en attente{{/link-to}}
+  </div>
 </div>
 <h3 class="mt-4">Liste devis en traitement</h3>
 
@@ -85,9 +83,9 @@
       {{/each}}
     </tbody>
   </table>
-  {{!-- <div class="text-right italic text-xs mt-2">
-    {{#link-to "back-client.client.proposals"}}Voir toutes les propositions de devis{{/link-to}}
-  </div> --}}
+  <div class="text-right italic text-xs mt-2">
+    {{#link-to "back-agent.agent.quotes-list"}}Voir tous les devis{{/link-to}}
+  </div>
 </div>
 <h3 class="mt-4">Liste des dossiers</h3>
 
@@ -116,9 +114,9 @@
       {{/each}}
     </tbody>
   </table>
-  {{!-- <div class="text-right italic text-xs mt-2">
-    {{#link-to "back-client.client.proposals"}}Voir toutes les propositions de devis{{/link-to}}
-  </div> --}}
+  <div class="text-right italic text-xs mt-2">
+    {{#link-to "back-agent.agent.folders-list"}}Voir tous les dossiers{{/link-to}}
+  </div>
 </div>
 
 

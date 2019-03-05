@@ -9,8 +9,8 @@ const router = Express.Router();
 
 router
     .route('/:tokenId')
-        .get(/*authorize(ADMIN), Validate(listSurveys), */TokenGenController.findOne)
-        .post(/*authorize(CLIENT), Validate(createSurvey),*/ TokenGenController.updateUsedToken)
+    .get(authorize(ADMIN), Validate(listSurveys), TokenGenController.findOne)
+    .post(authorize(CLIENT), Validate(createSurvey), TokenGenController.updateUsedToken)
 
 
 module.exports = router;

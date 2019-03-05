@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import Contact from '../models/contact';
+// import Contact from '../models/contact';
 let larg = window.innerWidth;
 
 export default Controller.extend({
@@ -19,3 +19,4 @@ export default Controller.extend({
     }
   }
 });
+

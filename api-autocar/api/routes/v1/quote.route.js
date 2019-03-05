@@ -16,7 +16,7 @@ router
 router
     .route('/:quoteId')
     .get(authorize([ADMIN, CLIENT]), Validate(getQuote), QuoteController.findOne)
-    .patch(authorize([ADMIN, CLIENT]), Validate(updateQuote), QuoteController.update)
+    .patch(/*authorize([ADMIN, CLIENT]),*/ Validate(updateQuote), QuoteController.update)
     .delete(/*authorize(ADMIN),*/ Validate(removeQuote), QuoteController.remove)
 
 

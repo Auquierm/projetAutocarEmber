@@ -1,5 +1,5 @@
-import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import Controller from '@ember/controller'
+import { inject as service } from '@ember/service'
 export default Controller.extend({
   session: service(),
   ajax: service(),
@@ -8,15 +8,15 @@ export default Controller.extend({
   countryUser: '',
   actions: {
 
-    async update(event) {
+    async update() {
       if (this.gender === '') {
-        this.gender = this.get('model.idUser.sexe');
+        this.gender = this.get('model.idUser.sexe')
       }
       if (this.country === '') {
-        this.country = this.get('model.adresseFacturation.country');
+        this.country = this.get('model.adresseFacturation.country')
       }
       if (this.countryUser === '') {
-        this.countryUser = this.get('model.idUser.address.country');
+        this.countryUser = this.get('model.idUser.address.country')
       }
       await this.ajax.patch(`/clients/${this.get('model.id')}`, {
         headers: {
@@ -49,10 +49,10 @@ export default Controller.extend({
           numTva: this.get('model.numTva'),
           numBank: this.get('model.numBank')
         }
-      });
-      this.model.reload();
-      this.model.idUser.reload();
-      this.transitionToRoute('back-agent.agent.client-card', this.get('model.id'));
+      })
+      this.model.reload()
+      this.model.idUser.reload()
+      this.transitionToRoute('back-agent.agent.client-card', this.get('model.id'))
     },
 
     selectOption(params, option) {

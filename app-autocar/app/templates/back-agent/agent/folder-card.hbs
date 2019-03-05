@@ -1,3 +1,4 @@
+<div ><a href="#" {{action "back"}}>Retour</a></div>
 <h2 class="mt-6">Dossier {{model.id}} - {{model.placeArrival.city}}</h2>
 
 <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
@@ -6,7 +7,7 @@
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4 class="">Infos client:</h4>
-      <i class="fas fa-user-edit"></i>
+      {{!-- <i class="fas fa-user-edit"></i> --}}
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
@@ -75,7 +76,7 @@
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4>Infos Départ:</h4>
-      <i class="far fa-edit"></i>
+      {{!-- <i class="far fa-edit"></i> --}}
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
@@ -108,7 +109,7 @@
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4>Infos Retour:</h4>
-      <i class="far fa-edit"></i>
+      {{!-- <i class="far fa-edit"></i> --}}
     </div>
     <div class="flex space-between mb-2">
       <div class="flex flex-1 flex-col">
@@ -141,7 +142,7 @@
   <div class="mb-6">
     <div class="flex justify-between bgPrimaryBlue p-4 text-white mb-4 rounded">
       <h4>Infos Voyage:</h4>
-      <i class="far fa-edit"></i>
+      {{!-- <i class="far fa-edit"></i> --}}
     </div>
     <div class="">
       <div class="flex flex-1 flex-col">
@@ -208,9 +209,9 @@
     </div>
   </div>
 
-  <div class="mt-6 flex">
-    <input type="submit" value="Accepter devis" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
-    <input type="submit" value="Refuser devis" class="block appearance-none bgPrimaryBlue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+  <div class="mt-6 flex justify-end">
+    <input type="submit" value="Accepter devis" class="button">
+    <input type="submit" value="Refuser devis" class="button">
   </div>
 </div>
 

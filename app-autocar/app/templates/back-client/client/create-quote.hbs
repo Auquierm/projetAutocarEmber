@@ -22,7 +22,7 @@
           border-grey-light hover:border-grey px-2 py-2 rounded shadow" placeholder="Nbre de passagers" required=true}}
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
-          <select onchange="myFunctionFlags" name="flag" class="nofocus flex-1 appearance-none bg-white border
+          <select name="flag" class="nofocus flex-1 appearance-none bg-white border
                     border-grey-light hover:border-grey px-1 rounded shadow h-full"
             required onchange={{action "selectOption" "placeAutocar" }} value="target.value">
             <option value="30">30-Pl</option>
@@ -47,7 +47,8 @@
           date=(readonly dateValue)
           enableTime=true
           locale="fr"
-          altFormat="Y-m-d"
+          altFormat="d-m-Y H:i"
+          dateFormat="d-m-y H:i"
           minDate=minDate
           minuteIncrement=1
           time_24hr=true
@@ -61,7 +62,7 @@
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
           <div class="w-1/2 md:flex-1">
-            <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+            <select name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 h-full w-full rounded shadow"
               required onchange={{action "selectOption" "countryDp" }} value="target.value">
               <option value="belgique">Belgique</option>
@@ -110,7 +111,8 @@
           date=(readonly dateValue)
           enableTime=true
           locale="fr"
-          altFormat="Y-m-d"
+          altFormat="d-m-Y H:i"
+          dateFormat="d-m-y H:i"
           minDate=minDate
           minuteIncrement=1
           time_24hr=true
@@ -124,7 +126,7 @@
         </div>
         <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex">
           <div class="w-1/2 md:flex-1">
-            <select onchange="myFunctionFlags" name="flag" class="nofocus appearance-none bg-white border
+            <select name="flag" class="nofocus appearance-none bg-white border
                     border-grey-light hover:border-grey px-2 w-full rounded shadow h-full"
               required onchange={{action "selectOption" "countryRt" }} value="target.value">
               <option value="belgique">Belgique</option>

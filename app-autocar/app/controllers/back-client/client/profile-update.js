@@ -7,8 +7,7 @@ export default Controller.extend({
   country: '',
   countryUser: '',
   actions: {
-
-    async update(event) {
+    async update() {
       if (this.gender === '') {
         this.gender = this.get('model.idUser.sexe');
       }
@@ -54,10 +53,8 @@ export default Controller.extend({
       this.model.idUser.reload();
       this.transitionToRoute('back-client.client.profile');
     },
-
     selectOption(params, option) {
       this.set(params, option.target.value)
-      // console.log(params, option.target.value);
     }
   }
 });
