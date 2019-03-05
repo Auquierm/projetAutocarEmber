@@ -8,7 +8,9 @@ export default Controller.extend({
   countryUser: '',
   actions: {
 
-    async update(event) {
+    async update(
+      // event
+      ) {
       if (this.gender === '') {
         this.gender = this.get('model.idUser.sexe');
       }

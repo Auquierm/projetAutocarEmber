@@ -1,20 +1,21 @@
 <div class="bgPrimaryBlue w-full md:w-1/5 md:h-screen md:float-left md:fixed">
 
   <div class="bgGreyBlack m-0 text-center banner">
-    <h3 class="m-0 p-0 text-white">Pimp My Trip - backoffice</h3>
+    <h3 class="m-0 p-0 text-white sm:text-xs lg:text-base xl:text-xl">Pimp My Trip - backoffice</h3>
   </div>
 
   <div class="p-6 text-center">
-    <span class="m-0 font-thin tracking-wide">Navigation - Agent</span>
+    <span class="m-0 font-thin tracking-wide sm:text-xs lg:text-base xl:text-xl">Navigation - Agent</span>
   </div>
 
   {{!-- Menu --}}
   <nav>
-    <ul class="menuBack list-reset">
-      {{#link-to "back-agent.agent.dashboard"}}<li><i class="fas fa-home"></i>Tableau de bord</li>{{/link-to}}
-      {{#link-to "back-agent.agent.clients-list"}}<li><i class="far fa-user"></i>Liste clients</li>{{/link-to}}
-      {{#link-to "back-agent.agent.quotes-list"}}<li><i class="fas fa-file-invoice"></i>Liste devis</li>{{/link-to}}
-      {{#link-to "back-agent.agent.folders-list"}}<li><i class="far fa-folder-open"></i>Liste dossiers</li>{{/link-to}}
+    <ul class="menuBack list-reset sm:text-xs lg:text-base xl:text-xl">
+      {{#link-to "back-agent.agent.dashboard"}}<li><i class="fas fa-home mr-2"></i>Tableau de bord</li>{{/link-to}}
+      {{#link-to "back-agent.agent.clients-list"}}<li><i class="far fa-user mr-3"></i>Liste clients</li>{{/link-to}}
+      {{#link-to "back-agent.agent.quotes-list"}}<li><i class="fas fa-file-invoice mr-3"></i>Liste devis</li>{{/link-to}}
+      {{#link-to "back-agent.agent.folders-list"}}<li><i class="far fa-folder-open mr-3"></i>Liste dossiers</li>{{/link-to}}
+      {{#link-to "back-agent.agent.drivers-list"}}<li><i class="far fa-id-badge mr-3"></i>Liste chauffeurs</li>{{/link-to}}
     </ul>
   </nav>
 </div>

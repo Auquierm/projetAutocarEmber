@@ -17,7 +17,7 @@
             <td class="w-1/4 text-center">{{quote.dateCreation}}</td>
             <td class="w-1/4 text-center">{{quote.idClient.idUser.firstname}}</td>
             <td class="w-1/4 text-center">{{quote.placeArrival.city}}</td>
-            <td class="w-1/4 text-center"><i class="fas fa-info-circle"></i></td>
+            <td class="w-1/4 text-center">{{#link-to "back-agent.agent.folder-card" quote.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
           </tr>
         {{/if}}
       {{/each}}
