@@ -7,6 +7,4 @@ export default Route.extend(AuthenticatedRoute, {
       await this.transitionTo("/login")
     }
   }
-  //TODO: faire la même chose pour back-agent/chauffeur
-  //TODO: faire logout
 });

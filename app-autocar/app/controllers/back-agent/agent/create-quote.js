@@ -54,7 +54,7 @@ export default Controller.extend({
     },
     async sendDevis(event){
       event.preventDefault();
-      let client = await this.store.findRecord('client', this.get('model.idclient'));
+      let client = await this.store.findRecord('client', this.get('model.id'));
         let newQuote = this.store.createRecord('quote',  {
           placeDeparture: {
             street : this.tripDpStreet,
@@ -98,7 +98,7 @@ export default Controller.extend({
           placeAutocar: '30',
           quoteCom: '',
         });
-        await this.transitionToRoute('back-agent.agent.client-card', this.get('model.idclient'));
+        await this.transitionToRoute('back-agent.agent.client-card', client.id);
     },
     toggleMenu() {
       this.toggleProperty("isHidden");
@@ -108,7 +108,7 @@ export default Controller.extend({
       if(params === "dateRt"){
         this.set(params, dateFormatOnChange);
       }else if(params === "dateDp"){
-        this.set(params, dateFormatOnChange);;
+        this.set(params, dateFormatOnChange);
       }
     },
     onCloseTime() { },

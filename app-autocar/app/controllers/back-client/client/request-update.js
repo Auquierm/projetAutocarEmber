@@ -8,11 +8,6 @@ export default Controller.extend({
   ajax : service(),
   session: service(),
   isHidden: larg >= 768 ? true : false,
-  // dateValue: computed(() => { return new Date(); }),
-  // dateDp:'',
-  // dateRt: '',
-  // skibox : false,
-  // trailer: false,
   actions: {
     toggleCheckBox(params) {
       let index = '';
@@ -72,6 +67,7 @@ export default Controller.extend({
           com : this.get('model.infoQuote.com'),
         }
       });
+      this.transitionToRoute('back-client.client.request', this.get('model.infoQuote.id'));
     },
     toggleMenu() {
       this.toggleProperty("isHidden");
