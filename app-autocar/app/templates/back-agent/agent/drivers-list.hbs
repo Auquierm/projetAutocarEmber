@@ -1,10 +1,13 @@
-<h3 class="mt-2">Liste chauffeurs </h3>
+<div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i>&nbsp; Retour</a></div>
+<div class="text-center sm:text-xs lg:text-base xl:text-xl">
+  <h3>Liste chauffeurs </h3>
+</div>
 
 <div class="bg-white p-4 shadow-md mt-4">
 
   <table class="w-full">
     <thead>
-      <tr class="p-2 text-white bgPrimaryBlue">
+      <tr class="p-2 text-white bgPrimaryBlue sm:text-xs lg:text-base xl:text-xl">
         <th class="w-1/4">Id</th>
         <th class="w-1/4">Nom</th>
         <th class="w-1/4">Prénom</th>
@@ -13,12 +16,13 @@
     </thead>
     <tbody>
       {{#each model as |driver|}}
-        <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-          <td class="w-1/4 text-center ">{{link-to driver.id "back-agent.agent.driver-card" driver.id class="text-black"}}</td>
-          <td class="w-1/4 text-center">{{driver.idUser.firstname}}</td>
-          <td class="w-1/4 text-center">{{driver.idUser.lastname}}</td>
-          <td class="w-1/4 text-center">{{#link-to "back-agent.agent.driver-card" driver.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
-        </tr>
+      <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest sm:text-xs lg:text-base xl:text-xl">
+        <td class="w-1/4 text-center py-1">{{link-to driver.id "back-agent.agent.driver-card" driver.id
+          class="text-black"}}</td>
+        <td class="w-1/4 text-center py-1">{{driver.idUser.firstname}}</td>
+        <td class="w-1/4 text-center py-1">{{driver.idUser.lastname}}</td>
+        <td class="w-1/4 text-center py-1">{{#link-to "back-agent.agent.driver-card" driver.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+      </tr>
       {{/each}}
     </tbody>
   </table>
