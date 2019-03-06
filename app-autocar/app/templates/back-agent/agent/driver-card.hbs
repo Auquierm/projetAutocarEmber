@@ -72,7 +72,7 @@
         </div>
       </div>
       <div class="mt-6 flex">
-        <input type="submit" value="Modifier chauffeurs" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+        <input onclick="updateDriverProfile" type="submit" value="Modifier chauffeurs" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
       </div>
     </div>
   </div>
@@ -131,21 +131,21 @@
     </div>
     <form class="w-full bg-white p-4 shadow-md mt-4" onsubmit={{action "linkFolderToDriver"}}>
       <h4>Lier un dossier</h4>
-        {{#if (compare emptySelect "===" 0)}}
-          <p>Aucun dossier ne peut être lié à ce chauffeur!</p>
-        {{else}}
+      {{#if (compare emptySelect "===" 0)}}
+        <p>Aucun dossier ne peut être lié à ce chauffeur!</p>
+      {{else}}
         <label>Choisir un Dossier:</label>
         <select class="ml-6" onchange={{action "selectOption" "folderNum" }} value="target.value">
           {{#each quote as |quoteInfo|}}
             {{#if (compare quoteInfo.nameDriver.length "===" 0)}}
-              {{#if (compare quoteInfo.status '===' 'valide')}}
+              {{#if (compare quoteInfo.status "===" "valide")}}
                 <option selected>{{quoteInfo.id}} - {{quoteInfo.placeDeparture.city}} à {{quoteInfo.placeArrival.city}}</option>
               {{/if}}
             {{/if}}
           {{/each}}
         </select>
         <input type="submit" class="pt-2 pb-2 pr-6 pl-6 ml-6 text-white bgPrimaryBlue rounded" value="Lier">
-        {{/if}}
+      {{/if}}
     </form>
   </div>
 </div>
