@@ -1,8 +1,41 @@
 <div>
   <a href="#" {{action "back"}}>Retour</a>
 </div>
-<h2>Modifier profil chauffeur - {{model.idUser.firstname}} {{model.idUser.lastname}}</h2>
+<h2>Créer profil chauffeur </h2>
 <div class="bg-white shadow-md mt-4 md:w-full mb-8">
+
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Nom :<br>
+      <div class="">
+        {{input type="text" value=model.idUser.lastname class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+      </div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Prénom :<br>
+      <div class="">
+        {{input type="text" value=model.idUser.firstname class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+      </div>
+    </div>
+  </div>
+  <div class="flex mt-4">
+    <div class="flex-1 w-1/2 p-3">
+      Sexe :<br>
+      <div class="">
+        {{input type="text" value=model.idUser.sexe class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+      </div>
+    </div>
+    <div class="flex-1 w-1/2 p-3">
+      Age :<br>
+      <div class="">
+        {{input type="text" value=model.idUser.age class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+      </div>
+    </div>
+  </div>
   <div class="flex mt-4">
     <div class="flex-1 w-1/2 p-3">
       Rue :<br>
@@ -103,9 +136,8 @@
     </div>
   </div>
   <div class="flex justify-end p-3">
-    <button class="ml-3 md:mb-6" onclick={{action "updateDriver"}}>Envoyer la modification</button>
+    <button class="ml-3 md:mb-6" onclick={{action "createDriver"}}>Créer chauffeur</button>
   </div>
 </div>
-
 
 {{outlet}}

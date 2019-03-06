@@ -29,5 +29,6 @@ export default Route.extend({
     didTransition() {
       document.title = 'Agent - Fiche chauffeur';
     }
+
   }
 });

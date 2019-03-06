@@ -33,5 +33,8 @@ export default Controller.extend({
       this.set(params, numFolderSelected);
       console.log(this.get('folderNum'));
     },
+    updateDriverProfile(){
+      this.transitionToRoute('back-agent.agent.driver-profile-update', this.driver.id);
+    }
   }
 });

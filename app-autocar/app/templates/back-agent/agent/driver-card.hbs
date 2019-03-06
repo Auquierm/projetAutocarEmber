@@ -72,7 +72,7 @@
         </div>
       </div>
       <div class="mt-6 flex">
-        <input type="submit" value="Modifier chauffeurs" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
+        <input onclick={{action "updateDriverProfile"}} type="submit" value="Modifier chauffeur" class="block appearance-none bgPrimaryBlue text-white sm:w-1/2 border border-grey-light hover:border-grey px-2 py-2 rounded shadow">
       </div>
     </div>
   </div>
@@ -83,17 +83,17 @@
       <table class="w-full mt-3">
         <thead>
           <tr class="p-2 text-white bgPrimaryBlue">
-            <th class="w-1/4">Id</th>
-            <th class="w-1/4">Date de retour</th>
-            <th class="w-1/4">Destination</th>
-            <th class="w-1/4">Actions</th>
+            <th class="w-1/4 p-2">Id</th>
+            <th class="w-1/4 p-2">Date de retour</th>
+            <th class="w-1/4 p-2">Destination</th>
+            <th class="w-1/4 p-2">Actions</th>
           </tr>
         </thead>
         <tbody>
 
         </tbody>
       </table>
-      <p>Aucun Voyage terminé.</p>
+      <p class="p-2">Aucun Voyage terminé.</p>
 
     </div>
     <div class="bg-white p-4 shadow-md mt-4 text-black w-full">
@@ -102,12 +102,12 @@
       <table class="w-full mt-3">
         <thead>
           <tr class="p-2 text-white bgPrimaryBlue">
-            <th class="w-1/6">Id</th>
-            <th class="w-1/6">Destination</th>
-            <th class="w-1/6">Date départ</th>
-            <th class="w-1/6">Date retour</th>
-            <th class="w-1/6">Nom client</th>
-            <th class="w-1/6">Actions</th>
+            <th class="w-1/6 p-2">Id</th>
+            <th class="w-1/6 p-2">Destination</th>
+            <th class="w-1/6 p-2">Date départ</th>
+            <th class="w-1/6 p-2">Date retour</th>
+            <th class="w-1/6 p-2">Nom client</th>
+            <th class="w-1/6 p-2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -116,12 +116,12 @@
             {{#each quoteInfo.nameDriver as |driverInclude|}}
               {{#if (compare driverInclude "===" driver.id)}}
                 <tr class="p-2 text-black hover:bg-blue-lighter hover:text-blue-darkest">
-                  <td class="w-1/6 text-center ">{{quoteInfo.numFolder}}</td>
-                  <td class="w-1/6 text-center ">{{quoteInfo.placeArrival.city}}</td>
-                  <td class="w-1/6 text-center ">{{quoteInfo.dateDeparture}}</td>
-                  <td class="w-1/6 text-center ">{{quoteInfo.dateArrival}}</td>
-                  <td class="w-1/6 text-center ">{{quoteInfo.idClient.idUser.firstname}}</td>
-                  <td class="w-1/6 text-center">{{#link-to "back-agent.agent.folder-card" quoteInfo.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
+                  <td class="w-1/6 text-center  p-2">{{quoteInfo.numFolder}}</td>
+                  <td class="w-1/6 text-center  p-2">{{quoteInfo.placeArrival.city}}</td>
+                  <td class="w-1/6 text-center  p-2">{{quoteInfo.dateDeparture}}</td>
+                  <td class="w-1/6 text-center p-2 ">{{quoteInfo.dateArrival}}</td>
+                  <td class="w-1/6 text-center  p-2">{{quoteInfo.idClient.idUser.firstname}}</td>
+                  <td class="w-1/6 text-center p-2">{{#link-to "back-agent.agent.folder-card" quoteInfo.id}}<i class="fas fa-info-circle"></i>{{/link-to}}</td>
                 </tr>
               {{/if}}
             {{/each}}
@@ -130,7 +130,7 @@
       </table>
     </div>
     <form class="w-full bg-white p-4 shadow-md mt-4" onsubmit={{action "linkFolderToDriver"}}>
-      <h4>Lier un dossier</h4>
+      <h4 class="mb-4">Lier un dossier</h4>
         {{#if (compare emptySelect "===" 0)}}
           <p>Aucun dossier ne peut être lié à ce chauffeur!</p>
         {{else}}
@@ -144,7 +144,7 @@
             {{/if}}
           {{/each}}
         </select>
-        <input type="submit" class="pt-2 pb-2 pr-6 pl-6 ml-6 text-white bgPrimaryBlue rounded" value="Lier">
+        <input type="submit" class="pt-2 pb-2 pr-6 pl-6 ml-6 mt-4 text-white bgPrimaryBlue rounded" value="Lier">
         {{/if}}
     </form>
   </div>
