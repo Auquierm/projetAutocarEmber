@@ -2,18 +2,14 @@ import Controller from '@ember/controller';
 import {inject as service} from '@ember/service';
 export default Controller.extend({
   ajax : service(),
+  session: service(),
   gender : 'Femme',
   country : 'Belgique',
   emailDiff : false,
   actions: {
     async createDriver(){
       this.set('emailDiff', false);
-      await this.ajax.post('/driver', {
-        // headers: {
-        //   'Content-type': 'application/json',
-        //   'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
-        // },
-        data : {
+      let newDriver = await this.store.createRecord('driver', {
           firstname : this.firstname,
           lastname :  this.lastname,
           sexe : this.gender,
@@ -26,15 +22,16 @@ export default Controller.extend({
           medicalDate: this.medicalDate,
           language: this.language,
           address : {
-            street : this.street,
-            number : this.number,
-            zip : this.zip,
-            city : this.city,
-            country : this.country
+            street : this.addressStreet,
+            number : this.addressNumber,
+            zip : this.addressZip,
+            city : this.addressCity,
+            country : this.addressCountry
           }
 
-      }});
-      this.transitionToRoute('back-agent.agent.drivers-list');
+      });
+       await newDriver.save();
+      // this.transitionToRoute('back-agent.agent.drivers-list');
     }
 
   }

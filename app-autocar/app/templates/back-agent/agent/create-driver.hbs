@@ -8,14 +8,14 @@
     <div class="flex-1 w-1/2 p-3">
       Nom :<br>
       <div class="">
-        {{input type="text" value=model.idUser.lastname class="block appearance-none w-full bg-white
+        {{input type="text" value=lastname class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Prénom :<br>
       <div class="">
-        {{input type="text" value=model.idUser.firstname class="block appearance-none w-full bg-white
+        {{input type="text" value=firstname class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
@@ -24,14 +24,14 @@
     <div class="flex-1 w-1/2 p-3">
       Sexe :<br>
       <div class="">
-        {{input type="text" value=model.idUser.sexe class="block appearance-none w-full bg-white
+        {{input type="text" value=gender class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Age :<br>
       <div class="">
-        {{input type="text" value=model.idUser.age class="block appearance-none w-full bg-white
+        {{input type="text" value=age class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
@@ -40,14 +40,14 @@
     <div class="flex-1 w-1/2 p-3">
       Rue :<br>
       <div class="">
-        {{input type="text" value=model.idUser.address.street class="block appearance-none w-full bg-white
+        {{input type="text" value=addressStreet class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Numéro :<br>
       <div class="">
-        {{input type="text" value=model.idUser.address.number class="block appearance-none w-full bg-white
+        {{input type="text" value=addressNumber class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
@@ -56,14 +56,14 @@
     <div class="flex-1 w-1/2 p-3">
       Code postal :<br>
       <div class="">
-        {{input type="text" value=model.idUser.address.zip class="block appearance-none w-full bg-white
+        {{input type="text" value=addressZip class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Ville:<br>
       <div class="">
-        {{input type="text" value=model.idUser.address.city class="block appearance-none w-full bg-white
+        {{input type="text" value=addressCity class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
@@ -71,13 +71,15 @@
   <div class="flex mt-4">
     <div class="flex-1 w-1/2 p-3">
       Pays :<br>
-      <SelectCountryUser @countryUser={{model.idUser.address.country}}
-        {{!-- onclick={{action "selectOption" "countryUser"}} --}} />
+      <div class="">
+        {{input type="text" value=addressCountry class="block appearance-none w-full bg-white
+        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+      </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Email :<br>
       <div class="">
-        {{input type="text" value=model.idUser.email class="block appearance-none w-full bg-white border
+        {{input type="text" value=email class="block appearance-none w-full bg-white border
         border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
@@ -86,14 +88,14 @@
     <div class="flex-1 w-1/2 p-3">
       N°téléphone :<br>
       <div class="">
-        {{input type="text" value=model.idUser.phone class="block appearance-none w-full bg-white border
+        {{input type="text" value=phone class="block appearance-none w-full bg-white border
         border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       N°téléphone de service :<br>
       <div class="">
-        {{input type="text" value=model.servicePhone class="block appearance-none w-full bg-white border
+        {{input type="text" value=servicePhone class="block appearance-none w-full bg-white border
         border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
@@ -102,7 +104,7 @@
     <div class="flex-1 w-1/2 p-3">
       Numéro de permis :<br>
       <div class="">
-        {{input type="text" value=model.numPermis class="block appearance-none w-full bg-white border
+        {{input type="text" value=numPermis class="block appearance-none w-full bg-white border
         border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
@@ -118,21 +120,21 @@
     <div class="flex-1 w-1/2 p-3">
       Date de CAP :<br>
       <div class="">
-        {{input type="text" value=model.capDate class="block appearance-none w-full bg-white border
+        {{input type="text" value=capDate class="block appearance-none w-full bg-white border
         border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Date de selection médicale :<br>
       <div class="">
-        {{input type="text" value=model.medicalDate class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+        {{input type="text" value=medicalDate class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
       </div>
     </div>
   </div>
   <div class="flex-1 w-1/2 p-3">
     Langue(s) parlée(s) :<br>
     <div class="">
-      {{input type="text" value=model.language class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+      {{input type="text" value=language class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
     </div>
   </div>
   <div class="flex justify-end p-3">
