@@ -7,7 +7,7 @@ const Mongoose = require('mongoose'),
 const { env, jwtSecret, jwtExpirationInterval} = require('../../config/environment.config');
 
 const roles = ['client', 'agent', 'chauffeur'];
-const sexes = ['homme', 'femme', 'autre'];
+const sexes = ['Homme', 'Femme', 'Autre'];
 const langues = ['français', 'anglais', 'neerlandais', 'allemand'];
 
 let Schema = Mongoose.Schema;

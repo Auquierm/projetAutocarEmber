@@ -10,13 +10,11 @@ const router = Express.Router();
 
 router
     .route('/')
-    .get(
-        // authorize(ADMIN), 
-        Validate(listPricings), PricingController.findAll)
-    .post(/*authorize(ADMIN), */Validate(createPricing), PricingController.add);
+    .get(Validate(listPricings), PricingController.findAll)
+    .post(Validate(createPricing), PricingController.add);
 
 router
     .route('/:pricingId')
-    .patch(/*authorize(ADMIN),*/ Validate(updatePricing), PricingController.update);
+    .patch(Validate(updatePricing), PricingController.update);
 
 module.exports = router;

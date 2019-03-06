@@ -7,7 +7,7 @@ export default Controller.extend({
   status: 'traitement',
   actions: {
     async acceptProposal() {
-      await this.ajax.patch(`/quotes/${this.get('quote.id')}`, {
+      await this.ajax.patch(`http://localhost:8001/api/v1/quotes/${this.get('quote.id')}`, {
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
@@ -20,7 +20,7 @@ export default Controller.extend({
       this.transitionToRoute('back-client.client.dashboard');
     },
     async rejectProposal() {
-      await this.ajax.patch(`/quotes/${this.get('quote.id')}`, {
+      await this.ajax.patch(`http://localhost:8001/api/v1/quotes/${this.get('quote.id')}`, {
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`

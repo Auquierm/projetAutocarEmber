@@ -10,21 +10,13 @@ const router = Express.Router();
 
 router
     .route('/')
-        .get(
-            // authorize([ADMIN, DRIVER]),
-             Validate(listDrivers), DriverController.findAll)
-        .post(/*authorize([ADMIN, DRIVER]), */Validate(createDriver), DriverController.add)
+        .get(authorize([ADMIN, DRIVER]),Validate(listDrivers), DriverController.findAll)
+        .post(authorize([ADMIN, DRIVER]),Validate(createDriver), DriverController.add)
 
 router
     .route('/:driverId')
-        .get(
-            // authorize([ADMIN, DRIVER]),
-             Validate(getDriver), DriverController.findOne)
-        .patch(
-            // authorize([ADMIN, DRIVER]), 
-            Validate(updateDriver), DriverController.update)
-        .delete(
-            // authorize([ADMIN, DRIVER]), 
-            Validate(removeDriver), DriverController.remove);
+        .get(authorize([ADMIN, DRIVER]),Validate(getDriver), DriverController.findOne)
+        .patch(Validate(updateDriver), DriverController.update)
+        .delete(Validate(removeDriver), DriverController.remove);
 
 module.exports = router;

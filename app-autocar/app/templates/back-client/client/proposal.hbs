@@ -1,9 +1,9 @@
 <div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i>&nbsp; Retour</a></div>
-<div class="text-center">
+<div class="text-center mt-4">
   <h2 class="sm:text-xs lg:text-lg xl:text-2xl">Proposition du devis n°{{quote.numFolder}} de la part de l'agent</h2>
 </div>
 
-<div class="mt-10 mb-10 px-8">
+<div class="sm:mt-4 md:mt-10 mb-10 px-8">
   {{!---------- div Votre identité ----------}}
   <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
     <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Votre identité</span>
@@ -152,7 +152,12 @@
     </div>
   </div>
 
-  {{#if (compare quote.com '!=' '')}}
+  {{!---------- div Tarification ----------}}
+  <div class="border-b border-blue pb-1 sm:mb-2 lg:mb-4 pt-2">
+    <span class="sm:text-xs lg:text-lg xl:text-2xl text-blue font-bold">Tarification</span>
+  </div>
+
+  {{#if (compare quote.com "!=" "")}}
     <div class="mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
       <div class="p-3">
         Commentaires<br>
@@ -161,7 +166,7 @@
     </div>
   {{/if}}
   
-{{!-- div Nombre de passagers --}}
+  {{!-- div Nombre de passagers --}}
   <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Nombre de passagers<br>
@@ -169,13 +174,13 @@
     </div>
   </div>
 
-   <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Durée du voyage<br>
-      {{#if (compare quote.timeTravel '===' 1)}}
-      <div class="italic text-grey-dark pt-3">{{quote.timeTravel}} jour</div>
+      {{#if (compare quote.timeTravel "===" 1)}}
+        <div class="italic text-grey-dark pt-3">{{quote.timeTravel}} jour</div>
       {{else}}
-            <div class="italic text-grey-dark pt-3">{{quote.timeTravel}} jours</div>
+        <div class="italic text-grey-dark pt-3">{{quote.timeTravel}} jours</div>
       {{/if}}
     </div>
     <div class="flex-1 w-1/2 p-3">
@@ -206,34 +211,34 @@
     <div class="flex-1 w-1/2 p-3">
       <br>
       {{#if (compare quote.capacityAutocar "===" 30)}}
-          <div class="pt-3 text-grey-dark italic text-right">{{pricing.firstObject.capacity.car1}} €</div>
+        <div class="pt-3 text-grey-dark italic text-right">{{pricing.firstObject.capacity.car1}} €</div>
+      {{else}}
+        {{#if (compare quote.capacityAutocar "===" 50)}}
+          <div class="pt-3 text-grey-dark italic text-right">{{pricing.firstObject.capacity.car2}} €</div>
         {{else}}
-          {{#if (compare quote.capacityAutocar "===" 50)}}
-            <div class="pt-3 text-grey-dark italic text-right">{{pricing.firstObject.capacity.car2}} €</div>
-          {{else}}
-            <div class="pt-3 text-grey-dark italic text-right">{{pricing.firstObject.capacity.car3}} €</div>
-          {{/if}}
+          <div class="pt-3 text-grey-dark italic text-right">{{pricing.firstObject.capacity.car3}} €</div>
         {{/if}}
+      {{/if}}
     </div>
   </div>
 
   {{!-- div Options --}}
-<div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
+  <div class="flex mt-4 md:w-4/5 md:mx-auto sm:text-xs lg:text-base xl:text-xl">
     <div class="flex-1 w-1/2 p-3">
       Options<br>
-        {{#each quote.options as |option|}}
-          <div class="italic text-grey-dark pt-3">{{option}}</div>
-        {{/each}}
+      {{#each quote.options as |option|}}
+        <div class="italic text-grey-dark pt-3">{{option}}</div>
+      {{/each}}
     </div>
     <div class="flex-1 w-1/2 p-3">
       <br>
-        {{#each quote.options as |option|}}
-          {{#if (compare option "===" "remorque")}}
-            <div class="italic text-grey-dark pt-3 text-right">{{pricing.firstObject.options.remorque}} €</div>
-          {{else}}
-            <div class="italic text-grey-dark pt-3 text-right">{{pricing.firstObject.options.ski}} €</div>
-          {{/if}}
-        {{/each}}
+      {{#each quote.options as |option|}}
+        {{#if (compare option "===" "remorque")}}
+          <div class="italic text-grey-dark pt-3 text-right">{{pricing.firstObject.options.remorque}} €</div>
+        {{else}}
+          <div class="italic text-grey-dark pt-3 text-right">{{pricing.firstObject.options.ski}} €</div>
+        {{/if}}
+      {{/each}}
     </div>
   </div>
 
