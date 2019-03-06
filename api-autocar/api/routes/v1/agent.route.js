@@ -10,14 +10,14 @@ const router = Express.Router();
 
 router
     .route('/')
-    .get(/*authorize(ADMIN),*/ Validate(listAgents), AgentController.findAll)
-    .post(/*authorize(ADMIN),*/ Validate(createAgent), AgentController.add);
+    .get(authorize(ADMIN), Validate(listAgents), AgentController.findAll)
+    .post(authorize(ADMIN), Validate(createAgent), AgentController.add);
 
 router
     .route('/:agentId')
-    .get(/*authorize(ADMIN),*/ Validate(getAgent), AgentController.findOne)
-    .patch(/*authorize(ADMIN),*/ Validate(updateAgent), AgentController.update)
-    .delete(/*authorize(ADMIN),*/ Validate(removeAgent), AgentController.remove);
+    .get(authorize(ADMIN), Validate(getAgent), AgentController.findOne)
+    .patch(authorize(ADMIN), Validate(updateAgent), AgentController.update)
+    .delete(authorize(ADMIN), Validate(removeAgent), AgentController.remove);
 
 
 module.exports = router;
