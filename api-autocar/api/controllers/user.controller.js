@@ -4,7 +4,6 @@ const User = require('./../models/user.model'),
       Driver = require('./driver.controller'),
       Boom = require('boom'),
       Email = require('./../services/nodemailer.service'),
-      UserModel = require('./../models/user.model');
       TokenGeneration = require('./../models/tokengeneration.model');
 
 /** 
@@ -61,19 +60,14 @@ exports.add = async (req, res, next, data) =>{
         
         await user.save();
         if(data[13]==='agent'){
-            // console.log(user._id);
             Agent.updateUserID(req, res, next, data[12], user._id);
         }else if (data[13]==='client'){
             Client.updateUserID(req, res, next, data[12], user._id);
             const accessToken  = await TokenGeneration.generate(user);
-            // const token = _generateTokenResponse(user, accessToken);
-            // console.log(token.refreshToken.token);
-            await Email.nodemailer(accessToken);
+            await Email.nodemailer("creationClient", accessToken);
         }else if (data[13]==='chauffeur'){
             Driver.updateUserID(req, res, next, data[12], user._id);
         }
-        // res.status(HTTPStatus.CREATED);
-        // res.json(savedUser.transform());
     }catch(err){
         console.log(err);
         next(User.checkDuplicateEmail(err));
@@ -87,7 +81,6 @@ exports.update = async (req, res, next, data) =>{
     try{
         await User.findByIdAndUpdate(data, req.body, {override : true, upsert : true, new : true});
     }catch(err){
-        // next(User.checkDuplicateEmail(err));
         console.log(err);
     }
 }

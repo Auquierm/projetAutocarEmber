@@ -184,10 +184,12 @@
         <div class="flex flex-1 flex-col">
           <div class="p-2 flex font-bold items-center">Kilométrage estimé: {{input class="ml-2 p-2 italic" type="value" key-up=(action "updateTotalKm") value=totalKm placeholder="km"}}</div>
         </div>
-        <div class="flex flex-1 flex-col">
-          <div class="p-2 flex font-bold">Commentaire: </div>
-          <div class="pl-2 italic">{{quote.com}}</div>
-        </div>
+        {{#if (compare quote.com '!=' '')}}
+          <div class="flex flex-1 flex-col">
+            <div class="p-2 flex font-bold">Commentaire: </div>
+            <div class="pl-2 italic">{{quote.com}}</div>
+          </div>
+        {{/if}}
         <div class="flex flex-1 flex-col">
           <div class="p-2 flex font-bold items-center">Coûts supplémentaires: {{input class="ml-2 p-2 italic" type="value" key-up=(action "updateAddCost") value=addCost placeholder="coûts supplémentaires"}}</div>
         </div>
@@ -208,7 +210,11 @@
         <div class="flex flex-1 flex-col">
           <div class="p-2 flex font-bold"> Durée du voyage:</div>
           <div class="flex justify-between">
-            <div class="p-2 italic">{{quote.timeTravel}} jours</div>
+            {{#if (compare quote.timeTravel '===' 1)}}
+              <div class="p-2 italic">{{quote.timeTravel}} jour</div>
+            {{else}}
+              <div class="p-2 italic">{{quote.timeTravel}} jours</div>
+            {{/if}}
             <div class="p-2 italic">{{multiply quote.timeTravel pricing.firstObject.priceDriver.oneDriver}} €</div>
           </div>
         </div>
