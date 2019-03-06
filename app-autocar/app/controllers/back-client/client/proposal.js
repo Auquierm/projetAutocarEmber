@@ -7,7 +7,7 @@ export default Controller.extend({
   status: 'traitement',
   actions: {
     async acceptProposal() {
-      await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+      await this.ajax.patch(`/quotes/${this.get('quote.id')}`, {
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
@@ -16,11 +16,11 @@ export default Controller.extend({
           status: 'valide'
       }
     });
-      this.model.reload();
+      this.get('quote').reload();
       this.transitionToRoute('back-client.client.dashboard');
     },
     async rejectProposal() {
-      await this.ajax.patch(`/quotes/${this.get('model.id')}`, {
+      await this.ajax.patch(`/quotes/${this.get('quote.id')}`, {
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
@@ -29,7 +29,7 @@ export default Controller.extend({
           status: 'attente'
       }
     });
-      this.model.reload();
+      this.get('quote').reload();
       this.transitionToRoute('back-client.client.dashboard');
     }
   }
