@@ -10,9 +10,7 @@ const router = Express.Router();
 
 router
     .route('/')
-    .get(
-        // authorize(ADMIN), 
-        Validate(listPricings), PricingController.findAll)
+    .get(/*authorize(ADMIN), */Validate(listPricings), PricingController.findAll)
     .post(/*authorize(ADMIN), */Validate(createPricing), PricingController.add);
 
 router

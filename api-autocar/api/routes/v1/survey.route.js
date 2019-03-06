@@ -9,12 +9,8 @@ const router = Express.Router();
 
 router
     .route('/')
-        .get(
-            // authorize(ADMIN), 
-            Validate(listSurveys), SurveyController.findAll)
-        .post(
-            // authorize(CLIENT), 
-            Validate(createSurvey), SurveyController.add)
+        .get(authorize(ADMIN), Validate(listSurveys), SurveyController.findAll)
+        .post(authorize(CLIENT), Validate(createSurvey), SurveyController.add)
 
 
 module.exports = router;
