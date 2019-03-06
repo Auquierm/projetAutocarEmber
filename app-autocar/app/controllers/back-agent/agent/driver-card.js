@@ -8,7 +8,7 @@ export default Controller.extend({
   actions : {
     async linkFolderToDriver(event){
       // event.preventDefault();
-      await this.ajax.patch(`/quotes/${this.get('folderNum')}`, {
+      await this.ajax.patch(`http://localhost:8001/api/v1/quotes/${this.get('folderNum')}`, {
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`
@@ -17,7 +17,7 @@ export default Controller.extend({
           nameDriver : this.get('driver.id')
         }
       });
-      await this.ajax.patch(`/drivers/${this.get('driver.id')}`,{
+      await this.ajax.patch(`http://localhost:8001/api/v1/drivers/${this.get('driver.id')}`,{
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`

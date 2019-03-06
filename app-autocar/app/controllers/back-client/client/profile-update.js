@@ -17,7 +17,7 @@ export default Controller.extend({
       if (this.countryUser === '') {
         this.countryUser = this.get('model.idUser.address.country');
       }
-      await this.ajax.patch(`/clients/${this.get('model.id')}`, {
+      await this.ajax.patch(`http://localhost:8001/api/v1/clients/${this.get('model.id')}`, {
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`

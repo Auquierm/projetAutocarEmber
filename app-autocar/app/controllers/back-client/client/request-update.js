@@ -39,7 +39,7 @@ export default Controller.extend({
     },
     async sendDevis(event){
       event.preventDefault();
-      await this.ajax.patch(`/quotes/${this.get('model.infoQuote.id')}`, {
+      await this.ajax.patch(`http://localhost:8001/api/v1/quotes/${this.get('model.infoQuote.id')}`, {
         headers: {
           'Content-type': 'application/json',
           'Authorization': `Bearer ${this.session.data.authenticated.response.accessToken}`

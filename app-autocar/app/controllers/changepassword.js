@@ -13,7 +13,7 @@ export default Controller.extend({
       let { pwd, confirmPwd } = this;
       if (pwd === confirmPwd) {
         this.set('pwdDiff', false);
-        await this.ajax.patch(`/auth/${this.session.data.authenticated.id}`, {
+        await this.ajax.patch(`http://localhost:8001/api/v1/auth/${this.session.data.authenticated.id}`, {
           data: {
             password: confirmPwd
           }

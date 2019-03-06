@@ -1,4 +1,5 @@
 <select name="countryRequest" class="nofocus flex-1 appearance-none bg-white border border-grey-light hover:border-grey h-8 px-1 py-1 w-full rounded shadow">
+  {{log countryRequest}}
   {{#if (compare countryRequest "===" "Belgique")}}
     <option selected value="Belgique">Belgique</option>
   {{else}}

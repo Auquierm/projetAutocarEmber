@@ -58,7 +58,7 @@ export default Controller.extend({
       let{confirmEmail, email} = this;
       if(email === confirmEmail){
         this.set('emailDiff', false);
-        let newClient = await this.ajax.post('/clients', {
+        let newClient = await this.ajax.post('http://localhost:8001/api/v1/clients', {
           data : {
             firstname : this.firstname,
             lastname :  this.lastname,
