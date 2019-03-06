@@ -1,5 +1,5 @@
 <div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i>&nbsp; Retour</a></div>
-<div class="text-center sm:text-xs lg:text-base xl:text-xl">
+<div class="text-center sm:text-xs lg:text-base xl:text-xl mt-4">
   <h2>Devis en {{quote.status}} n°{{quote.numFolder}} - {{quote.placeArrival.city}}</h2>
 </div>
 
@@ -181,20 +181,20 @@
 
 
       {{#if (compare quote.status "===" "attente")}}
-        <div class="flex flex-1 flex-col">
+        <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
           <div class="p-2 flex font-bold items-center">Kilométrage estimé: {{input class="ml-2 p-2 italic" type="value" key-up=(action "updateTotalKm") value=totalKm placeholder="km"}}</div>
         </div>
-        {{#if (compare quote.com '!=' '')}}
-          <div class="flex flex-1 flex-col">
+        {{#if (compare quote.com "!=" "")}}
+          <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
             <div class="p-2 flex font-bold">Commentaire: </div>
             <div class="pl-2 italic">{{quote.com}}</div>
           </div>
         {{/if}}
-        <div class="flex flex-1 flex-col">
+        <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
           <div class="p-2 flex font-bold items-center">Coûts supplémentaires: {{input class="ml-2 p-2 italic" type="value" key-up=(action "updateAddCost") value=addCost placeholder="coûts supplémentaires"}}</div>
         </div>
       {{else}}
-        <div class="flex flex-1 flex-col">
+        <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
           <div class="p-2 flex font-bold items-center">Kilométrage estimé: </div>
           <div class="flex justify-between">
             <div class="pl-2 italic">{{quote.totalKm}} km</div>
@@ -202,15 +202,15 @@
           </div>
 
         </div>
-        <div class="flex flex-1 flex-col">
+        <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
           <div class="p-2 flex font-bold">Commentaire: </div>
           <div class="pl-2 italic">{{quote.com}}</div>
         </div>
 
-        <div class="flex flex-1 flex-col">
+        <div class="flex flex-1 flex-col sm:text-xs lg:text-base xl:text-xl">
           <div class="p-2 flex font-bold"> Durée du voyage:</div>
           <div class="flex justify-between">
-            {{#if (compare quote.timeTravel '===' 1)}}
+            {{#if (compare quote.timeTravel "===" 1)}}
               <div class="p-2 italic">{{quote.timeTravel}} jour</div>
             {{else}}
               <div class="p-2 italic">{{quote.timeTravel}} jours</div>
@@ -220,11 +220,11 @@
         </div>
 
         <div class="">
-          <div class="flex justify-between">
+          <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
             <div class="p-2 flex font-bold">Coûts supplémentaires: </div>
             <div class="p-2 italic">{{quote.notIncludeIn}} €</div>
           </div>
-          <div class="flex justify-between">
+          <div class="flex justify-between sm:text-xs lg:text-base xl:text-xl">
             <div class="p-2 flex font-bold">Total: </div>
             <div class="p-2 flex italic border-t-2 border-black ">{{quote.price}} €</div>
           </div>

@@ -216,7 +216,7 @@
 <div id="contenu-contact" class="sm:w-3/4 md:1/2 mx-auto sm:mt-6 xxl:mt-16 md:p-4 sm:mb-2 xxl:mb-16">
   <div class="flex sm:flex-wrap">
     <div id="write" class="md:mr-6 sm:hidden"></div>
-    <form class="bg-white border border-grey-light mx-auto px-8 pt-6 pb-4 mb-4 rounded shadow-md">
+    <form class="w-full lg:w-4/5 bg-white border border-grey-light mx-auto px-8 pt-6 pb-4 mb-4 rounded shadow-md">
       <h3 class="text-center sm:text-xl md:text-4xl">
         Vous avez des questions?
       </h3>
@@ -248,6 +248,30 @@
       </div>
       <button onclick={{action "sendMessage"}} class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline xxl:text-2xl">Envoyer</button>
     </form>
+
+    <div class="w-full lg:w-4/5 sm:text-xs md:text-lg pt-2 mb-4 xxl:text-xl bg-white border border-grey-light mx-auto sm:px-2 px-8 pb-4 mb-4 rounded shadow-md text-center">
+      <div class="mx-6">
+        <h2 class="mt-4">Coordonnées</h2>
+        <div class="md:flex mt-4">
+          <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl md:flex-1 md:text-left">
+            Pimp My Trip<br>
+            Rue du Progrès, 3<br>
+            B-7503 Froyennes
+          </p>
+          <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl md:flex-1 md:text-right">
+            Tel: +32 69 77 69 69<br>
+            Fax: +32 69 77 69 68<br>
+            Email: emberautocar@gmail.com
+          </p>
+        </div>
+        <p class="sm:text-xs md:text-lg justify pt-6 mb-4 xxl:text-xl">Nous sommes à votre disposition du lundi au vendredi de 8h30 à 18h00 et le samedi de 9h à 17h</p>
+        <h2>Vous voulez prendre rendez-vous?</h2>
+        <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl">Pour préparer votre prochain voyage, une rencontre en nos bureaux ou chez vous est idéale. Nous sommes à votre disposition du lundi au vendredi de 8h30 à 18h00 et le samedi de 9h à 17h.<br> Pour prendre rendez-vous, composez le: +32 69 77 69 69</p>
+        <h2>Demander un devis ?</h2>
+        <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl">Nos équipes sont à votre disposition pour vous remettre un devis personnalisé</p>
+        <p class="sm:text-xs md:text-lg justify pt-2 mb-4 xxl:text-xl"><a href="/devis">Cliquez ici pour faire votre demande de devis.</a></p>
+      </div>
+    </div>
   </div>
 </div>
 {{outlet}}
