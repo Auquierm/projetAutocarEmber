@@ -24,6 +24,7 @@ export default Controller.extend({
   actions: {
     selectOption(params, option){
       this.set(params, option.target.value);
+      console.log(option.target.value);
     },
     toggleCheckBox(params) {
       let {arrayOption, trailer, skibox} = this;

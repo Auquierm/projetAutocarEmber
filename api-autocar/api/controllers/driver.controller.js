@@ -34,6 +34,8 @@ exports.findOne = async (req, res, next) =>{
 */
 exports.add = async (req, res, next) =>{
     try{
+        // console.log(req.body);
+        // return next();
         const driver = new Driver({
             uniqueField : req.body.firstname+req.body.lastname+req.body.email,
             servicePhone : req.body.servicePhone,

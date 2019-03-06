@@ -36,7 +36,6 @@ exports.findOne = async (req, res, next) =>{
 */
 exports.add = async (req, res, next, data) =>{
     try{
-        console.log('user ok')
         const user = new User({
             "username" : data[0]+data[1],
             "firstname" : data[0],
