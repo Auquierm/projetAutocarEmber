@@ -36,13 +36,11 @@ exports.findOne = async (req, res, next) =>{
 */
 exports.add = async (req, res, next, data) =>{
     try{
-        console.log('user ok')
-        let sexeLower = data[2].toLowerCase();
         const user = new User({
             "username" : data[0]+data[1],
             "firstname" : data[0],
             "lastname" :  data[1],
-            "sexe" : sexeLower,
+            "sexe" : data[2],
             "password" : data[3],
             "age" : data[4],
             "email": data[5],
