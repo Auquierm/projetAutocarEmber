@@ -131,9 +131,9 @@
     </div>
     <form class="w-full bg-white p-4 shadow-md mt-4" onsubmit={{action "linkFolderToDriver"}}>
       <h4 class="mb-4">Lier un dossier</h4>
-        {{#if (compare emptySelect "===" 0)}}
-          <p>Aucun dossier ne peut être lié à ce chauffeur!</p>
-        {{else}}
+      {{#if (compare emptySelect "===" 0)}}
+        <p>Aucun dossier ne peut être lié à ce chauffeur!</p>
+      {{else}}
         <label>Choisir un Dossier:</label>
         <select class="ml-6" onchange={{action "selectOption" "folderNum" }} value="target.value">
           {{#each quote as |quoteInfo|}}
@@ -145,7 +145,7 @@
           {{/each}}
         </select>
         <input type="submit" class="pt-2 pb-2 pr-6 pl-6 ml-6 mt-4 text-white bgPrimaryBlue rounded" value="Lier">
-        {{/if}}
+      {{/if}}
     </form>
   </div>
 </div>

@@ -1,10 +1,10 @@
 <div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i>&nbsp; Retour</a></div>
 
-<div class="text-center">
+<div class="text-center sm:pt-4 md:pt-0">
   <h2 class="sm:text-xs lg:text-lg xl:text-2xl">Votre demande de devis N° {{model.numFolder}}</h2>
 </div>
 
-<div class=" h-full font-sans sm:pt-16 md:pt-0">
+<div class=" h-full font-sans sm:pt-4 md:pt-0">
   <div class="px-8 sm:pt-0 md:pt-8 pb-8 sm:mb-2 lg:mb-4">
 
     {{!---------- div votre devis ----------}}
@@ -134,7 +134,7 @@
         </div>
         <div class="md:w-4/5 mx-auto md:flex sm:text-xs lg:text-base">
           <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4 flex justify-end">
-            <input type="submit" value="Misé à jour" class="block appearance-none bg-blue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2
+            <input type="submit" value="Misé à jour" class="block appearance-none bg-blue text-white sm:w-1/3 md:w-1/4 border border-grey-light hover:border-grey px-2
                     py-2 rounded shadow"
               onclick={{action "sendToUpdateRequest"}}>
           </div>
