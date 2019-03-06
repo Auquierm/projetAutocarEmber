@@ -9,13 +9,13 @@ const router = Express.Router();
 
 router
     .route('/')
-    .get(authorize([ADMIN, CLIENT, CHAUFFEUR]), Validate(listUsers), UserController.findAll)
+    .get(authorize(ADMIN), Validate(listUsers), UserController.findAll)
     .post(Validate(createUser), UserController.add);
 
 router
     .route('/:userId')
-    .get(Validate(getUser), UserController.findOne)
-    .patch(authorize([ADMIN, CLIENT]), Validate(updateUser), UserController.update)
+    .get( Validate(getUser), UserController.findOne)
+    .patch(Validate(updateUser), UserController.update)
     .delete(authorize([ADMIN, CLIENT]), Validate(removeUser), UserController.remove);
 
 module.exports = router;
