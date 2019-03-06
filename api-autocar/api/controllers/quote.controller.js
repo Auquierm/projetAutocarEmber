@@ -2,6 +2,7 @@ const Quote = require('./../models/quote.model');
 const Client = require('./../controllers/client.controller');
 const DateQuote = require('./../services/dateCreationQuote.service');
 const Boom = require('boom');
+const Email = require('./../services/nodemailer.service');
 
 /** 
 * GET all quotes
@@ -68,6 +69,7 @@ exports.add = async (req, res, next) => {
         });
         await quote.save();
         await Client.updateIdQuotes(req, res, next, req.body.idClient, quote._id);
+        await Email.nodemailer("quoteClientToAgent", req.body.idClient);
         return res.json(quote);
     } catch (err) {
         console.log(err.message);
@@ -81,6 +83,10 @@ exports.add = async (req, res, next) => {
 exports.update = async (req, res, next) => {
     try {
         const quote = await Quote.findByIdAndUpdate(req.params.quoteId, req.body, { new: true });
+        console.log(quote);
+        if(req.body.status === "traitement"){
+            await Email.nodemailer("quoteAgentToClient", quote.numFolder);
+        }
         return res.json(quote);
     } catch (err) {
         next(Boom.badImplementation(err.message));

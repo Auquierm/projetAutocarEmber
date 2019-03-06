@@ -14,7 +14,7 @@ router
 
 router
     .route('/:clientId')
-    .get(authorize([CLIENT, ADMIN]), Validate(getClient), ClientController.findOne)
+    .get(Validate(getClient), ClientController.findOne)
     .patch(authorize([CLIENT, ADMIN]), Validate(updateClient), ClientController.update)
     .delete(authorize([CLIENT, ADMIN]), Validate(removeClient), ClientController.remove);
 
