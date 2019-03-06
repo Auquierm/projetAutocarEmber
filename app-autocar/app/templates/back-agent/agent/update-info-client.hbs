@@ -1,9 +1,6 @@
-<div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i>&nbsp; Retour</a></div>
-<div class="text-center sm:text-xs lg:text-base xl:text-xl">
-  <h3>Votre profil</h3>
-</div>
-
-<div class="bg-white shadow-md mt-4 md:w-full mb-8 sm:text-xs lg:text-base xl:text-xl">
+<div><a href="#" {{action "back"}}><i class="fas fa-caret-left"></i> Retour</a></div>
+<h2>Profil du client - {{model.idUser.firstname}} {{model.idUser.lastname}}</h2>
+<div class="bg-white shadow-md mt-4 md:w-1/2 mb-8">
   <div class="flex">
     <div class="flex-1 w-1/2 p-3">
       Prénom<br>

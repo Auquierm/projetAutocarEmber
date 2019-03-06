@@ -2,8 +2,7 @@
   <a href="#" {{action "back"}}>Retour</a>
 </div>
 <h2>Créer profil chauffeur </h2>
-<div class="bg-white shadow-md mt-4 md:w-full mb-8">
-
+<form class="bg-white shadow-md mt-4 md:w-full mb-8" onsubmit={{action "createDriver"}}>
   <div class="flex mt-4">
     <div class="flex-1 w-1/2 p-3">
       Nom :<br>
@@ -24,12 +23,15 @@
     <div class="flex-1 w-1/2 p-3">
       Sexe :<br>
       <div class="">
-        {{input type="text" value=gender class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+        <select name="flag" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-1 h-8 rounded shadow mt-2" required onchange={{action "selectOption" "gender" }} value="target.value">
+          <option value="Femme">Femme</option>
+          <option value="Homme">Homme</option>
+          <option value="Autre">autre</option>
+      </select>
       </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
-      Age :<br>
+      Âge :<br>
       <div class="">
         {{input type="text" value=age class="block appearance-none w-full bg-white
         border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
@@ -71,10 +73,11 @@
   <div class="flex mt-4">
     <div class="flex-1 w-1/2 p-3">
       Pays :<br>
-      <div class="">
-        {{input type="text" value=addressCountry class="block appearance-none w-full bg-white
-        border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
-      </div>
+      <select name="flag" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-1 h-8 rounded shadow mt-2" required onchange={{action "selectOption" "addressCountry" }} value="target.value">
+        <option value="Belgique">Belgique</option>
+        <option value="France">France</option>
+        <option value="Espagne">Espagne</option>
+      </select>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Email :<br>
@@ -111,35 +114,78 @@
     <div class="flex-1 w-1/2 p-3">
       Type de permis :<br>
       <div class="">
-        {{input type="text" value="D" class="block appearance-none w-full bg-white border border-grey-light
-        hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
+        <select name="flag" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-1 h-8 rounded shadow mt-2" required onchange={{action "selectOption" "typePermis" }} value="target.value">
+          <option value="d">D</option>
+          <option value="de">D+E</option>
+      </select>
       </div>
     </div>
   </div>
   <div class="flex mt-4">
     <div class="flex-1 w-1/2 p-3">
       Date de CAP :<br>
-      <div class="">
-        {{input type="text" value=capDate class="block appearance-none w-full bg-white border
-        border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
-      </div>
+     <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+          {{ember-flatpickr
+          allowInput=true
+          appendDataInput=true
+          disableMobile=true
+          classNames=classString
+          date=(readonly dateValue)
+          enableTime=true
+          locale="fr"
+          altFormat="d-m-Y H:i"
+          dateFormat="d-m-y H:i"
+          minDate=minDate
+          minuteIncrement=1
+          time_24hr=true
+          onClose=(action "onCloseTime")
+          onChange=(action "onChangeTime" "capDate")
+          onReady=(action "onReadyTime" "capDate")
+          class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+          py-2 rounded shadow"
+          placeholder="Date de sélection médicale"
+          }}
+        </div>
     </div>
     <div class="flex-1 w-1/2 p-3">
       Date de selection médicale :<br>
-      <div class="">
-        {{input type="text" value=medicalDate class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
-      </div>
+      <div class="md:flex-1 md:px-1 sm:mb-2 lg:mb-4">
+          {{ember-flatpickr
+          allowInput=true
+          appendDataInput=true
+          disableMobile=true
+          classNames=classString
+          date=(readonly dateValue)
+          enableTime=true
+          locale="fr"
+          altFormat="d-m-Y H:i"
+          dateFormat="d-m-y H:i"
+          minDate=minDate
+          minuteIncrement=1
+          time_24hr=true
+          onClose=(action "onCloseTime")
+          onChange=(action "onChangeTime" "medicalDate")
+          onReady=(action "onReadyTime" "medicalDate")
+          class="block appearance-none bg-white sm:w-full border border-grey-light hover:border-grey px-2
+          py-2 rounded shadow"
+          placeholder="Date de sélection médicale"
+          }}
+        </div>
     </div>
   </div>
   <div class="flex-1 w-1/2 p-3">
-    Langue(s) parlée(s) :<br>
-    <div class="">
-      {{input type="text" value=language class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-2 h-8 rounded shadow mt-2"}}
-    </div>
+    Langue principale :<br>
+    <select name="flag" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-2 py-1 h-8 rounded shadow mt-2" required onchange={{action "selectOption" "language" }} value="target.value">
+        <option value="français">Français</option>
+        <option value="anglais">Anglais</option>
+        <option value="neerlandais">Néerlandais</option>
+        <option value="allemand">Allemand</option>
+      </select>
   </div>
   <div class="flex justify-end p-3">
-    <button class="ml-3 md:mb-6" onclick={{action "createDriver"}}>Créer chauffeur</button>
+    {{!-- <button class="ml-3 md:mb-6" onclick={{action "createDriver"}}>Créer chauffeur</button> --}}
+    <input type="submit" class="block appearance-none bg-blue text-white sm:w-1/4 border border-grey-light hover:border-grey px-2 py-2 rounded shadow"  value="Créer chauffeur">
   </div>
-</div>
+</form>
 
 {{outlet}}

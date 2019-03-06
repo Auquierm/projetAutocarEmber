@@ -5,6 +5,8 @@ module.exports = function(environment) {
     modulePrefix: 'ember-autocar',
     environment,
     rootURL: '/',
+    apiPath: 'http://localhost:8001/',
+    apiNameSpace: 'api/v1',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {

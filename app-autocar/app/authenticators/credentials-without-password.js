@@ -7,7 +7,7 @@ export default Base.extend({
     return data;
   },
   async authenticate(params) {
-    let Jwt = await this.ajax.post('/auth/token-gen-client', {
+    let Jwt = await this.ajax.post('http://localhost:8001/api/v1/auth/token-gen-client', {
       data : {
         token : params.token,
       }
