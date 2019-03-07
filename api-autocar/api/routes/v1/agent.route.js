@@ -11,7 +11,7 @@ const router = Express.Router();
 router
     .route('/')
     .get(authorize(ADMIN), Validate(listAgents), AgentController.findAll)
-    .post(authorize(ADMIN), Validate(createAgent), AgentController.add);
+    .post(Validate(createAgent), AgentController.add);
 
 router
     .route('/:agentId')
