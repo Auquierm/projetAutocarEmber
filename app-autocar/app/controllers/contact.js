@@ -25,9 +25,6 @@
 //       this.model.pushObject(newMessage);
 //       console.log(newMesage);
 //       }
-
-
-
 //     }
 
 //   }

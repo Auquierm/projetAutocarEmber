@@ -1,6 +1,7 @@
 import {hash} from 'rsvp';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   async model(params) {
     return hash({
       quote: await this.store.findRecord('quote', params.idproposal),

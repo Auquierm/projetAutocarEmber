@@ -11,11 +11,6 @@ export default Controller.extend({
     },
     sendMessage(e) {
       e.preventDefault();
-      // console.log('coucou');
-      // console.log(this.get('contactFirstname'));
-      // let newMessage = Contact.create({firstname:this.get('contactFirstname')});
-      // // this.model.pushObject(newMessage);
-      // console.log(newMessage);
     }
   }
 });
